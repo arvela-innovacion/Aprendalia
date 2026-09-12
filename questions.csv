@@ -1,0 +1,2016 @@
+id;asignatura;tipo;pregunta;opciones;respuesta_correcta;extra
+I1000;Ingles;guess;You sleep here;bed|school|park;bed;
+I1001;Ingles;test;Choose the correct word: I ___ water;eat|eats|eating;eat;
+I1002;Ingles;guess;You sleep here;park|school|park;park;
+I1003;Ingles;verdadero_falso;The sun is hot;Verdadero|Falso;Verdadero;
+I1004;Ingles;completar;She ___ water;read|reads|reading;reads;
+I1005;Ingles;ordenar;Order the words to make a sentence;I|go|apples;I|go|apples;
+I1006;Ingles;completar;She ___ milk;like|likes|likeing;likes;
+I1008;Ingles;pronunciar;water;;water;
+I1009;Ingles;test;Choose the correct word: I ___ school;like|likes|likeing;like;
+I1010;Ingles;listening;water;water|waters|watering;water;
+I1011;Ingles;pronunciar;milk;;milk;
+I1013;Ingles;ordenar;Order the words to make a sentence;I|see|school;I|see|school;
+I1014;Ingles;ordenar;Order the words to make a sentence;I|eat|a book;I|eat|a book;
+I1016;Ingles;pronunciar;music;;music;
+I1017;Ingles;test;Choose the correct word: I ___ football;go|gos|going;go;
+I1021;Ingles;ordenar;Order the words to make a sentence;I|see|water;I|see|water;
+I1023;Ingles;ordenar;Order the words to make a sentence;I|go|school;I|go|school;
+I1025;Ingles;completar;She ___ school;like|likes|likeing;likes;
+I1026;Ingles;completar;She ___ football;drink|drinks|drinking;drinks;
+I1027;Ingles;completar;She ___ music;have|haves|haveing;haves;
+I1028;Ingles;guess;You sleep here;home|school|park;home;
+I1029;Ingles;pronunciar;school;;school;
+I1030;Ingles;listening;a;a|as|aing;a;
+I1031;Ingles;completar;She ___ a book;have|haves|haveing;haves;
+I1033;Ingles;test;Choose the correct word: I ___ a dog;like|likes|likeing;like;
+I1034;Ingles;guess;You sleep here;school|school|park;school;
+I1035;Ingles;completar;She ___ milk;play|plays|playing;plays;
+I1036;Ingles;completar;She ___ a book;play|plays|playing;plays;
+I1040;Ingles;listening;school;school|schools|schooling;school;
+I1041;Ingles;completar;She ___ a book;go|gos|going;gos;
+I1042;Ingles;test;Choose the correct word: I ___ apples;have|haves|haveing;have;
+I1043;Ingles;listening;football;football|footballs|footballing;football;
+I1044;Ingles;ordenar;Order the words to make a sentence;I|eat|apples;I|eat|apples;
+I1045;Ingles;listening;milk;milk|milks|milking;milk;
+I1047;Ingles;pronunciar;apples;;apples;
+I1048;Ingles;ordenar;Order the words to make a sentence;I|go|music;I|go|music;
+I1050;Ingles;test;Choose the correct word: I ___ apples;see|sees|seeing;see;
+I1052;Ingles;test;Choose the correct word: I ___ a dog;drink|drinks|drinking;drink;
+I1053;Ingles;test;Choose the correct word: I ___ school;have|haves|haveing;have;
+I1055;Ingles;pronunciar;football;;football;
+I1059;Ingles;pronunciar;a;;a;
+I1061;Ingles;completar;She ___ music;read|reads|reading;reads;
+I1063;Ingles;guess;You sleep here;kitchen|school|park;kitchen;
+I1066;Ingles;ordenar;Order the words to make a sentence;I|read|milk;I|read|milk;
+I1068;Ingles;completar;She ___ milk;go|gos|going;gos;
+I1069;Ingles;ordenar;Order the words to make a sentence;I|like|football;I|like|football;
+I1072;Ingles;test;Choose the correct word: I ___ a book;go|gos|going;go;
+I1073;Ingles;listening;music;music|musics|musicing;music;
+I1074;Ingles;test;Choose the correct word: I ___ milk;see|sees|seeing;see;
+I1076;Ingles;test;Choose the correct word: I ___ school;play|plays|playing;play;
+I1078;Ingles;completar;She ___ apples;read|reads|reading;reads;
+I1080;Ingles;ordenar;Order the words to make a sentence;I|have|a dog;I|have|a dog;
+I1081;Ingles;completar;She ___ milk;read|reads|reading;reads;
+I1085;Ingles;test;Choose the correct word: I ___ a book;see|sees|seeing;see;
+I1088;Ingles;ordenar;Order the words to make a sentence;I|see|music;I|see|music;
+I1089;Ingles;completar;She ___ school;drink|drinks|drinking;drinks;
+I1090;Ingles;ordenar;Order the words to make a sentence;I|drink|apples;I|drink|apples;
+I1093;Ingles;completar;She ___ water;have|haves|haveing;haves;
+I1095;Ingles;ordenar;Order the words to make a sentence;I|play|apples;I|play|apples;
+I1101;Ingles;completar;She ___ apples;like|likes|likeing;likes;
+I1106;Ingles;completar;She ___ a dog;go|gos|going;gos;
+I1111;Ingles;test;Choose the correct word: I ___ milk;like|likes|likeing;like;
+I1118;Ingles;completar;She ___ water;drink|drinks|drinking;drinks;
+I1120;Ingles;test;Choose the correct word: I ___ a book;read|reads|reading;read;
+I1122;Ingles;test;Choose the correct word: I ___ a book;play|plays|playing;play;
+I1123;Ingles;ordenar;Order the words to make a sentence;I|see|football;I|see|football;
+I1131;Ingles;ordenar;Order the words to make a sentence;I|eat|milk;I|eat|milk;
+I1132;Ingles;ordenar;Order the words to make a sentence;I|have|a book;I|have|a book;
+I1134;Ingles;test;Choose the correct word: I ___ music;have|haves|haveing;have;
+I1135;Ingles;test;Choose the correct word: I ___ milk;read|reads|reading;read;
+I1138;Ingles;completar;She ___ football;eat|eats|eating;eats;
+I1139;Ingles;completar;She ___ a dog;eat|eats|eating;eats;
+I1141;Ingles;ordenar;Order the words to make a sentence;I|read|school;I|read|school;
+I1142;Ingles;ordenar;Order the words to make a sentence;I|see|milk;I|see|milk;
+I1145;Ingles;ordenar;Order the words to make a sentence;I|have|water;I|have|water;
+I1146;Ingles;test;Choose the correct word: I ___ milk;have|haves|haveing;have;
+I1150;Ingles;ordenar;Order the words to make a sentence;I|drink|school;I|drink|school;
+I1154;Ingles;completar;She ___ school;eat|eats|eating;eats;
+I1155;Ingles;completar;She ___ water;like|likes|likeing;likes;
+I1157;Ingles;completar;She ___ music;go|gos|going;gos;
+I1158;Ingles;ordenar;Order the words to make a sentence;I|eat|water;I|eat|water;
+I1166;Ingles;completar;She ___ football;like|likes|likeing;likes;
+I1167;Ingles;completar;She ___ a book;drink|drinks|drinking;drinks;
+I1168;Ingles;ordenar;Order the words to make a sentence;I|eat|football;I|eat|football;
+I1178;Ingles;test;Choose the correct word: I ___ milk;eat|eats|eating;eat;
+I1179;Ingles;test;Choose the correct word: I ___ school;eat|eats|eating;eat;
+I1181;Ingles;ordenar;Order the words to make a sentence;I|have|football;I|have|football;
+I1185;Ingles;test;Choose the correct word: I ___ a book;like|likes|likeing;like;
+I1186;Ingles;listening;apples;apples|appless|applesing;apples;
+I1191;Ingles;ordenar;Order the words to make a sentence;I|go|a book;I|go|a book;
+I1192;Ingles;test;Choose the correct word: I ___ water;have|haves|haveing;have;
+I1196;Ingles;ordenar;Order the words to make a sentence;I|play|school;I|play|school;
+I1200;Ingles;completar;She ___ a book;eat|eats|eating;eats;
+I1206;Ingles;ordenar;Order the words to make a sentence;I|go|milk;I|go|milk;
+I1212;Ingles;test;Choose the correct word: I ___ apples;like|likes|likeing;like;
+I1213;Ingles;completar;She ___ a book;see|sees|seeing;sees;
+I1215;Ingles;ordenar;Order the words to make a sentence;I|read|a book;I|read|a book;
+I1217;Ingles;test;Choose the correct word: I ___ music;see|sees|seeing;see;
+I1224;Ingles;ordenar;Order the words to make a sentence;I|play|water;I|play|water;
+I1225;Ingles;ordenar;Order the words to make a sentence;I|go|water;I|go|water;
+I1227;Ingles;completar;She ___ school;see|sees|seeing;sees;
+I1229;Ingles;test;Choose the correct word: I ___ apples;drink|drinks|drinking;drink;
+I1235;Ingles;completar;She ___ football;have|haves|haveing;haves;
+I1236;Ingles;test;Choose the correct word: I ___ a book;have|haves|haveing;have;
+I1237;Ingles;completar;She ___ apples;play|plays|playing;plays;
+I1238;Ingles;ordenar;Order the words to make a sentence;I|see|apples;I|see|apples;
+I1244;Ingles;ordenar;Order the words to make a sentence;I|go|a dog;I|go|a dog;
+I1247;Ingles;completar;She ___ school;have|haves|haveing;haves;
+I1248;Ingles;ordenar;Order the words to make a sentence;I|like|school;I|like|school;
+I1249;Ingles;ordenar;Order the words to make a sentence;I|have|apples;I|have|apples;
+I1263;Ingles;ordenar;Order the words to make a sentence;I|drink|a book;I|drink|a book;
+I1268;Ingles;completar;She ___ a book;like|likes|likeing;likes;
+I1270;Ingles;completar;She ___ football;go|gos|going;gos;
+I1277;Ingles;test;Choose the correct word: I ___ a dog;read|reads|reading;read;
+I1278;Ingles;ordenar;Order the words to make a sentence;I|play|music;I|play|music;
+I1290;Ingles;test;Choose the correct word: I ___ music;read|reads|reading;read;
+I1294;Ingles;ordenar;Order the words to make a sentence;I|play|football;I|play|football;
+I1304;Ingles;ordenar;Order the words to make a sentence;I|drink|milk;I|drink|milk;
+I1316;Ingles;completar;She ___ water;eat|eats|eating;eats;
+I1323;Ingles;test;Choose the correct word: I ___ water;see|sees|seeing;see;
+I1325;Ingles;ordenar;Order the words to make a sentence;I|read|apples;I|read|apples;
+I1334;Ingles;ordenar;Order the words to make a sentence;I|read|music;I|read|music;
+I1336;Ingles;test;Choose the correct word: I ___ music;eat|eats|eating;eat;
+I1338;Ingles;test;Choose the correct word: I ___ a dog;go|gos|going;go;
+I1340;Ingles;test;Choose the correct word: I ___ school;see|sees|seeing;see;
+I1358;Ingles;test;Choose the correct word: I ___ music;go|gos|going;go;
+I1378;Ingles;test;Choose the correct word: I ___ school;go|gos|going;go;
+I1385;Ingles;completar;She ___ football;read|reads|reading;reads;
+I1399;Ingles;ordenar;Order the words to make a sentence;I|have|school;I|have|school;
+I1407;Ingles;test;Choose the correct word: I ___ water;play|plays|playing;play;
+I1418;Ingles;completar;She ___ music;play|plays|playing;plays;
+I1421;Ingles;completar;She ___ apples;go|gos|going;gos;
+I1424;Ingles;ordenar;Order the words to make a sentence;I|like|music;I|like|music;
+I1425;Ingles;ordenar;Order the words to make a sentence;I|drink|a dog;I|drink|a dog;
+I1426;Ingles;ordenar;Order the words to make a sentence;I|read|a dog;I|read|a dog;
+I1433;Ingles;test;Choose the correct word: I ___ football;drink|drinks|drinking;drink;
+I1435;Ingles;completar;She ___ water;go|gos|going;gos;
+I1441;Ingles;test;Choose the correct word: I ___ football;play|plays|playing;play;
+I1451;Ingles;ordenar;Order the words to make a sentence;I|like|apples;I|like|apples;
+I1453;Ingles;ordenar;Order the words to make a sentence;I|eat|music;I|eat|music;
+I1456;Ingles;completar;She ___ football;see|sees|seeing;sees;
+I1467;Ingles;test;Choose the correct word: I ___ music;drink|drinks|drinking;drink;
+I1469;Ingles;ordenar;Order the words to make a sentence;I|have|milk;I|have|milk;
+I1472;Ingles;completar;She ___ milk;drink|drinks|drinking;drinks;
+I1479;Ingles;test;Choose the correct word: I ___ milk;drink|drinks|drinking;drink;
+I1492;Ingles;completar;She ___ a dog;drink|drinks|drinking;drinks;
+I1494;Ingles;ordenar;Order the words to make a sentence;I|drink|music;I|drink|music;
+I1497;Ingles;test;Choose the correct word: I ___ school;read|reads|reading;read;
+I1498;Ingles;ordenar;Order the words to make a sentence;I|have|music;I|have|music;
+I1504;Ingles;test;Choose the correct word: I ___ a dog;have|haves|haveing;have;
+I1515;Ingles;test;Choose the correct word: I ___ apples;go|gos|going;go;
+I1517;Ingles;completar;She ___ milk;eat|eats|eating;eats;
+I1530;Ingles;test;Choose the correct word: I ___ water;read|reads|reading;read;
+I1537;Ingles;completar;She ___ school;play|plays|playing;plays;
+I1539;Ingles;completar;She ___ milk;have|haves|haveing;haves;
+I1544;Ingles;ordenar;Order the words to make a sentence;I|like|milk;I|like|milk;
+I1551;Ingles;ordenar;Order the words to make a sentence;I|eat|school;I|eat|school;
+I1560;Ingles;ordenar;Order the words to make a sentence;I|eat|a dog;I|eat|a dog;
+I1575;Ingles;ordenar;Order the words to make a sentence;I|like|a book;I|like|a book;
+I1583;Ingles;ordenar;Order the words to make a sentence;I|drink|football;I|drink|football;
+I1595;Ingles;ordenar;Order the words to make a sentence;I|see|a book;I|see|a book;
+I2000;Ingles;completar;She ___ ball;like|likes|likeing;likes;
+I2001;Ingles;guess;You sleep here;bed|house|hotel;bed;
+I2002;Ingles;completar;She ___ ball;sing|sings|singing;sings;
+I2003;Ingles;completar;She ___ school;write|writes|writeing;writes;
+I2004;Ingles;test;Choose the correct word: I ___ football;like|likes|likeing;like;
+I2005;Ingles;test;Choose the correct word: I ___ a dog;watch|watchs|watching;watch;
+I2006;Ingles;arrastrar;Drag the words to the correct group;tree|cat|house;Animals|Objects|Places;
+I2007;Ingles;ordenar;Order the words to make a sentence;He|have|water;He|have|water;Pista: Sujeto-verbo-objeto
+I2008;Ingles;ordenar;Order the words to make a sentence;We|have|football;We|have|football;Pista: Sujeto-verbo-objeto
+I2009;Ingles;arrastrar;Drag the words to the correct group;friend|dog|fish;Animals|Objects|Places;
+I2010;Ingles;completar;She ___ water;watch|watchs|watching;watchs;
+I2011;Ingles;listening;banana;banana|bananas|bananaing;banana;
+I2012;Ingles;verdadero_falso;Cats can fly;Verdadero|Falso;Falso;
+I2013;Ingles;test;Choose the correct word: I ___ a dog;sing|sings|singing;sing;
+I2014;Ingles;arrastrar;Drag the words to the correct group;car|bird|teacher;Animals|Objects|Places;
+I2015;Ingles;guess;You study here;school|home|library;school;
+I2016;Ingles;completar;She ___ car;write|writes|writeing;writes;
+I2017;Ingles;ordenar;Order the words to make a sentence;She|run|a dog;She|run|a dog;Pista: Sujeto-verbo-objeto
+I2018;Ingles;ordenar;Order the words to make a sentence;He|go|water;He|go|water;Pista: Sujeto-verbo-objeto
+I2019;Ingles;verdadero_falso;Fish can walk on land;Verdadero|Falso;Falso;
+I2020;Ingles;test;Choose the correct word: I ___ apples;read|reads|reading;read;
+I2021;Ingles;verdadero_falso;Birds can fly;Verdadero|Falso;Verdadero;
+I2022;Ingles;pronunciar;car;;car;
+I2023;Ingles;arrastrar;Drag the words to the correct group;bird|tree|dog;Animals|Objects|Places;
+I2024;Ingles;pronunciar;banana;;banana;
+I2025;Ingles;arrastrar;Drag the words to the correct group;dog|cat|house;Animals|Objects|Places;
+I2026;Ingles;completar;She ___ car;eat|eats|eating;eats;
+I2027;Ingles;ordenar;Order the words to make a sentence;He|write|football;He|write|football;Pista: Sujeto-verbo-objeto
+I2028;Ingles;arrastrar;Drag the words to the correct group;friend|tree|teacher;Animals|Objects|Places;
+I2029;Ingles;test;Choose the correct word: I ___ ball;sing|sings|singing;sing;
+I2030;Ingles;completar;She ___ cake;sing|sings|singing;sings;
+I2031;Ingles;guess;You eat here;kitchen|restaurant|park;kitchen;
+I2032;Ingles;ordenar;Order the words to make a sentence;He|like|ball;He|like|ball;Pista: Sujeto-verbo-objeto
+I2033;Ingles;ordenar;Order the words to make a sentence;She|play|car;She|play|car;Pista: Sujeto-verbo-objeto
+I2034;Ingles;listening;house;house|houses|houseing;house;
+I2035;Ingles;ordenar;Order the words to make a sentence;She|watch|apples;She|watch|apples;Pista: Sujeto-verbo-objeto
+I2036;Ingles;test;Choose the correct word: I ___ milk;play|plays|playing;play;
+I2037;Ingles;test;Choose the correct word: I ___ banana;read|reads|reading;read;
+I2038;Ingles;completar;She ___ ball;play|plays|playing;plays;
+I2039;Ingles;arrastrar;Drag the words to the correct group;dog|bird|friend;Animals|Objects|Places;
+I2040;Ingles;arrastrar;Drag the words to the correct group;friend|bird|teacher;Animals|Objects|Places;
+I2041;Ingles;arrastrar;Drag the words to the correct group;dog|fish|friend;Animals|Objects|Places;
+I2042;Ingles;completar;She ___ apples;have|haves|haveing;haves;
+I2043;Ingles;test;Choose the correct word: I ___ ball;play|plays|playing;play;
+I2044;Ingles;test;Choose the correct word: I ___ football;read|reads|reading;read;
+I2045;Ingles;test;Choose the correct word: I ___ football;have|haves|haveing;have;
+I2046;Ingles;arrastrar;Drag the words to the correct group;fish|bird|car;Animals|Objects|Places;
+I2047;Ingles;arrastrar;Drag the words to the correct group;fish|teacher|house;Animals|Objects|Places;
+I2048;Ingles;completar;She ___ car;play|plays|playing;plays;
+I2049;Ingles;arrastrar;Drag the words to the correct group;cat|dog|friend;Animals|Objects|Places;
+I2050;Ingles;pronunciar;ball;;ball;
+I2051;Ingles;completar;She ___ a dog;read|reads|reading;reads;
+I2052;Ingles;ordenar;Order the words to make a sentence;He|eat|water;He|eat|water;Pista: Sujeto-verbo-objeto
+I2053;Ingles;arrastrar;Drag the words to the correct group;fish|dog|friend;Animals|Objects|Places;
+I2054;Ingles;completar;She ___ car;like|likes|likeing;likes;
+I2055;Ingles;test;Choose the correct word: I ___ house;play|plays|playing;play;
+I2056;Ingles;arrastrar;Drag the words to the correct group;fish|house|cat;Animals|Objects|Places;
+I2057;Ingles;ordenar;Order the words to make a sentence;He|like|school;He|like|school;Pista: Sujeto-verbo-objeto
+I2058;Ingles;arrastrar;Drag the words to the correct group;bird|fish|friend;Animals|Objects|Places;
+I2059;Ingles;test;Choose the correct word: I ___ milk;run|runs|runing;run;
+I2060;Ingles;test;Choose the correct word: I ___ banana;like|likes|likeing;like;
+I2061;Ingles;arrastrar;Drag the words to the correct group;friend|bird|cat;Animals|Objects|Places;
+I2062;Ingles;completar;She ___ a dog;sing|sings|singing;sings;
+I2063;Ingles;completar;She ___ car;go|gos|going;gos;
+I2064;Ingles;completar;She ___ music;like|likes|likeing;likes;
+I2065;Ingles;completar;She ___ cake;play|plays|playing;plays;
+I2066;Ingles;ordenar;Order the words to make a sentence;They|play|a dog;They|play|a dog;Pista: Sujeto-verbo-objeto
+I2067;Ingles;ordenar;Order the words to make a sentence;He|watch|ball;He|watch|ball;Pista: Sujeto-verbo-objeto
+I2068;Ingles;test;Choose the correct word: I ___ cake;sing|sings|singing;sing;
+I2069;Ingles;ordenar;Order the words to make a sentence;They|see|banana;They|see|banana;Pista: Sujeto-verbo-objeto
+I2070;Ingles;arrastrar;Drag the words to the correct group;tree|cat|teacher;Animals|Objects|Places;
+I2071;Ingles;ordenar;Order the words to make a sentence;They|eat|ball;They|eat|ball;Pista: Sujeto-verbo-objeto
+I2072;Ingles;arrastrar;Drag the words to the correct group;friend|house|tree;Animals|Objects|Places;
+I2073;Ingles;ordenar;Order the words to make a sentence;She|like|milk;She|like|milk;Pista: Sujeto-verbo-objeto
+I2074;Ingles;ordenar;Order the words to make a sentence;He|eat|apples;He|eat|apples;Pista: Sujeto-verbo-objeto
+I2075;Ingles;ordenar;Order the words to make a sentence;We|eat|house;We|eat|house;Pista: Sujeto-verbo-objeto
+I2076;Ingles;ordenar;Order the words to make a sentence;He|like|a book;He|like|a book;Pista: Sujeto-verbo-objeto
+I2077;Ingles;pronunciar;house;;house;
+I2078;Ingles;arrastrar;Drag the words to the correct group;fish|friend|house;Animals|Objects|Places;
+I2079;Ingles;arrastrar;Drag the words to the correct group;car|tree|house;Animals|Objects|Places;
+I2080;Ingles;listening;ball;ball|balls|balling;ball;
+I2081;Ingles;completar;She ___ banana;go|gos|going;gos;
+I2082;Ingles;test;Choose the correct word: I ___ school;run|runs|runing;run;
+I2083;Ingles;test;Choose the correct word: I ___ house;watch|watchs|watching;watch;
+I2084;Ingles;listening;car;car|cars|caring;car;
+I2085;Ingles;completar;She ___ water;run|runs|runing;runs;
+I2086;Ingles;ordenar;Order the words to make a sentence;We|go|car;We|go|car;Pista: Sujeto-verbo-objeto
+I2087;Ingles;ordenar;Order the words to make a sentence;She|write|water;She|write|water;Pista: Sujeto-verbo-objeto
+I2088;Ingles;pronunciar;cake;;cake;
+I2089;Ingles;arrastrar;Drag the words to the correct group;teacher|fish|tree;Animals|Objects|Places;
+I2090;Ingles;arrastrar;Drag the words to the correct group;bird|dog|friend;Animals|Objects|Places;
+I2091;Ingles;ordenar;Order the words to make a sentence;I|like|a dog;I|like|a dog;Pista: Sujeto-verbo-objeto
+I2092;Ingles;arrastrar;Drag the words to the correct group;dog|teacher|fish;Animals|Objects|Places;
+I2093;Ingles;arrastrar;Drag the words to the correct group;house|fish|dog;Animals|Objects|Places;
+I2094;Ingles;ordenar;Order the words to make a sentence;She|drink|apples;She|drink|apples;Pista: Sujeto-verbo-objeto
+I2095;Ingles;arrastrar;Drag the words to the correct group;bird|teacher|car;Animals|Objects|Places;
+I2096;Ingles;arrastrar;Drag the words to the correct group;friend|house|teacher;Animals|Objects|Places;
+I2097;Ingles;arrastrar;Drag the words to the correct group;bird|teacher|fish;Animals|Objects|Places;
+I2098;Ingles;arrastrar;Drag the words to the correct group;fish|tree|friend;Animals|Objects|Places;
+I2099;Ingles;ordenar;Order the words to make a sentence;We|play|school;We|play|school;Pista: Sujeto-verbo-objeto
+I2100;Ingles;arrastrar;Drag the words to the correct group;house|cat|dog;Animals|Objects|Places;
+I2101;Ingles;test;Choose the correct word: I ___ school;write|writes|writeing;write;
+I2102;Ingles;arrastrar;Drag the words to the correct group;cat|car|bird;Animals|Objects|Places;
+I2103;Ingles;test;Choose the correct word: I ___ milk;go|gos|going;go;
+I2104;Ingles;ordenar;Order the words to make a sentence;He|eat|banana;He|eat|banana;Pista: Sujeto-verbo-objeto
+I2105;Ingles;test;Choose the correct word: I ___ banana;go|gos|going;go;
+I2106;Ingles;test;Choose the correct word: I ___ car;play|plays|playing;play;
+I2107;Ingles;arrastrar;Drag the words to the correct group;bird|cat|friend;Animals|Objects|Places;
+I2108;Ingles;completar;She ___ apples;drink|drinks|drinking;drinks;
+I2109;Ingles;completar;She ___ apples;sing|sings|singing;sings;
+I2110;Ingles;test;Choose the correct word: I ___ a book;write|writes|writeing;write;
+I2111;Ingles;arrastrar;Drag the words to the correct group;dog|fish|teacher;Animals|Objects|Places;
+I2112;Ingles;ordenar;Order the words to make a sentence;She|write|ball;She|write|ball;Pista: Sujeto-verbo-objeto
+I2113;Ingles;completar;She ___ apples;write|writes|writeing;writes;
+I2114;Ingles;completar;She ___ house;write|writes|writeing;writes;
+I2115;Ingles;test;Choose the correct word: I ___ cake;have|haves|haveing;have;
+I2116;Ingles;arrastrar;Drag the words to the correct group;bird|house|dog;Animals|Objects|Places;
+I2117;Ingles;arrastrar;Drag the words to the correct group;teacher|house|friend;Animals|Objects|Places;
+I2118;Ingles;ordenar;Order the words to make a sentence;He|read|milk;He|read|milk;Pista: Sujeto-verbo-objeto
+I2119;Ingles;completar;She ___ ball;read|reads|reading;reads;
+I2120;Ingles;arrastrar;Drag the words to the correct group;teacher|cat|friend;Animals|Objects|Places;
+I2121;Ingles;arrastrar;Drag the words to the correct group;tree|friend|bird;Animals|Objects|Places;
+I2122;Ingles;completar;She ___ cake;run|runs|runing;runs;
+I2123;Ingles;ordenar;Order the words to make a sentence;We|read|ball;We|read|ball;Pista: Sujeto-verbo-objeto
+I2124;Ingles;arrastrar;Drag the words to the correct group;tree|friend|cat;Animals|Objects|Places;
+I2125;Ingles;ordenar;Order the words to make a sentence;They|like|ball;They|like|ball;Pista: Sujeto-verbo-objeto
+I2126;Ingles;ordenar;Order the words to make a sentence;They|like|apples;They|like|apples;Pista: Sujeto-verbo-objeto
+I2127;Ingles;ordenar;Order the words to make a sentence;He|play|apples;He|play|apples;Pista: Sujeto-verbo-objeto
+I2128;Ingles;arrastrar;Drag the words to the correct group;teacher|car|dog;Animals|Objects|Places;
+I2129;Ingles;arrastrar;Drag the words to the correct group;dog|cat|friend;Animals|Objects|Places;
+I2130;Ingles;ordenar;Order the words to make a sentence;She|see|football;She|see|football;Pista: Sujeto-verbo-objeto
+I2131;Ingles;arrastrar;Drag the words to the correct group;teacher|tree|house;Animals|Objects|Places;
+I2132;Ingles;test;Choose the correct word: I ___ ball;write|writes|writeing;write;
+I2133;Ingles;completar;She ___ car;read|reads|reading;reads;
+I2134;Ingles;ordenar;Order the words to make a sentence;She|play|a book;She|play|a book;Pista: Sujeto-verbo-objeto
+I2135;Ingles;arrastrar;Drag the words to the correct group;tree|cat|dog;Animals|Objects|Places;
+I2136;Ingles;arrastrar;Drag the words to the correct group;dog|fish|bird;Animals|Objects|Places;
+I2137;Ingles;completar;She ___ a dog;watch|watchs|watching;watchs;
+I2138;Ingles;ordenar;Order the words to make a sentence;They|eat|football;They|eat|football;Pista: Sujeto-verbo-objeto
+I2139;Ingles;test;Choose the correct word: I ___ house;eat|eats|eating;eat;
+I2140;Ingles;completar;She ___ ball;drink|drinks|drinking;drinks;
+I2141;Ingles;arrastrar;Drag the words to the correct group;teacher|dog|tree;Animals|Objects|Places;
+I2142;Ingles;test;Choose the correct word: I ___ ball;go|gos|going;go;
+I2143;Ingles;test;Choose the correct word: I ___ water;sing|sings|singing;sing;
+I2144;Ingles;arrastrar;Drag the words to the correct group;tree|bird|friend;Animals|Objects|Places;
+I2145;Ingles;arrastrar;Drag the words to the correct group;dog|teacher|bird;Animals|Objects|Places;
+I2146;Ingles;arrastrar;Drag the words to the correct group;tree|house|teacher;Animals|Objects|Places;
+I2147;Ingles;arrastrar;Drag the words to the correct group;teacher|cat|dog;Animals|Objects|Places;
+I2148;Ingles;ordenar;Order the words to make a sentence;They|drink|ball;They|drink|ball;Pista: Sujeto-verbo-objeto
+I2149;Ingles;arrastrar;Drag the words to the correct group;dog|cat|car;Animals|Objects|Places;
+I2150;Ingles;test;Choose the correct word: I ___ school;watch|watchs|watching;watch;
+I2151;Ingles;arrastrar;Drag the words to the correct group;dog|bird|fish;Animals|Objects|Places;
+I2152;Ingles;arrastrar;Drag the words to the correct group;teacher|fish|friend;Animals|Objects|Places;
+I2153;Ingles;ordenar;Order the words to make a sentence;He|read|banana;He|read|banana;Pista: Sujeto-verbo-objeto
+I2154;Ingles;ordenar;Order the words to make a sentence;I|see|house;I|see|house;Pista: Sujeto-verbo-objeto
+I2155;Ingles;arrastrar;Drag the words to the correct group;bird|teacher|tree;Animals|Objects|Places;
+I2156;Ingles;arrastrar;Drag the words to the correct group;car|friend|tree;Animals|Objects|Places;
+I2157;Ingles;test;Choose the correct word: I ___ ball;have|haves|haveing;have;
+I2158;Ingles;arrastrar;Drag the words to the correct group;house|friend|car;Animals|Objects|Places;
+I2159;Ingles;arrastrar;Drag the words to the correct group;dog|teacher|cat;Animals|Objects|Places;
+I2160;Ingles;ordenar;Order the words to make a sentence;He|sing|a book;He|sing|a book;Pista: Sujeto-verbo-objeto
+I2161;Ingles;completar;She ___ house;drink|drinks|drinking;drinks;
+I2162;Ingles;completar;She ___ car;have|haves|haveing;haves;
+I2163;Ingles;arrastrar;Drag the words to the correct group;friend|cat|tree;Animals|Objects|Places;
+I2164;Ingles;test;Choose the correct word: I ___ house;have|haves|haveing;have;
+I2165;Ingles;ordenar;Order the words to make a sentence;We|watch|school;We|watch|school;Pista: Sujeto-verbo-objeto
+I2166;Ingles;ordenar;Order the words to make a sentence;We|eat|football;We|eat|football;Pista: Sujeto-verbo-objeto
+I2167;Ingles;ordenar;Order the words to make a sentence;We|drink|car;We|drink|car;Pista: Sujeto-verbo-objeto
+I2168;Ingles;test;Choose the correct word: I ___ water;drink|drinks|drinking;drink;
+I2169;Ingles;completar;She ___ school;read|reads|reading;reads;
+I2170;Ingles;test;Choose the correct word: I ___ car;write|writes|writeing;write;
+I2171;Ingles;arrastrar;Drag the words to the correct group;tree|fish|friend;Animals|Objects|Places;
+I2172;Ingles;ordenar;Order the words to make a sentence;I|sing|car;I|sing|car;Pista: Sujeto-verbo-objeto
+I2173;Ingles;test;Choose the correct word: I ___ house;see|sees|seeing;see;
+I2174;Ingles;arrastrar;Drag the words to the correct group;cat|car|teacher;Animals|Objects|Places;
+I2175;Ingles;listening;cake;cake|cakes|cakeing;cake;
+I2176;Ingles;ordenar;Order the words to make a sentence;We|sing|ball;We|sing|ball;Pista: Sujeto-verbo-objeto
+I2177;Ingles;test;Choose the correct word: I ___ cake;write|writes|writeing;write;
+I2178;Ingles;arrastrar;Drag the words to the correct group;tree|house|cat;Animals|Objects|Places;
+I2179;Ingles;ordenar;Order the words to make a sentence;I|like|water;I|like|water;Pista: Sujeto-verbo-objeto
+I2180;Ingles;arrastrar;Drag the words to the correct group;dog|friend|teacher;Animals|Objects|Places;
+I2181;Ingles;ordenar;Order the words to make a sentence;He|drink|milk;He|drink|milk;Pista: Sujeto-verbo-objeto
+I2182;Ingles;ordenar;Order the words to make a sentence;He|sing|football;He|sing|football;Pista: Sujeto-verbo-objeto
+I2183;Ingles;arrastrar;Drag the words to the correct group;house|tree|cat;Animals|Objects|Places;
+I2184;Ingles;arrastrar;Drag the words to the correct group;teacher|fish|house;Animals|Objects|Places;
+I2185;Ingles;arrastrar;Drag the words to the correct group;dog|fish|car;Animals|Objects|Places;
+I2186;Ingles;test;Choose the correct word: I ___ house;like|likes|likeing;like;
+I2187;Ingles;ordenar;Order the words to make a sentence;She|read|football;She|read|football;Pista: Sujeto-verbo-objeto
+I2188;Ingles;ordenar;Order the words to make a sentence;She|like|water;She|like|water;Pista: Sujeto-verbo-objeto
+I2189;Ingles;ordenar;Order the words to make a sentence;We|watch|water;We|watch|water;Pista: Sujeto-verbo-objeto
+I2190;Ingles;ordenar;Order the words to make a sentence;I|sing|apples;I|sing|apples;Pista: Sujeto-verbo-objeto
+I2191;Ingles;ordenar;Order the words to make a sentence;I|have|house;I|have|house;Pista: Sujeto-verbo-objeto
+I2192;Ingles;test;Choose the correct word: I ___ ball;eat|eats|eating;eat;
+I2193;Ingles;completar;She ___ football;run|runs|runing;runs;
+I2194;Ingles;arrastrar;Drag the words to the correct group;teacher|car|tree;Animals|Objects|Places;
+I2195;Ingles;completar;She ___ cake;drink|drinks|drinking;drinks;
+I2196;Ingles;test;Choose the correct word: I ___ music;like|likes|likeing;like;
+I2197;Ingles;arrastrar;Drag the words to the correct group;dog|friend|bird;Animals|Objects|Places;
+I2198;Ingles;completar;She ___ car;sing|sings|singing;sings;
+I2199;Ingles;arrastrar;Drag the words to the correct group;fish|house|bird;Animals|Objects|Places;
+I2200;Ingles;ordenar;Order the words to make a sentence;He|play|football;He|play|football;Pista: Sujeto-verbo-objeto
+I2201;Ingles;completar;She ___ ball;run|runs|runing;runs;
+I2202;Ingles;ordenar;Order the words to make a sentence;She|like|banana;She|like|banana;Pista: Sujeto-verbo-objeto
+I2203;Ingles;test;Choose the correct word: I ___ banana;see|sees|seeing;see;
+I2204;Ingles;completar;She ___ cake;write|writes|writeing;writes;
+I2205;Ingles;arrastrar;Drag the words to the correct group;fish|dog|bird;Animals|Objects|Places;
+I2206;Ingles;ordenar;Order the words to make a sentence;They|run|house;They|run|house;Pista: Sujeto-verbo-objeto
+I2207;Ingles;ordenar;Order the words to make a sentence;We|write|car;We|write|car;Pista: Sujeto-verbo-objeto
+I2208;Ingles;ordenar;Order the words to make a sentence;I|play|ball;I|play|ball;Pista: Sujeto-verbo-objeto
+I2209;Ingles;ordenar;Order the words to make a sentence;She|like|car;She|like|car;Pista: Sujeto-verbo-objeto
+I2210;Ingles;completar;She ___ music;see|sees|seeing;sees;
+I2211;Ingles;arrastrar;Drag the words to the correct group;house|tree|dog;Animals|Objects|Places;
+I2212;Ingles;completar;She ___ car;see|sees|seeing;sees;
+I2213;Ingles;arrastrar;Drag the words to the correct group;friend|tree|cat;Animals|Objects|Places;
+I2214;Ingles;ordenar;Order the words to make a sentence;They|see|milk;They|see|milk;Pista: Sujeto-verbo-objeto
+I2215;Ingles;completar;She ___ ball;go|gos|going;gos;
+I2216;Ingles;arrastrar;Drag the words to the correct group;dog|car|tree;Animals|Objects|Places;
+I2217;Ingles;arrastrar;Drag the words to the correct group;car|dog|fish;Animals|Objects|Places;
+I2218;Ingles;ordenar;Order the words to make a sentence;I|watch|car;I|watch|car;Pista: Sujeto-verbo-objeto
+I2219;Ingles;completar;She ___ cake;watch|watchs|watching;watchs;
+I2220;Ingles;ordenar;Order the words to make a sentence;We|play|a book;We|play|a book;Pista: Sujeto-verbo-objeto
+I2221;Ingles;ordenar;Order the words to make a sentence;She|eat|house;She|eat|house;Pista: Sujeto-verbo-objeto
+I2222;Ingles;completar;She ___ house;eat|eats|eating;eats;
+I2223;Ingles;arrastrar;Drag the words to the correct group;teacher|friend|car;Animals|Objects|Places;
+I2224;Ingles;arrastrar;Drag the words to the correct group;cat|friend|bird;Animals|Objects|Places;
+I2225;Ingles;completar;She ___ banana;write|writes|writeing;writes;
+I2226;Ingles;test;Choose the correct word: I ___ house;drink|drinks|drinking;drink;
+I2227;Ingles;arrastrar;Drag the words to the correct group;dog|car|teacher;Animals|Objects|Places;
+I2228;Ingles;completar;She ___ car;watch|watchs|watching;watchs;
+I2229;Ingles;ordenar;Order the words to make a sentence;I|read|ball;I|read|ball;Pista: Sujeto-verbo-objeto
+I2230;Ingles;arrastrar;Drag the words to the correct group;teacher|bird|friend;Animals|Objects|Places;
+I2231;Ingles;test;Choose the correct word: I ___ car;sing|sings|singing;sing;
+I2232;Ingles;ordenar;Order the words to make a sentence;They|play|banana;They|play|banana;Pista: Sujeto-verbo-objeto
+I2233;Ingles;ordenar;Order the words to make a sentence;They|see|car;They|see|car;Pista: Sujeto-verbo-objeto
+I2234;Ingles;completar;She ___ cake;see|sees|seeing;sees;
+I2235;Ingles;ordenar;Order the words to make a sentence;We|have|house;We|have|house;Pista: Sujeto-verbo-objeto
+I2236;Ingles;arrastrar;Drag the words to the correct group;fish|friend|dog;Animals|Objects|Places;
+I2237;Ingles;completar;She ___ house;watch|watchs|watching;watchs;
+I2238;Ingles;test;Choose the correct word: I ___ milk;sing|sings|singing;sing;
+I2239;Ingles;ordenar;Order the words to make a sentence;She|go|a book;She|go|a book;Pista: Sujeto-verbo-objeto
+I2240;Ingles;ordenar;Order the words to make a sentence;We|run|house;We|run|house;Pista: Sujeto-verbo-objeto
+I2241;Ingles;arrastrar;Drag the words to the correct group;fish|friend|bird;Animals|Objects|Places;
+I2242;Ingles;arrastrar;Drag the words to the correct group;fish|car|teacher;Animals|Objects|Places;
+I2243;Ingles;arrastrar;Drag the words to the correct group;car|dog|friend;Animals|Objects|Places;
+I2244;Ingles;ordenar;Order the words to make a sentence;They|drink|cake;They|drink|cake;Pista: Sujeto-verbo-objeto
+I2245;Ingles;ordenar;Order the words to make a sentence;He|play|a dog;He|play|a dog;Pista: Sujeto-verbo-objeto
+I2246;Ingles;arrastrar;Drag the words to the correct group;car|cat|fish;Animals|Objects|Places;
+I2247;Ingles;test;Choose the correct word: I ___ cake;go|gos|going;go;
+I2248;Ingles;ordenar;Order the words to make a sentence;We|like|water;We|like|water;Pista: Sujeto-verbo-objeto
+I2249;Ingles;test;Choose the correct word: I ___ apples;play|plays|playing;play;
+I2250;Ingles;ordenar;Order the words to make a sentence;She|run|banana;She|run|banana;Pista: Sujeto-verbo-objeto
+I2251;Ingles;arrastrar;Drag the words to the correct group;dog|friend|house;Animals|Objects|Places;
+I2252;Ingles;arrastrar;Drag the words to the correct group;friend|cat|car;Animals|Objects|Places;
+I2253;Ingles;test;Choose the correct word: I ___ milk;write|writes|writeing;write;
+I2254;Ingles;ordenar;Order the words to make a sentence;I|watch|milk;I|watch|milk;Pista: Sujeto-verbo-objeto
+I2255;Ingles;test;Choose the correct word: I ___ school;sing|sings|singing;sing;
+I2256;Ingles;completar;She ___ a dog;have|haves|haveing;haves;
+I2257;Ingles;completar;She ___ ball;write|writes|writeing;writes;
+I2258;Ingles;ordenar;Order the words to make a sentence;He|run|music;He|run|music;Pista: Sujeto-verbo-objeto
+I2259;Ingles;ordenar;Order the words to make a sentence;We|play|ball;We|play|ball;Pista: Sujeto-verbo-objeto
+I2260;Ingles;arrastrar;Drag the words to the correct group;cat|tree|dog;Animals|Objects|Places;
+I2261;Ingles;arrastrar;Drag the words to the correct group;house|car|dog;Animals|Objects|Places;
+I2262;Ingles;arrastrar;Drag the words to the correct group;teacher|car|house;Animals|Objects|Places;
+I2263;Ingles;ordenar;Order the words to make a sentence;She|see|milk;She|see|milk;Pista: Sujeto-verbo-objeto
+I2264;Ingles;arrastrar;Drag the words to the correct group;house|bird|car;Animals|Objects|Places;
+I2265;Ingles;arrastrar;Drag the words to the correct group;car|teacher|cat;Animals|Objects|Places;
+I2266;Ingles;ordenar;Order the words to make a sentence;I|eat|banana;I|eat|banana;Pista: Sujeto-verbo-objeto
+I2267;Ingles;arrastrar;Drag the words to the correct group;cat|bird|friend;Animals|Objects|Places;
+I2268;Ingles;arrastrar;Drag the words to the correct group;car|friend|fish;Animals|Objects|Places;
+I2269;Ingles;completar;She ___ a book;write|writes|writeing;writes;
+I2270;Ingles;ordenar;Order the words to make a sentence;He|watch|school;He|watch|school;Pista: Sujeto-verbo-objeto
+I2271;Ingles;completar;She ___ house;see|sees|seeing;sees;
+I2272;Ingles;arrastrar;Drag the words to the correct group;fish|tree|car;Animals|Objects|Places;
+I2273;Ingles;arrastrar;Drag the words to the correct group;fish|dog|teacher;Animals|Objects|Places;
+I2274;Ingles;ordenar;Order the words to make a sentence;We|have|cake;We|have|cake;Pista: Sujeto-verbo-objeto
+I2275;Ingles;ordenar;Order the words to make a sentence;She|play|football;She|play|football;Pista: Sujeto-verbo-objeto
+I2276;Ingles;completar;She ___ music;drink|drinks|drinking;drinks;
+I2277;Ingles;ordenar;Order the words to make a sentence;We|go|cake;We|go|cake;Pista: Sujeto-verbo-objeto
+I2278;Ingles;test;Choose the correct word: I ___ cake;play|plays|playing;play;
+I2279;Ingles;ordenar;Order the words to make a sentence;They|eat|a book;They|eat|a book;Pista: Sujeto-verbo-objeto
+I2280;Ingles;ordenar;Order the words to make a sentence;She|write|a book;She|write|a book;Pista: Sujeto-verbo-objeto
+I2281;Ingles;test;Choose the correct word: I ___ house;sing|sings|singing;sing;
+I2282;Ingles;test;Choose the correct word: I ___ car;drink|drinks|drinking;drink;
+I2283;Ingles;completar;She ___ apples;run|runs|runing;runs;
+I2284;Ingles;ordenar;Order the words to make a sentence;He|go|music;He|go|music;Pista: Sujeto-verbo-objeto
+I2285;Ingles;arrastrar;Drag the words to the correct group;fish|car|tree;Animals|Objects|Places;
+I2286;Ingles;ordenar;Order the words to make a sentence;They|run|milk;They|run|milk;Pista: Sujeto-verbo-objeto
+I2287;Ingles;ordenar;Order the words to make a sentence;They|watch|cake;They|watch|cake;Pista: Sujeto-verbo-objeto
+I2288;Ingles;arrastrar;Drag the words to the correct group;dog|tree|fish;Animals|Objects|Places;
+I2289;Ingles;ordenar;Order the words to make a sentence;They|write|ball;They|write|ball;Pista: Sujeto-verbo-objeto
+I2290;Ingles;ordenar;Order the words to make a sentence;He|watch|music;He|watch|music;Pista: Sujeto-verbo-objeto
+I2291;Ingles;arrastrar;Drag the words to the correct group;tree|teacher|cat;Animals|Objects|Places;
+I2292;Ingles;completar;She ___ cake;go|gos|going;gos;
+I2293;Ingles;arrastrar;Drag the words to the correct group;fish|friend|tree;Animals|Objects|Places;
+I2294;Ingles;arrastrar;Drag the words to the correct group;friend|tree|house;Animals|Objects|Places;
+I2295;Ingles;ordenar;Order the words to make a sentence;We|write|cake;We|write|cake;Pista: Sujeto-verbo-objeto
+I2296;Ingles;arrastrar;Drag the words to the correct group;bird|friend|teacher;Animals|Objects|Places;
+I2297;Ingles;arrastrar;Drag the words to the correct group;tree|teacher|house;Animals|Objects|Places;
+I2298;Ingles;test;Choose the correct word: I ___ music;write|writes|writeing;write;
+I2299;Ingles;arrastrar;Drag the words to the correct group;car|house|dog;Animals|Objects|Places;
+I2300;Ingles;arrastrar;Drag the words to the correct group;cat|bird|tree;Animals|Objects|Places;
+I2301;Ingles;arrastrar;Drag the words to the correct group;friend|house|bird;Animals|Objects|Places;
+I2302;Ingles;ordenar;Order the words to make a sentence;He|watch|milk;He|watch|milk;Pista: Sujeto-verbo-objeto
+I2303;Ingles;ordenar;Order the words to make a sentence;They|like|water;They|like|water;Pista: Sujeto-verbo-objeto
+I2304;Ingles;arrastrar;Drag the words to the correct group;dog|bird|cat;Animals|Objects|Places;
+I2305;Ingles;ordenar;Order the words to make a sentence;He|sing|music;He|sing|music;Pista: Sujeto-verbo-objeto
+I2306;Ingles;arrastrar;Drag the words to the correct group;fish|tree|bird;Animals|Objects|Places;
+I2307;Ingles;arrastrar;Drag the words to the correct group;bird|tree|cat;Animals|Objects|Places;
+I2308;Ingles;arrastrar;Drag the words to the correct group;friend|teacher|dog;Animals|Objects|Places;
+I2309;Ingles;arrastrar;Drag the words to the correct group;tree|fish|house;Animals|Objects|Places;
+I2310;Ingles;arrastrar;Drag the words to the correct group;tree|bird|cat;Animals|Objects|Places;
+I2311;Ingles;arrastrar;Drag the words to the correct group;car|fish|cat;Animals|Objects|Places;
+I2312;Ingles;test;Choose the correct word: I ___ car;see|sees|seeing;see;
+I2313;Ingles;ordenar;Order the words to make a sentence;He|sing|cake;He|sing|cake;Pista: Sujeto-verbo-objeto
+I2314;Ingles;completar;She ___ water;sing|sings|singing;sings;
+I2315;Ingles;ordenar;Order the words to make a sentence;He|eat|music;He|eat|music;Pista: Sujeto-verbo-objeto
+I2316;Ingles;arrastrar;Drag the words to the correct group;friend|fish|house;Animals|Objects|Places;
+I2317;Ingles;arrastrar;Drag the words to the correct group;friend|car|cat;Animals|Objects|Places;
+I2318;Ingles;completar;She ___ cake;like|likes|likeing;likes;
+I2319;Ingles;ordenar;Order the words to make a sentence;They|watch|music;They|watch|music;Pista: Sujeto-verbo-objeto
+I2320;Ingles;arrastrar;Drag the words to the correct group;dog|teacher|house;Animals|Objects|Places;
+I2321;Ingles;test;Choose the correct word: I ___ a book;drink|drinks|drinking;drink;
+I2322;Ingles;test;Choose the correct word: I ___ music;watch|watchs|watching;watch;
+I2323;Ingles;test;Choose the correct word: I ___ water;go|gos|going;go;
+I2324;Ingles;test;Choose the correct word: I ___ a dog;run|runs|runing;run;
+I2325;Ingles;completar;She ___ apples;watch|watchs|watching;watchs;
+I2326;Ingles;ordenar;Order the words to make a sentence;They|play|a book;They|play|a book;Pista: Sujeto-verbo-objeto
+I2327;Ingles;ordenar;Order the words to make a sentence;We|like|house;We|like|house;Pista: Sujeto-verbo-objeto
+I2328;Ingles;completar;She ___ house;like|likes|likeing;likes;
+I2329;Ingles;completar;She ___ banana;play|plays|playing;plays;
+I2330;Ingles;test;Choose the correct word: I ___ banana;drink|drinks|drinking;drink;
+I2331;Ingles;test;Choose the correct word: I ___ ball;read|reads|reading;read;
+I2332;Ingles;test;Choose the correct word: I ___ cake;eat|eats|eating;eat;
+I2333;Ingles;test;Choose the correct word: I ___ banana;watch|watchs|watching;watch;
+I2334;Ingles;test;Choose the correct word: I ___ car;have|haves|haveing;have;
+I2335;Ingles;ordenar;Order the words to make a sentence;They|go|a book;They|go|a book;Pista: Sujeto-verbo-objeto
+I2336;Ingles;ordenar;Order the words to make a sentence;He|like|cake;He|like|cake;Pista: Sujeto-verbo-objeto
+I2337;Ingles;ordenar;Order the words to make a sentence;He|read|water;He|read|water;Pista: Sujeto-verbo-objeto
+I2338;Ingles;completar;She ___ ball;watch|watchs|watching;watchs;
+I2339;Ingles;test;Choose the correct word: I ___ a dog;play|plays|playing;play;
+I2340;Ingles;completar;She ___ house;run|runs|runing;runs;
+I2341;Ingles;arrastrar;Drag the words to the correct group;fish|friend|teacher;Animals|Objects|Places;
+I2342;Ingles;arrastrar;Drag the words to the correct group;friend|car|bird;Animals|Objects|Places;
+I2343;Ingles;arrastrar;Drag the words to the correct group;teacher|dog|house;Animals|Objects|Places;
+I2344;Ingles;arrastrar;Drag the words to the correct group;car|fish|bird;Animals|Objects|Places;
+I2345;Ingles;test;Choose the correct word: I ___ a dog;write|writes|writeing;write;
+I2346;Ingles;ordenar;Order the words to make a sentence;I|see|cake;I|see|cake;Pista: Sujeto-verbo-objeto
+I2347;Ingles;ordenar;Order the words to make a sentence;We|have|a dog;We|have|a dog;Pista: Sujeto-verbo-objeto
+I2348;Ingles;arrastrar;Drag the words to the correct group;teacher|friend|dog;Animals|Objects|Places;
+I2349;Ingles;ordenar;Order the words to make a sentence;She|drink|a book;She|drink|a book;Pista: Sujeto-verbo-objeto
+I2350;Ingles;test;Choose the correct word: I ___ apples;watch|watchs|watching;watch;
+I2351;Ingles;ordenar;Order the words to make a sentence;I|read|cake;I|read|cake;Pista: Sujeto-verbo-objeto
+I2352;Ingles;arrastrar;Drag the words to the correct group;car|cat|tree;Animals|Objects|Places;
+I2353;Ingles;test;Choose the correct word: I ___ ball;watch|watchs|watching;watch;
+I2354;Ingles;ordenar;Order the words to make a sentence;I|play|cake;I|play|cake;Pista: Sujeto-verbo-objeto
+I2355;Ingles;ordenar;Order the words to make a sentence;We|read|banana;We|read|banana;Pista: Sujeto-verbo-objeto
+I2356;Ingles;arrastrar;Drag the words to the correct group;cat|friend|car;Animals|Objects|Places;
+I2357;Ingles;ordenar;Order the words to make a sentence;He|play|water;He|play|water;Pista: Sujeto-verbo-objeto
+I2358;Ingles;ordenar;Order the words to make a sentence;She|read|banana;She|read|banana;Pista: Sujeto-verbo-objeto
+I2359;Ingles;ordenar;Order the words to make a sentence;I|watch|ball;I|watch|ball;Pista: Sujeto-verbo-objeto
+I2360;Ingles;completar;She ___ banana;have|haves|haveing;haves;
+I2361;Ingles;ordenar;Order the words to make a sentence;She|sing|school;She|sing|school;Pista: Sujeto-verbo-objeto
+I2362;Ingles;completar;She ___ water;write|writes|writeing;writes;
+I2363;Ingles;ordenar;Order the words to make a sentence;He|have|milk;He|have|milk;Pista: Sujeto-verbo-objeto
+I2364;Ingles;arrastrar;Drag the words to the correct group;friend|house|cat;Animals|Objects|Places;
+I2365;Ingles;ordenar;Order the words to make a sentence;They|see|water;They|see|water;Pista: Sujeto-verbo-objeto
+I2366;Ingles;arrastrar;Drag the words to the correct group;bird|dog|teacher;Animals|Objects|Places;
+I2367;Ingles;arrastrar;Drag the words to the correct group;dog|car|bird;Animals|Objects|Places;
+I2368;Ingles;ordenar;Order the words to make a sentence;They|have|banana;They|have|banana;Pista: Sujeto-verbo-objeto
+I2369;Ingles;arrastrar;Drag the words to the correct group;fish|car|friend;Animals|Objects|Places;
+I2370;Ingles;test;Choose the correct word: I ___ music;run|runs|runing;run;
+I2371;Ingles;ordenar;Order the words to make a sentence;He|go|football;He|go|football;Pista: Sujeto-verbo-objeto
+I2372;Ingles;arrastrar;Drag the words to the correct group;teacher|house|tree;Animals|Objects|Places;
+I2373;Ingles;completar;She ___ house;play|plays|playing;plays;
+I2374;Ingles;arrastrar;Drag the words to the correct group;car|house|fish;Animals|Objects|Places;
+I2375;Ingles;ordenar;Order the words to make a sentence;They|like|music;They|like|music;Pista: Sujeto-verbo-objeto
+I2376;Ingles;arrastrar;Drag the words to the correct group;fish|teacher|bird;Animals|Objects|Places;
+I2377;Ingles;arrastrar;Drag the words to the correct group;dog|teacher|car;Animals|Objects|Places;
+I2378;Ingles;arrastrar;Drag the words to the correct group;car|dog|bird;Animals|Objects|Places;
+I2379;Ingles;test;Choose the correct word: I ___ football;run|runs|runing;run;
+I2380;Ingles;completar;She ___ house;sing|sings|singing;sings;
+I2381;Ingles;ordenar;Order the words to make a sentence;We|watch|a book;We|watch|a book;Pista: Sujeto-verbo-objeto
+I2382;Ingles;ordenar;Order the words to make a sentence;They|watch|school;They|watch|school;Pista: Sujeto-verbo-objeto
+I2383;Ingles;arrastrar;Drag the words to the correct group;fish|house|car;Animals|Objects|Places;
+I2384;Ingles;ordenar;Order the words to make a sentence;We|sing|car;We|sing|car;Pista: Sujeto-verbo-objeto
+I2385;Ingles;test;Choose the correct word: I ___ banana;run|runs|runing;run;
+I2386;Ingles;completar;She ___ football;write|writes|writeing;writes;
+I2387;Ingles;ordenar;Order the words to make a sentence;They|have|a dog;They|have|a dog;Pista: Sujeto-verbo-objeto
+I2388;Ingles;arrastrar;Drag the words to the correct group;dog|tree|car;Animals|Objects|Places;
+I2389;Ingles;arrastrar;Drag the words to the correct group;friend|car|tree;Animals|Objects|Places;
+I2390;Ingles;arrastrar;Drag the words to the correct group;bird|tree|teacher;Animals|Objects|Places;
+I2391;Ingles;completar;She ___ a book;sing|sings|singing;sings;
+I2392;Ingles;ordenar;Order the words to make a sentence;She|go|school;She|go|school;Pista: Sujeto-verbo-objeto
+I2393;Ingles;ordenar;Order the words to make a sentence;She|eat|music;She|eat|music;Pista: Sujeto-verbo-objeto
+I2394;Ingles;ordenar;Order the words to make a sentence;They|drink|banana;They|drink|banana;Pista: Sujeto-verbo-objeto
+I2395;Ingles;arrastrar;Drag the words to the correct group;bird|fish|house;Animals|Objects|Places;
+I2396;Ingles;arrastrar;Drag the words to the correct group;house|teacher|fish;Animals|Objects|Places;
+I2397;Ingles;arrastrar;Drag the words to the correct group;teacher|bird|cat;Animals|Objects|Places;
+I2398;Ingles;test;Choose the correct word: I ___ a dog;see|sees|seeing;see;
+I2399;Ingles;completar;She ___ car;run|runs|runing;runs;
+I2400;Ingles;ordenar;Order the words to make a sentence;We|read|house;We|read|house;Pista: Sujeto-verbo-objeto
+I2401;Ingles;ordenar;Order the words to make a sentence;They|run|water;They|run|water;Pista: Sujeto-verbo-objeto
+I2402;Ingles;ordenar;Order the words to make a sentence;We|read|a book;We|read|a book;Pista: Sujeto-verbo-objeto
+I2403;Ingles;ordenar;Order the words to make a sentence;She|sing|water;She|sing|water;Pista: Sujeto-verbo-objeto
+I2404;Ingles;arrastrar;Drag the words to the correct group;dog|friend|fish;Animals|Objects|Places;
+I2405;Ingles;arrastrar;Drag the words to the correct group;car|cat|house;Animals|Objects|Places;
+I2406;Ingles;completar;She ___ music;run|runs|runing;runs;
+I2407;Ingles;arrastrar;Drag the words to the correct group;tree|car|house;Animals|Objects|Places;
+I2408;Ingles;ordenar;Order the words to make a sentence;She|drink|house;She|drink|house;Pista: Sujeto-verbo-objeto
+I2409;Ingles;arrastrar;Drag the words to the correct group;cat|dog|house;Animals|Objects|Places;
+I2410;Ingles;ordenar;Order the words to make a sentence;He|drink|apples;He|drink|apples;Pista: Sujeto-verbo-objeto
+I2411;Ingles;ordenar;Order the words to make a sentence;They|eat|water;They|eat|water;Pista: Sujeto-verbo-objeto
+I2412;Ingles;completar;She ___ milk;sing|sings|singing;sings;
+I2413;Ingles;ordenar;Order the words to make a sentence;I|go|car;I|go|car;Pista: Sujeto-verbo-objeto
+I2414;Ingles;completar;She ___ banana;eat|eats|eating;eats;
+I2415;Ingles;test;Choose the correct word: I ___ ball;like|likes|likeing;like;
+I2416;Ingles;ordenar;Order the words to make a sentence;He|eat|car;He|eat|car;Pista: Sujeto-verbo-objeto
+I2417;Ingles;ordenar;Order the words to make a sentence;I|watch|banana;I|watch|banana;Pista: Sujeto-verbo-objeto
+I2418;Ingles;ordenar;Order the words to make a sentence;He|have|ball;He|have|ball;Pista: Sujeto-verbo-objeto
+I2419;Ingles;arrastrar;Drag the words to the correct group;fish|dog|cat;Animals|Objects|Places;
+I2420;Ingles;ordenar;Order the words to make a sentence;I|write|ball;I|write|ball;Pista: Sujeto-verbo-objeto
+I2421;Ingles;ordenar;Order the words to make a sentence;We|see|car;We|see|car;Pista: Sujeto-verbo-objeto
+I2422;Ingles;completar;She ___ cake;read|reads|reading;reads;
+I2423;Ingles;ordenar;Order the words to make a sentence;He|write|school;He|write|school;Pista: Sujeto-verbo-objeto
+I2424;Ingles;ordenar;Order the words to make a sentence;They|play|water;They|play|water;Pista: Sujeto-verbo-objeto
+I2425;Ingles;ordenar;Order the words to make a sentence;She|have|school;She|have|school;Pista: Sujeto-verbo-objeto
+I2426;Ingles;completar;She ___ ball;see|sees|seeing;sees;
+I2427;Ingles;arrastrar;Drag the words to the correct group;cat|tree|car;Animals|Objects|Places;
+I2428;Ingles;ordenar;Order the words to make a sentence;I|like|ball;I|like|ball;Pista: Sujeto-verbo-objeto
+I2429;Ingles;arrastrar;Drag the words to the correct group;bird|car|dog;Animals|Objects|Places;
+I2430;Ingles;ordenar;Order the words to make a sentence;I|watch|house;I|watch|house;Pista: Sujeto-verbo-objeto
+I2431;Ingles;completar;She ___ milk;write|writes|writeing;writes;
+I2432;Ingles;test;Choose the correct word: I ___ a dog;eat|eats|eating;eat;
+I2433;Ingles;completar;She ___ music;watch|watchs|watching;watchs;
+I2434;Ingles;test;Choose the correct word: I ___ cake;read|reads|reading;read;
+I2435;Ingles;ordenar;Order the words to make a sentence;He|play|banana;He|play|banana;Pista: Sujeto-verbo-objeto
+I2436;Ingles;test;Choose the correct word: I ___ car;go|gos|going;go;
+I2437;Ingles;ordenar;Order the words to make a sentence;We|see|water;We|see|water;Pista: Sujeto-verbo-objeto
+I2438;Ingles;arrastrar;Drag the words to the correct group;tree|fish|cat;Animals|Objects|Places;
+L3000;Lengua;completar;El niño ___ en el parque;lee|salta|lee;lee;
+L3001;Lengua;test;¿Cuál es un sustantivo?;mesa|escribe|feo;mesa;
+L3002;Lengua;ordenar;Ordena las palabras para formar una frase;El|libro|salta;El|libro|salta;
+L3003;Lengua;cual_no_encaja;¿Cuál NO es un animal?;flor|libro|mesa;mesa;
+L3004;Lengua;completar;El niño ___ en el parque;escribe|duerme|escribe;escribe;
+L3005;Lengua;ordenar;Ordena las palabras para formar una frase;El|gato|salta;El|gato|salta;
+L3006;Lengua;completar;El niño ___ en el parque;duerme|corre|come;duerme;
+L3007;Lengua;ordenar;Ordena las palabras para formar una frase;El|mesa|salta;El|mesa|salta;
+L3008;Lengua;escribir;Escribe un lugar;;escuela;
+L3009;Lengua;ordenar;Ordena las palabras para formar una frase;El|libro|corre;El|libro|corre;
+L3010;Lengua;escribir;Escribe un lugar;;casa;
+L3011;Lengua;ordenar;Ordena las palabras para formar una frase;El|mesa|corre;El|mesa|corre;
+L3012;Lengua;verdadero_falso;Los sustantivos nombran personas cosas o animales;Verdadero|Falso;Verdadero;
+L3014;Lengua;cual_no_encaja;¿Cuál NO es un animal?;casa|perro|mesa;mesa;
+L3016;Lengua;test;¿Cuál es un sustantivo?;mesa|salta|grande;mesa;
+L3017;Lengua;test;¿Cuál es un sustantivo?;casa|lee|pequeño;casa;
+L3019;Lengua;ordenar;Ordena las palabras para formar una frase;El|gato|duerme;El|gato|duerme;
+L3020;Lengua;test;¿Cuál es un sustantivo?;perro|salta|pequeño;perro;
+L3021;Lengua;escribir;Escribe un lugar;;jardín;
+L3022;Lengua;completar;El niño ___ en el parque;salta|juega|salta;salta;
+L3023;Lengua;test;¿Cuál es un sustantivo?;árbol|corre|pequeño;árbol;
+L3024;Lengua;cual_no_encaja;¿Cuál NO es un animal?;libro|árbol|mesa;mesa;
+L3027;Lengua;test;¿Cuál es un sustantivo?;libro|canta|pequeño;libro;
+L3028;Lengua;ordenar;Ordena las palabras para formar una frase;El|casa|lee;El|casa|lee;
+L3029;Lengua;ordenar;Ordena las palabras para formar una frase;El|niño|escribe;El|niño|escribe;
+L3030;Lengua;completar;El niño ___ en el parque;corre|come|duerme;corre;
+L3033;Lengua;cual_no_encaja;¿Cuál NO es un animal?;árbol|perro|mesa;mesa;
+L3034;Lengua;test;¿Cuál es un sustantivo?;niño|canta|pequeño;niño;
+L3036;Lengua;completar;El niño ___ en el parque;come|corre|canta;come;
+L3039;Lengua;cual_no_encaja;¿Cuál NO es un animal?;árbol|mesa|mesa;mesa;
+L3040;Lengua;cual_no_encaja;¿Cuál NO es un animal?;flor|casa|mesa;mesa;
+L3042;Lengua;ordenar;Ordena las palabras para formar una frase;El|casa|corre;El|casa|corre;
+L3043;Lengua;ordenar;Ordena las palabras para formar una frase;El|perro|escribe;El|perro|escribe;
+L3045;Lengua;cual_no_encaja;¿Cuál NO es un animal?;casa|gato|mesa;mesa;
+L3046;Lengua;test;¿Cuál es un sustantivo?;casa|come|bonito;casa;
+L3047;Lengua;cual_no_encaja;¿Cuál NO es un animal?;perro|libro|mesa;mesa;
+L3048;Lengua;completar;El niño ___ en el parque;canta|juega|lee;canta;
+L3049;Lengua;completar;El niño ___ en el parque;come|juega|juega;come;
+L3050;Lengua;cual_no_encaja;¿Cuál NO es un animal?;perro|flor|mesa;mesa;
+L3052;Lengua;cual_no_encaja;¿Cuál NO es un animal?;mesa|niño|mesa;mesa;
+L3053;Lengua;completar;El niño ___ en el parque;escribe|duerme|lee;escribe;
+L3055;Lengua;test;¿Cuál es un sustantivo?;gato|corre|pequeño;gato;
+L3059;Lengua;ordenar;Ordena las palabras para formar una frase;El|mesa|juega;El|mesa|juega;
+L3060;Lengua;test;¿Cuál es un sustantivo?;perro|lee|alto;perro;
+L3062;Lengua;test;¿Cuál es un sustantivo?;flor|salta|bonito;flor;
+L3064;Lengua;cual_no_encaja;¿Cuál NO es un animal?;gato|mesa|mesa;mesa;
+L3065;Lengua;ordenar;Ordena las palabras para formar una frase;El|flor|lee;El|flor|lee;
+L3066;Lengua;completar;El niño ___ en el parque;canta|escribe|juega;canta;
+L3067;Lengua;completar;El niño ___ en el parque;juega|come|lee;juega;
+L3069;Lengua;ordenar;Ordena las palabras para formar una frase;El|niño|lee;El|niño|lee;
+L3070;Lengua;completar;El niño ___ en el parque;corre|canta|corre;corre;
+L3071;Lengua;completar;El niño ___ en el parque;juega|come|salta;juega;
+L3073;Lengua;completar;El niño ___ en el parque;juega|salta|come;juega;
+L3075;Lengua;escribir;Escribe un lugar;;parque;
+L3078;Lengua;test;¿Cuál es un sustantivo?;niño|come|pequeño;niño;
+L3080;Lengua;ordenar;Ordena las palabras para formar una frase;El|niño|salta;El|niño|salta;
+L3082;Lengua;test;¿Cuál es un sustantivo?;libro|escribe|bajo;libro;
+L3084;Lengua;completar;El niño ___ en el parque;canta|escribe|canta;canta;
+L3089;Lengua;test;¿Cuál es un sustantivo?;perro|duerme|grande;perro;
+L3091;Lengua;test;¿Cuál es un sustantivo?;flor|lee|feo;flor;
+L3092;Lengua;completar;El niño ___ en el parque;salta|salta|juega;salta;
+L3093;Lengua;cual_no_encaja;¿Cuál NO es un animal?;árbol|flor|mesa;mesa;
+L3094;Lengua;test;¿Cuál es un sustantivo?;libro|lee|alto;libro;
+L3096;Lengua;completar;El niño ___ en el parque;corre|salta|juega;corre;
+L3097;Lengua;completar;El niño ___ en el parque;come|canta|duerme;come;
+L3099;Lengua;ordenar;Ordena las palabras para formar una frase;El|casa|salta;El|casa|salta;
+L3100;Lengua;test;¿Cuál es un sustantivo?;libro|escribe|pequeño;libro;
+L3101;Lengua;test;¿Cuál es un sustantivo?;flor|corre|feo;flor;
+L3102;Lengua;test;¿Cuál es un sustantivo?;niño|escribe|pequeño;niño;
+L3103;Lengua;test;¿Cuál es un sustantivo?;perro|come|pequeño;perro;
+L3105;Lengua;test;¿Cuál es un sustantivo?;árbol|salta|bonito;árbol;
+L3110;Lengua;test;¿Cuál es un sustantivo?;libro|lee|bonito;libro;
+L3112;Lengua;ordenar;Ordena las palabras para formar una frase;El|mesa|escribe;El|mesa|escribe;
+L3113;Lengua;test;¿Cuál es un sustantivo?;niño|escribe|feo;niño;
+L3114;Lengua;ordenar;Ordena las palabras para formar una frase;El|casa|duerme;El|casa|duerme;
+L3115;Lengua;cual_no_encaja;¿Cuál NO es un animal?;perro|gato|mesa;mesa;
+L3117;Lengua;test;¿Cuál es un sustantivo?;flor|canta|alto;flor;
+L3118;Lengua;completar;El niño ___ en el parque;corre|canta|canta;corre;
+L3119;Lengua;cual_no_encaja;¿Cuál NO es un animal?;árbol|niño|mesa;mesa;
+L3120;Lengua;completar;El niño ___ en el parque;escribe|duerme|salta;escribe;
+L3123;Lengua;cual_no_encaja;¿Cuál NO es un animal?;mesa|perro|mesa;mesa;
+L3125;Lengua;completar;El niño ___ en el parque;lee|come|come;lee;
+L3126;Lengua;completar;El niño ___ en el parque;corre|canta|salta;corre;
+L3128;Lengua;completar;El niño ___ en el parque;lee|duerme|juega;lee;
+L3130;Lengua;test;¿Cuál es un sustantivo?;libro|canta|alto;libro;
+L3132;Lengua;test;¿Cuál es un sustantivo?;libro|salta|feo;libro;
+L3133;Lengua;completar;El niño ___ en el parque;lee|salta|salta;lee;
+L3134;Lengua;cual_no_encaja;¿Cuál NO es un animal?;gato|libro|mesa;mesa;
+L3135;Lengua;ordenar;Ordena las palabras para formar una frase;El|flor|canta;El|flor|canta;
+L3136;Lengua;ordenar;Ordena las palabras para formar una frase;El|libro|escribe;El|libro|escribe;
+L3138;Lengua;completar;El niño ___ en el parque;duerme|canta|lee;duerme;
+L3139;Lengua;cual_no_encaja;¿Cuál NO es un animal?;libro|perro|mesa;mesa;
+L3143;Lengua;ordenar;Ordena las palabras para formar una frase;El|flor|corre;El|flor|corre;
+L3144;Lengua;ordenar;Ordena las palabras para formar una frase;El|niño|duerme;El|niño|duerme;
+L3145;Lengua;ordenar;Ordena las palabras para formar una frase;El|árbol|salta;El|árbol|salta;
+L3146;Lengua;completar;El niño ___ en el parque;lee|duerme|escribe;lee;
+L3147;Lengua;ordenar;Ordena las palabras para formar una frase;El|niño|canta;El|niño|canta;
+L3148;Lengua;cual_no_encaja;¿Cuál NO es un animal?;gato|árbol|mesa;mesa;
+L3151;Lengua;test;¿Cuál es un sustantivo?;mesa|salta|bonito;mesa;
+L3153;Lengua;completar;El niño ___ en el parque;corre|lee|come;corre;
+L3154;Lengua;completar;El niño ___ en el parque;corre|come|corre;corre;
+L3156;Lengua;test;¿Cuál es un sustantivo?;flor|come|bonito;flor;
+L3157;Lengua;ordenar;Ordena las palabras para formar una frase;El|árbol|canta;El|árbol|canta;
+L3160;Lengua;completar;El niño ___ en el parque;juega|escribe|escribe;juega;
+L3161;Lengua;completar;El niño ___ en el parque;escribe|juega|juega;escribe;
+L3162;Lengua;completar;El niño ___ en el parque;duerme|salta|duerme;duerme;
+L3163;Lengua;test;¿Cuál es un sustantivo?;libro|corre|pequeño;libro;
+L3164;Lengua;cual_no_encaja;¿Cuál NO es un animal?;casa|libro|mesa;mesa;
+L3165;Lengua;completar;El niño ___ en el parque;come|come|duerme;come;
+L3170;Lengua;completar;El niño ___ en el parque;lee|corre|come;lee;
+L3174;Lengua;ordenar;Ordena las palabras para formar una frase;El|árbol|duerme;El|árbol|duerme;
+L3175;Lengua;completar;El niño ___ en el parque;escribe|duerme|canta;escribe;
+L3176;Lengua;cual_no_encaja;¿Cuál NO es un animal?;gato|perro|mesa;mesa;
+L3177;Lengua;cual_no_encaja;¿Cuál NO es un animal?;flor|niño|mesa;mesa;
+L3179;Lengua;ordenar;Ordena las palabras para formar una frase;El|gato|escribe;El|gato|escribe;
+L3180;Lengua;test;¿Cuál es un sustantivo?;flor|duerme|bajo;flor;
+L3183;Lengua;completar;El niño ___ en el parque;lee|come|corre;lee;
+L3184;Lengua;cual_no_encaja;¿Cuál NO es un animal?;libro|flor|mesa;mesa;
+L3191;Lengua;cual_no_encaja;¿Cuál NO es un animal?;casa|mesa|mesa;mesa;
+L3195;Lengua;cual_no_encaja;¿Cuál NO es un animal?;niño|libro|mesa;mesa;
+L3196;Lengua;completar;El niño ___ en el parque;lee|duerme|salta;lee;
+L3198;Lengua;completar;El niño ___ en el parque;duerme|lee|juega;duerme;
+L3200;Lengua;completar;El niño ___ en el parque;juega|come|duerme;juega;
+L3202;Lengua;ordenar;Ordena las palabras para formar una frase;El|flor|duerme;El|flor|duerme;
+L3203;Lengua;cual_no_encaja;¿Cuál NO es un animal?;niño|casa|mesa;mesa;
+L3204;Lengua;test;¿Cuál es un sustantivo?;árbol|corre|bajo;árbol;
+L3205;Lengua;cual_no_encaja;¿Cuál NO es un animal?;gato|casa|mesa;mesa;
+L3206;Lengua;completar;El niño ___ en el parque;salta|canta|duerme;salta;
+L3208;Lengua;test;¿Cuál es un sustantivo?;mesa|lee|pequeño;mesa;
+L3210;Lengua;completar;El niño ___ en el parque;juega|lee|salta;juega;
+L3214;Lengua;test;¿Cuál es un sustantivo?;árbol|duerme|pequeño;árbol;
+L3215;Lengua;completar;El niño ___ en el parque;lee|escribe|salta;lee;
+L3216;Lengua;completar;El niño ___ en el parque;canta|canta|canta;canta;
+L3220;Lengua;test;¿Cuál es un sustantivo?;perro|come|bajo;perro;
+L3221;Lengua;ordenar;Ordena las palabras para formar una frase;El|perro|juega;El|perro|juega;
+L3225;Lengua;completar;El niño ___ en el parque;juega|duerme|lee;juega;
+L3226;Lengua;test;¿Cuál es un sustantivo?;libro|duerme|pequeño;libro;
+L3227;Lengua;test;¿Cuál es un sustantivo?;perro|duerme|bonito;perro;
+L3232;Lengua;ordenar;Ordena las palabras para formar una frase;El|árbol|juega;El|árbol|juega;
+L3233;Lengua;completar;El niño ___ en el parque;lee|canta|corre;lee;
+L3234;Lengua;completar;El niño ___ en el parque;come|lee|come;come;
+L3237;Lengua;ordenar;Ordena las palabras para formar una frase;El|perro|canta;El|perro|canta;
+L3239;Lengua;cual_no_encaja;¿Cuál NO es un animal?;perro|niño|mesa;mesa;
+L3240;Lengua;test;¿Cuál es un sustantivo?;gato|corre|grande;gato;
+L3245;Lengua;test;¿Cuál es un sustantivo?;niño|escribe|bajo;niño;
+L3246;Lengua;completar;El niño ___ en el parque;come|corre|duerme;come;
+L3250;Lengua;cual_no_encaja;¿Cuál NO es un animal?;mesa|casa|mesa;mesa;
+L3251;Lengua;test;¿Cuál es un sustantivo?;gato|duerme|grande;gato;
+L3252;Lengua;test;¿Cuál es un sustantivo?;árbol|come|alto;árbol;
+L3253;Lengua;completar;El niño ___ en el parque;duerme|come|juega;duerme;
+L3256;Lengua;cual_no_encaja;¿Cuál NO es un animal?;árbol|gato|mesa;mesa;
+L3259;Lengua;test;¿Cuál es un sustantivo?;gato|salta|alto;gato;
+L3261;Lengua;completar;El niño ___ en el parque;salta|salta|salta;salta;
+L3262;Lengua;ordenar;Ordena las palabras para formar una frase;El|casa|escribe;El|casa|escribe;
+L3264;Lengua;test;¿Cuál es un sustantivo?;gato|lee|grande;gato;
+L3265;Lengua;ordenar;Ordena las palabras para formar una frase;El|flor|juega;El|flor|juega;
+L3268;Lengua;test;¿Cuál es un sustantivo?;perro|corre|pequeño;perro;
+L3270;Lengua;ordenar;Ordena las palabras para formar una frase;El|flor|escribe;El|flor|escribe;
+L3271;Lengua;cual_no_encaja;¿Cuál NO es un animal?;niño|flor|mesa;mesa;
+L3272;Lengua;test;¿Cuál es un sustantivo?;flor|juega|pequeño;flor;
+L3273;Lengua;test;¿Cuál es un sustantivo?;libro|canta|feo;libro;
+L3277;Lengua;test;¿Cuál es un sustantivo?;mesa|corre|pequeño;mesa;
+L3278;Lengua;test;¿Cuál es un sustantivo?;libro|escribe|alto;libro;
+L3280;Lengua;completar;El niño ___ en el parque;canta|juega|corre;canta;
+L3284;Lengua;test;¿Cuál es un sustantivo?;libro|escribe|grande;libro;
+L3285;Lengua;test;¿Cuál es un sustantivo?;niño|juega|grande;niño;
+L3291;Lengua;ordenar;Ordena las palabras para formar una frase;El|libro|lee;El|libro|lee;
+L3292;Lengua;cual_no_encaja;¿Cuál NO es un animal?;perro|árbol|mesa;mesa;
+L3294;Lengua;cual_no_encaja;¿Cuál NO es un animal?;árbol|libro|mesa;mesa;
+L3296;Lengua;completar;El niño ___ en el parque;salta|escribe|juega;salta;
+L3297;Lengua;completar;El niño ___ en el parque;juega|duerme|corre;juega;
+L3298;Lengua;cual_no_encaja;¿Cuál NO es un animal?;casa|niño|mesa;mesa;
+L3301;Lengua;completar;El niño ___ en el parque;salta|escribe|escribe;salta;
+L3307;Lengua;test;¿Cuál es un sustantivo?;libro|canta|grande;libro;
+L3309;Lengua;test;¿Cuál es un sustantivo?;niño|come|bajo;niño;
+L3312;Lengua;completar;El niño ___ en el parque;escribe|juega|escribe;escribe;
+L3315;Lengua;test;¿Cuál es un sustantivo?;gato|come|grande;gato;
+L3317;Lengua;cual_no_encaja;¿Cuál NO es un animal?;flor|árbol|mesa;mesa;
+L3318;Lengua;test;¿Cuál es un sustantivo?;perro|lee|feo;perro;
+L3319;Lengua;completar;El niño ___ en el parque;canta|salta|duerme;canta;
+L3321;Lengua;test;¿Cuál es un sustantivo?;libro|come|feo;libro;
+L3322;Lengua;completar;El niño ___ en el parque;juega|salta|canta;juega;
+L3323;Lengua;test;¿Cuál es un sustantivo?;gato|escribe|feo;gato;
+L3326;Lengua;test;¿Cuál es un sustantivo?;perro|canta|alto;perro;
+L3328;Lengua;cual_no_encaja;¿Cuál NO es un animal?;mesa|flor|mesa;mesa;
+L3330;Lengua;completar;El niño ___ en el parque;salta|canta|juega;salta;
+L3331;Lengua;cual_no_encaja;¿Cuál NO es un animal?;libro|casa|mesa;mesa;
+L3335;Lengua;completar;El niño ___ en el parque;lee|canta|duerme;lee;
+L3338;Lengua;completar;El niño ___ en el parque;come|duerme|juega;come;
+L3342;Lengua;test;¿Cuál es un sustantivo?;flor|escribe|alto;flor;
+L3346;Lengua;test;¿Cuál es un sustantivo?;gato|corre|feo;gato;
+L3347;Lengua;completar;El niño ___ en el parque;corre|corre|come;corre;
+L3348;Lengua;ordenar;Ordena las palabras para formar una frase;El|mesa|duerme;El|mesa|duerme;
+L3350;Lengua;completar;El niño ___ en el parque;corre|duerme|come;corre;
+L3351;Lengua;cual_no_encaja;¿Cuál NO es un animal?;perro|mesa|mesa;mesa;
+L3353;Lengua;test;¿Cuál es un sustantivo?;casa|canta|pequeño;casa;
+L3362;Lengua;completar;El niño ___ en el parque;escribe|come|juega;escribe;
+L3365;Lengua;ordenar;Ordena las palabras para formar una frase;El|árbol|lee;El|árbol|lee;
+L3367;Lengua;completar;El niño ___ en el parque;lee|salta|canta;lee;
+L3368;Lengua;test;¿Cuál es un sustantivo?;libro|duerme|alto;libro;
+L3369;Lengua;ordenar;Ordena las palabras para formar una frase;El|mesa|lee;El|mesa|lee;
+L3370;Lengua;cual_no_encaja;¿Cuál NO es un animal?;niño|perro|mesa;mesa;
+L3372;Lengua;test;¿Cuál es un sustantivo?;mesa|juega|alto;mesa;
+L3373;Lengua;test;¿Cuál es un sustantivo?;niño|escribe|alto;niño;
+L3374;Lengua;cual_no_encaja;¿Cuál NO es un animal?;flor|perro|mesa;mesa;
+L3380;Lengua;ordenar;Ordena las palabras para formar una frase;El|casa|come;El|casa|come;
+L3383;Lengua;completar;El niño ___ en el parque;escribe|corre|salta;escribe;
+L3386;Lengua;completar;El niño ___ en el parque;come|corre|juega;come;
+L3390;Lengua;test;¿Cuál es un sustantivo?;flor|escribe|feo;flor;
+L3391;Lengua;test;¿Cuál es un sustantivo?;niño|come|bonito;niño;
+L3393;Lengua;completar;El niño ___ en el parque;corre|salta|come;corre;
+L3396;Lengua;test;¿Cuál es un sustantivo?;casa|canta|bajo;casa;
+L3397;Lengua;test;¿Cuál es un sustantivo?;mesa|corre|feo;mesa;
+L3399;Lengua;test;¿Cuál es un sustantivo?;gato|salta|grande;gato;
+L3400;Lengua;completar;El niño ___ en el parque;duerme|salta|come;duerme;
+L3401;Lengua;ordenar;Ordena las palabras para formar una frase;El|libro|canta;El|libro|canta;
+L3419;Lengua;completar;El niño ___ en el parque;come|lee|canta;come;
+L3421;Lengua;completar;El niño ___ en el parque;duerme|juega|corre;duerme;
+L3425;Lengua;completar;El niño ___ en el parque;juega|come|canta;juega;
+L3427;Lengua;completar;El niño ___ en el parque;lee|come|duerme;lee;
+L3428;Lengua;completar;El niño ___ en el parque;salta|lee|corre;salta;
+L3432;Lengua;ordenar;Ordena las palabras para formar una frase;El|gato|come;El|gato|come;
+L3436;Lengua;test;¿Cuál es un sustantivo?;niño|salta|pequeño;niño;
+L3437;Lengua;ordenar;Ordena las palabras para formar una frase;El|árbol|escribe;El|árbol|escribe;
+L3441;Lengua;test;¿Cuál es un sustantivo?;flor|come|pequeño;flor;
+L3451;Lengua;ordenar;Ordena las palabras para formar una frase;El|mesa|come;El|mesa|come;
+L3454;Lengua;completar;El niño ___ en el parque;corre|duerme|escribe;corre;
+L3456;Lengua;ordenar;Ordena las palabras para formar una frase;El|libro|come;El|libro|come;
+L3457;Lengua;cual_no_encaja;¿Cuál NO es un animal?;niño|gato|mesa;mesa;
+L3460;Lengua;ordenar;Ordena las palabras para formar una frase;El|perro|come;El|perro|come;
+L3461;Lengua;cual_no_encaja;¿Cuál NO es un animal?;mesa|libro|mesa;mesa;
+L3463;Lengua;completar;El niño ___ en el parque;lee|lee|escribe;lee;
+L3466;Lengua;completar;El niño ___ en el parque;salta|duerme|juega;salta;
+L3467;Lengua;completar;El niño ___ en el parque;corre|come|juega;corre;
+L3471;Lengua;test;¿Cuál es un sustantivo?;perro|juega|grande;perro;
+L3478;Lengua;completar;El niño ___ en el parque;canta|juega|juega;canta;
+L3482;Lengua;completar;El niño ___ en el parque;escribe|lee|come;escribe;
+L3484;Lengua;completar;El niño ___ en el parque;lee|juega|salta;lee;
+L3491;Lengua;completar;El niño ___ en el parque;corre|lee|lee;corre;
+L3492;Lengua;completar;El niño ___ en el parque;corre|lee|corre;corre;
+L3493;Lengua;completar;El niño ___ en el parque;duerme|lee|canta;duerme;
+L3496;Lengua;test;¿Cuál es un sustantivo?;casa|escribe|alto;casa;
+L3499;Lengua;completar;El niño ___ en el parque;come|canta|lee;come;
+L3502;Lengua;completar;El niño ___ en el parque;juega|escribe|salta;juega;
+L3503;Lengua;completar;El niño ___ en el parque;canta|canta|lee;canta;
+L3504;Lengua;test;¿Cuál es un sustantivo?;perro|come|alto;perro;
+L3506;Lengua;completar;El niño ___ en el parque;salta|lee|escribe;salta;
+L3513;Lengua;cual_no_encaja;¿Cuál NO es un animal?;libro|mesa|mesa;mesa;
+L3516;Lengua;ordenar;Ordena las palabras para formar una frase;El|gato|canta;El|gato|canta;
+L3517;Lengua;completar;El niño ___ en el parque;duerme|escribe|come;duerme;
+L3518;Lengua;test;¿Cuál es un sustantivo?;niño|canta|bonito;niño;
+L3519;Lengua;completar;El niño ___ en el parque;corre|corre|salta;corre;
+L3520;Lengua;cual_no_encaja;¿Cuál NO es un animal?;perro|casa|mesa;mesa;
+L3524;Lengua;ordenar;Ordena las palabras para formar una frase;El|gato|lee;El|gato|lee;
+L3527;Lengua;ordenar;Ordena las palabras para formar una frase;El|libro|juega;El|libro|juega;
+L3530;Lengua;completar;El niño ___ en el parque;canta|escribe|lee;canta;
+L3538;Lengua;test;¿Cuál es un sustantivo?;casa|canta|bonito;casa;
+L3542;Lengua;test;¿Cuál es un sustantivo?;mesa|escribe|alto;mesa;
+L3544;Lengua;test;¿Cuál es un sustantivo?;gato|duerme|pequeño;gato;
+L3545;Lengua;ordenar;Ordena las palabras para formar una frase;El|gato|corre;El|gato|corre;
+L3550;Lengua;completar;El niño ___ en el parque;escribe|escribe|corre;escribe;
+L3551;Lengua;completar;El niño ___ en el parque;duerme|come|corre;duerme;
+L3553;Lengua;completar;El niño ___ en el parque;corre|juega|come;corre;
+L3555;Lengua;completar;El niño ___ en el parque;salta|duerme|canta;salta;
+L3564;Lengua;completar;El niño ___ en el parque;canta|salta|salta;canta;
+L3565;Lengua;cual_no_encaja;¿Cuál NO es un animal?;niño|mesa|mesa;mesa;
+L3566;Lengua;test;¿Cuál es un sustantivo?;niño|duerme|bajo;niño;
+L3572;Lengua;test;¿Cuál es un sustantivo?;niño|salta|feo;niño;
+L3578;Lengua;test;¿Cuál es un sustantivo?;libro|juega|grande;libro;
+L3580;Lengua;ordenar;Ordena las palabras para formar una frase;El|flor|come;El|flor|come;
+L3585;Lengua;completar;El niño ___ en el parque;come|duerme|come;come;
+L3586;Lengua;completar;El niño ___ en el parque;come|come|juega;come;
+L3594;Lengua;completar;El niño ___ en el parque;duerme|canta|come;duerme;
+L3600;Lengua;test;¿Cuál es un sustantivo?;árbol|juega|bajo;árbol;
+L3601;Lengua;test;¿Cuál es un sustantivo?;perro|come|feo;perro;
+L3613;Lengua;test;¿Cuál es un sustantivo?;niño|come|alto;niño;
+L3617;Lengua;test;¿Cuál es un sustantivo?;mesa|canta|feo;mesa;
+L3618;Lengua;completar;El niño ___ en el parque;juega|escribe|duerme;juega;
+L3626;Lengua;test;¿Cuál es un sustantivo?;libro|salta|bonito;libro;
+L3632;Lengua;test;¿Cuál es un sustantivo?;libro|duerme|feo;libro;
+L3634;Lengua;completar;El niño ___ en el parque;juega|canta|canta;juega;
+L3635;Lengua;test;¿Cuál es un sustantivo?;gato|lee|bonito;gato;
+L3636;Lengua;completar;El niño ___ en el parque;juega|juega|duerme;juega;
+L3641;Lengua;completar;El niño ___ en el parque;lee|corre|lee;lee;
+L3645;Lengua;completar;El niño ___ en el parque;lee|canta|salta;lee;
+L3646;Lengua;test;¿Cuál es un sustantivo?;gato|escribe|alto;gato;
+L3648;Lengua;test;¿Cuál es un sustantivo?;gato|duerme|alto;gato;
+L3650;Lengua;completar;El niño ___ en el parque;come|duerme|escribe;come;
+L3652;Lengua;completar;El niño ___ en el parque;lee|corre|corre;lee;
+L3655;Lengua;cual_no_encaja;¿Cuál NO es un animal?;niño|árbol|mesa;mesa;
+L3657;Lengua;completar;El niño ___ en el parque;lee|escribe|canta;lee;
+L3661;Lengua;test;¿Cuál es un sustantivo?;árbol|duerme|bonito;árbol;
+L3664;Lengua;test;¿Cuál es un sustantivo?;perro|lee|bonito;perro;
+L3665;Lengua;ordenar;Ordena las palabras para formar una frase;El|árbol|corre;El|árbol|corre;
+L3670;Lengua;cual_no_encaja;¿Cuál NO es un animal?;flor|gato|mesa;mesa;
+L3673;Lengua;completar;El niño ___ en el parque;lee|canta|canta;lee;
+L3674;Lengua;completar;El niño ___ en el parque;duerme|salta|canta;duerme;
+L3679;Lengua;completar;El niño ___ en el parque;salta|lee|lee;salta;
+L3683;Lengua;completar;El niño ___ en el parque;juega|corre|lee;juega;
+L3684;Lengua;test;¿Cuál es un sustantivo?;perro|lee|grande;perro;
+L3690;Lengua;completar;El niño ___ en el parque;juega|canta|duerme;juega;
+L3694;Lengua;test;¿Cuál es un sustantivo?;niño|canta|grande;niño;
+L3696;Lengua;completar;El niño ___ en el parque;duerme|canta|corre;duerme;
+L3697;Lengua;test;¿Cuál es un sustantivo?;casa|canta|feo;casa;
+L3698;Lengua;completar;El niño ___ en el parque;corre|come|escribe;corre;
+L3700;Lengua;cual_no_encaja;¿Cuál NO es un animal?;casa|árbol|mesa;mesa;
+L3706;Lengua;completar;El niño ___ en el parque;juega|corre|come;juega;
+L3708;Lengua;test;¿Cuál es un sustantivo?;mesa|duerme|alto;mesa;
+L3709;Lengua;test;¿Cuál es un sustantivo?;libro|come|grande;libro;
+L3710;Lengua;test;¿Cuál es un sustantivo?;árbol|lee|bonito;árbol;
+L3711;Lengua;test;¿Cuál es un sustantivo?;casa|lee|feo;casa;
+L3712;Lengua;test;¿Cuál es un sustantivo?;flor|corre|grande;flor;
+L3718;Lengua;test;¿Cuál es un sustantivo?;libro|juega|bajo;libro;
+L3719;Lengua;completar;El niño ___ en el parque;duerme|corre|escribe;duerme;
+L3723;Lengua;completar;El niño ___ en el parque;lee|juega|juega;lee;
+L3727;Lengua;ordenar;Ordena las palabras para formar una frase;El|niño|juega;El|niño|juega;
+L3729;Lengua;test;¿Cuál es un sustantivo?;libro|lee|grande;libro;
+L3734;Lengua;completar;El niño ___ en el parque;escribe|lee|duerme;escribe;
+L3738;Lengua;test;¿Cuál es un sustantivo?;árbol|come|grande;árbol;
+L3742;Lengua;test;¿Cuál es un sustantivo?;casa|escribe|grande;casa;
+L3749;Lengua;completar;El niño ___ en el parque;salta|salta|come;salta;
+L3750;Lengua;cual_no_encaja;¿Cuál NO es un animal?;libro|gato|mesa;mesa;
+L3756;Lengua;test;¿Cuál es un sustantivo?;mesa|lee|alto;mesa;
+L3769;Lengua;test;¿Cuál es un sustantivo?;perro|duerme|alto;perro;
+L3770;Lengua;test;¿Cuál es un sustantivo?;mesa|duerme|grande;mesa;
+L3772;Lengua;ordenar;Ordena las palabras para formar una frase;El|perro|duerme;El|perro|duerme;
+L3774;Lengua;test;¿Cuál es un sustantivo?;árbol|juega|pequeño;árbol;
+L3775;Lengua;completar;El niño ___ en el parque;duerme|juega|come;duerme;
+L3776;Lengua;completar;El niño ___ en el parque;duerme|duerme|salta;duerme;
+L3777;Lengua;cual_no_encaja;¿Cuál NO es un animal?;libro|niño|mesa;mesa;
+L3778;Lengua;completar;El niño ___ en el parque;salta|juega|escribe;salta;
+L3779;Lengua;completar;El niño ___ en el parque;escribe|salta|duerme;escribe;
+L3780;Lengua;test;¿Cuál es un sustantivo?;libro|salta|grande;libro;
+L3783;Lengua;test;¿Cuál es un sustantivo?;casa|corre|bajo;casa;
+L3785;Lengua;test;¿Cuál es un sustantivo?;niño|corre|bonito;niño;
+L3786;Lengua;cual_no_encaja;¿Cuál NO es un animal?;mesa|árbol|mesa;mesa;
+L3792;Lengua;completar;El niño ___ en el parque;juega|salta|escribe;juega;
+L3798;Lengua;completar;El niño ___ en el parque;escribe|come|escribe;escribe;
+L3804;Lengua;test;¿Cuál es un sustantivo?;libro|canta|bonito;libro;
+L3805;Lengua;ordenar;Ordena las palabras para formar una frase;El|casa|juega;El|casa|juega;
+L3807;Lengua;completar;El niño ___ en el parque;juega|escribe|lee;juega;
+L3809;Lengua;test;¿Cuál es un sustantivo?;casa|come|bajo;casa;
+L3812;Lengua;completar;El niño ___ en el parque;duerme|corre|juega;duerme;
+L3815;Lengua;test;¿Cuál es un sustantivo?;flor|come|bajo;flor;
+L3825;Lengua;test;¿Cuál es un sustantivo?;árbol|corre|grande;árbol;
+L3829;Lengua;test;¿Cuál es un sustantivo?;perro|duerme|bajo;perro;
+L3831;Lengua;completar;El niño ___ en el parque;canta|salta|juega;canta;
+L3834;Lengua;completar;El niño ___ en el parque;escribe|corre|corre;escribe;
+L3835;Lengua;completar;El niño ___ en el parque;duerme|juega|escribe;duerme;
+L3838;Lengua;test;¿Cuál es un sustantivo?;flor|juega|bonito;flor;
+L3840;Lengua;completar;El niño ___ en el parque;duerme|corre|duerme;duerme;
+L3847;Lengua;cual_no_encaja;¿Cuál NO es un animal?;mesa|gato|mesa;mesa;
+L3856;Lengua;completar;El niño ___ en el parque;come|salta|lee;come;
+L3861;Lengua;completar;El niño ___ en el parque;escribe|juega|lee;escribe;
+L3866;Lengua;test;¿Cuál es un sustantivo?;libro|corre|bonito;libro;
+L3868;Lengua;completar;El niño ___ en el parque;come|come|salta;come;
+L3869;Lengua;completar;El niño ___ en el parque;escribe|escribe|juega;escribe;
+L3871;Lengua;completar;El niño ___ en el parque;canta|canta|corre;canta;
+L3880;Lengua;completar;El niño ___ en el parque;canta|duerme|corre;canta;
+L3884;Lengua;test;¿Cuál es un sustantivo?;gato|lee|alto;gato;
+L3890;Lengua;test;¿Cuál es un sustantivo?;niño|juega|bajo;niño;
+L3893;Lengua;test;¿Cuál es un sustantivo?;gato|escribe|bajo;gato;
+L3898;Lengua;completar;El niño ___ en el parque;juega|lee|lee;juega;
+L3899;Lengua;completar;El niño ___ en el parque;lee|corre|canta;lee;
+L3903;Lengua;test;¿Cuál es un sustantivo?;árbol|escribe|feo;árbol;
+L3906;Lengua;completar;El niño ___ en el parque;come|escribe|escribe;come;
+L3911;Lengua;completar;El niño ___ en el parque;lee|corre|juega;lee;
+L3912;Lengua;test;¿Cuál es un sustantivo?;mesa|corre|bajo;mesa;
+L3914;Lengua;test;¿Cuál es un sustantivo?;perro|salta|feo;perro;
+L3915;Lengua;completar;El niño ___ en el parque;lee|duerme|lee;lee;
+L3918;Lengua;test;¿Cuál es un sustantivo?;gato|duerme|bonito;gato;
+L3925;Lengua;completar;El niño ___ en el parque;come|corre|salta;come;
+L3929;Lengua;cual_no_encaja;¿Cuál NO es un animal?;flor|mesa|mesa;mesa;
+L3939;Lengua;test;¿Cuál es un sustantivo?;flor|juega|alto;flor;
+L3941;Lengua;test;¿Cuál es un sustantivo?;casa|duerme|bonito;casa;
+L3942;Lengua;test;¿Cuál es un sustantivo?;niño|duerme|alto;niño;
+L3944;Lengua;test;¿Cuál es un sustantivo?;gato|juega|bonito;gato;
+L3950;Lengua;test;¿Cuál es un sustantivo?;mesa|escribe|pequeño;mesa;
+L3969;Lengua;completar;El niño ___ en el parque;duerme|lee|salta;duerme;
+L3971;Lengua;test;¿Cuál es un sustantivo?;árbol|corre|feo;árbol;
+L3980;Lengua;test;¿Cuál es un sustantivo?;niño|corre|bajo;niño;
+L3985;Lengua;completar;El niño ___ en el parque;juega|come|come;juega;
+L3996;Lengua;test;¿Cuál es un sustantivo?;niño|juega|alto;niño;
+L4000;Lengua;test;¿Cuál es un sustantivo?;libro|corre|grande;libro;
+L4003;Lengua;completar;El niño ___ en el parque;escribe|juega|duerme;escribe;
+L4008;Lengua;test;¿Cuál es un sustantivo?;árbol|duerme|bajo;árbol;
+L4011;Lengua;completar;El niño ___ en el parque;come|lee|duerme;come;
+L4015;Lengua;test;¿Cuál es un sustantivo?;gato|escribe|grande;gato;
+L4017;Lengua;completar;El niño ___ en el parque;duerme|juega|lee;duerme;
+L4021;Lengua;cual_no_encaja;¿Cuál NO es un animal?;árbol|casa|mesa;mesa;
+L4024;Lengua;completar;El niño ___ en el parque;escribe|canta|salta;escribe;
+L4025;Lengua;ordenar;Ordena las palabras para formar una frase;El|casa|canta;El|casa|canta;
+L4029;Lengua;completar;El niño ___ en el parque;salta|escribe|salta;salta;
+L4033;Lengua;completar;El niño ___ en el parque;duerme|canta|salta;duerme;
+L4034;Lengua;cual_no_encaja;¿Cuál NO es un animal?;gato|flor|mesa;mesa;
+L4038;Lengua;test;¿Cuál es un sustantivo?;casa|lee|alto;casa;
+L4040;Lengua;completar;El niño ___ en el parque;lee|escribe|duerme;lee;
+L4043;Lengua;completar;El niño ___ en el parque;juega|duerme|duerme;juega;
+L4046;Lengua;test;¿Cuál es un sustantivo?;perro|canta|pequeño;perro;
+L4050;Lengua;test;¿Cuál es un sustantivo?;niño|corre|pequeño;niño;
+L4058;Lengua;cual_no_encaja;¿Cuál NO es un animal?;casa|flor|mesa;mesa;
+L4066;Lengua;completar;El niño ___ en el parque;salta|lee|canta;salta;
+L4081;Lengua;test;¿Cuál es un sustantivo?;árbol|juega|grande;árbol;
+L4083;Lengua;test;¿Cuál es un sustantivo?;mesa|duerme|feo;mesa;
+L4084;Lengua;cual_no_encaja;¿Cuál NO es un animal?;gato|niño|mesa;mesa;
+L4096;Lengua;completar;El niño ___ en el parque;corre|duerme|duerme;corre;
+L4097;Lengua;test;¿Cuál es un sustantivo?;árbol|lee|alto;árbol;
+L4102;Lengua;ordenar;Ordena las palabras para formar una frase;El|niño|corre;El|niño|corre;
+L4110;Lengua;completar;El niño ___ en el parque;corre|juega|salta;corre;
+L4119;Lengua;ordenar;Ordena las palabras para formar una frase;El|árbol|come;El|árbol|come;
+L4123;Lengua;ordenar;Ordena las palabras para formar una frase;El|mesa|canta;El|mesa|canta;
+L4136;Lengua;ordenar;Ordena las palabras para formar una frase;El|perro|corre;El|perro|corre;
+L4137;Lengua;test;¿Cuál es un sustantivo?;perro|canta|grande;perro;
+L4142;Lengua;test;¿Cuál es un sustantivo?;gato|corre|alto;gato;
+L4145;Lengua;test;¿Cuál es un sustantivo?;gato|lee|feo;gato;
+L4147;Lengua;test;¿Cuál es un sustantivo?;mesa|duerme|bonito;mesa;
+L4159;Lengua;completar;El niño ___ en el parque;escribe|salta|lee;escribe;
+L4163;Lengua;test;¿Cuál es un sustantivo?;perro|salta|grande;perro;
+L4166;Lengua;test;¿Cuál es un sustantivo?;árbol|lee|bajo;árbol;
+L4180;Lengua;test;¿Cuál es un sustantivo?;flor|juega|bajo;flor;
+L4183;Lengua;ordenar;Ordena las palabras para formar una frase;El|flor|salta;El|flor|salta;
+L4191;Lengua;test;¿Cuál es un sustantivo?;árbol|come|pequeño;árbol;
+L4199;Lengua;test;¿Cuál es un sustantivo?;casa|escribe|bajo;casa;
+L4202;Lengua;test;¿Cuál es un sustantivo?;mesa|escribe|bajo;mesa;
+L4205;Lengua;test;¿Cuál es un sustantivo?;mesa|corre|bonito;mesa;
+L4207;Lengua;test;¿Cuál es un sustantivo?;gato|salta|feo;gato;
+L4209;Lengua;completar;El niño ___ en el parque;canta|juega|canta;canta;
+L4215;Lengua;completar;El niño ___ en el parque;juega|lee|escribe;juega;
+L4216;Lengua;completar;El niño ___ en el parque;corre|lee|salta;corre;
+L4218;Lengua;completar;El niño ___ en el parque;corre|escribe|salta;corre;
+L4230;Lengua;test;¿Cuál es un sustantivo?;casa|come|grande;casa;
+L4241;Lengua;completar;El niño ___ en el parque;lee|corre|escribe;lee;
+L4243;Lengua;completar;El niño ___ en el parque;escribe|juega|canta;escribe;
+L4246;Lengua;completar;El niño ___ en el parque;canta|come|canta;canta;
+L4248;Lengua;test;¿Cuál es un sustantivo?;libro|lee|pequeño;libro;
+L4255;Lengua;completar;El niño ___ en el parque;corre|corre|duerme;corre;
+L4264;Lengua;completar;El niño ___ en el parque;escribe|escribe|duerme;escribe;
+L4265;Lengua;test;¿Cuál es un sustantivo?;libro|come|pequeño;libro;
+L4276;Lengua;completar;El niño ___ en el parque;salta|corre|canta;salta;
+L4277;Lengua;completar;El niño ___ en el parque;lee|juega|duerme;lee;
+L4278;Lengua;completar;El niño ___ en el parque;salta|corre|escribe;salta;
+L4280;Lengua;completar;El niño ___ en el parque;escribe|corre|escribe;escribe;
+L4282;Lengua;completar;El niño ___ en el parque;canta|lee|juega;canta;
+L4312;Lengua;completar;El niño ___ en el parque;escribe|salta|salta;escribe;
+L4314;Lengua;completar;El niño ___ en el parque;duerme|salta|salta;duerme;
+L4315;Lengua;completar;El niño ___ en el parque;duerme|salta|lee;duerme;
+L4324;Lengua;test;¿Cuál es un sustantivo?;casa|juega|feo;casa;
+L4330;Lengua;completar;El niño ___ en el parque;duerme|come|escribe;duerme;
+L4332;Lengua;completar;El niño ___ en el parque;juega|duerme|escribe;juega;
+L4334;Lengua;completar;El niño ___ en el parque;lee|lee|come;lee;
+L4335;Lengua;test;¿Cuál es un sustantivo?;perro|juega|alto;perro;
+L4336;Lengua;completar;El niño ___ en el parque;escribe|duerme|juega;escribe;
+L4345;Lengua;test;¿Cuál es un sustantivo?;flor|duerme|feo;flor;
+L4350;Lengua;ordenar;Ordena las palabras para formar una frase;El|gato|juega;El|gato|juega;
+L4352;Lengua;completar;El niño ___ en el parque;corre|salta|escribe;corre;
+L4368;Lengua;completar;El niño ___ en el parque;salta|lee|come;salta;
+L4375;Lengua;completar;El niño ___ en el parque;canta|duerme|escribe;canta;
+L4376;Lengua;test;¿Cuál es un sustantivo?;niño|duerme|feo;niño;
+L4382;Lengua;completar;El niño ___ en el parque;escribe|come|corre;escribe;
+L4383;Lengua;test;¿Cuál es un sustantivo?;niño|escribe|grande;niño;
+L4389;Lengua;completar;El niño ___ en el parque;corre|lee|juega;corre;
+L4399;Lengua;test;¿Cuál es un sustantivo?;mesa|juega|bonito;mesa;
+L4403;Lengua;completar;El niño ___ en el parque;corre|lee|duerme;corre;
+L4414;Lengua;test;¿Cuál es un sustantivo?;gato|come|pequeño;gato;
+L4418;Lengua;completar;El niño ___ en el parque;salta|canta|salta;salta;
+L4419;Lengua;test;¿Cuál es un sustantivo?;perro|escribe|feo;perro;
+L4420;Lengua;test;¿Cuál es un sustantivo?;casa|salta|grande;casa;
+L4423;Lengua;test;¿Cuál es un sustantivo?;niño|corre|grande;niño;
+L4424;Lengua;ordenar;Ordena las palabras para formar una frase;El|perro|salta;El|perro|salta;
+L4425;Lengua;test;¿Cuál es un sustantivo?;casa|come|pequeño;casa;
+L4427;Lengua;test;¿Cuál es un sustantivo?;gato|lee|bajo;gato;
+L4429;Lengua;completar;El niño ___ en el parque;come|salta|salta;come;
+L4431;Lengua;completar;El niño ___ en el parque;come|duerme|lee;come;
+L4433;Lengua;test;¿Cuál es un sustantivo?;casa|escribe|bonito;casa;
+L4438;Lengua;completar;El niño ___ en el parque;come|canta|salta;come;
+L4440;Lengua;test;¿Cuál es un sustantivo?;mesa|escribe|bonito;mesa;
+L4447;Lengua;completar;El niño ___ en el parque;canta|duerme|canta;canta;
+L4453;Lengua;completar;El niño ___ en el parque;canta|canta|salta;canta;
+L4456;Lengua;completar;El niño ___ en el parque;canta|salta|come;canta;
+L4464;Lengua;test;¿Cuál es un sustantivo?;gato|duerme|feo;gato;
+L4466;Lengua;completar;El niño ___ en el parque;lee|corre|salta;lee;
+L4474;Lengua;completar;El niño ___ en el parque;duerme|escribe|escribe;duerme;
+L4478;Lengua;test;¿Cuál es un sustantivo?;libro|escribe|bonito;libro;
+L4487;Lengua;completar;El niño ___ en el parque;duerme|canta|escribe;duerme;
+L4497;Lengua;test;¿Cuál es un sustantivo?;libro|juega|bonito;libro;
+L4500;Lengua;completar;El niño ___ en el parque;come|duerme|salta;come;
+L4503;Lengua;completar;El niño ___ en el parque;corre|juega|corre;corre;
+L4507;Lengua;test;¿Cuál es un sustantivo?;árbol|corre|bonito;árbol;
+L4516;Lengua;completar;El niño ___ en el parque;escribe|salta|come;escribe;
+L4523;Lengua;completar;El niño ___ en el parque;juega|salta|duerme;juega;
+L4526;Lengua;completar;El niño ___ en el parque;canta|canta|duerme;canta;
+L4543;Lengua;test;¿Cuál es un sustantivo?;casa|duerme|feo;casa;
+L4551;Lengua;test;¿Cuál es un sustantivo?;flor|duerme|grande;flor;
+L4555;Lengua;completar;El niño ___ en el parque;salta|salta|duerme;salta;
+L4557;Lengua;test;¿Cuál es un sustantivo?;casa|salta|bonito;casa;
+L4561;Lengua;completar;El niño ___ en el parque;duerme|escribe|canta;duerme;
+L4564;Lengua;test;¿Cuál es un sustantivo?;flor|canta|feo;flor;
+L4572;Lengua;ordenar;Ordena las palabras para formar una frase;El|libro|duerme;El|libro|duerme;
+L4578;Lengua;test;¿Cuál es un sustantivo?;libro|duerme|bonito;libro;
+L4579;Lengua;test;¿Cuál es un sustantivo?;casa|duerme|pequeño;casa;
+L4585;Lengua;completar;El niño ___ en el parque;duerme|salta|juega;duerme;
+L4590;Lengua;completar;El niño ___ en el parque;corre|canta|come;corre;
+L4602;Lengua;test;¿Cuál es un sustantivo?;casa|salta|feo;casa;
+L4603;Lengua;completar;El niño ___ en el parque;duerme|lee|corre;duerme;
+L4613;Lengua;completar;El niño ___ en el parque;canta|come|come;canta;
+L4615;Lengua;completar;El niño ___ en el parque;canta|lee|corre;canta;
+L4616;Lengua;ordenar;Ordena las palabras para formar una frase;El|niño|come;El|niño|come;
+L4633;Lengua;completar;El niño ___ en el parque;salta|juega|canta;salta;
+L4643;Lengua;completar;El niño ___ en el parque;corre|escribe|duerme;corre;
+L4654;Lengua;test;¿Cuál es un sustantivo?;flor|corre|bonito;flor;
+L4665;Lengua;completar;El niño ___ en el parque;corre|duerme|juega;corre;
+L4666;Lengua;test;¿Cuál es un sustantivo?;gato|canta|grande;gato;
+L4686;Lengua;test;¿Cuál es un sustantivo?;perro|juega|feo;perro;
+L4694;Lengua;completar;El niño ___ en el parque;duerme|come|canta;duerme;
+L4696;Lengua;test;¿Cuál es un sustantivo?;gato|canta|feo;gato;
+L4699;Lengua;test;¿Cuál es un sustantivo?;árbol|lee|pequeño;árbol;
+L4701;Lengua;test;¿Cuál es un sustantivo?;gato|canta|bajo;gato;
+L4705;Lengua;completar;El niño ___ en el parque;come|lee|salta;come;
+L4711;Lengua;test;¿Cuál es un sustantivo?;perro|lee|bajo;perro;
+L4718;Lengua;completar;El niño ___ en el parque;corre|come|salta;corre;
+L4719;Lengua;test;¿Cuál es un sustantivo?;casa|corre|pequeño;casa;
+L4728;Lengua;test;¿Cuál es un sustantivo?;gato|lee|pequeño;gato;
+L4739;Lengua;test;¿Cuál es un sustantivo?;árbol|canta|feo;árbol;
+L4744;Lengua;test;¿Cuál es un sustantivo?;niño|canta|feo;niño;
+L4745;Lengua;test;¿Cuál es un sustantivo?;árbol|juega|feo;árbol;
+L4747;Lengua;test;¿Cuál es un sustantivo?;mesa|duerme|bajo;mesa;
+L4749;Lengua;completar;El niño ___ en el parque;come|juega|escribe;come;
+L4750;Lengua;completar;El niño ___ en el parque;duerme|canta|canta;duerme;
+L4755;Lengua;completar;El niño ___ en el parque;lee|come|lee;lee;
+L4765;Lengua;test;¿Cuál es un sustantivo?;casa|salta|alto;casa;
+L4772;Lengua;test;¿Cuál es un sustantivo?;casa|juega|pequeño;casa;
+L4777;Lengua;completar;El niño ___ en el parque;salta|come|escribe;salta;
+L4789;Lengua;completar;El niño ___ en el parque;corre|salta|salta;corre;
+L4791;Lengua;completar;El niño ___ en el parque;canta|corre|canta;canta;
+L4836;Lengua;test;¿Cuál es un sustantivo?;mesa|juega|grande;mesa;
+L4844;Lengua;test;¿Cuál es un sustantivo?;niño|duerme|pequeño;niño;
+L4852;Lengua;completar;El niño ___ en el parque;escribe|escribe|escribe;escribe;
+L4859;Lengua;completar;El niño ___ en el parque;corre|duerme|salta;corre;
+L4869;Lengua;completar;El niño ___ en el parque;canta|corre|juega;canta;
+L4872;Lengua;test;¿Cuál es un sustantivo?;mesa|duerme|pequeño;mesa;
+L4875;Lengua;test;¿Cuál es un sustantivo?;flor|lee|grande;flor;
+L4891;Lengua;test;¿Cuál es un sustantivo?;casa|lee|bonito;casa;
+L4893;Lengua;completar;El niño ___ en el parque;canta|escribe|corre;canta;
+L4895;Lengua;completar;El niño ___ en el parque;corre|corre|escribe;corre;
+L4899;Lengua;test;¿Cuál es un sustantivo?;libro|salta|pequeño;libro;
+L4910;Lengua;test;¿Cuál es un sustantivo?;mesa|canta|alto;mesa;
+L4922;Lengua;test;¿Cuál es un sustantivo?;casa|corre|bonito;casa;
+L4924;Lengua;completar;El niño ___ en el parque;salta|duerme|come;salta;
+L4925;Lengua;completar;El niño ___ en el parque;escribe|juega|corre;escribe;
+L4927;Lengua;test;¿Cuál es un sustantivo?;casa|canta|grande;casa;
+L4931;Lengua;test;¿Cuál es un sustantivo?;mesa|salta|pequeño;mesa;
+L4940;Lengua;test;¿Cuál es un sustantivo?;niño|canta|alto;niño;
+L4943;Lengua;completar;El niño ___ en el parque;juega|salta|corre;juega;
+L4949;Lengua;test;¿Cuál es un sustantivo?;árbol|canta|grande;árbol;
+L4953;Lengua;completar;El niño ___ en el parque;juega|corre|juega;juega;
+L4956;Lengua;test;¿Cuál es un sustantivo?;árbol|salta|grande;árbol;
+L4957;Lengua;test;¿Cuál es un sustantivo?;perro|canta|bonito;perro;
+L4959;Lengua;completar;El niño ___ en el parque;corre|escribe|corre;corre;
+L4961;Lengua;test;¿Cuál es un sustantivo?;perro|corre|bonito;perro;
+L4964;Lengua;test;¿Cuál es un sustantivo?;libro|come|alto;libro;
+L4974;Lengua;completar;El niño ___ en el parque;salta|salta|corre;salta;
+L4980;Lengua;completar;El niño ___ en el parque;come|lee|corre;come;
+L4987;Lengua;ordenar;Ordena las palabras para formar una frase;El|perro|lee;El|perro|lee;
+L4988;Lengua;test;¿Cuál es un sustantivo?;casa|corre|feo;casa;
+L4997;Lengua;completar;El niño ___ en el parque;salta|escribe|corre;salta;
+L4999;Lengua;completar;El niño ___ en el parque;corre|come|come;corre;
+L5019;Lengua;completar;El niño ___ en el parque;juega|juega|lee;juega;
+L5022;Lengua;completar;El niño ___ en el parque;come|canta|juega;come;
+L5027;Lengua;completar;El niño ___ en el parque;escribe|come|salta;escribe;
+L5030;Lengua;completar;El niño ___ en el parque;canta|juega|escribe;canta;
+L5036;Lengua;completar;El niño ___ en el parque;come|come|escribe;come;
+L5037;Lengua;completar;El niño ___ en el parque;canta|come|duerme;canta;
+L5042;Lengua;completar;El niño ___ en el parque;salta|duerme|escribe;salta;
+L5052;Lengua;completar;El niño ___ en el parque;escribe|come|duerme;escribe;
+L5057;Lengua;test;¿Cuál es un sustantivo?;gato|juega|grande;gato;
+L5061;Lengua;completar;El niño ___ en el parque;lee|duerme|corre;lee;
+L5070;Lengua;test;¿Cuál es un sustantivo?;flor|come|feo;flor;
+L5081;Lengua;completar;El niño ___ en el parque;lee|juega|canta;lee;
+L5083;Lengua;completar;El niño ___ en el parque;canta|salta|canta;canta;
+L5084;Lengua;completar;El niño ___ en el parque;escribe|salta|juega;escribe;
+L5089;Lengua;completar;El niño ___ en el parque;come|salta|canta;come;
+L5092;Lengua;test;¿Cuál es un sustantivo?;flor|corre|pequeño;flor;
+L5103;Lengua;completar;El niño ___ en el parque;escribe|salta|canta;escribe;
+L5108;Lengua;test;¿Cuál es un sustantivo?;niño|escribe|bonito;niño;
+L5112;Lengua;completar;El niño ___ en el parque;lee|canta|escribe;lee;
+L5118;Lengua;completar;El niño ___ en el parque;lee|duerme|duerme;lee;
+L5124;Lengua;test;¿Cuál es un sustantivo?;gato|juega|feo;gato;
+L5135;Lengua;test;¿Cuál es un sustantivo?;gato|come|bajo;gato;
+L5138;Lengua;completar;El niño ___ en el parque;corre|salta|lee;corre;
+L5140;Lengua;completar;El niño ___ en el parque;salta|corre|duerme;salta;
+L5148;Lengua;test;¿Cuál es un sustantivo?;perro|corre|feo;perro;
+L5149;Lengua;completar;El niño ___ en el parque;come|juega|come;come;
+L5151;Lengua;test;¿Cuál es un sustantivo?;perro|juega|pequeño;perro;
+L5164;Lengua;test;¿Cuál es un sustantivo?;gato|come|feo;gato;
+L5172;Lengua;test;¿Cuál es un sustantivo?;flor|corre|alto;flor;
+L5178;Lengua;completar;El niño ___ en el parque;salta|corre|lee;salta;
+L5180;Lengua;completar;El niño ___ en el parque;lee|canta|come;lee;
+L5198;Lengua;completar;El niño ___ en el parque;canta|lee|come;canta;
+L5203;Lengua;completar;El niño ___ en el parque;escribe|escribe|canta;escribe;
+L5205;Lengua;completar;El niño ___ en el parque;escribe|corre|canta;escribe;
+M5000;Matematicas;verdadero_falso;3 es un número par;Verdadero|Falso;Falso;
+M5001;Matematicas;ordenar;Ordena los números de menor a mayor;20|18|5;5|18|20;
+M5002;Matematicas;escribir;Escribe el resultado de 3 x 5;;15;
+M5003;Matematicas;verdadero_falso;15 es un número par;Verdadero|Falso;Falso;
+M5004;Matematicas;ordenar;Ordena los números de menor a mayor;15|10|13;10|13|15;
+M5005;Matematicas;escribir;Escribe el resultado de 10 x 8;;80;
+M5006;Matematicas;test;¿Cuánto es 11 + 5?;16|15|17;16;
+M5007;Matematicas;cual_no_encaja;¿Cuál NO es un número?;3|7|manzana;manzana;
+M5008;Matematicas;verdadero_falso;7 es un número par;Verdadero|Falso;Falso;
+M5009;Matematicas;completar;7 + ___ = 8;1|2|0;1;
+M5010;Matematicas;test;¿Cuánto es 17 + 12?;29|30|28;29;
+M5011;Matematicas;verdadero_falso;13 es un número par;Verdadero|Falso;Falso;
+M5014;Matematicas;ordenar;Ordena los números de menor a mayor;13|16|10;10|13|16;
+M5016;Matematicas;escribir;Escribe el resultado de 2 x 7;;14;
+M5017;Matematicas;test;¿Cuánto es 4 + 13?;18|16|17;17;
+M5018;Matematicas;escribir;Escribe el resultado de 3 x 4;;12;
+M5019;Matematicas;verdadero_falso;9 es un número par;Verdadero|Falso;Falso;
+M5021;Matematicas;ordenar;Ordena los números de menor a mayor;17|23|16;16|17|23;
+M5024;Matematicas;ordenar;Ordena los números de menor a mayor;23|2|21;2|21|23;
+M5025;Matematicas;verdadero_falso;14 es un número par;Verdadero|Falso;Verdadero;
+M5027;Matematicas;completar;8 + ___ = 24;16|17|15;16;
+M5028;Matematicas;test;¿Cuánto es 12 + 1?;14|12|13;13;
+M5032;Matematicas;completar;9 + ___ = 29;20|21|19;20;
+M5033;Matematicas;verdadero_falso;5 es un número par;Verdadero|Falso;Falso;
+M5034;Matematicas;ordenar;Ordena los números de menor a mayor;8|20|19;8|19|20;
+M5036;Matematicas;completar;1 + ___ = 5;4|5|3;4;
+M5037;Matematicas;test;¿Cuánto es 13 + 13?;27|26|25;26;
+M5039;Matematicas;escribir;Escribe el resultado de 2 x 9;;18;
+M5040;Matematicas;completar;14 + ___ = 20;6|7|5;6;
+M5043;Matematicas;ordenar;Ordena los números de menor a mayor;17|18|22;17|18|22;
+M5044;Matematicas;verdadero_falso;19 es un número par;Verdadero|Falso;Falso;
+M5045;Matematicas;ordenar;Ordena los números de menor a mayor;24|14|25;14|24|25;
+M5047;Matematicas;test;¿Cuánto es 4 + 19?;22|24|23;23;
+M5048;Matematicas;ordenar;Ordena los números de menor a mayor;27|5|9;5|9|27;
+M5050;Matematicas;completar;13 + ___ = 23;10|11|9;10;
+M5051;Matematicas;test;¿Cuánto es 6 + 16?;21|22|23;22;
+M5052;Matematicas;test;¿Cuánto es 4 + 3?;7|6|8;7;
+M5054;Matematicas;verdadero_falso;17 es un número par;Verdadero|Falso;Falso;
+M5055;Matematicas;verdadero_falso;10 es un número par;Verdadero|Falso;Verdadero;
+M5057;Matematicas;verdadero_falso;6 es un número par;Verdadero|Falso;Verdadero;
+M5058;Matematicas;completar;12 + ___ = 18;6|7|5;6;
+M5060;Matematicas;completar;7 + ___ = 23;16|17|15;16;
+M5061;Matematicas;completar;17 + ___ = 21;4|5|3;4;
+M5063;Matematicas;completar;6 + ___ = 13;7|8|6;7;
+M5064;Matematicas;test;¿Cuánto es 6 + 7?;14|12|13;13;
+M5065;Matematicas;ordenar;Ordena los números de menor a mayor;29|28|14;14|28|29;
+M5066;Matematicas;verdadero_falso;20 es un número par;Verdadero|Falso;Verdadero;
+M5067;Matematicas;test;¿Cuánto es 6 + 3?;9|8|10;9;
+M5068;Matematicas;ordenar;Ordena los números de menor a mayor;3|13|4;3|4|13;
+M5069;Matematicas;ordenar;Ordena los números de menor a mayor;3|11|1;1|3|11;
+M5070;Matematicas;escribir;Escribe el resultado de 4 x 8;;32;
+M5071;Matematicas;verdadero_falso;4 es un número par;Verdadero|Falso;Verdadero;
+M5072;Matematicas;test;¿Cuánto es 2 + 9?;11|12|10;11;
+M5073;Matematicas;test;¿Cuánto es 19 + 2?;22|20|21;21;
+M5074;Matematicas;test;¿Cuánto es 7 + 17?;25|23|24;24;
+M5075;Matematicas;test;¿Cuánto es 13 + 20?;34|32|33;33;
+M5076;Matematicas;escribir;Escribe el resultado de 5 x 8;;40;
+M5077;Matematicas;verdadero_falso;11 es un número par;Verdadero|Falso;Falso;
+M5078;Matematicas;escribir;Escribe el resultado de 7 x 6;;42;
+M5079;Matematicas;ordenar;Ordena los números de menor a mayor;22|29|11;11|22|29;
+M5080;Matematicas;ordenar;Ordena los números de menor a mayor;27|8|12;8|12|27;
+M5083;Matematicas;escribir;Escribe el resultado de 1 x 6;;6;
+M5084;Matematicas;ordenar;Ordena los números de menor a mayor;26|4|1;1|4|26;
+M5087;Matematicas;completar;1 + ___ = 21;20|21|19;20;
+M5088;Matematicas;test;¿Cuánto es 17 + 9?;27|26|25;26;
+M5090;Matematicas;completar;12 + ___ = 27;15|16|14;15;
+M5091;Matematicas;escribir;Escribe el resultado de 8 x 9;;72;
+M5093;Matematicas;test;¿Cuánto es 11 + 1?;13|11|12;12;
+M5095;Matematicas;ordenar;Ordena los números de menor a mayor;28|2|26;2|26|28;
+M5097;Matematicas;ordenar;Ordena los números de menor a mayor;22|15|8;8|15|22;
+M5098;Matematicas;escribir;Escribe el resultado de 8 x 7;;56;
+M5100;Matematicas;escribir;Escribe el resultado de 2 x 6;;12;
+M5101;Matematicas;verdadero_falso;16 es un número par;Verdadero|Falso;Verdadero;
+M5104;Matematicas;test;¿Cuánto es 13 + 10?;22|24|23;23;
+M5105;Matematicas;escribir;Escribe el resultado de 4 x 3;;12;
+M5106;Matematicas;escribir;Escribe el resultado de 10 x 9;;90;
+M5107;Matematicas;test;¿Cuánto es 5 + 16?;22|20|21;21;
+M5108;Matematicas;test;¿Cuánto es 10 + 18?;27|29|28;28;
+M5111;Matematicas;verdadero_falso;18 es un número par;Verdadero|Falso;Verdadero;
+M5112;Matematicas;completar;8 + ___ = 15;7|8|6;7;
+M5113;Matematicas;completar;3 + ___ = 7;4|5|3;4;
+M5114;Matematicas;verdadero_falso;1 es un número par;Verdadero|Falso;Falso;
+M5115;Matematicas;completar;11 + ___ = 24;13|14|12;13;
+M5116;Matematicas;ordenar;Ordena los números de menor a mayor;8|24|9;8|9|24;
+M5120;Matematicas;completar;18 + ___ = 34;16|17|15;16;
+M5121;Matematicas;test;¿Cuánto es 11 + 8?;18|20|19;19;
+M5122;Matematicas;escribir;Escribe el resultado de 10 x 2;;20;
+M5124;Matematicas;ordenar;Ordena los números de menor a mayor;13|23|24;13|23|24;
+M5128;Matematicas;verdadero_falso;8 es un número par;Verdadero|Falso;Verdadero;
+M5129;Matematicas;completar;9 + ___ = 13;4|5|3;4;
+M5130;Matematicas;ordenar;Ordena los números de menor a mayor;3|4|11;3|4|11;
+M5132;Matematicas;escribir;Escribe el resultado de 4 x 2;;8;
+M5133;Matematicas;escribir;Escribe el resultado de 6 x 3;;18;
+M5134;Matematicas;ordenar;Ordena los números de menor a mayor;13|19|24;13|19|24;
+M5135;Matematicas;test;¿Cuánto es 10 + 2?;13|11|12;12;
+M5136;Matematicas;escribir;Escribe el resultado de 9 x 4;;36;
+M5138;Matematicas;ordenar;Ordena los números de menor a mayor;25|12|26;12|25|26;
+M5140;Matematicas;completar;17 + ___ = 37;20|21|19;20;
+M5143;Matematicas;escribir;Escribe el resultado de 8 x 6;;48;
+M5144;Matematicas;completar;10 + ___ = 18;8|9|7;8;
+M5146;Matematicas;completar;20 + ___ = 30;10|11|9;10;
+M5147;Matematicas;completar;2 + ___ = 22;20|21|19;20;
+M5148;Matematicas;ordenar;Ordena los números de menor a mayor;10|17|23;10|17|23;
+M5149;Matematicas;test;¿Cuánto es 9 + 19?;27|29|28;28;
+M5153;Matematicas;verdadero_falso;2 es un número par;Verdadero|Falso;Verdadero;
+M5154;Matematicas;ordenar;Ordena los números de menor a mayor;5|27|23;5|23|27;
+M5155;Matematicas;completar;8 + ___ = 10;2|3|1;2;
+M5156;Matematicas;completar;16 + ___ = 29;13|14|12;13;
+M5157;Matematicas;ordenar;Ordena los números de menor a mayor;27|22|28;22|27|28;
+M5158;Matematicas;completar;1 + ___ = 19;18|19|17;18;
+M5161;Matematicas;ordenar;Ordena los números de menor a mayor;25|13|3;3|13|25;
+M5162;Matematicas;escribir;Escribe el resultado de 5 x 5;;25;
+M5164;Matematicas;completar;18 + ___ = 31;13|14|12;13;
+M5165;Matematicas;test;¿Cuánto es 5 + 11?;16|15|17;16;
+M5166;Matematicas;escribir;Escribe el resultado de 1 x 5;;5;
+M5168;Matematicas;escribir;Escribe el resultado de 3 x 8;;24;
+M5171;Matematicas;completar;7 + ___ = 14;7|8|6;7;
+M5173;Matematicas;completar;1 + ___ = 13;12|13|11;12;
+M5175;Matematicas;escribir;Escribe el resultado de 2 x 3;;6;
+M5178;Matematicas;completar;2 + ___ = 6;4|5|3;4;
+M5179;Matematicas;ordenar;Ordena los números de menor a mayor;16|6|2;2|6|16;
+M5180;Matematicas;test;¿Cuánto es 17 + 11?;27|29|28;28;
+M5181;Matematicas;escribir;Escribe el resultado de 7 x 3;;21;
+M5185;Matematicas;test;¿Cuánto es 4 + 8?;13|11|12;12;
+M5187;Matematicas;ordenar;Ordena los números de menor a mayor;23|20|6;6|20|23;
+M5192;Matematicas;ordenar;Ordena los números de menor a mayor;21|15|12;12|15|21;
+M5193;Matematicas;test;¿Cuánto es 4 + 4?;7|9|8;8;
+M5194;Matematicas;test;¿Cuánto es 4 + 16?;20|19|21;20;
+M5197;Matematicas;escribir;Escribe el resultado de 4 x 1;;4;
+M5198;Matematicas;escribir;Escribe el resultado de 10 x 10;;100;
+M5202;Matematicas;test;¿Cuánto es 19 + 6?;24|26|25;25;
+M5207;Matematicas;escribir;Escribe el resultado de 3 x 2;;6;
+M5208;Matematicas;ordenar;Ordena los números de menor a mayor;3|23|28;3|23|28;
+M5209;Matematicas;escribir;Escribe el resultado de 3 x 7;;21;
+M5211;Matematicas;test;¿Cuánto es 13 + 18?;30|31|32;31;
+M5212;Matematicas;escribir;Escribe el resultado de 9 x 8;;72;
+M5213;Matematicas;test;¿Cuánto es 17 + 19?;36|37|35;36;
+M5214;Matematicas;escribir;Escribe el resultado de 2 x 4;;8;
+M5216;Matematicas;test;¿Cuánto es 6 + 20?;27|26|25;26;
+M5220;Matematicas;test;¿Cuánto es 2 + 5?;7|6|8;7;
+M5222;Matematicas;test;¿Cuánto es 18 + 9?;27|26|28;27;
+M5223;Matematicas;test;¿Cuánto es 3 + 4?;7|6|8;7;
+M5224;Matematicas;escribir;Escribe el resultado de 5 x 6;;30;
+M5227;Matematicas;test;¿Cuánto es 8 + 10?;18|17|19;18;
+M5228;Matematicas;test;¿Cuánto es 17 + 10?;27|26|28;27;
+M5230;Matematicas;escribir;Escribe el resultado de 8 x 3;;24;
+M5232;Matematicas;escribir;Escribe el resultado de 6 x 10;;60;
+M5235;Matematicas;test;¿Cuánto es 2 + 8?;11|9|10;10;
+M5236;Matematicas;test;¿Cuánto es 7 + 5?;13|11|12;12;
+M5237;Matematicas;ordenar;Ordena los números de menor a mayor;28|27|7;7|27|28;
+M5238;Matematicas;completar;20 + ___ = 38;18|19|17;18;
+M5239;Matematicas;completar;19 + ___ = 31;12|13|11;12;
+M5240;Matematicas;ordenar;Ordena los números de menor a mayor;5|24|20;5|20|24;
+M5245;Matematicas;test;¿Cuánto es 9 + 14?;22|24|23;23;
+M5247;Matematicas;completar;18 + ___ = 25;7|8|6;7;
+M5248;Matematicas;test;¿Cuánto es 9 + 7?;16|15|17;16;
+M5250;Matematicas;ordenar;Ordena los números de menor a mayor;19|22|21;19|21|22;
+M5251;Matematicas;escribir;Escribe el resultado de 10 x 3;;30;
+M5253;Matematicas;ordenar;Ordena los números de menor a mayor;26|14|13;13|14|26;
+M5254;Matematicas;test;¿Cuánto es 20 + 8?;27|29|28;28;
+M5255;Matematicas;test;¿Cuánto es 9 + 4?;14|12|13;13;
+M5258;Matematicas;ordenar;Ordena los números de menor a mayor;21|3|12;3|12|21;
+M5259;Matematicas;ordenar;Ordena los números de menor a mayor;25|9|5;5|9|25;
+M5260;Matematicas;completar;9 + ___ = 10;1|2|0;1;
+M5261;Matematicas;test;¿Cuánto es 13 + 8?;22|20|21;21;
+M5263;Matematicas;test;¿Cuánto es 6 + 17?;22|24|23;23;
+M5265;Matematicas;ordenar;Ordena los números de menor a mayor;19|27|26;19|26|27;
+M5268;Matematicas;ordenar;Ordena los números de menor a mayor;18|9|20;9|18|20;
+M5269;Matematicas;test;¿Cuánto es 2 + 6?;7|9|8;8;
+M5270;Matematicas;ordenar;Ordena los números de menor a mayor;25|13|6;6|13|25;
+M5271;Matematicas;ordenar;Ordena los números de menor a mayor;26|24|22;22|24|26;
+M5272;Matematicas;escribir;Escribe el resultado de 9 x 10;;90;
+M5275;Matematicas;test;¿Cuánto es 17 + 5?;21|22|23;22;
+M5277;Matematicas;completar;5 + ___ = 18;13|14|12;13;
+M5278;Matematicas;escribir;Escribe el resultado de 5 x 1;;5;
+M5281;Matematicas;ordenar;Ordena los números de menor a mayor;23|25|8;8|23|25;
+M5283;Matematicas;escribir;Escribe el resultado de 7 x 8;;56;
+M5284;Matematicas;completar;15 + ___ = 27;12|13|11;12;
+M5286;Matematicas;ordenar;Ordena los números de menor a mayor;9|14|17;9|14|17;
+M5288;Matematicas;completar;10 + ___ = 13;3|4|2;3;
+M5289;Matematicas;ordenar;Ordena los números de menor a mayor;14|25|11;11|14|25;
+M5290;Matematicas;test;¿Cuánto es 3 + 3?;7|6|5;6;
+M5292;Matematicas;completar;3 + ___ = 9;6|7|5;6;
+M5293;Matematicas;escribir;Escribe el resultado de 1 x 2;;2;
+M5295;Matematicas;ordenar;Ordena los números de menor a mayor;18|16|26;16|18|26;
+M5296;Matematicas;test;¿Cuánto es 14 + 17?;30|31|32;31;
+M5298;Matematicas;completar;16 + ___ = 32;16|17|15;16;
+M5299;Matematicas;escribir;Escribe el resultado de 9 x 2;;18;
+M5305;Matematicas;ordenar;Ordena los números de menor a mayor;8|24|22;8|22|24;
+M5306;Matematicas;escribir;Escribe el resultado de 10 x 1;;10;
+M5310;Matematicas;test;¿Cuánto es 12 + 5?;18|16|17;17;
+M5311;Matematicas;escribir;Escribe el resultado de 6 x 1;;6;
+M5314;Matematicas;ordenar;Ordena los números de menor a mayor;4|11|22;4|11|22;
+M5315;Matematicas;completar;18 + ___ = 22;4|5|3;4;
+M5316;Matematicas;ordenar;Ordena los números de menor a mayor;10|16|9;9|10|16;
+M5317;Matematicas;completar;1 + ___ = 20;19|20|18;19;
+M5319;Matematicas;ordenar;Ordena los números de menor a mayor;21|17|27;17|21|27;
+M5320;Matematicas;test;¿Cuánto es 15 + 20?;35|34|36;35;
+M5322;Matematicas;ordenar;Ordena los números de menor a mayor;1|20|15;1|15|20;
+M5323;Matematicas;ordenar;Ordena los números de menor a mayor;10|12|4;4|10|12;
+M5324;Matematicas;test;¿Cuánto es 12 + 6?;18|17|19;18;
+M5325;Matematicas;verdadero_falso;12 es un número par;Verdadero|Falso;Verdadero;
+M5326;Matematicas;test;¿Cuánto es 4 + 14?;18|17|19;18;
+M5328;Matematicas;test;¿Cuánto es 17 + 17?;35|34|33;34;
+M5329;Matematicas;completar;14 + ___ = 18;4|5|3;4;
+M5331;Matematicas;completar;9 + ___ = 17;8|9|7;8;
+M5333;Matematicas;ordenar;Ordena los números de menor a mayor;10|12|14;10|12|14;
+M5334;Matematicas;completar;18 + ___ = 27;9|10|8;9;
+M5335;Matematicas;test;¿Cuánto es 15 + 15?;29|30|31;30;
+M5336;Matematicas;completar;5 + ___ = 17;12|13|11;12;
+M5339;Matematicas;ordenar;Ordena los números de menor a mayor;29|28|23;23|28|29;
+M5340;Matematicas;completar;4 + ___ = 11;7|8|6;7;
+M5341;Matematicas;ordenar;Ordena los números de menor a mayor;2|5|13;2|5|13;
+M5345;Matematicas;test;¿Cuánto es 14 + 16?;29|30|31;30;
+M5347;Matematicas;ordenar;Ordena los números de menor a mayor;25|29|13;13|25|29;
+M5349;Matematicas;test;¿Cuánto es 4 + 1?;5|6|4;5;
+M5351;Matematicas;escribir;Escribe el resultado de 1 x 4;;4;
+M5352;Matematicas;test;¿Cuánto es 11 + 14?;24|26|25;25;
+M5353;Matematicas;escribir;Escribe el resultado de 1 x 7;;7;
+M5355;Matematicas;ordenar;Ordena los números de menor a mayor;16|3|25;3|16|25;
+M5357;Matematicas;escribir;Escribe el resultado de 3 x 9;;27;
+M5358;Matematicas;completar;8 + ___ = 17;9|10|8;9;
+M5359;Matematicas;test;¿Cuánto es 9 + 8?;18|16|17;17;
+M5366;Matematicas;completar;19 + ___ = 24;5|6|4;5;
+M5367;Matematicas;completar;4 + ___ = 9;5|6|4;5;
+M5369;Matematicas;ordenar;Ordena los números de menor a mayor;7|5|14;5|7|14;
+M5370;Matematicas;test;¿Cuánto es 20 + 7?;27|26|28;27;
+M5371;Matematicas;test;¿Cuánto es 2 + 13?;16|15|14;15;
+M5373;Matematicas;ordenar;Ordena los números de menor a mayor;23|21|8;8|21|23;
+M5374;Matematicas;completar;11 + ___ = 25;14|15|13;14;
+M5376;Matematicas;escribir;Escribe el resultado de 7 x 1;;7;
+M5377;Matematicas;ordenar;Ordena los números de menor a mayor;4|9|12;4|9|12;
+M5378;Matematicas;ordenar;Ordena los números de menor a mayor;12|23|14;12|14|23;
+M5379;Matematicas;completar;11 + ___ = 13;2|3|1;2;
+M5380;Matematicas;completar;2 + ___ = 3;1|2|0;1;
+M5381;Matematicas;test;¿Cuánto es 11 + 7?;18|17|19;18;
+M5382;Matematicas;ordenar;Ordena los números de menor a mayor;16|9|20;9|16|20;
+M5383;Matematicas;test;¿Cuánto es 14 + 6?;20|19|21;20;
+M5384;Matematicas;ordenar;Ordena los números de menor a mayor;16|12|11;11|12|16;
+M5385;Matematicas;ordenar;Ordena los números de menor a mayor;4|22|1;1|4|22;
+M5387;Matematicas;escribir;Escribe el resultado de 3 x 6;;18;
+M5388;Matematicas;ordenar;Ordena los números de menor a mayor;24|26|12;12|24|26;
+M5391;Matematicas;ordenar;Ordena los números de menor a mayor;8|21|9;8|9|21;
+M5392;Matematicas;completar;19 + ___ = 32;13|14|12;13;
+M5393;Matematicas;test;¿Cuánto es 4 + 5?;9|8|10;9;
+M5396;Matematicas;escribir;Escribe el resultado de 2 x 1;;2;
+M5397;Matematicas;escribir;Escribe el resultado de 4 x 4;;16;
+M5400;Matematicas;test;¿Cuánto es 18 + 20?;39|37|38;38;
+M5401;Matematicas;ordenar;Ordena los números de menor a mayor;10|24|16;10|16|24;
+M5402;Matematicas;completar;18 + ___ = 23;5|6|4;5;
+M5403;Matematicas;test;¿Cuánto es 5 + 7?;13|11|12;12;
+M5406;Matematicas;ordenar;Ordena los números de menor a mayor;29|25|28;25|28|29;
+M5407;Matematicas;escribir;Escribe el resultado de 6 x 6;;36;
+M5411;Matematicas;escribir;Escribe el resultado de 9 x 1;;9;
+M5412;Matematicas;completar;20 + ___ = 29;9|10|8;9;
+M5414;Matematicas;completar;10 + ___ = 12;2|3|1;2;
+M5420;Matematicas;completar;15 + ___ = 32;17|18|16;17;
+M5423;Matematicas;escribir;Escribe el resultado de 5 x 4;;20;
+M5424;Matematicas;completar;1 + ___ = 7;6|7|5;6;
+M5425;Matematicas;escribir;Escribe el resultado de 4 x 10;;40;
+M5427;Matematicas;test;¿Cuánto es 17 + 15?;31|32|33;32;
+M5428;Matematicas;escribir;Escribe el resultado de 9 x 5;;45;
+M5429;Matematicas;ordenar;Ordena los números de menor a mayor;28|8|10;8|10|28;
+M5431;Matematicas;ordenar;Ordena los números de menor a mayor;18|4|6;4|6|18;
+M5432;Matematicas;completar;2 + ___ = 20;18|19|17;18;
+M5435;Matematicas;completar;9 + ___ = 14;5|6|4;5;
+M5436;Matematicas;ordenar;Ordena los números de menor a mayor;28|26|2;2|26|28;
+M5438;Matematicas;completar;7 + ___ = 25;18|19|17;18;
+M5439;Matematicas;test;¿Cuánto es 1 + 12?;14|12|13;13;
+M5444;Matematicas;completar;14 + ___ = 34;20|21|19;20;
+M5445;Matematicas;ordenar;Ordena los números de menor a mayor;11|2|21;2|11|21;
+M5446;Matematicas;test;¿Cuánto es 12 + 8?;20|19|21;20;
+M5448;Matematicas;ordenar;Ordena los números de menor a mayor;6|9|1;1|6|9;
+M5458;Matematicas;ordenar;Ordena los números de menor a mayor;9|7|19;7|9|19;
+M5465;Matematicas;completar;16 + ___ = 19;3|4|2;3;
+M5468;Matematicas;completar;7 + ___ = 26;19|20|18;19;
+M5471;Matematicas;ordenar;Ordena los números de menor a mayor;1|10|6;1|6|10;
+M5472;Matematicas;completar;13 + ___ = 33;20|21|19;20;
+M5473;Matematicas;completar;3 + ___ = 8;5|6|4;5;
+M5474;Matematicas;test;¿Cuánto es 14 + 8?;21|22|23;22;
+M5478;Matematicas;test;¿Cuánto es 20 + 4?;25|23|24;24;
+M5482;Matematicas;test;¿Cuánto es 5 + 8?;14|12|13;13;
+M5483;Matematicas;test;¿Cuánto es 9 + 5?;14|15|13;14;
+M5485;Matematicas;escribir;Escribe el resultado de 1 x 1;;1;
+M5486;Matematicas;test;¿Cuánto es 18 + 11?;29|30|28;29;
+M5491;Matematicas;ordenar;Ordena los números de menor a mayor;11|16|5;5|11|16;
+M5494;Matematicas;ordenar;Ordena los números de menor a mayor;21|18|4;4|18|21;
+M5495;Matematicas;test;¿Cuánto es 2 + 4?;7|6|5;6;
+M5496;Matematicas;escribir;Escribe el resultado de 5 x 2;;10;
+M5498;Matematicas;test;¿Cuánto es 8 + 1?;9|8|10;9;
+M5499;Matematicas;completar;14 + ___ = 27;13|14|12;13;
+M5500;Matematicas;completar;12 + ___ = 22;10|11|9;10;
+M5501;Matematicas;completar;13 + ___ = 17;4|5|3;4;
+M5503;Matematicas;test;¿Cuánto es 8 + 4?;13|11|12;12;
+M5504;Matematicas;ordenar;Ordena los números de menor a mayor;12|3|20;3|12|20;
+M5505;Matematicas;ordenar;Ordena los números de menor a mayor;4|12|3;3|4|12;
+M5506;Matematicas;test;¿Cuánto es 20 + 5?;24|26|25;25;
+M5507;Matematicas;completar;14 + ___ = 31;17|18|16;17;
+M5508;Matematicas;ordenar;Ordena los números de menor a mayor;20|6|22;6|20|22;
+M5512;Matematicas;ordenar;Ordena los números de menor a mayor;20|27|10;10|20|27;
+M5513;Matematicas;ordenar;Ordena los números de menor a mayor;29|4|9;4|9|29;
+M5515;Matematicas;ordenar;Ordena los números de menor a mayor;26|23|3;3|23|26;
+M5516;Matematicas;test;¿Cuánto es 5 + 5?;11|9|10;10;
+M5517;Matematicas;ordenar;Ordena los números de menor a mayor;5|13|15;5|13|15;
+M5520;Matematicas;test;¿Cuánto es 19 + 14?;34|32|33;33;
+M5522;Matematicas;ordenar;Ordena los números de menor a mayor;5|3|11;3|5|11;
+M5523;Matematicas;completar;6 + ___ = 19;13|14|12;13;
+M5524;Matematicas;ordenar;Ordena los números de menor a mayor;11|16|14;11|14|16;
+M5528;Matematicas;completar;13 + ___ = 27;14|15|13;14;
+M5531;Matematicas;escribir;Escribe el resultado de 4 x 7;;28;
+M5533;Matematicas;escribir;Escribe el resultado de 10 x 4;;40;
+M5535;Matematicas;test;¿Cuánto es 8 + 12?;20|19|21;20;
+M5536;Matematicas;test;¿Cuánto es 7 + 1?;7|9|8;8;
+M5537;Matematicas;ordenar;Ordena los números de menor a mayor;18|16|5;5|16|18;
+M5538;Matematicas;test;¿Cuánto es 2 + 12?;14|15|13;14;
+M5539;Matematicas;ordenar;Ordena los números de menor a mayor;28|25|27;25|27|28;
+M5540;Matematicas;completar;10 + ___ = 25;15|16|14;15;
+M5541;Matematicas;completar;18 + ___ = 32;14|15|13;14;
+M5542;Matematicas;completar;7 + ___ = 15;8|9|7;8;
+M5543;Matematicas;test;¿Cuánto es 5 + 4?;9|8|10;9;
+M5546;Matematicas;completar;13 + ___ = 14;1|2|0;1;
+M5550;Matematicas;test;¿Cuánto es 16 + 20?;36|37|35;36;
+M5551;Matematicas;completar;1 + ___ = 6;5|6|4;5;
+M5552;Matematicas;ordenar;Ordena los números de menor a mayor;5|3|8;3|5|8;
+M5553;Matematicas;test;¿Cuánto es 1 + 19?;20|19|21;20;
+M5555;Matematicas;completar;16 + ___ = 21;5|6|4;5;
+M5560;Matematicas;ordenar;Ordena los números de menor a mayor;4|5|2;2|4|5;
+M5562;Matematicas;test;¿Cuánto es 20 + 6?;27|26|25;26;
+M5563;Matematicas;escribir;Escribe el resultado de 3 x 1;;3;
+M5568;Matematicas;ordenar;Ordena los números de menor a mayor;19|17|10;10|17|19;
+M5571;Matematicas;ordenar;Ordena los números de menor a mayor;3|17|13;3|13|17;
+M5572;Matematicas;completar;7 + ___ = 20;13|14|12;13;
+M5579;Matematicas;ordenar;Ordena los números de menor a mayor;21|13|27;13|21|27;
+M5581;Matematicas;test;¿Cuánto es 12 + 14?;27|26|25;26;
+M5583;Matematicas;test;¿Cuánto es 3 + 12?;16|15|14;15;
+M5585;Matematicas;completar;10 + ___ = 16;6|7|5;6;
+M5586;Matematicas;escribir;Escribe el resultado de 2 x 2;;4;
+M5587;Matematicas;completar;20 + ___ = 21;1|2|0;1;
+M5588;Matematicas;ordenar;Ordena los números de menor a mayor;7|18|21;7|18|21;
+M5589;Matematicas;test;¿Cuánto es 8 + 9?;18|16|17;17;
+M5590;Matematicas;test;¿Cuánto es 19 + 19?;39|37|38;38;
+M5591;Matematicas;test;¿Cuánto es 19 + 16?;35|34|36;35;
+M5592;Matematicas;test;¿Cuánto es 2 + 11?;14|12|13;13;
+M5593;Matematicas;test;¿Cuánto es 10 + 1?;11|12|10;11;
+M5594;Matematicas;ordenar;Ordena los números de menor a mayor;25|10|13;10|13|25;
+M5595;Matematicas;escribir;Escribe el resultado de 4 x 6;;24;
+M5597;Matematicas;completar;4 + ___ = 15;11|12|10;11;
+M5600;Matematicas;test;¿Cuánto es 19 + 13?;31|32|33;32;
+M5602;Matematicas;test;¿Cuánto es 10 + 6?;16|15|17;16;
+M5603;Matematicas;completar;15 + ___ = 18;3|4|2;3;
+M5605;Matematicas;test;¿Cuánto es 8 + 7?;16|15|14;15;
+M5608;Matematicas;completar;6 + ___ = 23;17|18|16;17;
+M5610;Matematicas;ordenar;Ordena los números de menor a mayor;15|26|5;5|15|26;
+M5611;Matematicas;ordenar;Ordena los números de menor a mayor;10|12|20;10|12|20;
+M5616;Matematicas;completar;20 + ___ = 40;20|21|19;20;
+M5617;Matematicas;test;¿Cuánto es 5 + 19?;25|23|24;24;
+M5620;Matematicas;test;¿Cuánto es 5 + 10?;16|15|14;15;
+M5621;Matematicas;escribir;Escribe el resultado de 2 x 8;;16;
+M5622;Matematicas;test;¿Cuánto es 15 + 11?;27|26|25;26;
+M5625;Matematicas;ordenar;Ordena los números de menor a mayor;12|3|6;3|6|12;
+M5631;Matematicas;test;¿Cuánto es 12 + 10?;21|22|23;22;
+M5634;Matematicas;ordenar;Ordena los números de menor a mayor;17|28|20;17|20|28;
+M5635;Matematicas;ordenar;Ordena los números de menor a mayor;12|3|22;3|12|22;
+M5639;Matematicas;test;¿Cuánto es 20 + 2?;21|22|23;22;
+M5641;Matematicas;completar;18 + ___ = 19;1|2|0;1;
+M5642;Matematicas;completar;4 + ___ = 14;10|11|9;10;
+M5644;Matematicas;escribir;Escribe el resultado de 7 x 2;;14;
+M5645;Matematicas;completar;13 + ___ = 28;15|16|14;15;
+M5647;Matematicas;test;¿Cuánto es 12 + 15?;27|26|28;27;
+M5650;Matematicas;test;¿Cuánto es 6 + 4?;11|9|10;10;
+M5652;Matematicas;completar;13 + ___ = 24;11|12|10;11;
+M5653;Matematicas;test;¿Cuánto es 11 + 11?;21|22|23;22;
+M5654;Matematicas;escribir;Escribe el resultado de 8 x 4;;32;
+M5658;Matematicas;ordenar;Ordena los números de menor a mayor;15|2|18;2|15|18;
+M5661;Matematicas;completar;11 + ___ = 30;19|20|18;19;
+M5662;Matematicas;test;¿Cuánto es 20 + 13?;34|32|33;33;
+M5668;Matematicas;ordenar;Ordena los números de menor a mayor;21|6|3;3|6|21;
+M5669;Matematicas;completar;3 + ___ = 12;9|10|8;9;
+M5671;Matematicas;ordenar;Ordena los números de menor a mayor;28|23|15;15|23|28;
+M5673;Matematicas;completar;9 + ___ = 15;6|7|5;6;
+M5674;Matematicas;test;¿Cuánto es 3 + 14?;18|16|17;17;
+M5675;Matematicas;ordenar;Ordena los números de menor a mayor;25|10|6;6|10|25;
+M5676;Matematicas;completar;12 + ___ = 26;14|15|13;14;
+M5679;Matematicas;ordenar;Ordena los números de menor a mayor;23|19|13;13|19|23;
+M5681;Matematicas;completar;3 + ___ = 22;19|20|18;19;
+M5688;Matematicas;ordenar;Ordena los números de menor a mayor;1|5|29;1|5|29;
+M5691;Matematicas;test;¿Cuánto es 14 + 9?;22|24|23;23;
+M5692;Matematicas;escribir;Escribe el resultado de 1 x 8;;8;
+M5693;Matematicas;completar;15 + ___ = 34;19|20|18;19;
+M5694;Matematicas;test;¿Cuánto es 2 + 7?;9|8|10;9;
+M5696;Matematicas;completar;14 + ___ = 32;18|19|17;18;
+M5697;Matematicas;completar;20 + ___ = 33;13|14|12;13;
+M5698;Matematicas;completar;12 + ___ = 19;7|8|6;7;
+M5699;Matematicas;completar;19 + ___ = 20;1|2|0;1;
+M5700;Matematicas;ordenar;Ordena los números de menor a mayor;27|12|1;1|12|27;
+M5701;Matematicas;ordenar;Ordena los números de menor a mayor;29|10|17;10|17|29;
+M5702;Matematicas;test;¿Cuánto es 16 + 15?;30|31|32;31;
+M5704;Matematicas;ordenar;Ordena los números de menor a mayor;12|27|18;12|18|27;
+M5706;Matematicas;ordenar;Ordena los números de menor a mayor;4|6|15;4|6|15;
+M5708;Matematicas;completar;18 + ___ = 38;20|21|19;20;
+M5717;Matematicas;test;¿Cuánto es 3 + 1?;5|4|3;4;
+M5723;Matematicas;ordenar;Ordena los números de menor a mayor;28|14|7;7|14|28;
+M5724;Matematicas;completar;15 + ___ = 33;18|19|17;18;
+M5726;Matematicas;completar;16 + ___ = 20;4|5|3;4;
+M5727;Matematicas;ordenar;Ordena los números de menor a mayor;26|15|14;14|15|26;
+M5732;Matematicas;ordenar;Ordena los números de menor a mayor;26|8|17;8|17|26;
+M5733;Matematicas;ordenar;Ordena los números de menor a mayor;9|29|22;9|22|29;
+M5734;Matematicas;ordenar;Ordena los números de menor a mayor;10|27|29;10|27|29;
+M5736;Matematicas;test;¿Cuánto es 14 + 2?;16|15|17;16;
+M5737;Matematicas;test;¿Cuánto es 1 + 5?;7|6|5;6;
+M5738;Matematicas;ordenar;Ordena los números de menor a mayor;27|17|24;17|24|27;
+M5740;Matematicas;completar;19 + ___ = 33;14|15|13;14;
+M5744;Matematicas;completar;13 + ___ = 19;6|7|5;6;
+M5748;Matematicas;escribir;Escribe el resultado de 2 x 10;;20;
+M5751;Matematicas;completar;3 + ___ = 6;3|4|2;3;
+M5752;Matematicas;test;¿Cuánto es 14 + 1?;16|15|14;15;
+M5760;Matematicas;completar;8 + ___ = 16;8|9|7;8;
+M5761;Matematicas;ordenar;Ordena los números de menor a mayor;7|18|27;7|18|27;
+M5762;Matematicas;completar;13 + ___ = 22;9|10|8;9;
+M5764;Matematicas;test;¿Cuánto es 9 + 3?;13|11|12;12;
+M5766;Matematicas;test;¿Cuánto es 4 + 15?;18|20|19;19;
+M5768;Matematicas;completar;10 + ___ = 19;9|10|8;9;
+M5776;Matematicas;ordenar;Ordena los números de menor a mayor;21|15|26;15|21|26;
+M5777;Matematicas;completar;6 + ___ = 16;10|11|9;10;
+M5778;Matematicas;test;¿Cuánto es 6 + 19?;24|26|25;25;
+M5781;Matematicas;ordenar;Ordena los números de menor a mayor;12|16|20;12|16|20;
+M5783;Matematicas;completar;17 + ___ = 26;9|10|8;9;
+M5784;Matematicas;test;¿Cuánto es 7 + 20?;27|26|28;27;
+M5785;Matematicas;test;¿Cuánto es 18 + 1?;18|20|19;19;
+M5786;Matematicas;escribir;Escribe el resultado de 9 x 3;;27;
+M5787;Matematicas;completar;12 + ___ = 16;4|5|3;4;
+M5788;Matematicas;completar;1 + ___ = 12;11|12|10;11;
+M5789;Matematicas;completar;8 + ___ = 11;3|4|2;3;
+M5792;Matematicas;completar;9 + ___ = 18;9|10|8;9;
+M5794;Matematicas;test;¿Cuánto es 12 + 18?;29|30|31;30;
+M5796;Matematicas;ordenar;Ordena los números de menor a mayor;15|24|26;15|24|26;
+M5798;Matematicas;escribir;Escribe el resultado de 7 x 4;;28;
+M5799;Matematicas;ordenar;Ordena los números de menor a mayor;6|7|22;6|7|22;
+M5801;Matematicas;ordenar;Ordena los números de menor a mayor;13|4|19;4|13|19;
+M5802;Matematicas;escribir;Escribe el resultado de 5 x 3;;15;
+M5803;Matematicas;completar;16 + ___ = 30;14|15|13;14;
+M5809;Matematicas;ordenar;Ordena los números de menor a mayor;29|21|27;21|27|29;
+M5810;Matematicas;test;¿Cuánto es 15 + 6?;22|20|21;21;
+M5812;Matematicas;escribir;Escribe el resultado de 7 x 5;;35;
+M5813;Matematicas;escribir;Escribe el resultado de 9 x 6;;54;
+M5815;Matematicas;test;¿Cuánto es 6 + 11?;18|16|17;17;
+M5817;Matematicas;ordenar;Ordena los números de menor a mayor;8|3|7;3|7|8;
+M5819;Matematicas;ordenar;Ordena los números de menor a mayor;12|5|25;5|12|25;
+M5820;Matematicas;ordenar;Ordena los números de menor a mayor;4|1|11;1|4|11;
+M5824;Matematicas;ordenar;Ordena los números de menor a mayor;29|8|18;8|18|29;
+M5826;Matematicas;escribir;Escribe el resultado de 4 x 9;;36;
+M5827;Matematicas;completar;4 + ___ = 22;18|19|17;18;
+M5828;Matematicas;ordenar;Ordena los números de menor a mayor;23|20|29;20|23|29;
+M5833;Matematicas;ordenar;Ordena los números de menor a mayor;7|2|26;2|7|26;
+M5837;Matematicas;completar;20 + ___ = 31;11|12|10;11;
+M5840;Matematicas;test;¿Cuánto es 19 + 1?;20|19|21;20;
+M5842;Matematicas;completar;13 + ___ = 15;2|3|1;2;
+M5844;Matematicas;ordenar;Ordena los números de menor a mayor;21|1|3;1|3|21;
+M5847;Matematicas;ordenar;Ordena los números de menor a mayor;11|25|12;11|12|25;
+M5849;Matematicas;escribir;Escribe el resultado de 6 x 8;;48;
+M5851;Matematicas;ordenar;Ordena los números de menor a mayor;23|15|16;15|16|23;
+M5853;Matematicas;test;¿Cuánto es 12 + 20?;31|32|33;32;
+M5854;Matematicas;test;¿Cuánto es 1 + 8?;9|8|10;9;
+M5857;Matematicas;completar;6 + ___ = 9;3|4|2;3;
+M5858;Matematicas;completar;12 + ___ = 30;18|19|17;18;
+M5860;Matematicas;test;¿Cuánto es 4 + 2?;7|6|5;6;
+M5861;Matematicas;ordenar;Ordena los números de menor a mayor;3|9|11;3|9|11;
+M5865;Matematicas;completar;5 + ___ = 24;19|20|18;19;
+M5867;Matematicas;completar;11 + ___ = 16;5|6|4;5;
+M5871;Matematicas;completar;19 + ___ = 35;16|17|15;16;
+M5874;Matematicas;ordenar;Ordena los números de menor a mayor;25|24|16;16|24|25;
+M5876;Matematicas;ordenar;Ordena los números de menor a mayor;23|3|12;3|12|23;
+M5879;Matematicas;test;¿Cuánto es 3 + 16?;18|20|19;19;
+M5882;Matematicas;completar;15 + ___ = 28;13|14|12;13;
+M5884;Matematicas;ordenar;Ordena los números de menor a mayor;7|27|19;7|19|27;
+M5886;Matematicas;ordenar;Ordena los números de menor a mayor;23|15|21;15|21|23;
+M5888;Matematicas;completar;8 + ___ = 20;12|13|11;12;
+M5893;Matematicas;completar;10 + ___ = 29;19|20|18;19;
+M5895;Matematicas;test;¿Cuánto es 5 + 15?;20|19|21;20;
+M5898;Matematicas;ordenar;Ordena los números de menor a mayor;1|16|22;1|16|22;
+M5900;Matematicas;ordenar;Ordena los números de menor a mayor;4|18|3;3|4|18;
+M5901;Matematicas;ordenar;Ordena los números de menor a mayor;14|7|5;5|7|14;
+M5904;Matematicas;ordenar;Ordena los números de menor a mayor;2|15|9;2|9|15;
+M5905;Matematicas;ordenar;Ordena los números de menor a mayor;4|2|21;2|4|21;
+M5907;Matematicas;completar;10 + ___ = 17;7|8|6;7;
+M5909;Matematicas;escribir;Escribe el resultado de 5 x 9;;45;
+M5914;Matematicas;completar;4 + ___ = 6;2|3|1;2;
+M5915;Matematicas;test;¿Cuánto es 19 + 9?;27|29|28;28;
+M5916;Matematicas;completar;3 + ___ = 21;18|19|17;18;
+M5918;Matematicas;escribir;Escribe el resultado de 7 x 7;;49;
+M5920;Matematicas;completar;9 + ___ = 25;16|17|15;16;
+M5922;Matematicas;ordenar;Ordena los números de menor a mayor;21|10|23;10|21|23;
+M5926;Matematicas;escribir;Escribe el resultado de 8 x 5;;40;
+M5928;Matematicas;completar;6 + ___ = 17;11|12|10;11;
+M5930;Matematicas;test;¿Cuánto es 6 + 6?;13|11|12;12;
+M5931;Matematicas;ordenar;Ordena los números de menor a mayor;29|15|5;5|15|29;
+M5932;Matematicas;test;¿Cuánto es 16 + 14?;29|30|31;30;
+M5933;Matematicas;ordenar;Ordena los números de menor a mayor;1|6|9;1|6|9;
+M5934;Matematicas;test;¿Cuánto es 6 + 1?;7|6|8;7;
+M5940;Matematicas;ordenar;Ordena los números de menor a mayor;27|8|17;8|17|27;
+M5941;Matematicas;escribir;Escribe el resultado de 3 x 3;;9;
+M5942;Matematicas;test;¿Cuánto es 4 + 10?;14|15|13;14;
+M5944;Matematicas;ordenar;Ordena los números de menor a mayor;15|16|24;15|16|24;
+M5945;Matematicas;ordenar;Ordena los números de menor a mayor;18|9|22;9|18|22;
+M5947;Matematicas;ordenar;Ordena los números de menor a mayor;15|1|27;1|15|27;
+M5948;Matematicas;ordenar;Ordena los números de menor a mayor;10|23|11;10|11|23;
+M5950;Matematicas;test;¿Cuánto es 9 + 17?;27|26|25;26;
+M5953;Matematicas;test;¿Cuánto es 5 + 14?;18|20|19;19;
+M5957;Matematicas;ordenar;Ordena los números de menor a mayor;7|24|3;3|7|24;
+M5959;Matematicas;ordenar;Ordena los números de menor a mayor;29|21|22;21|22|29;
+M5961;Matematicas;completar;9 + ___ = 21;12|13|11;12;
+M5962;Matematicas;ordenar;Ordena los números de menor a mayor;13|19|14;13|14|19;
+M5963;Matematicas;ordenar;Ordena los números de menor a mayor;10|7|2;2|7|10;
+M5967;Matematicas;ordenar;Ordena los números de menor a mayor;10|4|1;1|4|10;
+M5970;Matematicas;escribir;Escribe el resultado de 5 x 10;;50;
+M5976;Matematicas;test;¿Cuánto es 2 + 16?;18|17|19;18;
+M5977;Matematicas;ordenar;Ordena los números de menor a mayor;1|14|12;1|12|14;
+M5984;Matematicas;completar;14 + ___ = 33;19|20|18;19;
+M5985;Matematicas;test;¿Cuánto es 10 + 8?;18|17|19;18;
+M5986;Matematicas;test;¿Cuánto es 16 + 12?;27|29|28;28;
+M5989;Matematicas;ordenar;Ordena los números de menor a mayor;10|20|6;6|10|20;
+M5992;Matematicas;ordenar;Ordena los números de menor a mayor;5|14|18;5|14|18;
+M5993;Matematicas;completar;10 + ___ = 20;10|11|9;10;
+M5994;Matematicas;test;¿Cuánto es 10 + 19?;29|30|28;29;
+M5998;Matematicas;test;¿Cuánto es 5 + 17?;21|22|23;22;
+M6001;Matematicas;ordenar;Ordena los números de menor a mayor;14|15|1;1|14|15;
+M6003;Matematicas;test;¿Cuánto es 5 + 20?;24|26|25;25;
+M6004;Matematicas;ordenar;Ordena los números de menor a mayor;26|8|19;8|19|26;
+M6007;Matematicas;ordenar;Ordena los números de menor a mayor;2|25|28;2|25|28;
+M6014;Matematicas;test;¿Cuánto es 11 + 20?;30|31|32;31;
+M6023;Matematicas;completar;5 + ___ = 15;10|11|9;10;
+M6025;Matematicas;ordenar;Ordena los números de menor a mayor;24|1|26;1|24|26;
+M6028;Matematicas;completar;4 + ___ = 7;3|4|2;3;
+M6030;Matematicas;test;¿Cuánto es 17 + 4?;22|20|21;21;
+M6031;Matematicas;completar;7 + ___ = 11;4|5|3;4;
+M6036;Matematicas;completar;8 + ___ = 26;18|19|17;18;
+M6037;Matematicas;ordenar;Ordena los números de menor a mayor;27|20|22;20|22|27;
+M6039;Matematicas;test;¿Cuánto es 14 + 5?;18|20|19;19;
+M6041;Matematicas;test;¿Cuánto es 6 + 5?;11|12|10;11;
+M6049;Matematicas;ordenar;Ordena los números de menor a mayor;22|4|19;4|19|22;
+M6052;Matematicas;ordenar;Ordena los números de menor a mayor;13|23|26;13|23|26;
+M6053;Matematicas;test;¿Cuánto es 15 + 14?;29|30|28;29;
+M6055;Matematicas;test;¿Cuánto es 10 + 15?;24|26|25;25;
+M6057;Matematicas;test;¿Cuánto es 19 + 10?;29|30|28;29;
+M6058;Matematicas;test;¿Cuánto es 20 + 15?;35|34|36;35;
+M6061;Matematicas;ordenar;Ordena los números de menor a mayor;1|6|12;1|6|12;
+M6063;Matematicas;ordenar;Ordena los números de menor a mayor;29|23|17;17|23|29;
+M6066;Matematicas;ordenar;Ordena los números de menor a mayor;21|24|19;19|21|24;
+M6067;Matematicas;ordenar;Ordena los números de menor a mayor;15|23|28;15|23|28;
+M6068;Matematicas;completar;9 + ___ = 19;10|11|9;10;
+M6074;Matematicas;completar;19 + ___ = 36;17|18|16;17;
+M6078;Matematicas;ordenar;Ordena los números de menor a mayor;19|12|20;12|19|20;
+M6080;Matematicas;test;¿Cuánto es 1 + 6?;7|6|8;7;
+M6081;Matematicas;completar;4 + ___ = 8;4|5|3;4;
+M6083;Matematicas;ordenar;Ordena los números de menor a mayor;25|8|26;8|25|26;
+M6085;Matematicas;completar;4 + ___ = 10;6|7|5;6;
+M6088;Matematicas;test;¿Cuánto es 2 + 20?;21|22|23;22;
+M6089;Matematicas;ordenar;Ordena los números de menor a mayor;4|2|28;2|4|28;
+M6091;Matematicas;test;¿Cuánto es 15 + 12?;27|26|28;27;
+M6092;Matematicas;escribir;Escribe el resultado de 1 x 3;;3;
+M6093;Matematicas;ordenar;Ordena los números de menor a mayor;4|23|15;4|15|23;
+M6099;Matematicas;completar;7 + ___ = 13;6|7|5;6;
+M6102;Matematicas;test;¿Cuánto es 4 + 7?;11|12|10;11;
+M6103;Matematicas;test;¿Cuánto es 5 + 1?;7|6|5;6;
+M6104;Matematicas;ordenar;Ordena los números de menor a mayor;25|14|19;14|19|25;
+M6106;Matematicas;completar;17 + ___ = 33;16|17|15;16;
+M6109;Matematicas;ordenar;Ordena los números de menor a mayor;12|20|29;12|20|29;
+M6116;Matematicas;test;¿Cuánto es 16 + 8?;25|23|24;24;
+M6117;Matematicas;test;¿Cuánto es 20 + 18?;39|37|38;38;
+M6118;Matematicas;ordenar;Ordena los números de menor a mayor;1|8|27;1|8|27;
+M6119;Matematicas;ordenar;Ordena los números de menor a mayor;27|9|13;9|13|27;
+M6121;Matematicas;ordenar;Ordena los números de menor a mayor;3|28|6;3|6|28;
+M6122;Matematicas;ordenar;Ordena los números de menor a mayor;3|18|19;3|18|19;
+M6124;Matematicas;escribir;Escribe el resultado de 5 x 7;;35;
+M6125;Matematicas;escribir;Escribe el resultado de 1 x 9;;9;
+M6128;Matematicas;ordenar;Ordena los números de menor a mayor;21|1|2;1|2|21;
+M6129;Matematicas;ordenar;Ordena los números de menor a mayor;14|9|7;7|9|14;
+M6130;Matematicas;ordenar;Ordena los números de menor a mayor;29|25|2;2|25|29;
+M6133;Matematicas;ordenar;Ordena los números de menor a mayor;25|22|29;22|25|29;
+M6134;Matematicas;test;¿Cuánto es 8 + 16?;25|23|24;24;
+M6135;Matematicas;test;¿Cuánto es 19 + 20?;39|40|38;39;
+M6137;Matematicas;test;¿Cuánto es 12 + 3?;16|15|14;15;
+M6142;Matematicas;ordenar;Ordena los números de menor a mayor;24|2|4;2|4|24;
+M6143;Matematicas;test;¿Cuánto es 16 + 17?;34|32|33;33;
+M6146;Matematicas;completar;1 + ___ = 3;2|3|1;2;
+M6147;Matematicas;test;¿Cuánto es 7 + 18?;24|26|25;25;
+M6149;Matematicas;escribir;Escribe el resultado de 8 x 1;;8;
+M6152;Matematicas;completar;14 + ___ = 28;14|15|13;14;
+M6157;Matematicas;test;¿Cuánto es 8 + 8?;16|15|17;16;
+M6162;Matematicas;completar;2 + ___ = 5;3|4|2;3;
+M6165;Matematicas;ordenar;Ordena los números de menor a mayor;12|20|21;12|20|21;
+M6166;Matematicas;completar;10 + ___ = 15;5|6|4;5;
+M6170;Matematicas;ordenar;Ordena los números de menor a mayor;18|7|16;7|16|18;
+M6173;Matematicas;ordenar;Ordena los números de menor a mayor;29|28|8;8|28|29;
+M6175;Matematicas;ordenar;Ordena los números de menor a mayor;25|18|10;10|18|25;
+M6178;Matematicas;ordenar;Ordena los números de menor a mayor;23|18|17;17|18|23;
+M6183;Matematicas;escribir;Escribe el resultado de 4 x 5;;20;
+M6186;Matematicas;ordenar;Ordena los números de menor a mayor;24|27|26;24|26|27;
+M6187;Matematicas;completar;2 + ___ = 10;8|9|7;8;
+M6190;Matematicas;test;¿Cuánto es 1 + 16?;18|16|17;17;
+S2001;Socials;test;Who do we call people that live next to us? (example 1);Neighbours|Friends|Drivers;Neighbours;
+S2002;Socials;test;Where do people live and work?;Town|Forest|Ocean;Town;
+S2003;Socials;test;What should you do with rubbish?;Recycle|Burn|Hide;Recycle;
+S2004;Socials;test;What must cars do at a zebra crossing?;Stop|Speed up|Turn around;Stop;
+S2005;Socials;test;Who helps sick people?;Doctor|Chef|Driver;Doctor;
+S2006;Socials;test;If you feel shy, your face may ___;blush|laugh|sleep;blush;
+S2007;Socials;test;What makes a community happy?;Happy neighbours|Loud cars|More walls;Happy neighbours;
+S2008;Socials;test;If someone falls on a wet floor, the sign says: (example 8);Slippery|Playful|Dangerous;Slippery;
+S2009;Socials;test;What is a responsibility at school?;Follow rules|Skip class|Paint walls;Follow rules;
+S2010;Socials;test;Helping birds in nests is helping ___;animals|cars|buildings;animals;
+S2101;Socials;completar;I am ___ Spain;from|in|at;from;
+S2102;Socials;completar;A chef ___ food;cooks|lays|cleans;cooks;
+S2103;Socials;completar;The hen ___ eggs;lays|feeds|sweeps;lays;
+S2104;Socials;completar;She ___ the baby every morning;feeds|plays|cooks;feeds;
+S2105;Socials;completar;He ___ the floor with a broom;sweeps|drives|paints;sweeps;
+S2106;Socials;completar;You have to ___ to school;go|play|eat;go;
+S2107;Socials;completar;We must ___ rubbish;recycle|ignore|burn;recycle;
+S2108;Socials;completar;You must ___ your toys after play;collect|hide|break;collect;
+S2109;Socials;completar;You must ___ the school rules;follow|break|forget;follow;
+S2110;Socials;completar;You must ___ at the zebra crossing;stop|paint|run;stop;
+S2151;Socials;verdadero_falso;Families can have boys and girls in our town;Verdadero|Falso;Verdadero;
+S2152;Socials;verdadero_falso;You should respect your neighbours;Verdadero|Falso;Verdadero;
+S2153;Socials;verdadero_falso;Throwing rubbish in the street is correct;Verdadero|Falso;Falso;
+S2154;Socials;verdadero_falso;Cars must stop for pedestrians at zebra crossings;Verdadero|Falso;Verdadero;
+S2155;Socials;verdadero_falso;It is allowed to skate in the middle of the road;Verdadero|Falso;Falso;
+S2156;Socials;verdadero_falso;Different cultures have different traditions in our town;Verdadero|Falso;Verdadero;
+S2157;Socials;verdadero_falso;You must follow school rules every day;Verdadero|Falso;Verdadero;
+S2158;Socials;verdadero_falso;A slippery sign means be careful;Verdadero|Falso;Verdadero;
+S2159;Socials;verdadero_falso;Painting public walls is good behaviour;Verdadero|Falso;Falso;
+S2160;Socials;verdadero_falso;Visiting the doctor is a right;Verdadero|Falso;Verdadero;
+S2191;Socials;clasificar;Classify: visit the doctor, play with friends, go to school, pick up toys;;Right:visit the doctor,play with friends|Responsibility:go to school,pick up your toys;
+S2192;Socials;clasificar;Classify: recycle rubbish, feel safe, follow school rules, play with friends;;Responsibility:recycle rubbish,follow school rules|Right:feel safe,play with friends;
+S2193;Socials;clasificar;Classify: stop at zebra crossing, visit doctor, collect toys, play;;Responsibility:stop at zebra crossing,collect toys|Right:visit doctor,play with friends;
+S2211;Socials;ordenar;Order the words;We|help|our|neighbours;We|help|our|neighbours;Pista: sujeto-verbo-objeto
+S2212;Socials;ordenar;Order the words;People|follow|the|rules;People|follow|the|rules;Pista: sujeto-verbo-objeto
+S2213;Socials;ordenar;Order the words;Children|play|in|the|park;Children|play|in|the|park;Pista: sujeto-verbo-objeto
+S2214;Socials;ordenar;Order the words;Cars|must|stop|at|zebra|crossing;Cars|must|stop|at|zebra|crossing;Pista: sujeto-verbo-objeto
+S2215;Socials;ordenar;Order the words;Neighbours|take|care|of|each|other;Neighbours|take|care|of|each|other;Pista: sujeto-verbo-objeto
+S2236;Socials;escribir;Write the question: ___ are you from?;;Where;Answer in one word
+S2237;Socials;escribir;Write the place: people read in the ___;;library;Answer in one word
+S2238;Socials;escribir;Write the job: who helps sick people? ___;;doctor;Answer in one word
+S2239;Socials;escribir;Write the emotion: when you smile, you feel ___;;happy;Answer in one word
+S2240;Socials;escribir;Write the object: cross the street at a ___;;zebra crossing;Answer in one word
+S2241;Socials;escribir;Write the rule: you must ___ your toys after play;;collect;Answer in one word
+S2242;Socials;escribir;Write the action: to clean the room you ___;;clean;Answer in one word
+S2243;Socials;escribir;Write the activity: play with friends is a ___;;right;Answer in one word
+S2244;Socials;escribir;Write the role: person who cooks is a ___;;chef;Answer in one word
+S2245;Socials;escribir;Write the place: where children learn ___;;school;Answer in one word
+S2246;Socials;arrastrar;Drag to match;Library|Hospital|Playground;read|heal|play;
+S2247;Socials;arrastrar;Drag to match;School|Market|Park;learn|buy|relax;
+S2248;Socials;arrastrar;Drag to match;Zebra crossing|Bike lane|No skating;cross|ride|not skate;
+S2249;Socials;arrastrar;Drag to match;Neighbour|Doctor|Teacher;help|heal|teach;
+S2258;Socials;guess;You cross here to go to school (guess 1);zebra crossing|park|ocean;zebra crossing;
+S2259;Socials;guess;Children climb and slide here (guess 2);playground|library|hospital;playground;
+S2260;Socials;guess;You buy fruit here (guess 3);market|forest|beach;market;
+S2261;Socials;guess;People read books here (guess 4);library|shop|station;library;
+S2278;Socials;pronunciar;neighbours;;neighbours;Repeat the word
+S2279;Socials;pronunciar;community;;community;Repeat the word
+S2280;Socials;pronunciar;recycle;;recycle;Repeat the word
+S2281;Socials;pronunciar;zebra crossing;;zebra crossing;Repeat the word
+S2282;Socials;pronunciar;doctor;;doctor;Repeat the word
+S2283;Socials;pronunciar;school;;school;Repeat the word
+S2284;Socials;hablar;Do you have a neighbour?;;Do you have a neighbour?;Speak and answer
+S2285;Socials;hablar;Can you say hello?;;Can you say hello?;Speak and answer
+S2286;Socials;hablar;Do you go to school?;;Do you go to school?;Speak and answer
+S2287;Socials;hablar;Do you help at home?;;Do you help at home?;Speak and answer
+S2288;Socials;hablar;Can you say thank you?;;Can you say thank you?;Speak and answer
+S2289;Socials;hablar;Do you like your community?;;Do you like your community?;Speak and answer
+S2290;Socials;listening;run;run|runs|running;run;Listen and pick the word
+S2291;Socials;listening;play;play|plays|played;play;Listen and pick the word
+S2292;Socials;listening;help;help|helps|helped;help;Listen and pick the word
+S2293;Socials;listening;cook;cook|cooks|cooked;cook;Listen and pick the word
+S2294;Socials;listening;feed;feed|feeds|feeding;feed;Listen and pick the word
+S2295;Socials;listening;clean;clean|cleans|cleaned;clean;Listen and pick the word
+S9008;Socials;completar;We live on planet ___;Earth|Mars|Jupiter;Earth
+S001;Socials;completar;At school we must ___ to others;respect|shout|push;respect
+S002;Socials;completar;In the library we talk ___;high|low|shouting;under
+S003;Socials;completar;A red traffic light means ___;stop|run|move forward;stop
+S004;Socials;completar;A doctor works at the ___;hospital|park|cinema;hospital
+S005;Socials;completar;In the morning I ___ to go to school;awake|sleep|eat dinner;awake
+S026;Socials;completar;In the park we play and ___;we run|shout|break;we run
+S027;Socials;completar;The police help to keep the ___;order|noise|disorder;order
+S028;Socials;completar;The family lives in the same ___;house|shop|school;house
+S029;Socials;completar;To cross the street I look at ___;the sides|down|up;the sides
+S030;Socials;completar;In class we raise our ___ to talk;hand|leg|backpack;hand
+S001;Socials;completar;At school we must ___ to others;respect|shout|push;respect
+S002;Socials;completar;In the library we talk ___;low|high|running;under
+S003;Socials;completar;A red traffic light indicates ___;stop|run|jump;stop
+S004;Socials;completar;To cross the street we look at ___;the sides|the ground|the sky;the sides
+S005;Socials;completar;In class we raise our ___;hand|backpack|chair;hand
+S006;Socials;completar;In the park we can ___;play|break|shout;play
+S007;Socials;completar;Neighbors must ___ the neighborhood;take care|dirty|break;take care
+S008;Socials;completar;To go to school I ___ early;awake|sleep|eat dinner;awake
+S009;Socials;completar;As a family we must ___;help|fight|push;help
+S010;Socials;completar;Parks are for ___;play|break|dirty;play
+S011;Socials;completar;At the hospital doctors work;doctors|clowns|pilots;doctors
+S012;Socials;completar;At school we learn to ___;live together|hit|shout;live together
+S013;Socials;completar;To buy bread I go to the ___;bakery|school|library;bakery
+S014;Socials;completar;Before crossing we look at the ___;traffic light|tree|bench;traffic light
+S015;Socials;completar;In class we listen to the ___;teacher|driver|cook;teacher
+S016;Socials;completar;At home we help ___;tidy up|break|dirty;order
+S017;Socials;completar;On the street we walk along the ___;sidewalk|road|roof;sidewalk
+S018;Socials;completar;To read books we go to the ___;library|pool|store;library
+S019;Socials;completar;Firefighters help put out fires;turn off|do|paint;turn off
+S020;Socials;completar;In the neighborhood we greet the ___;neighbors|cars|trees;neighbors
+S021;Socials;completar;At school we use the ___;backpack|pillow|pan;backpack
+S022;Socials;completar;In the park we take care of the ___;games|papers|shouts;games
+S023;Socials;completar;To get there safely we use the ___;step of pedestrians|swing|bench;crosswalk
+S024;Socials;completar;In class we respect the ___;turn|noise|shove;turn
+S025;Socials;completar;At home we share the ___;time|shout|shove;time
+S026;Socials;completar;To play we all follow the ___;rules|fights|shouting;rules
+S027;Socials;completar;At school we go into the ___;line|race|shove;line
+S028;Socials;completar;In the street we watch the ___;cars|birds|trees;cars
+S029;Socials;completar;At home we pick up the ___;toys|shouting|problems;toys
+S030;Socials;completar;In the neighborhood we use the ___;trash cans|windows|walls;trash cans
+S9001;Socials;cual_no_encaja;Which is NOT a means of transportation?;car|train|block;apple
+S006;Socials;cual_no_encaja;Which is NOT a public place?;park|hospital|house|library;house
+S007;Socials;cual_no_encaja;Which is NOT a rule of coexistence?;wait turn|respect|push|help;push
+S008;Socials;cual_no_encaja;Which is NOT a means of transportation?;bus|bicycle|airplane|table;table
+S009;Socials;cual_no_encaja;Which does NOT work helping people?;doctor|firefighter|baker|brick;brick
+S010;Socials;cual_no_encaja;Which is NOT a day of the week?;Monday|Tuesday|January|Friday;January
+S031;Socials;cual_no_encaja;Which is NOT a place in the neighborhood?;bakery|park|hospital|mountain;mountain
+S032;Socials;cual_no_encaja;Which is NOT a chore?;tidy up|clean|help|fly;fly
+S033;Socials;cual_no_encaja;Which is NOT a public service?;school|hospital|library|sofa;sofa
+S034;Socials;cual_no_encaja;Which do we NOT use to get around?;car|train|airplane|chair;chair
+S035;Socials;cual_no_encaja;Which is NOT a member of the community?;neighbor|teacher|doctor|tree;tree
+S031;Socials;cual_no_encaja;Which is NOT a public place?;park|hospital|library|house;house
+S032;Socials;cual_no_encaja;Which is NOT a rule of coexistence?;respect|help|push|wait your turn;push
+S033;Socials;cual_no_encaja;Which is NOT a means of transportation?;bus|bicycle|airplane|table;table
+S034;Socials;cual_no_encaja;Which does NOT work helping people?;doctor|firefighter|teacher|brick;brick
+S035;Socials;cual_no_encaja;Which is NOT a day of the week?;Monday|Tuesday|January|Friday;January
+S036;Socials;cual_no_encaja;Which is NOT a place in the neighborhood?;park|bakery|hospital|mountain;mountain
+S037;Socials;cual_no_encaja;Which is NOT a profession?;doctor|baker|teacher|chair;chair
+S038;Socials;cual_no_encaja;Which is NOT used for learning?;school|book|library|television broken;television broken
+S039;Socials;cual_no_encaja;Which is NOT a place to play?;park|yard|plaza|road;road
+S040;Socials;cual_no_encaja;Which is NOT a rule in class?;listen|raise hand|push|respect;push
+S041;Socials;cual_no_encaja;Which is NOT a public service?;hospital|school|library|sofa;sofa
+S042;Socials;cual_no_encaja;Which is NOT used to cross the street?;crosswalk|traffic light|sidewalk|swing;swing
+S043;Socials;cual_no_encaja;Which does NOT help the community?;firefighter|police officer|doctor|trash;trash
+S044;Socials;cual_no_encaja;Which is NOT part of the school?;classroom|yard|library|garage;garage
+S045;Socials;cual_no_encaja;Which is NOT a chore?;tidy up|help|clean|fly;fly
+S046;Socials;cual_no_encaja;Which is NOT an enclosed space?;library|hospital|cinema|park;park
+S047;Socials;cual_no_encaja;Which is NOT a person?;teacher|neighbor|doctor|tree;tree
+S048;Socials;cual_no_encaja;Which do we NOT use to get around?;car|bicycle|train|sofa;sofa
+S049;Socials;cual_no_encaja;Which is NOT a place to shop? ;supermarket|store|market|park;park
+S050;Socials;cual_no_encaja;Which is NOT a park rule?;take care of games|share|push|respect;push
+S051;Socials;cual_no_encaja;Which is NOT a member of the family?;mother|father|brother|mayor;mayor
+S052;Socials;cual_no_encaja;Which is NOT a place at school?;classroom|yard|library|beach;beach
+S053;Socials;cual_no_encaja;Which is NOT a school supply?;pencil|notebook|book|pan;frying pan
+S054;Socials;cual_no_encaja;Which is NOT found on the street?;sidewalk|traffic light|trash can|bed;bed
+S055;Socials;cual_no_encaja;Which is NOT a right action?;help|respect|wait turn|push;push
+S056;Socials;cual_no_encaja;Which is NOT a neighbor?;child|family|dog|doctor;dog
+S057;Socials;cual_no_encaja;Which is NOT a place to learn?;school|library|museum|garage;garage
+S058;Socials;cual_no_encaja;Which is NOT a profession found in the neighborhood?;baker|police officer|physician|dragon;dragon
+S059;Socials;cual_no_encaja;Which is NOT done in class?;listen|learn|respect|race;run races
+S060;Socials;cual_no_encaja;Which is NOT a place to help people?;hospital|health center|park|ambulance;park
+S011;Socials;test;Where do we go to buy food?;supermarket|hospital|school;supermarket
+S012;Socials;test;Who teaches us at school?;teacher|police officer|baker;teacher
+S013;Socials;test;What do we use to cross the street safely?;crosswalk|swing|bench;crosswalk
+S014;Socials;test;Where can we borrow books?;library|park|restaurant;library
+S015;Socials;test;Who puts out fires?;firefighter|doctor|cook;firefighter
+S036;Socials;test;Where do we go if we are sick?;hospital|movie theater|park;hospital
+S037;Socials;test;Where do we learn rules and values?;family|supermarket|gas station;family
+S038;Socials;test;What do we use to get to school?;backpack|pillow|pan;backpack
+S039;Socials;test;Who drives the bus?;driver|doctor|waiter;driver
+S040;Socials;test;Where do we play outdoors?;park|library|hospital;park
+S061;Socials;test;Where do we go if we are sick?;hospital|park|movie theater;hospital
+S062;Socials;test;Who teaches at school?;teacher|baker|police officer;teacher
+S063;Socials;test;Where can we borrow books?;library|supermarket|bar;library
+S064;Socials;test;Who puts out fires?;firefighter|doctor|waiter;firefighter
+S065;Socials;test;Where do we buy food?;supermarket cado|hospital|school;supermarket
+S066;Socials;test;Who keeps order in the city?;police officer|baker|artist;police officer
+S067;Socials;test;Where do we play outdoors?;park|library|hospital;park
+S068;Socials;test;Who drives the bus?;driver|doctor|teacher;driver
+S069;Socials;test;Where do we learn rules?;family|gas station|movie theater;family
+S070;Socials;test;Who works at the hospital?;doctor|firefighter|baker;doctor
+S071;Socials;test;Where do we go to study?;school|park|market;school
+S072;Socials;test;Who helps us when there is a fire?;firefighter|cook|driver;firefighter
+S073;Socials;test;Where do we buy bread?;bakery|hospital|library;bakery
+S074;Socials;test;Who teaches reading and writing?;teacher|police officer|baker;teacher
+S075;Socials;test;Where do people vote?;city hall|park|supermarket;city hall
+S076;Socials;test;Who takes care of the sick?;nurse|baker|taxi driver;nurse
+S077;Socials;test;Where do we play at school?;p courtyard|classroom|office;playground
+S078;Socials;test;Who drives a taxi?;taxi driver|doctor|firefighter;taxi driver
+S079;Socials;test;Where do we buy fruit?;market|library|cinema;market
+S080;Socials;test;Who helps elderly people?;family|tree|car;family
+S081;Socials;test;Where can we find books to read?;library|bakery|garage;library
+S082;Socials;test;Who works putting out fires?;firefighter|teacher|mail carrier;firefighter
+S083;Socials;test;Where do we learn to live together?;school|garage|bar;school
+S084;Socials;test;Who takes care of the city?;mayor|clown|actor;mayor
+S085;Socials;test;Where do we buy clothes?;shop|hospital|school;store
+S086;Socials;test;Who helps when there's an accident?;ambulance|tree|bank;ambulance
+S087;Socials;test;Where are books stored?;library|park|car;library
+S088;Socials;test;Who teaches in class?;teacher|baker|driver;professor
+S089;Socials;test;Where do we play with friends?;park|hospital|office;park
+S090;Socials;test;Who organizes the city?;town hall| cinema|store;city hall
+S016;Socials;verdadero_falso;The hospital is a place to heal people.;True|False;TRUE
+S017;Socials;verdadero_falso;We can shout in the library.;True|False;FALSE
+S018;Socials;verdadero_falso;School is a place to learn.;True|False;TRUE
+S019;Socials;verdadero_falso;Traffic lights help to organize traffic.;True|False;TRUE
+S020;Socials;verdadero_falso;It is okay to litter.;True|False;FALSE
+S041;Socials;verdadero_falso;Taking turns helps us live together better.;True|False;TRUE
+S042;Socials;verdadero_falso;Noise is good in class.;True|False;FALSE
+S043;Socials;verdadero_falso;Parks are for taking care of.;True|False;TRUE
+S044;Socials;verdadero_falso;We all live alone without a community.;True|False;FALSE
+S045;Socials;verdadero_falso;Helping others is a good deed.;True|False;TRUE
+S091;Socials;verdadero_falso;School is a place to learn.;True|False;TRUE
+S092;Socials;verdadero_falso;Shouting helps us live together better.;True|False;FALSE
+S093;Socials;verdadero_falso;Parks are public spaces.;True|False;TRUE
+S094;Socials;verdadero_falso;It is okay to litter.;True|False;TRUE
+S095;Socials;verdadero_falso;Helping others is a good deed.;True|False;FALSE
+S096;Socials;verdadero_falso;The hospital heals people.;True|False;TRUE
+S097;Socials;verdadero_falso;The library is for playing ball.;True|False;TRUE
+S098;Socials;verdadero_falso;Taking turns is important.;True|False;FALSE
+S099;Socials;verdadero_falso;Pushing others is okay.;True|False;TRUE

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f6f7ff" />
+  <title>Aprendalia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="game-card" aria-labelledby="title">
+      <header class="app-header">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">✨</span>
+          <div>
+            <h1 id="title" class="title">Aprendalia</h1>
+            <p class="brand-subtitle">Aprender un poquito cada día</p>
+          </div>
+        </div>
+        <div class="session-hud" aria-label="Progreso de la sesión">
+          <div class="hud-pill" title="Estrellas de esta sesión"><span aria-hidden="true">⭐</span><span id="score">0</span></div>
+          <div class="hud-pill streak-pill" title="Racha actual"><span aria-hidden="true">🔥</span><span id="streak">0</span></div>
+          <div class="hud-pill progress-pill" title="Progreso"><span id="progress">0/10</span></div>
+        </div>
+      </header>
+      <div id="progress-track" class="progress-track" aria-hidden="true">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+
+      <div id="subject-wrapper" class="subject-custom" aria-label="Selecciona asignatura">
+        <button id="subject-toggle" class="subject-toggle" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="subject-current" type="button">
+          <span id="subject-current">📚 Lengua</span>
+          <span class="subject-arrow" aria-hidden="true">▾</span>
+        </button>
+        <ul id="subject-list" class="subject-list" role="listbox" tabindex="-1">
+          <li role="option" data-value="Lengua" aria-selected="true">📚 Lengua</li>
+          <li role="option" data-value="Ingles" aria-selected="false">🎧 Inglés</li>
+          <li role="option" data-value="Matematicas" aria-selected="false">➗ Matemáticas</li>
+          <li role="option" data-value="Socials" aria-selected="false">🧭 Socials</li>
+          <li role="option" data-value="Naturals" aria-selected="false">🔬 Naturals</li>
+          <li role="option" data-value="Listening" aria-selected="false">🔊 Listening</li>
+        </ul>
+        <select id="subject" class="visually-hidden" tabindex="-1" aria-hidden="true">
+          <option value="Lengua" selected>Lengua</option>
+          <option value="Ingles">Ingles</option>
+          <option value="Matematicas">Matematicas</option>
+          <option value="Socials">Socials</option>
+          <option value="Naturals">Naturals</option>
+          <option value="Listening">Listening</option>
+        </select>
+      </div>
+
+      <section id="welcome" class="welcome" aria-hidden="false">
+        <img src="girl.png" alt="Niña estudiando" class="welcome-image" />
+        <h2>¡Hola! ¿Empezamos? 🌟</h2>
+        <p class="subtitle">Entra con el usuario y la contraseña que te han asignado.</p>
+        <div class="form-stack">
+          <label class="visually-hidden" for="name">Nombre del alumno</label>
+          <input type="text" id="name" placeholder="Usuario" autocomplete="username" />
+          <label class="visually-hidden" for="pass">Contraseña</label>
+          <input type="password" id="pass" placeholder="Contraseña" autocomplete="current-password" />
+          <button id="loginBtn" class="primary-btn" type="button" onclick="login()">Entrar</button>
+          <div id="deviceAccessInfo" class="device-access-info" aria-live="polite" hidden></div>
+        </div>
+      </section>
+
+      <section id="session-setup" class="session-setup" aria-hidden="true">
+        <div class="setup-card">
+          <span class="setup-kicker">Sesión rápida</span>
+          <div id="setup-subject-icon" class="setup-icon" aria-hidden="true">📚</div>
+          <h2 id="setup-title">Lengua</h2>
+          <p>10 preguntas · unos 5 minutos</p>
+          <div class="setup-meta">
+            <span>⭐ <strong id="total-stars">0</strong> acumuladas</span>
+            <span>🎯 Meta: terminar la sesión</span>
+          </div>
+          <p id="setup-coverage" class="setup-coverage">0/0 preguntas vistas</p>
+          <div class="setup-actions">
+            <button id="startSessionBtn" class="primary-btn setup-start" type="button">Empezar</button>
+          </div>
+        </div>
+      </section>
+
+      <div id="parents-gate" class="parents-gate" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="parentsGateTitle">
+        <div class="parents-gate-card">
+          <span class="setup-kicker">Zona de padres</span>
+          <h2 id="parentsGateTitle">Acceso para familias</h2>
+          <p>Introduce la contraseña común de padres.</p>
+          <label class="visually-hidden" for="parentsPass">Contraseña de padres</label>
+          <input id="parentsPass" type="password" autocomplete="off" placeholder="Contraseña de padres" />
+          <p id="parentsPassError" class="parents-gate-error" aria-live="polite"></p>
+          <div class="parents-gate-actions">
+            <button id="parentsUnlockBtn" class="primary-btn" type="button">Entrar</button>
+            <button id="parentsGateCancelBtn" class="ghost-btn" type="button">Cancelar</button>
+          </div>
+        </div>
+      </div>
+
+      <section id="parents-zone" class="parents-zone" aria-hidden="true">
+        <div class="parents-zone-head">
+          <div>
+            <span class="setup-kicker">Zona de padres</span>
+            <h2>Seguimiento del aprendizaje</h2>
+            <p>Consulta cobertura, evolución y preguntas que necesitan más práctica.</p>
+          </div>
+          <button id="closeParentsBtn" class="ghost-btn small-btn" type="button">Volver al estudio</button>
+        </div>
+        <section id="progress-panel" class="progress-panel" aria-live="polite"></section>
+      </section>
+
+      <button id="parentsBtn" class="parents-entry" type="button" aria-label="Abrir zona de padres">⚙️ Zona de padres</button>
+
+      <section id="game" class="game" aria-live="polite">
+        <div id="exercise-eyebrow" class="exercise-eyebrow" aria-live="polite"></div>
+        <div class="question-card">
+          <h2 id="question">Pregunta aparecerá aquí</h2>
+          <div id="answers" aria-label="Opciones de respuesta"></div>
+          <div id="learning-aids" class="learning-aids">
+            <button id="hintBtn" class="assist-btn" type="button">💡 Pista</button>
+            <button id="dontKnowBtn" class="assist-btn" type="button">🤔 No lo sé</button>
+          </div>
+          <input type="text" id="writeAnswer" class="answer-input" aria-label="Escribe tu respuesta" />
+          <button id="checkBtn" class="primary-btn" type="button" onclick="checkWrite()">Comprobar</button>
+        </div>
+
+        <div id="feedback" class="feedback" aria-live="polite" aria-atomic="true"></div>
+        <div id="solucion" class="solution" aria-live="polite"></div>
+
+        <div class="game-actions">
+          <button class="ghost-btn small-btn" type="button" onclick="reportar()">⚠️ Reportar pregunta</button>
+          <button id="next" class="primary-btn" type="button" onclick="nextQ()">Continuar <span aria-hidden="true">▶</span></button>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="src/config/access-config.js"></script>
+  <script src="src/data/storage.js"></script>
+  <script src="src/data/progress-repository.js"></script>
+  <script src="src/core/scoring-engine.js"></script>
+  <script src="src/core/session-engine.js"></script>
+  <script src="src/core/question-selector.js"></script>
+  <script src="src/ui/progress-view.js"></script>
+  <script src="src/exercises/text-exercises.js"></script>
+  <script src="src/exercises/audio-exercises.js"></script>
+  <script src="src/exercises/interaction-exercises.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
