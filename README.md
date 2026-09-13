@@ -1,35 +1,86 @@
 # Aprendalia
 
-Aprendalia es una aplicación web estática de estudio pensada para sesiones cortas, frecuentes y adaptativas. El objetivo actual es que un alumno pueda entrar con sus credenciales, elegir asignatura y completar sesiones de 10 preguntas mientras la aplicación registra su progreso, prioriza contenido nuevo y repasos, aplica repetición espaciada y ofrece a las familias una zona separada de seguimiento.
+Aprendalia es una aplicación web estática de estudio pensada para
+sesiones cortas, frecuentes y adaptativas. El objetivo actual es que un
+alumno pueda entrar con sus credenciales, elegir asignatura y completar
+sesiones de 10 preguntas mientras la aplicación registra su progreso,
+prioriza contenido nuevo y repasos, aplica repetición espaciada y ofrece
+a las familias una zona separada de seguimiento.
 
-La aplicación no necesita un backend propio para funcionar: HTML, CSS y JavaScript se ejecutan en el navegador y el banco de preguntas se carga desde `questions.csv`. Esto hace que sea sencilla de desplegar en un hosting estático o repositorio web, pero también implica limitaciones de seguridad y sincronización que se documentan más abajo.
+La aplicación no necesita un backend propio para funcionar: HTML, CSS y
+JavaScript se ejecutan en el navegador y el banco de preguntas se carga
+desde `questions.csv`. Esto hace que sea sencilla de desplegar en un
+hosting estático o repositorio web, pero también implica limitaciones de
+seguridad y sincronización que se documentan más abajo.
 
-> **Estado de esta versión:** arquitectura y mecánicas de aprendizaje estabilizadas antes de la siguiente fase de trabajo sobre contenido. Incluye acceso individual por alumno, control opcional por dispositivo, Zona de padres, histórico local, selección adaptativa, repetición espaciada, ayudas, puntuación, ejercicios modulares, mejoras móviles y tests del motor.
+> **Estado de esta versión:** arquitectura y mecánicas de aprendizaje
+> estabilizadas antes de la siguiente fase de trabajo sobre contenido.
+> Incluye acceso individual por alumno, control opcional por
+> dispositivo, Zona de padres, histórico local, selección adaptativa,
+> repetición espaciada, ayudas, puntuación, ejercicios modulares,
+> mejoras móviles y tests del motor.
 
----
+------------------------------------------------------------------------
 
 ## 1. Experiencia del alumno
 
 El flujo normal es deliberadamente sencillo:
 
-1. El alumno introduce **usuario y contraseña**.
-2. Si el usuario tiene dispositivos restringidos, Aprendalia comprueba también el identificador del navegador/dispositivo.
-3. El alumno elige una asignatura.
-4. Se muestra una preparación de sesión con cobertura y estrellas acumuladas.
-5. Empieza una sesión de **10 preguntas** (o menos si la asignatura no dispone de 10).
-6. Durante la sesión se muestran estrellas, racha y progreso.
-7. Cada pregunta permite, cuando procede, usar **Pista/Ayuda** o **No lo sé**.
-8. Tras responder, se ofrece feedback y, cuando hay error, un segundo intento claramente diferenciado.
-9. Al terminar se muestra el resumen de la sesión.
-10. El progreso de cada pregunta queda guardado para decidir qué conviene estudiar en sesiones posteriores.
+1.  El alumno introduce **usuario y contraseña**.
+2.  Si el usuario tiene dispositivos restringidos, Aprendalia comprueba
+    también el identificador del navegador/dispositivo.
+3.  El alumno elige una asignatura.
+4.  Se muestra una preparación de sesión con cobertura y estrellas
+    acumuladas.
+5.  Empieza una sesión de **10 preguntas** (o menos si la asignatura no
+    dispone de 10).
+6.  Durante la sesión se muestran estrellas, racha y progreso.
+7.  Cada pregunta permite, cuando procede, usar **Pista/Ayuda** o **No
+    lo sé**.
+8.  Tras responder, se ofrece feedback y, cuando hay error, un segundo
+    intento claramente diferenciado.
+9.  Al terminar se muestra el resumen de la sesión.
+10. El progreso de cada pregunta queda guardado para decidir qué
+    conviene estudiar en sesiones posteriores.
 
-Durante una sesión activa, el logo/título **Aprendalia** del encabezado funciona también como salida. Al pulsarlo se pide confirmación antes de abandonar. Las preguntas ya finalizadas conservan su progreso; la pregunta que estaba a medias no cuenta como acierto ni fallo y la sesión incompleta no se guarda como una sesión terminada.
+Durante una sesión activa, el logo/título **Aprendalia** del encabezado
+funciona también como salida. Al pulsarlo se pide confirmación antes de
+abandonar. Las preguntas ya finalizadas conservan su progreso; la
+pregunta que estaba a medias no cuenta como acierto ni fallo y la sesión
+incompleta no se guarda como una sesión terminada.
 
----
+### Ayuda integrada: “Cómo funciona”
+
+La cabecera incorpora un acceso discreto `?` que abre una ayuda dentro
+de la propia aplicación. Su objetivo es que un alumno o una familia
+pueda entender Aprendalia sin tener que leer este README ni recibir una
+explicación externa.
+
+La ayuda resume, en lenguaje no técnico:
+
+- qué es una sesión y por qué tiene 10 preguntas;
+- qué significan las estrellas y las rachas;
+- cómo funcionan el segundo intento, las pistas y “No lo sé”;
+- por qué algunas preguntas vuelven a aparecer mediante repetición
+  espaciada;
+- qué información ofrece la Zona de padres;
+- cómo funcionan usuario, contraseña y control opcional por dispositivo;
+- qué información permanece en el navegador y qué información puede
+  enviarse a Google como observabilidad.
+
+La ayuda es un modal: no cambia de página ni destruye el estado de una
+sesión. Puede cerrarse desde su control de cierre, tocando fuera del
+panel o con `Esc`. El diseño es responsive y está pensado para móvil.
+
+La ayuda **no contiene credenciales**, no permite modificar usuarios y
+no sustituye la Zona de padres. Es únicamente documentación contextual
+para el usuario final.
+
+------------------------------------------------------------------------
 
 ## 2. Estructura del proyecto
 
-```text
+``` text
 /
 ├── index.html
 ├── style.css
@@ -48,7 +99,8 @@ Durante una sesión activa, el logo/título **Aprendalia** del encabezado funcio
 │   │   └── session-engine.js
 │   ├── data/
 │   │   ├── storage.js
-│   │   └── progress-repository.js
+│   │   ├── progress-repository.js
+│   │   └── telemetry.js
 │   ├── exercises/
 │   │   ├── audio-exercises.js
 │   │   ├── interaction-exercises.js
@@ -61,40 +113,70 @@ Durante una sesión activa, el logo/título **Aprendalia** del encabezado funcio
 
 ### Responsabilidad de cada archivo
 
-**`index.html`** contiene la estructura de la aplicación: cabecera, login, selector de asignatura, preparación de sesión, Zona de padres, área de ejercicio y carga ordenada de módulos JavaScript.
+**`index.html`** contiene la estructura de la aplicación: cabecera,
+login, selector de asignatura, preparación de sesión, Zona de padres,
+área de ejercicio y carga ordenada de módulos JavaScript.
 
-**`style.css`** concentra el sistema visual, responsive, estados de botones, feedback, Zona de padres, ejercicios, animaciones y adaptaciones para móvil. Las microtransiciones respetan `prefers-reduced-motion`.
+**`style.css`** concentra el sistema visual, responsive, estados de
+botones, feedback, Zona de padres, ejercicios, animaciones y
+adaptaciones para móvil. Las microtransiciones respetan
+`prefers-reduced-motion`.
 
-**`script.js`** actúa como orquestador principal. Gestiona login, navegación, creación y avance de sesiones, HUD, feedback común, intentos, ayudas, registro de resultados, salida de sesión, observabilidad y coordinación de los renderizadores.
+**`script.js`** actúa como orquestador principal. Gestiona login,
+navegación, creación y avance de sesiones, HUD, feedback común,
+intentos, ayudas, registro de resultados, salida de sesión,
+apertura/cierre de la ayuda integrada y coordinación de los
+renderizadores. La comunicación externa con Google está delegada en
+`src/data/telemetry.js`.
 
-**`src/config/access-config.js`** contiene usuarios, contraseñas, dispositivos autorizados, contraseña común de padres y generación/identificación del dispositivo.
+**`src/config/access-config.js`** contiene usuarios, contraseñas,
+dispositivos autorizados, contraseña común de padres y
+generación/identificación del dispositivo.
 
-**`src/data/storage.js`** encapsula `localStorage`, versiona el esquema y realiza migraciones de versiones anteriores.
+**`src/data/storage.js`** encapsula `localStorage`, versiona el esquema
+y realiza migraciones de versiones anteriores.
 
-**`src/data/progress-repository.js`** almacena y consulta progreso por pregunta, sesiones históricas, estados de dominio, fechas de próximo repaso y copias de seguridad.
+**`src/data/progress-repository.js`** almacena y consulta progreso por
+pregunta, sesiones históricas, estados de dominio, fechas de próximo
+repaso y copias de seguridad. Es la capa de datos pedagógicos: Google
+Sheets no sustituye este repositorio.
 
-**`src/core/question-selector.js`** decide qué preguntas forman una sesión usando cobertura, dificultad y repetición espaciada.
+**`src/data/telemetry.js`** encapsula la única salida de observabilidad
+hacia Google Apps Script/Sheets. Mantiene deliberadamente el contrato
+histórico de 8 campos para no exigir cambios en el Apps Script
+existente. Sólo transmite resultados asociados a preguntas
+(`question_result`); los eventos internos de login, inicio, fin o
+abandono de sesión no se envían a Google.
 
-**`src/core/scoring-engine.js`** contiene las reglas de estrellas, rachas y recompensa según intento/ayuda/recuperación.
+**`src/core/question-selector.js`** decide qué preguntas forman una
+sesión usando cobertura, dificultad y repetición espaciada.
 
-**`src/core/session-engine.js`** crea el estado de una sesión y lo transforma en un registro histórico al finalizar.
+**`src/core/scoring-engine.js`** contiene las reglas de estrellas,
+rachas y recompensa según intento/ayuda/recuperación.
 
-**`src/exercises/*.js`** contiene los renderizadores de ejercicios especializados. La lógica común de sesión permanece fuera de ellos.
+**`src/core/session-engine.js`** crea el estado de una sesión y lo
+transforma en un registro histórico al finalizar.
 
-**`src/ui/progress-view.js`** construye el panel de seguimiento de la Zona de padres.
+**`src/exercises/*.js`** contiene los renderizadores de ejercicios
+especializados. La lógica común de sesión permanece fuera de ellos.
 
-**`tests/run-tests.js`** ejecuta tests unitarios/smoke tests del núcleo sin navegador real.
+**`src/ui/progress-view.js`** construye el panel de seguimiento de la
+Zona de padres.
 
----
+**`tests/run-tests.js`** ejecuta tests unitarios/smoke tests del núcleo
+sin navegador real.
+
+------------------------------------------------------------------------
 
 ## 3. Orden de carga de JavaScript
 
 El orden de los scripts en `index.html` es importante:
 
-```text
+``` text
 src/config/access-config.js
 src/data/storage.js
 src/data/progress-repository.js
+src/data/telemetry.js
 src/core/scoring-engine.js
 src/core/session-engine.js
 src/core/question-selector.js
@@ -105,21 +187,23 @@ src/exercises/interaction-exercises.js
 script.js
 ```
 
-Los módulos se exponen actualmente mediante objetos globales en `window`, por lo que un módulo que depende de otro debe cargarse después de él. No reordenar estas etiquetas sin revisar dependencias.
+Los módulos se exponen actualmente mediante objetos globales en
+`window`, por lo que un módulo que depende de otro debe cargarse después
+de él. No reordenar estas etiquetas sin revisar dependencias.
 
----
+------------------------------------------------------------------------
 
 ## 4. Acceso de alumnos
 
 Las cuentas se administran manualmente en:
 
-```text
+``` text
 src/config/access-config.js
 ```
 
 El formato actual es:
 
-```js
+``` js
 const STUDENTS = Object.freeze({
   alba: Object.freeze({
     password: 'Alba27',
@@ -140,91 +224,113 @@ const STUDENTS = Object.freeze({
 
 Añadir una entrada al objeto `STUDENTS`:
 
-```js
+``` js
 lucas: Object.freeze({
   password: 'ClaveElegidaPorElAdministrador',
   devices: Object.freeze([])
 })
 ```
 
-El nombre de usuario se normaliza a minúsculas y sin acentos para el login. La contraseña sí se compara literalmente.
+El nombre de usuario se normaliza a minúsculas y sin acentos para el
+login. La contraseña sí se compara literalmente.
 
-No existe registro público, recuperación de contraseña ni cambio de contraseña por parte del alumno. El administrador decide y conoce las credenciales.
+No existe registro público, recuperación de contraseña ni cambio de
+contraseña por parte del alumno. El administrador decide y conoce las
+credenciales.
 
 ### Seguridad de las credenciales
 
-Aprendalia es una aplicación estática. El navegador necesita descargar `access-config.js`, por lo que una persona con conocimientos técnicos puede inspeccionar el JavaScript y encontrar credenciales y configuración. Este mecanismo está pensado como **control de acceso práctico/casual**, no como autenticación segura de nivel servidor.
+Aprendalia es una aplicación estática. El navegador necesita descargar
+`access-config.js`, por lo que una persona con conocimientos técnicos
+puede inspeccionar el JavaScript y encontrar credenciales y
+configuración. Este mecanismo está pensado como **control de acceso
+práctico/casual**, no como autenticación segura de nivel servidor.
 
-Si el proyecto necesitara seguridad real, las contraseñas deberían salir del código cliente y validarse mediante un backend con hashes de contraseña, sesiones y autorización en servidor.
+Si el proyecto necesitara seguridad real, las contraseñas deberían salir
+del código cliente y validarse mediante un backend con hashes de
+contraseña, sesiones y autorización en servidor.
 
----
+------------------------------------------------------------------------
 
 ## 5. Control opcional usuario-dispositivo
 
-Cada navegador recibe un identificador persistente con formato parecido a:
+Cada navegador recibe un identificador persistente con formato parecido
+a:
 
-```text
+``` text
 DEV-AB12-CD34-EF56
 ```
 
 Se guarda en:
 
-```text
+``` text
 localStorage['aprendalia:device-id']
 ```
 
-La política está diseñada para permitir un periodo inicial de observación.
+La política está diseñada para permitir un periodo inicial de
+observación.
 
 ### Usuario sin dispositivos configurados
 
-```js
+``` js
 devices: Object.freeze([])
 ```
 
-Significa: **usuario y contraseña correctos pueden entrar desde cualquier dispositivo**.
+Significa: **usuario y contraseña correctos pueden entrar desde
+cualquier dispositivo**.
 
-Esto permite compartir Aprendalia con la clase, observar durante unas semanas los dispositivos reales y no bloquear a nadie inicialmente.
+Esto permite compartir Aprendalia con la clase, observar durante unas
+semanas los dispositivos reales y no bloquear a nadie inicialmente.
 
 ### Usuario con uno o más dispositivos configurados
 
-```js
+``` js
 devices: Object.freeze([
   'DEV-AB12-CD34-EF56',
   'DEV-7812-90AB-CDEF'
 ])
 ```
 
-En cuanto el array contiene al menos un ID, se activa la restricción. Ese alumno sólo puede iniciar sesión desde los dispositivos listados.
+En cuanto el array contiene al menos un ID, se activa la restricción.
+Ese alumno sólo puede iniciar sesión desde los dispositivos listados.
 
-Así, compartir únicamente usuario y contraseña con otro niño no basta para entrar desde otro navegador.
+Así, compartir únicamente usuario y contraseña con otro niño no basta
+para entrar desde otro navegador.
 
 ### Qué se considera “dispositivo”
 
-El ID identifica realmente una **instalación/navegador**, no el hardware físico de forma criptográfica. Cambiar de navegador, borrar los datos del sitio, navegar en ciertos modos privados o impedir `localStorage` puede producir un ID diferente.
+El ID identifica realmente una **instalación/navegador**, no el hardware
+físico de forma criptográfica. Cambiar de navegador, borrar los datos
+del sitio, navegar en ciertos modos privados o impedir `localStorage`
+puede producir un ID diferente.
 
-No se realiza fingerprinting invasivo. Además del ID se obtiene una etiqueta aproximada basada en `userAgent`, por ejemplo:
+No se realiza fingerprinting invasivo. Además del ID se obtiene una
+etiqueta aproximada basada en `userAgent`, por ejemplo:
 
-```text
+``` text
 iPad · Safari
 Windows · Chrome
 Android · Chrome
 ```
 
-Esta etiqueta sirve para administración/observabilidad, no como factor de seguridad.
+Esta etiqueta sirve para administración/observabilidad, no como factor
+de seguridad.
 
----
+------------------------------------------------------------------------
 
 ## 6. Zona de padres
 
-La Zona de padres está separada del flujo infantil y se abre mediante el acceso discreto:
+La Zona de padres está separada del flujo infantil y se abre mediante el
+acceso discreto:
 
-```text
+``` text
 ⚙️ Zona de padres
 ```
 
-La contraseña común se configura también en `src/config/access-config.js`:
+La contraseña común se configura también en
+`src/config/access-config.js`:
 
-```js
+``` js
 const PARENT_PASSWORD = 'Padres2026';
 ```
 
@@ -253,11 +359,13 @@ Para la asignatura seleccionada, la Zona de padres muestra:
 
 ### Backup desde la Zona de padres
 
-El progreso de un usuario puede exportarse a JSON e importarse posteriormente. Esto es importante porque el almacenamiento principal es local al navegador.
+El progreso de un usuario puede exportarse a JSON e importarse
+posteriormente. Esto es importante porque el almacenamiento principal es
+local al navegador.
 
 El fichero exportado contiene, entre otros datos:
 
-```text
+``` text
 schemaVersion
 exportedAt
 user
@@ -265,23 +373,25 @@ progress
 sessions
 ```
 
-La importación reemplaza el progreso y sesiones locales de ese usuario con los datos del backup importado.
+La importación reemplaza el progreso y sesiones locales de ese usuario
+con los datos del backup importado.
 
----
+------------------------------------------------------------------------
 
 ## 7. Sesiones de estudio
 
 La constante principal está en `script.js`:
 
-```js
+``` js
 const SESSION_SIZE = 10;
 ```
 
-Una sesión normal intenta contener 10 preguntas. Si la asignatura tiene menos preguntas disponibles, se utilizan las disponibles.
+Una sesión normal intenta contener 10 preguntas. Si la asignatura tiene
+menos preguntas disponibles, se utilizan las disponibles.
 
 La pantalla previa indica aproximadamente:
 
-```text
+``` text
 10 preguntas · unos 5 minutos
 ```
 
@@ -298,17 +408,20 @@ Durante la sesión se registran:
 - preguntas presentadas;
 - resultados individuales.
 
-Al finalizar, `SessionEngine.toHistory()` genera un registro histórico con inicio, fin, asignatura, total, aciertos, fallos, estrellas, mejor racha y resultados de preguntas.
+Al finalizar, `SessionEngine.toHistory()` genera un registro histórico
+con inicio, fin, asignatura, total, aciertos, fallos, estrellas, mejor
+racha y resultados de preguntas.
 
 Una sesión abandonada manualmente no se registra como sesión finalizada.
 
----
+------------------------------------------------------------------------
 
 ## 8. Selección adaptativa de preguntas
 
-Aprendalia no hace simplemente `shuffle()` y toma diez preguntas. El selector está en:
+Aprendalia no hace simplemente `shuffle()` y toma diez preguntas. El
+selector está en:
 
-```text
+``` text
 src/core/question-selector.js
 ```
 
@@ -319,9 +432,11 @@ Cada pregunta se divide conceptualmente en:
 - **repaso vencido normal**;
 - **otras preguntas todavía no vencidas**.
 
-Mientras existan preguntas sin ver, se reserva **al menos aproximadamente la mitad de la sesión** para cobertura nueva.
+Mientras existan preguntas sin ver, se reserva **al menos
+aproximadamente la mitad de la sesión** para cobertura nueva.
 
-También se reservan plazas para preguntas difíciles y repasos vencidos. Después se rellenan los huecos según prioridad.
+También se reservan plazas para preguntas difíciles y repasos vencidos.
+Después se rellenan los huecos según prioridad.
 
 ### Factores de prioridad
 
@@ -334,11 +449,13 @@ Entre otros, aumentan la prioridad:
 - haber aparecido pocas veces;
 - llevar muchos días sin verse.
 
-Las preguntas dominadas y todavía no vencidas reciben una penalización fuerte para evitar repetición innecesaria.
+Las preguntas dominadas y todavía no vencidas reciben una penalización
+fuerte para evitar repetición innecesaria.
 
-Se añade una pequeña componente aleatoria para que dos sesiones no sean siempre idénticas ante puntuaciones equivalentes.
+Se añade una pequeña componente aleatoria para que dos sesiones no sean
+siempre idénticas ante puntuaciones equivalentes.
 
----
+------------------------------------------------------------------------
 
 ## 9. Repetición espaciada
 
@@ -346,17 +463,21 @@ El calendario se gestiona en `src/data/progress-repository.js`.
 
 Para un acierto limpio se utilizan intervalos progresivos:
 
-```text
+``` text
 1 día → 3 días → 7 días → 14 días → 30 días → 60 días
 ```
 
-Un fallo reinicia la racha de éxito y programa un repaso cercano, normalmente al día siguiente.
+Un fallo reinicia la racha de éxito y programa un repaso cercano,
+normalmente al día siguiente.
 
-Un acierto asistido, un acierto tras más de un intento o una recuperación no avanza tan agresivamente el intervalo. La intención es distinguir entre “lo sabía con soltura” y “he conseguido resolverlo con ayuda”.
+Un acierto asistido, un acierto tras más de un intento o una
+recuperación no avanza tan agresivamente el intervalo. La intención es
+distinguir entre “lo sabía con soltura” y “he conseguido resolverlo con
+ayuda”.
 
 Cada registro puede almacenar:
 
-```text
+``` text
 successStreak
 intervalDays
 dueAt
@@ -365,9 +486,10 @@ lastResult
 recentResults
 ```
 
-El selector usa `dueAt` para decidir si una pregunta debe volver a aparecer.
+El selector usa `dueAt` para decidir si una pregunta debe volver a
+aparecer.
 
----
+------------------------------------------------------------------------
 
 ## 10. Estados de dominio
 
@@ -379,37 +501,42 @@ Nunca se ha presentado al alumno.
 
 ### 🟡 En práctica (`practice`)
 
-Ya se ha trabajado, pero todavía no cumple criterios de dominio ni dificultad.
+Ya se ha trabajado, pero todavía no cumple criterios de dominio ni
+dificultad.
 
 ### 🔴 Con dificultad (`difficulty`)
 
-Se activa, entre otros casos, cuando hay varios fallos recientes o cuando, después de varias presentaciones, la precisión es inferior al 60 %.
+Se activa, entre otros casos, cuando hay varios fallos recientes o
+cuando, después de varias presentaciones, la precisión es inferior al 60
+%.
 
 ### 🟢 Dominada (`mastered`)
 
-Requiere varias presentaciones, al menos un 80 % de precisión y una racha reciente de éxitos suficiente.
+Requiere varias presentaciones, al menos un 80 % de precisión y una
+racha reciente de éxitos suficiente.
 
-Estos estados son dinámicos: una pregunta dominada puede volver a convertirse en práctica/dificultad si aparecen errores posteriores.
+Estos estados son dinámicos: una pregunta dominada puede volver a
+convertirse en práctica/dificultad si aparecen errores posteriores.
 
----
+------------------------------------------------------------------------
 
 ## 11. Puntuación y estrellas
 
 Las reglas están centralizadas en:
 
-```text
+``` text
 src/core/scoring-engine.js
 ```
 
 ### Acierto limpio a la primera
 
-```text
+``` text
 +10 estrellas
 ```
 
 Si la racha limpia es de 3 o más:
 
-```text
+``` text
 +2 estrellas adicionales
 ```
 
@@ -417,7 +544,7 @@ Por tanto, un acierto limpio durante una racha puede dar 12 estrellas.
 
 ### Segundo intento o respuesta asistida
 
-```text
+``` text
 +6 estrellas
 ```
 
@@ -425,15 +552,18 @@ Se considera asistida cuando se ha usado, por ejemplo:
 
 - pista/ayuda;
 - “No lo sé”;
-- autoevaluación manual del ejercicio de hablar cuando no existe reconocimiento de voz.
+- autoevaluación manual del ejercicio de hablar cuando no existe
+  reconocimiento de voz.
 
-Una respuesta asistida nunca recibe la recompensa máxima de primer intento.
+Una respuesta asistida nunca recibe la recompensa máxima de primer
+intento.
 
 ### Pregunta recuperada
 
-Una pregunta reintroducida como repaso tras un fallo y finalmente acertada concede:
+Una pregunta reintroducida como repaso tras un fallo y finalmente
+acertada concede:
 
-```text
+``` text
 +3 estrellas
 ```
 
@@ -443,55 +573,64 @@ Los fallos no restan estrellas, pero rompen la racha.
 
 ### Persistencia de estrellas
 
-Además de las estrellas de la sesión, existe un acumulado por usuario guardado localmente para mostrar progresión a largo plazo.
+Además de las estrellas de la sesión, existe un acumulado por usuario
+guardado localmente para mostrar progresión a largo plazo.
 
----
+------------------------------------------------------------------------
 
 ## 12. Intentos, errores y recuperación
 
 La configuración general es:
 
-```js
+``` js
 const MAX_ATTEMPTS = 2;
 ```
 
 La regla común es:
 
-```text
+``` text
 Primer error → feedback + segundo intento
 Segundo error → solución + registro del fallo + posible repaso posterior
 ```
 
-El segundo intento se presenta visualmente como **“2.º intento”** y la tarjeta cambia de estado para que el alumno entienda que sigue trabajando la misma pregunta.
+El segundo intento se presenta visualmente como **“2.º intento”** y la
+tarjeta cambia de estado para que el alumno entienda que sigue
+trabajando la misma pregunta.
 
-Los controles se bloquean inmediatamente mientras se procesa una respuesta. Esto evita dobles clics o dobles toques, especialmente en móvil.
+Los controles se bloquean inmediatamente mientras se procesa una
+respuesta. Esto evita dobles clics o dobles toques, especialmente en
+móvil.
 
-Al permitir un reintento, se reactivan los controles necesarios y, en respuestas escritas, el foco vuelve al campo de texto.
+Al permitir un reintento, se reactivan los controles necesarios y, en
+respuestas escritas, el foco vuelve al campo de texto.
 
----
+------------------------------------------------------------------------
 
 ## 13. Ayudas: Pista y “No lo sé”
 
 Durante las preguntas aparecen dos mecanismos pedagógicos:
 
-```text
+``` text
 💡 Pista / Ayuda
 🤔 No lo sé
 ```
 
-Usar cualquiera de ellos marca la pregunta como asistida. El objetivo es que pedir ayuda sea preferible a responder aleatoriamente, pero que el sistema diferencie ese resultado de un dominio limpio.
+Usar cualquiera de ellos marca la pregunta como asistida. El objetivo es
+que pedir ayuda sea preferible a responder aleatoriamente, pero que el
+sistema diferencie ese resultado de un dominio limpio.
 
 La información queda registrada en el histórico mediante campos como:
 
-```text
+``` text
 assisted
 hintsUsed
 dontKnow
 ```
 
-Esto permite evolucionar en el futuro hacia métricas más finas de autonomía.
+Esto permite evolucionar en el futuro hacia métricas más finas de
+autonomía.
 
----
+------------------------------------------------------------------------
 
 ## 14. Tipos de ejercicio soportados
 
@@ -499,15 +638,18 @@ El banco actual utiliza 12 tipos.
 
 ### `test`
 
-Pregunta de opciones. El alumno pulsa una respuesta y se compara con `respuesta`.
+Pregunta de opciones. El alumno pulsa una respuesta y se compara con
+`respuesta`.
 
 ### `verdadero_falso`
 
-Utiliza el flujo de botones de respuesta y la misma validación común que un test.
+Utiliza el flujo de botones de respuesta y la misma validación común que
+un test.
 
 ### `escribir`
 
-Muestra un campo de texto y botón **Comprobar**. La respuesta se normaliza antes de compararse.
+Muestra un campo de texto y botón **Comprobar**. La respuesta se
+normaliza antes de compararse.
 
 ### `completar`
 
@@ -515,57 +657,77 @@ Renderizado especializado en `src/exercises/text-exercises.js`.
 
 ### `cual_no_encaja`
 
-Ejercicio especializado para identificar el elemento que no pertenece al conjunto.
+Ejercicio especializado para identificar el elemento que no pertenece al
+conjunto.
 
 ### `clasificar`
 
-Permite clasificar elementos y utiliza el mismo ciclo común de intentos: primer fallo, segundo intento y, si vuelve a fallar, solución/repaso.
+Permite clasificar elementos y utiliza el mismo ciclo común de intentos:
+primer fallo, segundo intento y, si vuelve a fallar, solución/repaso.
 
 ### `ordenar`
 
-Permite ordenar palabras o elementos. Está adaptado a móvil y no depende exclusivamente del drag nativo del navegador.
+Permite ordenar palabras o elementos. Está adaptado a móvil y no depende
+exclusivamente del drag nativo del navegador.
 
-Además del arrastre, existe interacción por toque: seleccionar un elemento y después otro permite recolocarlo, proporcionando un fallback fiable para Safari/iOS y otros navegadores táctiles.
+Además del arrastre, existe interacción por toque: seleccionar un
+elemento y después otro permite recolocarlo, proporcionando un fallback
+fiable para Safari/iOS y otros navegadores táctiles.
 
 ### `arrastrar`
 
-Ejercicio de emparejamiento/interacción. Los emparejamientos incorrectos consumen intentos de forma coherente con el resto del sistema.
+Ejercicio de emparejamiento/interacción. Los emparejamientos incorrectos
+consumen intentos de forma coherente con el resto del sistema.
 
 ### `listening`
 
-Ejercicio puramente auditivo. El texto objetivo **no se muestra encima del botón de escuchar**; durante la resolución aparece un mensaje genérico como “Escucha con atención”. El texto real sólo debe revelarse cuando corresponda como solución/feedback.
+Ejercicio puramente auditivo. El texto objetivo **no se muestra encima
+del botón de escuchar**; durante la resolución aparece un mensaje
+genérico como “Escucha con atención”. El texto real sólo debe revelarse
+cuando corresponda como solución/feedback.
 
 ### `guess`
 
-Utiliza el flujo auditivo de listening y mantiene oculto el texto objetivo durante la resolución.
+Utiliza el flujo auditivo de listening y mantiene oculto el texto
+objetivo durante la resolución.
 
 ### `pronunciar`
 
-Reproduce audio y permite escribir lo escuchado. La comparación admite tolerancia mediante distancia de edición para pequeñas diferencias.
+Reproduce audio y permite escribir lo escuchado. La comparación admite
+tolerancia mediante distancia de edición para pequeñas diferencias.
 
 ### `hablar`
 
-Permite escuchar/repetir y, cuando el navegador dispone de reconocimiento de voz, utilizar transcripción para evaluar.
+Permite escuchar/repetir y, cuando el navegador dispone de
+reconocimiento de voz, utilizar transcripción para evaluar.
 
-Si `SpeechRecognition` no está disponible, **la sesión nunca queda bloqueada**. Se ofrece un fallback de autoevaluación del tipo **“Ya lo he dicho”**. Ese resultado se marca como asistido/autoevaluado y no recibe la puntuación máxima.
+Si `SpeechRecognition` no está disponible, **la sesión nunca queda
+bloqueada**. Se ofrece un fallback de autoevaluación del tipo **“Ya lo
+he dicho”**. Ese resultado se marca como asistido/autoevaluado y no
+recibe la puntuación máxima.
 
----
+------------------------------------------------------------------------
 
 ## 15. Audio, voz y compatibilidad
 
 Aprendalia utiliza capacidades del navegador como:
 
 - `speechSynthesis` para texto a voz cuando está disponible;
-- `SpeechRecognition`/implementaciones compatibles cuando el navegador las ofrece;
+- `SpeechRecognition`/implementaciones compatibles cuando el navegador
+  las ofrece;
 - APIs de audio/grabación cuando procede.
 
-Estas APIs no tienen soporte idéntico en todos los navegadores, especialmente en iOS/Safari y navegadores móviles.
+Estas APIs no tienen soporte idéntico en todos los navegadores,
+especialmente en iOS/Safari y navegadores móviles.
 
-La filosofía de la aplicación es **degradación funcional**: si una API avanzada no existe, el alumno debe seguir pudiendo completar la sesión mediante un mecanismo alternativo siempre que sea posible.
+La filosofía de la aplicación es **degradación funcional**: si una API
+avanzada no existe, el alumno debe seguir pudiendo completar la sesión
+mediante un mecanismo alternativo siempre que sea posible.
 
-El ejercicio `hablar` incluye explícitamente ese fallback para evitar sesiones bloqueadas.
+El ejercicio `hablar` incluye explícitamente ese fallback para evitar
+sesiones bloqueadas.
 
----
+------------------------------------------------------------------------
 
 ## 16. Experiencia móvil y prevención de errores de interacción
 
@@ -580,10 +742,11 @@ Entre las mejoras específicas:
 - prevención de dobles toques/dobles puntuaciones;
 - segundo intento visualmente diferenciado;
 - transición breve al cargar una pregunta nueva;
-- animaciones reducidas/desactivadas cuando el sistema solicita `prefers-reduced-motion`;
+- animaciones reducidas/desactivadas cuando el sistema solicita
+  `prefers-reduced-motion`;
 - diseño responsive de Zona de padres y tablas.
 
----
+------------------------------------------------------------------------
 
 ## 17. Feedback y transición entre preguntas
 
@@ -597,11 +760,14 @@ El feedback diferencia varios escenarios:
 - error con posibilidad de reintento;
 - error definitivo con solución.
 
-Las preguntas nuevas usan una microtransición breve para dar continuidad visual sin ralentizar la sesión.
+Las preguntas nuevas usan una microtransición breve para dar continuidad
+visual sin ralentizar la sesión.
 
-Las celebraciones grandes se reservan para momentos relevantes, especialmente el final de sesión, evitando confeti excesivo en cada acierto rutinario.
+Las celebraciones grandes se reservan para momentos relevantes,
+especialmente el final de sesión, evitando confeti excesivo en cada
+acierto rutinario.
 
----
+------------------------------------------------------------------------
 
 ## 18. Persistencia local y esquema de datos
 
@@ -609,13 +775,13 @@ El almacenamiento principal usa `localStorage`.
 
 La versión actual del esquema es:
 
-```js
+``` js
 VERSION = 3
 ```
 
 Las claves administradas por `AprendaliaStorage` utilizan el prefijo:
 
-```text
+``` text
 aprendalia:v3:
 ```
 
@@ -623,11 +789,12 @@ aprendalia:v3:
 
 Al iniciar, `storage.js` busca datos con el prefijo anterior:
 
-```text
+``` text
 aprendalia:v2:
 ```
 
-Si existen y todavía no hay copia v3, los copia al espacio v3 y registra la migración.
+Si existen y todavía no hay copia v3, los copia al espacio v3 y registra
+la migración.
 
 La migración no borra automáticamente los datos antiguos.
 
@@ -635,19 +802,21 @@ La migración no borra automáticamente los datos antiguos.
 
 Se conservan como máximo:
 
-```text
+``` text
 200 sesiones por usuario
 ```
 
----
+------------------------------------------------------------------------
 
 ## 19. Identidad interna de las preguntas
 
-El banco puede contener IDs duplicados. Para evitar que el histórico mezcle dos preguntas distintas, el progreso no usa únicamente `question.id`.
+El banco puede contener IDs duplicados. Para evitar que el histórico
+mezcle dos preguntas distintas, el progreso no usa únicamente
+`question.id`.
 
 La clave interna combina:
 
-```text
+``` text
 asignatura + id + hash(tipo | pregunta | respuesta)
 ```
 
@@ -655,17 +824,20 @@ Esto permite convivir con IDs duplicados sin modificar los CSV actuales.
 
 ### Limitación importante
 
-Si se cambia sustancialmente el texto, tipo o respuesta de una pregunta, su hash cambia y el sistema puede interpretarla como una pregunta nueva.
+Si se cambia sustancialmente el texto, tipo o respuesta de una pregunta,
+su hash cambia y el sistema puede interpretarla como una pregunta nueva.
 
-Cuando se revise el contenido en profundidad, lo ideal será evolucionar hacia un **ID único, estable e inmutable por pregunta**. Ese ID debería mantenerse aunque se corrija la redacción.
+Cuando se revise el contenido en profundidad, lo ideal será evolucionar
+hacia un **ID único, estable e inmutable por pregunta**. Ese ID debería
+mantenerse aunque se corrija la redacción.
 
----
+------------------------------------------------------------------------
 
 ## 20. Modelo de progreso por pregunta
 
 Un registro puede incluir campos como:
 
-```text
+``` text
 key
 id
 subject
@@ -691,15 +863,16 @@ dueAt
 status
 ```
 
-Esto permite reconstruir no sólo el porcentaje de acierto, sino cómo se está aprendiendo la pregunta y cuándo conviene volver a mostrarla.
+Esto permite reconstruir no sólo el porcentaje de acierto, sino cómo se
+está aprendiendo la pregunta y cuándo conviene volver a mostrarla.
 
----
+------------------------------------------------------------------------
 
 ## 21. Histórico de sesiones
 
 Cada sesión completada contiene aproximadamente:
 
-```text
+``` text
 id
 subject
 startedAt
@@ -717,51 +890,193 @@ questions[]
 
 Este histórico alimenta la Zona de padres y las estadísticas semanales.
 
----
+------------------------------------------------------------------------
 
 ## 22. Observabilidad y telemetría
 
-`script.js` contiene actualmente una URL de Google Apps Script:
+La telemetría externa está aislada en:
 
-```js
-const GOOGLE_SCRIPT_URL = "...";
+``` text
+src/data/telemetry.js
 ```
 
-Se utiliza como observabilidad ligera compatible con el Google Apps Script histórico. Sólo se envían eventos asociados a preguntas/reportes. La información incluye:
+El módulo se publica como:
 
-- usuario;
-- `deviceId`;
-- etiqueta aproximada del dispositivo/navegador;
-- resultado/estado asociado.
+``` js
+window.AprendaliaTelemetry
+```
 
-Antes de desplegar Aprendalia fuera del entorno previsto, revisar qué datos recibe exactamente el Apps Script, su hoja/destino, permisos y política de conservación.
+y expone:
 
-No debe considerarse este canal un sistema de autenticación seguro.
+``` js
+AprendaliaTelemetry.send(eventName, data)
+```
 
----
+### 22.1 Objetivo
+
+Google Apps Script/Sheets se utiliza únicamente como **observabilidad
+ligera**. No es la fuente de verdad del aprendizaje y no participa en la
+selección de preguntas, puntuación, repetición espaciada, histórico ni
+Zona de padres.
+
+La separación es intencionada:
+
+``` text
+Aprendizaje y progreso
+    ↓
+ProgressRepository + localStorage
+    ↓
+Zona de padres / selector adaptativo / repetición espaciada
+
+Observabilidad externa
+    ↓
+AprendaliaTelemetry
+    ↓
+Google Apps Script
+    ↓
+Google Sheets
+```
+
+Si Google no responde, no hay conexión a Internet o el `fetch` falla, el
+alumno puede seguir estudiando con normalidad. El error se captura y
+sólo se escribe una advertencia en consola.
+
+### 22.2 Compatibilidad con el Google Apps Script existente
+
+El módulo actual conserva **exactamente el contrato histórico** para no
+obligar a modificar el Apps Script o la hoja existentes.
+
+Sólo se envía a Google el evento interno:
+
+``` text
+question_result
+```
+
+Otros eventos que la aplicación pueda manejar internamente, como login,
+inicio de sesión, sesión completada o sesión abandonada, son ignorados
+por `telemetry.js` y **no salen del navegador**.
+
+### 22.3 Payload enviado
+
+Cada resultado de pregunta se envía mediante `FormData` y una petición
+`POST` al endpoint configurado en `src/data/telemetry.js`.
+
+Los únicos campos enviados son:
+
+| Campo           | Contenido                                                      |
+|-----------------|----------------------------------------------------------------|
+| `fecha`         | Fecha ISO local al envío en formato `YYYY-MM-DD`               |
+| `alumno`        | Usuario normalizado del alumno                                 |
+| `device_key`    | ID persistente del navegador, por ejemplo `DEV-AB12-CD34-EF56` |
+| `device_info`   | Etiqueta aproximada, por ejemplo `iPad · Safari`               |
+| `asignatura`    | Asignatura de la pregunta                                      |
+| `id_pregunta`   | ID procedente del banco de preguntas                           |
+| `tipo_pregunta` | Tipo de ejercicio                                              |
+| `estado`        | Resultado/estado que el orquestador registra para esa pregunta |
+
+No se añaden actualmente campos de duración, evento, detalle, puntuación
+acumulada, contraseña, respuesta escrita por el alumno ni contenido
+completo del histórico.
+
+### 22.4 Endpoint
+
+El endpoint de Google Apps Script está definido como constante
+`ENDPOINT` dentro de:
+
+``` text
+src/data/telemetry.js
+```
+
+Si cambia el despliegue del Apps Script, ése es el lugar que debe
+actualizarse.
+
+No duplicar la URL en `script.js` ni en los renderizadores de
+ejercicios.
+
+### 22.5 Dispositivo y telemetría
+
+El `device_key` que se envía es el mismo identificador utilizado por el
+control opcional usuario-dispositivo de `src/config/access-config.js`.
+
+Esto permite utilizar la hoja para observar durante un periodo qué
+dispositivos usa realmente cada alumno antes de rellenar su array
+`devices`.
+
+La etiqueta `device_info` es descriptiva y aproximada. Se obtiene de
+características normales del navegador (`userAgent`, plataforma y
+soporte táctil). No pretende ser un fingerprint criptográfico ni una
+identificación física inequívoca del aparato.
+
+### 22.6 Qué NO debe enviarse
+
+Por diseño, la telemetría no debería recibir:
+
+- contraseñas de alumnos;
+- contraseña de padres;
+- contenido completo del backup;
+- todo el estado de `localStorage`;
+- historial pedagógico completo;
+- grabaciones de voz;
+- audio del micrófono;
+- información personal adicional que no sea necesaria para administrar
+  Aprendalia.
+
+Si en el futuro se amplía el payload, hay que revisar simultáneamente
+`telemetry.js`, el Apps Script, la estructura de la hoja y este README.
+
+### 22.7 Relación con `script.js`
+
+`script.js` conserva la función de alto nivel que decide **cuándo**
+registrar actividad. La implementación de **cómo** se transmite a Google
+está encapsulada en `AprendaliaTelemetry`.
+
+Los renderizadores de ejercicios no deberían hacer `fetch` directamente
+a Google. Deben devolver el resultado al flujo común y dejar que el
+orquestador registre el evento.
+
+### 22.8 Diagnóstico
+
+Si dejan de aparecer filas en Google Sheets, revisar en este orden:
+
+1.  que el ejercicio termine y produzca un `question_result`;
+2.  que `src/data/telemetry.js` se cargue antes de `script.js`;
+3.  que el endpoint siga siendo válido;
+4.  la consola del navegador por el aviso
+    `No se pudo registrar la actividad`;
+5.  permisos y despliegue del Google Apps Script;
+6.  que el Apps Script siga esperando los ocho nombres de campo
+    históricos.
+
+Una caída de telemetría no debe diagnosticarse como pérdida de progreso:
+son sistemas independientes.
+
+------------------------------------------------------------------------
 
 ## 23. Banco de preguntas y CSV
 
 El fichero activo de preguntas es:
 
-```text
+``` text
 questions.csv
 ```
 
 También se conservan actualmente:
 
-```text
+``` text
 questions_ayer.csv
 questions_ayer2.csv
 ```
 
-Durante la fase de arquitectura descrita en este README, estos CSV se han mantenido sin modificaciones deliberadamente. La siguiente fase del proyecto está prevista para centrarse en contenido, temario, calidad, variedad, IDs y estructura pedagógica.
+Durante la fase de arquitectura descrita en este README, estos CSV se
+han mantenido sin modificaciones deliberadamente. La siguiente fase del
+proyecto está prevista para centrarse en contenido, temario, calidad,
+variedad, IDs y estructura pedagógica.
 
 ### Asignaturas visibles actualmente
 
 El selector de interfaz incluye:
 
-```text
+``` text
 Lengua
 Ingles
 Matematicas
@@ -770,49 +1085,54 @@ Naturals
 Listening
 ```
 
-La disponibilidad real de preguntas depende del contenido de `questions.csv`.
+La disponibilidad real de preguntas depende del contenido de
+`questions.csv`.
 
----
+------------------------------------------------------------------------
 
 ## 24. Carga del CSV
 
-`script.js` carga `questions.csv` mediante `fetch()` y mantiene las preguntas en memoria durante la sesión de la aplicación.
+`script.js` carga `questions.csv` mediante `fetch()` y mantiene las
+preguntas en memoria durante la sesión de la aplicación.
 
-Por este motivo, para probar Aprendalia es recomendable servir el proyecto mediante HTTP/HTTPS y no abrir simplemente `index.html` con `file://`, ya que algunos navegadores bloquean `fetch()` de archivos locales.
+Por este motivo, para probar Aprendalia es recomendable servir el
+proyecto mediante HTTP/HTTPS y no abrir simplemente `index.html` con
+`file://`, ya que algunos navegadores bloquean `fetch()` de archivos
+locales.
 
 Ejemplos de servidor local:
 
-```bash
+``` bash
 python3 -m http.server 8000
 ```
 
 Después abrir:
 
-```text
+``` text
 http://localhost:8000/
 ```
 
 También puede desplegarse en cualquier hosting estático compatible.
 
----
+------------------------------------------------------------------------
 
 ## 25. Tests
 
 Los tests están en:
 
-```text
+``` text
 tests/run-tests.js
 ```
 
 Se ejecutan con Node desde la raíz del proyecto:
 
-```bash
+``` bash
 node tests/run-tests.js
 ```
 
 La salida esperada es:
 
-```text
+``` text
 OK - all Aprendalia core tests passed
 ```
 
@@ -830,14 +1150,16 @@ Entre otras cosas:
 - una pista limita la recompensa a 6;
 - un primer intento limpio da 10;
 - la autoevaluación manual de `hablar` se considera asistida;
-- mientras hay suficiente contenido nuevo, al menos la mitad de una sesión seleccionada es contenido sin ver;
+- mientras hay suficiente contenido nuevo, al menos la mitad de una
+  sesión seleccionada es contenido sin ver;
 - no se seleccionan preguntas duplicadas dentro de la sesión;
 - cálculo básico del histórico de sesión;
 - exportación/importación de backup.
 
 ### Qué NO cubren todavía
 
-Los tests actuales no sustituyen pruebas end-to-end en navegador. No simulan completamente:
+Los tests actuales no sustituyen pruebas end-to-end en navegador. No
+simulan completamente:
 
 - Safari/iOS real;
 - Chrome/Android real;
@@ -848,15 +1170,16 @@ Los tests actuales no sustituyen pruebas end-to-end en navegador. No simulan com
 - rendering visual completo;
 - comportamiento del Google Apps Script remoto.
 
-Antes de una distribución amplia conviene probar manualmente esos escenarios.
+Antes de una distribución amplia conviene probar manualmente esos
+escenarios.
 
----
+------------------------------------------------------------------------
 
 ## 26. Comprobaciones recomendadas antes de desplegar
 
 Después de cambios de código:
 
-```bash
+``` bash
 node --check script.js
 node --check src/config/access-config.js
 node --check src/data/storage.js
@@ -871,15 +1194,16 @@ node --check src/exercises/interaction-exercises.js
 node tests/run-tests.js
 ```
 
-Además conviene probar manualmente al menos una pregunta de cada tipo de ejercicio.
+Además conviene probar manualmente al menos una pregunta de cada tipo de
+ejercicio.
 
----
+------------------------------------------------------------------------
 
 ## 27. Lista de tipos a probar manualmente
 
 Checklist rápida después de cambios relevantes:
 
-```text
+``` text
 [ ] test
 [ ] verdadero_falso
 [ ] escribir
@@ -896,11 +1220,13 @@ Checklist rápida después de cambios relevantes:
 
 Para `ordenar`, probar tanto ratón como táctil.
 
-Para `hablar`, probar un navegador con reconocimiento de voz y otro sin soporte para verificar el fallback manual.
+Para `hablar`, probar un navegador con reconocimiento de voz y otro sin
+soporte para verificar el fallback manual.
 
-Para `listening`, comprobar específicamente que el texto objetivo no aparece antes de responder.
+Para `listening`, comprobar específicamente que el texto objetivo no
+aparece antes de responder.
 
----
+------------------------------------------------------------------------
 
 ## 28. Accesibilidad
 
@@ -915,65 +1241,81 @@ La interfaz incorpora varias medidas básicas:
 - textos alternativos en imágenes;
 - controles suficientemente grandes para interacción táctil.
 
-La accesibilidad todavía puede profundizarse con una auditoría específica WCAG y pruebas con lectores de pantalla reales.
+La accesibilidad todavía puede profundizarse con una auditoría
+específica WCAG y pruebas con lectores de pantalla reales.
 
----
+------------------------------------------------------------------------
 
 ## 29. Decisiones de diseño importantes
 
 ### Sesiones cortas
 
-Diez preguntas reducen fricción y permiten estudiar con frecuencia sin que una sesión se perciba como larga.
+Diez preguntas reducen fricción y permiten estudiar con frecuencia sin
+que una sesión se perciba como larga.
 
 ### Los errores no quitan estrellas
 
-Se evita convertir el error en castigo. El coste pedagógico del error es romper la racha, reducir recompensa y provocar repaso más cercano.
+Se evita convertir el error en castigo. El coste pedagógico del error es
+romper la racha, reducir recompensa y provocar repaso más cercano.
 
 ### Pedir ayuda es mejor que adivinar
 
-Pista y “No lo sé” permiten continuar, pero quedan registrados como asistencia y reducen la recompensa.
+Pista y “No lo sé” permiten continuar, pero quedan registrados como
+asistencia y reducen la recompensa.
 
 ### Cobertura y consolidación deben coexistir
 
-El selector reserva espacio para contenido nuevo sin abandonar preguntas difíciles o repasos vencidos.
+El selector reserva espacio para contenido nuevo sin abandonar preguntas
+difíciles o repasos vencidos.
 
 ### La Zona de padres no invade el modo infantil
 
-El alumno ve una experiencia centrada en estudiar. Las métricas detalladas están separadas.
+El alumno ve una experiencia centrada en estudiar. Las métricas
+detalladas están separadas.
 
 ### Restricción de dispositivo opt-in
 
-Una cuenta empieza sin bloqueo por dispositivo. El administrador puede observar primero y activar después la restricción simplemente rellenando `devices`.
+Una cuenta empieza sin bloqueo por dispositivo. El administrador puede
+observar primero y activar después la restricción simplemente rellenando
+`devices`.
 
----
+------------------------------------------------------------------------
 
 ## 30. Limitaciones conocidas
 
 ### 30.1 El progreso es local al navegador
 
-Aunque existe exportación/importación, no hay sincronización automática entre dispositivos. Un alumno que use dos dispositivos tendrá históricos locales separados salvo que se implemente un backend o mecanismo de sincronización.
+Aunque existe exportación/importación, no hay sincronización automática
+entre dispositivos. Un alumno que use dos dispositivos tendrá históricos
+locales separados salvo que se implemente un backend o mecanismo de
+sincronización.
 
 ### 30.2 Borrar datos del navegador elimina información local
 
-Puede afectar al progreso, estrellas y `deviceId`. Los backups JSON mitigan el riesgo, pero requieren intervención manual.
+Puede afectar al progreso, estrellas y `deviceId`. Los backups JSON
+mitigan el riesgo, pero requieren intervención manual.
 
 ### 30.3 Autenticación cliente
 
-Usuarios, contraseñas y dispositivos autorizados están en JavaScript descargable. Es suficiente para el objetivo informal actual, pero no para información sensible ni control de acceso fuerte.
+Usuarios, contraseñas y dispositivos autorizados están en JavaScript
+descargable. Es suficiente para el objetivo informal actual, pero no
+para información sensible ni control de acceso fuerte.
 
 ### 30.4 APIs de voz variables
 
-El soporte de reconocimiento/síntesis depende del navegador y sistema operativo.
+El soporte de reconocimiento/síntesis depende del navegador y sistema
+operativo.
 
 ### 30.5 Identidad de preguntas basada parcialmente en contenido
 
-Cambiar una pregunta puede generar una identidad nueva en el histórico. Se recomienda introducir IDs inmutables en la futura revisión del banco.
+Cambiar una pregunta puede generar una identidad nueva en el histórico.
+Se recomienda introducir IDs inmutables en la futura revisión del banco.
 
 ### 30.6 Tests principalmente de núcleo
 
 Falta una suite end-to-end automatizada en navegadores reales.
 
----
+------------------------------------------------------------------------
 
 ## 31. Mantenimiento: tareas habituales
 
@@ -981,7 +1323,7 @@ Falta una suite end-to-end automatizada en navegadores reales.
 
 Editar:
 
-```text
+``` text
 src/config/access-config.js
 ```
 
@@ -999,7 +1341,7 @@ Añadir uno o más IDs al array `devices`.
 
 Vaciar el array:
 
-```js
+``` js
 devices: Object.freeze([])
 ```
 
@@ -1007,7 +1349,7 @@ devices: Object.freeze([])
 
 Modificar:
 
-```js
+``` js
 const PARENT_PASSWORD = '...';
 ```
 
@@ -1015,7 +1357,7 @@ const PARENT_PASSWORD = '...';
 
 Modificar en `script.js`:
 
-```js
+``` js
 const SESSION_SIZE = 10;
 ```
 
@@ -1025,46 +1367,50 @@ Revisar también los textos de interfaz que mencionan “10 preguntas”.
 
 Modificar:
 
-```js
+``` js
 const MAX_ATTEMPTS = 2;
 ```
 
-Esta modificación tiene implicaciones en puntuación, feedback y registro, por lo que debe acompañarse de tests.
+Esta modificación tiene implicaciones en puntuación, feedback y
+registro, por lo que debe acompañarse de tests.
 
----
+------------------------------------------------------------------------
 
 ## 32. Cómo añadir un nuevo tipo de ejercicio
 
 Antes de añadir un tipo nuevo, decidir si pertenece a:
 
-```text
+``` text
 src/exercises/text-exercises.js
 src/exercises/audio-exercises.js
 src/exercises/interaction-exercises.js
 ```
 
-El renderizador debería encargarse de la interacción específica, pero reutilizar siempre que sea posible el circuito común de:
+El renderizador debería encargarse de la interacción específica, pero
+reutilizar siempre que sea posible el circuito común de:
 
-```text
+``` text
 handleCorrect()
 handleError()
 finish()
 ```
 
-Esto garantiza que puntuación, intentos, bloqueo de doble pulsación, progreso, telemetría, feedback y repetición espaciada sigan siendo coherentes.
+Esto garantiza que puntuación, intentos, bloqueo de doble pulsación,
+progreso, telemetría, feedback y repetición espaciada sigan siendo
+coherentes.
 
 Después hay que:
 
-1. añadir el `tipo` al dispatcher de `nextQ()`;
-2. añadir una etiqueta en `getExerciseLabel()`;
-3. decidir si el enunciado debe mostrarse u ocultarse;
-4. comprobar Pista/No lo sé;
-5. comprobar dos intentos;
-6. comprobar registro de resultado;
-7. probar móvil y teclado;
-8. añadir tests cuando la lógica sea testeable sin navegador.
+1.  añadir el `tipo` al dispatcher de `nextQ()`;
+2.  añadir una etiqueta en `getExerciseLabel()`;
+3.  decidir si el enunciado debe mostrarse u ocultarse;
+4.  comprobar Pista/No lo sé;
+5.  comprobar dos intentos;
+6.  comprobar registro de resultado;
+7.  probar móvil y teclado;
+8.  añadir tests cuando la lógica sea testeable sin navegador.
 
----
+------------------------------------------------------------------------
 
 ## 33. Convenciones para no romper el histórico
 
@@ -1073,29 +1419,39 @@ Cuando se empiece a trabajar sobre contenido:
 - evitar cambiar IDs existentes sin necesidad;
 - idealmente introducir IDs únicos e inmutables;
 - no reutilizar el mismo ID para conceptos distintos;
-- considerar que cambiar `tipo`, `pregunta` o `respuesta` altera actualmente la clave interna;
-- mantener nombres de asignatura exactamente coherentes con los valores usados por la aplicación;
-- validar que `respuesta` sea compatible con `opciones` cuando el tipo lo requiera;
-- evitar separadores que entren en conflicto con el formato del CSV/campos internos.
+- considerar que cambiar `tipo`, `pregunta` o `respuesta` altera
+  actualmente la clave interna;
+- mantener nombres de asignatura exactamente coherentes con los valores
+  usados por la aplicación;
+- validar que `respuesta` sea compatible con `opciones` cuando el tipo
+  lo requiera;
+- evitar separadores que entren en conflicto con el formato del
+  CSV/campos internos.
 
----
+------------------------------------------------------------------------
 
 ## 34. Arquitectura: estado actual y posible evolución
 
-La aplicación ha pasado de un único `script.js` monolítico a una estructura con responsabilidades separadas. Aun así, `script.js` continúa siendo el controlador/orquestador principal.
+La aplicación ha pasado de un único `script.js` monolítico a una
+estructura con responsabilidades separadas. Aun así, `script.js`
+continúa siendo el controlador/orquestador principal.
 
-Una futura modularización, si el proyecto sigue creciendo, podría separar:
+Una futura modularización, si el proyecto sigue creciendo, podría
+separar:
 
-```text
+``` text
 app-controller.js
 auth-controller.js
 session-controller.js
 telemetry.js
 ```
 
-No es una necesidad crítica en la versión actual. Conviene hacerlo cuando el crecimiento funcional lo justifique, evitando refactors por sí mismos.
+No es una necesidad crítica en la versión actual. Conviene hacerlo
+cuando el crecimiento funcional lo justifique, evitando refactors por sí
+mismos.
 
-La evolución arquitectónica más importante a medio plazo sería un backend opcional para:
+La evolución arquitectónica más importante a medio plazo sería un
+backend opcional para:
 
 - autenticación real;
 - sincronización de progreso entre dispositivos;
@@ -1105,35 +1461,42 @@ La evolución arquitectónica más importante a medio plazo sería un backend op
 - estadísticas agregadas para familias/profesor;
 - contenido versionado centralmente.
 
----
+------------------------------------------------------------------------
 
 ## 35. Prioridades futuras sugeridas
 
-Con la mecánica actual estabilizada, la siguiente fase prevista es **contenido**. Algunas prioridades razonables son:
+Con la mecánica actual estabilizada, la siguiente fase prevista es
+**contenido**. Algunas prioridades razonables son:
 
-1. revisar calidad y coherencia del banco;
-2. establecer IDs únicos e inmutables;
-3. estructurar contenido por concepto/competencia, no sólo asignatura;
-4. equilibrar dificultad;
-5. ampliar variedad de preguntas sin duplicar mecánicas innecesariamente;
-6. detectar preguntas ambiguas o respuestas incompatibles con opciones;
-7. utilizar el histórico para identificar conceptos, no sólo preguntas, que necesitan refuerzo.
+1.  revisar calidad y coherencia del banco;
+2.  establecer IDs únicos e inmutables;
+3.  estructurar contenido por concepto/competencia, no sólo asignatura;
+4.  equilibrar dificultad;
+5.  ampliar variedad de preguntas sin duplicar mecánicas
+    innecesariamente;
+6.  detectar preguntas ambiguas o respuestas incompatibles con opciones;
+7.  utilizar el histórico para identificar conceptos, no sólo preguntas,
+    que necesitan refuerzo.
 
 Una futura estructura conceptual podría permitir algo como:
 
-```text
+``` text
 Matemáticas
 └── Multiplicación
     └── Tabla del 7
 ```
 
-Así la Zona de padres podría decir “necesita reforzar la tabla del 7” en lugar de limitarse a listar IDs concretos de preguntas.
+Así la Zona de padres podría decir “necesita reforzar la tabla del 7” en
+lugar de limitarse a listar IDs concretos de preguntas.
 
----
+------------------------------------------------------------------------
 
 ## 36. Resumen técnico rápido
 
-```text
+**Telemetría externa:** `src/data/telemetry.js`, compatible con el
+payload histórico de Google Sheets y desacoplada del progreso local.
+
+``` text
 Tipo de aplicación:       Web estática
 Frontend:                 HTML + CSS + JavaScript vanilla
 Banco principal:          questions.csv
@@ -1153,43 +1516,45 @@ Tests:                    Node, tests/run-tests.js
 Telemetría:               Google Apps Script
 ```
 
----
+------------------------------------------------------------------------
 
 ## 37. Filosofía del proyecto
 
 Aprendalia intenta mantener un equilibrio entre tres objetivos:
 
-**Sencillez para el niño.** Entrar, elegir asignatura y estudiar sin paneles ni configuraciones innecesarias.
+**Sencillez para el niño.** Entrar, elegir asignatura y estudiar sin
+paneles ni configuraciones innecesarias.
 
-**Información útil para la familia.** Saber qué se ha visto, qué está dominado, qué cuesta y cómo evoluciona, sin convertir el estudio en vigilancia constante.
+**Información útil para la familia.** Saber qué se ha visto, qué está
+dominado, qué cuesta y cómo evoluciona, sin convertir el estudio en
+vigilancia constante.
 
-**Arquitectura suficientemente sólida sin sobredimensionarla.** Para un proyecto compartido informalmente con compañeros de clase, una web estática permite desplegar y mantener muy rápido. Cuando las necesidades de seguridad, sincronización o administración superen ese modelo, la arquitectura deja preparado un camino razonable hacia servicios de servidor.
+**Arquitectura suficientemente sólida sin sobredimensionarla.** Para un
+proyecto compartido informalmente con compañeros de clase, una web
+estática permite desplegar y mantener muy rápido. Cuando las necesidades
+de seguridad, sincronización o administración superen ese modelo, la
+arquitectura deja preparado un camino razonable hacia servicios de
+servidor.
 
----
+------------------------------------------------------------------------
 
 ## 38. Nota para futuras sesiones de desarrollo
 
 Antes de modificar Aprendalia:
 
-1. partir siempre de la última versión desplegada/en repositorio;
-2. ejecutar los tests antes del cambio;
-3. realizar cambios pequeños y localizados;
-4. volver a ejecutar tests;
-5. probar manualmente los tipos afectados;
-6. comprobar `git diff` para identificar archivos realmente modificados;
-7. no usar la fecha de modificación del ZIP como sustituto de `git diff` o hashes;
-8. evitar modificar los CSV durante cambios puramente técnicos;
-9. actualizar este README cuando cambie una regla importante de arquitectura, acceso, puntuación, almacenamiento o aprendizaje.
+1.  partir siempre de la última versión desplegada/en repositorio;
+2.  ejecutar los tests antes del cambio;
+3.  realizar cambios pequeños y localizados;
+4.  volver a ejecutar tests;
+5.  probar manualmente los tipos afectados;
+6.  comprobar `git diff` para identificar archivos realmente
+    modificados;
+7.  no usar la fecha de modificación del ZIP como sustituto de
+    `git diff` o hashes;
+8.  evitar modificar los CSV durante cambios puramente técnicos;
+9.  actualizar este README cuando cambie una regla importante de
+    arquitectura, acceso, puntuación, almacenamiento, aprendizaje, ayuda
+    integrada o contrato de telemetría.
 
-Este README describe la versión consolidada de Aprendalia a fecha **13 de septiembre de 2026**.
-
-## Ayuda integrada y modelo de datos
-
-La interfaz incorpora un acceso `?` a **Cómo funciona Aprendalia**. Es una ayuda breve pensada para poder compartir la aplicación sin tener que explicar personalmente su mecánica a cada familia. Resume sesiones, estrellas y rachas, repetición espaciada, pistas y segundos intentos, Zona de padres, acceso por usuario/dispositivo y privacidad.
-
-El modelo de datos distingue expresamente dos capas:
-
-- **Progreso pedagógico local:** `ProgressRepository` y el almacenamiento del navegador son la fuente de verdad para dominio, dificultad, repeticiones, sesiones e histórico mostrado en la Zona de padres. Este progreso puede exportarse/importarse como backup.
-- **Telemetría externa:** `src/data/telemetry.js` mantiene exactamente el contrato histórico con Google Apps Script/Sheets. Sólo envía observabilidad asociada a preguntas con los campos `fecha`, `alumno`, `device_key`, `device_info`, `asignatura`, `id_pregunta`, `tipo_pregunta` y `estado`. Los eventos internos de login/inicio/fin/abandono de sesión no se envían a Google. Un fallo de red o de Google Sheets no impide estudiar ni altera el progreso local.
-
-La telemetría no debe convertirse en una segunda implementación del motor de progreso. Si se amplía, debe mantenerse orientada a observabilidad, dispositivos, uso y diagnóstico.
+Este README describe la versión consolidada de Aprendalia a fecha **13
+de septiembre de 2026**.
