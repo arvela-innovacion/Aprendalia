@@ -6,7 +6,7 @@
   function awardCorrect(stats, question){
     if(!stats || !question) return {points:0,label:'¡Muy bien!'};
     const isReview=(question.reviewCount||0)>0;
-    const assisted=!!(question.usedHint || question.usedDontKnow);
+    const assisted=!!(question.usedHint || question.usedDontKnow || question.usedSelfAssessment);
     let points=0,label='';
     stats.correct+=1;
     if(isReview){
