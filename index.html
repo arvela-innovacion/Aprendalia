@@ -60,16 +60,28 @@
 
       <section id="session-setup" class="session-setup" aria-hidden="true">
         <div class="setup-card">
-          <span class="setup-kicker">Sesión rápida</span>
+          <span id="setup-kicker" class="setup-kicker">Sesión adaptativa</span>
           <div id="setup-subject-icon" class="setup-icon" aria-hidden="true">📚</div>
           <h2 id="setup-title">Asignatura</h2>
           <p id="setup-course" class="setup-course">Curso</p>
-          <p>10 preguntas · unos 5 minutos</p>
+          <p id="setup-mode-description">10 preguntas · selección adaptada a tu progreso</p>
           <div class="setup-meta">
-            <span>⭐ <strong id="total-stars">0</strong> acumuladas</span>
-            <span>🎯 Meta: terminar la sesión</span>
+            <span>⭐ <strong id="subject-stars">0</strong> en esta asignatura</span>
+            <span>🏆 <strong id="total-stars">0</strong> totales</span>
           </div>
-          <p id="setup-coverage" class="setup-coverage">0/0 preguntas vistas</p>
+          <div class="setup-progress" aria-live="polite">
+            <div class="setup-progress-row"><span>Progreso</span><strong id="setup-progress-label">0%</strong></div>
+            <div class="setup-progress-bar" aria-hidden="true"><span id="setup-progress-fill"></span></div>
+            <p id="setup-coverage" class="setup-coverage">0/0 preguntas vistas</p>
+          </div>
+          <div class="session-mode-field">
+            <label for="session-mode">Tipo de sesión</label>
+            <select id="session-mode">
+              <option value="adaptive" selected>Adaptativa / rápida</option>
+              <option value="review">Repaso</option>
+              <option value="discover">Descubrir</option>
+            </select>
+          </div>
           <div class="setup-actions">
             <button id="startSessionBtn" class="primary-btn setup-start" type="button">Empezar</button>
           </div>

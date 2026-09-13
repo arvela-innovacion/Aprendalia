@@ -49,6 +49,16 @@ abandonar. Las preguntas ya finalizadas conservan su progreso; la
 pregunta que estaba a medias no cuenta como acierto ni fallo y la sesión
 incompleta no se guarda como una sesión terminada.
 
+### Modos de sesión
+
+En la pantalla posterior al login, el alumno selecciona una asignatura y puede escoger uno de tres modos. La opción predeterminada es **Adaptativa / rápida**.
+
+- **Adaptativa / rápida**: crea una sesión de 10 preguntas mezclando conceptos nuevos, práctica pendiente y repaso según el progreso del alumno.
+- **Repaso**: prioriza preguntas ya vistas, especialmente las vencidas por repetición espaciada, las que están en dificultad, las falladas recientemente y las que siguen en práctica. Si todavía no existe historial suficiente, cae de forma segura al comportamiento adaptativo.
+- **Descubrir**: prioriza preguntas todavía no vistas. Si no quedan suficientes para completar las 10, rellena la sesión con selección adaptativa.
+
+La tarjeta de preparación muestra métricas de la **asignatura actualmente seleccionada**: estrellas acumuladas en esa materia, estrellas totales del alumno, porcentaje de cobertura, preguntas vistas y conceptos dominados. Al cambiar de asignatura esos datos se recalculan inmediatamente.
+
 ### Ayuda integrada: “Cómo funciona”
 
 La cabecera incorpora un acceso discreto `?` que abre una ayuda dentro

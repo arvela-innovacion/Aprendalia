@@ -472,3 +472,13 @@ input.disabled, input:disabled { opacity: .62; pointer-events: none; }
 #loginBtn[aria-busy="true"] {
   cursor: progress;
 }
+
+/* Selector de modo y progreso por asignatura */
+.session-mode-field { width:min(100%,420px); margin:0 auto 16px; text-align:left; }
+.session-mode-field label { display:block; margin:0 0 6px; color:var(--muted); font-size:.88rem; font-weight:700; }
+.session-mode-field select { width:100%; min-height:46px; padding:10px 12px; border:1px solid var(--border); border-radius:12px; background:var(--surface); color:inherit; font:inherit; font-weight:700; }
+.setup-progress { width:min(100%,420px); margin:0 auto 16px; }
+.setup-progress-row { display:flex; justify-content:space-between; gap:12px; margin-bottom:7px; font-size:.9rem; color:var(--muted); }
+.setup-progress-bar { height:8px; overflow:hidden; border-radius:999px; background:var(--border); }
+.setup-progress-bar span { display:block; height:100%; width:0; border-radius:inherit; background:currentColor; transition:width .25s ease; }
+.setup-progress .setup-coverage { margin:8px 0 0 !important; text-align:left; }

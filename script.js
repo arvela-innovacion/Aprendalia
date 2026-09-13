@@ -9,6 +9,7 @@ let preguntaActual = null;
 let usuarioActual = null;
 let cursoActual = null;
 let curriculumLoaded = false;
+let sessionMode = 'adaptive';
 
 
 function escapeHtml(value = '') {
@@ -52,6 +53,36 @@ function getTotalStars() {
   } catch (_) {
     return 0;
   }
+}
+
+
+function getSubjectStars(subject = subjectSelected) {
+  if (!usuarioActual || !subject) return 0;
+  try {
+    return ProgressRepository.getSessions(usuarioActual, subject, cursoActual)
+      .reduce((sum, item) => sum + Math.max(0, Number(item.stars || 0)), 0);
+  } catch (_) {
+    return 0;
+  }
+}
+
+function sessionModeCopy(mode = sessionMode) {
+  const copies = {
+    adaptive: { kicker:'Sesión adaptativa', description:'10 preguntas · mezcla lo nuevo con lo que más te conviene practicar' },
+    review: { kicker:'Sesión de repaso', description:'10 preguntas · prioriza lo visto que necesita refuerzo o toca revisar' },
+    discover: { kicker:'Sesión descubrir', description:'10 preguntas · prioriza conceptos y preguntas que todavía no has visto' }
+  };
+  return copies[mode] || copies.adaptive;
+}
+
+function updateSessionModeUi() {
+  const select = document.getElementById('session-mode');
+  sessionMode = select?.value || sessionMode || 'adaptive';
+  const copy = sessionModeCopy(sessionMode);
+  const kicker = document.getElementById('setup-kicker');
+  const desc = document.getElementById('setup-mode-description');
+  if (kicker) kicker.textContent = copy.kicker;
+  if (desc) desc.textContent = copy.description;
 }
 
 function addPersistentStars(amount) {
@@ -500,11 +531,18 @@ async function showSessionSetup(options = {}){
   document.getElementById('setup-subject-icon').innerText = icon;
   document.getElementById('setup-title').innerText = label;
   document.getElementById('total-stars').innerText = getTotalStars();
+  const subjectStars = document.getElementById('subject-stars');
+  if (subjectStars) subjectStars.innerText = getSubjectStars(subjectSelected);
   const setupCourse = document.getElementById('setup-course');
   if (setupCourse) setupCourse.innerText = `${AprendaliaCurriculum.labelCourse(cursoActual)} · ${usuarioActual}`;
   const summary = ProgressRepository.getSubjectSummary(usuarioActual, subjectSelected, courseQuestions(), cursoActual);
   const coverage = document.getElementById('setup-coverage');
   if (coverage) coverage.innerText = `${summary.seen}/${summary.total} preguntas vistas · ${summary.conceptCounts.mastered}/${summary.concepts.length} conceptos dominados`;
+  const progressLabel = document.getElementById('setup-progress-label');
+  const progressFill = document.getElementById('setup-progress-fill');
+  if (progressLabel) progressLabel.innerText = `${summary.coveragePct}%`;
+  if (progressFill) progressFill.style.width = `${summary.coveragePct}%`;
+  updateSessionModeUi();
   document.getElementById('parents-zone').style.display = 'none';
   document.getElementById('parents-zone').setAttribute('aria-hidden','true');
   document.getElementById('parentsBtn').style.display = 'inline-flex';
@@ -621,7 +659,8 @@ async function startGame(){
   subjectSelected = document.getElementById('subject').value;
 
   const subjectQuestions = courseQuestions().filter(q=>q.asignatura===subjectSelected);
-  queue = QuestionSelector.select(usuarioActual, subjectQuestions, SESSION_SIZE);
+  sessionMode = document.getElementById('session-mode')?.value || 'adaptive';
+  queue = QuestionSelector.select(usuarioActual, subjectQuestions, SESSION_SIZE, { mode: sessionMode });
 
   if (!queue.length) {
     alert('Esta asignatura todavía no tiene preguntas disponibles.');
@@ -636,7 +675,7 @@ async function startGame(){
   document.getElementById('subject-wrapper')?.classList.add('is-compact');
 
   sessionStats = createSessionStats(queue.length);
-  trackActivity('session_started', { estado: String(queue.length) });
+  trackActivity('session_started', { estado: String(queue.length), detalle: `mode=${sessionMode}` });
   score = 0;
   updateSessionHud();
   nextQ();
@@ -994,6 +1033,8 @@ document.addEventListener('keydown', (e)=>{
 
 // Custom dropdown para asignaturas generadas dinámicamente desde curriculum.json.
 (function(){
+  document.getElementById('session-mode')?.addEventListener('change', updateSessionModeUi);
+
   const toggle=document.getElementById('subject-toggle');
   const list=document.getElementById('subject-list');
   const current=document.getElementById('subject-current');
