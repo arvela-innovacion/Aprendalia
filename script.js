@@ -10,6 +10,16 @@ let usuarioActual = null;
 let cursoActual = null;
 let curriculumLoaded = false;
 
+
+function escapeHtml(value = '') {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 function trackActivity(eventName, extra = {}) {
   AprendaliaTelemetry?.send?.(eventName, {
     alumno: usuarioActual || extra.alumno || '',
