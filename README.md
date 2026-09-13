@@ -107,3 +107,6 @@ Si se borra el almacenamiento del navegador, se usa otro navegador o se cambia d
 La telemetría existente envía también `device_key` (el código autorizado) y `device_info` (descripción básica, por ejemplo `iPad · Safari`) al Google Apps Script. No se utiliza fingerprinting invasivo.
 
 La contraseña común de la Zona de padres sigue siendo `Padres2026`.
+
+## Salir de una sesión
+Durante una sesión activa, el logo/título de Aprendalia en la cabecera funciona como acceso para salir. Antes de abandonar se pide confirmación. Las preguntas ya respondidas conservan su progreso individual, la pregunta en curso no se contabiliza y la sesión incompleta no se guarda como sesión terminada.

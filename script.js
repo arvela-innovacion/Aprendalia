@@ -263,6 +263,7 @@ function renderSessionSummary() {
     </div>`;
   a.querySelector('#restartSessionBtn')?.addEventListener('click', startGame);
   a.querySelector('#changeSubjectBtn')?.addEventListener('click', showSessionSetup);
+  updateBrandHomeState();
   launchConfetti(null, 80);
 }
 
@@ -355,6 +356,7 @@ async function showSessionSetup(){
   game.style.display = 'none';
   document.getElementById('progress-track')?.classList.remove('is-active');
   document.getElementById('subject-wrapper')?.classList.remove('is-compact');
+  updateBrandHomeState();
   document.getElementById('startSessionBtn')?.focus();
 }
 
@@ -415,6 +417,43 @@ function getExerciseLabel(tipo){
   return labels[tipo] || 'Piensa y responde';
 }
 
+
+function isActiveQuestionSession(){
+  const game = document.getElementById('game');
+  return Boolean(
+    game?.style.display === 'block' &&
+    sessionStats &&
+    !sessionStats.saved &&
+    (current || queue.length)
+  );
+}
+
+function abandonCurrentSession(){
+  if (!isActiveQuestionSession()) return;
+  const ok = window.confirm('¿Quieres salir de esta sesión? El progreso de las preguntas que ya has respondido se conservará.');
+  if (!ok) return;
+
+  queue = [];
+  current = null;
+  questionLocked = false;
+  sessionStats = null;
+  score = 0;
+  document.getElementById('score').innerText = '0';
+  document.getElementById('streak').innerText = '0';
+  document.getElementById('progress').innerText = `0/${SESSION_SIZE}`;
+  document.getElementById('progress-bar').style.width = '0%';
+  showSessionSetup();
+}
+
+function updateBrandHomeState(){
+  const brand = document.getElementById('brandHome');
+  if (!brand) return;
+  const active = isActiveQuestionSession();
+  brand.classList.toggle('can-exit-session', active);
+  brand.setAttribute('aria-label', active ? 'Salir de la sesión y volver al inicio' : 'Aprendalia');
+  brand.setAttribute('title', active ? 'Salir de la sesión' : 'Aprendalia');
+}
+
 async function startGame(){
   await ensureQuestionsLoaded();
   subjectSelected = document.getElementById('subject').value;
@@ -438,6 +477,7 @@ async function startGame(){
   score = 0;
   updateSessionHud();
   nextQ();
+  updateBrandHomeState();
 }
 
 function nextQ(){
@@ -499,7 +539,7 @@ function nextQ(){
   if (dontKnowBtn) { dontKnowBtn.style.display = 'inline-flex'; dontKnowBtn.disabled = false; }
 
   // En ejercicios puramente auditivos no mostramos el texto objetivo.
-  const hideQuestionText = ['guess', 'pronunciar', 'hablar'].includes(current.tipo);
+  const hideQuestionText = ['listening', 'guess', 'pronunciar', 'hablar'].includes(current.tipo);
   q.innerText = hideQuestionText ? (current.tipo === 'pronunciar' || current.tipo === 'hablar' ? 'Escucha y repite' : 'Escucha con atención') : current.pregunta;
 
   if(current.tipo==='escribir'){
@@ -765,6 +805,13 @@ document.getElementById('parentsUnlockBtn')?.addEventListener('click', unlockPar
 document.getElementById('parentsGateCancelBtn')?.addEventListener('click', closeParentsGate);
 document.getElementById('parentsPass')?.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') unlockParentsZone(); });
 document.getElementById('parents-gate')?.addEventListener('click', (e)=>{ if(e.target?.id === 'parents-gate') closeParentsGate(); });
+document.getElementById('brandHome')?.addEventListener('click', abandonCurrentSession);
+document.getElementById('brandHome')?.addEventListener('keydown', (e)=>{
+  if ((e.key === 'Enter' || e.key === ' ') && isActiveQuestionSession()) {
+    e.preventDefault();
+    abandonCurrentSession();
+  }
+});
 document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && document.getElementById('parents-gate')?.style.display === 'grid') closeParentsGate(); });
 
 // Custom dropdown for subject (mantiene el select oculto sincronizado)
