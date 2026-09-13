@@ -67,6 +67,9 @@ assert.strictEqual(reward.points,6,'hint caps reward at 6');
 stats = context.SessionEngine.create(10);
 reward = context.ScoringEngine.awardCorrect(stats,{attempts:0});
 assert.strictEqual(reward.points,10,'clean first try gets 10');
+stats = context.SessionEngine.create(10);
+reward = context.ScoringEngine.awardCorrect(stats,{attempts:0,usedSelfAssessment:true});
+assert.strictEqual(reward.points,6,'manual speaking self-assessment is assisted');
 
 // Coverage guarantee: with many unseen, at least half of session is unseen.
 for(let i=0;i<8;i++){
