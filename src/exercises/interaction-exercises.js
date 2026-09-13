@@ -5,7 +5,7 @@ function renderOrder(){
   touchItems = [];
 
   const info = document.createElement('div');
-  info.innerText = '👉 Arrastra para ordenar:';
+  info.innerText = '👉 Arrastra las palabras o toca una y después otra para moverla:';
   info.className = 'exercise-info';
   a.appendChild(info);
 
@@ -40,34 +40,66 @@ function renderOrder(){
 
 function enablePointerReorder(item, container){
   let dragging = false;
+  let startY = 0;
+  let moved = false;
+
+  const moveToPointer = clientY => {
+    const siblings = [...container.querySelectorAll('.order-item')].filter(c => c !== item);
+    if (!siblings.length) return;
+
+    // Busca el primer elemento cuyo centro esté por debajo del dedo.
+    const before = siblings.find(sib => {
+      const box = sib.getBoundingClientRect();
+      return clientY < box.top + box.height / 2;
+    });
+    if (before) container.insertBefore(item, before);
+    else container.appendChild(item);
+  };
 
   item.addEventListener('pointerdown', e=>{
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
     dragging = true;
-    item.setPointerCapture?.(e.pointerId);
+    moved = false;
+    startY = e.clientY;
     item.classList.add('moving');
+    item.setPointerCapture?.(e.pointerId);
     e.preventDefault();
   });
 
   item.addEventListener('pointermove', e=>{
     if(!dragging) return;
-    const siblings = [...container.children].filter(c=>c!==item);
-    const target = siblings.find(sib=>{
-      const box = sib.getBoundingClientRect();
-      return e.clientY >= box.top && e.clientY <= box.bottom;
-    });
-    if(!target) return;
-    const box = target.getBoundingClientRect();
-    container.insertBefore(item, e.clientY < box.top + box.height/2 ? target : target.nextSibling);
+    if (Math.abs(e.clientY - startY) > 6) moved = true;
+    moveToPointer(e.clientY);
+    e.preventDefault();
   });
 
-  const stop = ()=>{
+  const stop = e=>{
+    if(!dragging) return;
     dragging = false;
     item.classList.remove('moving');
+    try { item.releasePointerCapture?.(e.pointerId); } catch (_) {}
+    e.preventDefault();
   };
   item.addEventListener('pointerup', stop);
   item.addEventListener('pointercancel', stop);
 
-  // Alternativa de teclado: Alt + flecha arriba/abajo.
+  // En móvil, un toque también sirve: selecciona una palabra y después
+  // toca otra para colocar la primera justo antes. Es un respaldo fiable
+  // para Safari/navegadores donde el arrastre táctil puede ser irregular.
+  item.addEventListener('click', e=>{
+    if (moved) { moved = false; return; }
+    const selected = container.querySelector('.order-item.tap-selected');
+    if (!selected) {
+      item.classList.add('tap-selected');
+      item.setAttribute('aria-pressed', 'true');
+      return;
+    }
+    selected.classList.remove('tap-selected');
+    selected.removeAttribute('aria-pressed');
+    if (selected !== item) container.insertBefore(selected, item);
+  });
+
+  // Teclado: Alt + flecha arriba/abajo.
   item.addEventListener('keydown', e=>{
     if(!e.altKey || !['ArrowUp','ArrowDown'].includes(e.key)) return;
     e.preventDefault();
@@ -79,7 +111,6 @@ function enablePointerReorder(item, container){
     item.focus();
   });
 }
-
 function checkOrderTouch(targetBtn = null){
   const items = [...document.querySelectorAll('#orderList .order-item')].map(d=>normalize(d.innerText));
   const correct = current.respuesta.split('|').map(normalize);
