@@ -10,6 +10,7 @@
  * Ejemplo:
  *   maria: {
  *     password: 'Sol39',
+ *     course: '3EP',
  *     devices: ['DEV-AB12-CD34-EF56']
  *   }
  *
@@ -24,14 +25,17 @@
   const STUDENTS = Object.freeze({
     alba: Object.freeze({
       password: 'Alba27',
+      course: '3EP',
       devices: Object.freeze([])
     }),
     ana: Object.freeze({
       password: 'Ana42',
+      course: '3EP',
       devices: Object.freeze([])
     }),
     sergio: Object.freeze({
       password: 'Sergio58',
+      course: '3EP',
       devices: Object.freeze([])
     })
   });
@@ -121,8 +125,15 @@
       ok: true,
       username: normalized,
       deviceId: currentDevice,
-      deviceLabel: getDeviceLabel()
+      deviceLabel: getDeviceLabel(),
+      course: student.course || ''
     });
+  }
+
+  function getStudentProfile(username) {
+    const normalized = normalizeUsername(username);
+    const student = STUDENTS[normalized];
+    return student ? Object.freeze({ username: normalized, course: student.course || '' }) : null;
   }
 
   function authenticateParent(password) {
@@ -131,6 +142,7 @@
 
   window.AprendaliaAccess = Object.freeze({
     normalizeUsername,
+    getStudentProfile,
     authenticateStudent,
     authenticateParent,
     getDeviceId,
