@@ -145,7 +145,7 @@ function renderDrag(){
     d.tabIndex = 0;
     d.dataset.index = index;
     const select = ()=>{
-      if(d.classList.contains('used')) return;
+      if(questionLocked || d.classList.contains('used')) return;
       L.querySelectorAll('.highlight').forEach(el=>el.classList.remove('highlight'));
       selectedLeft = d;
       d.classList.add('highlight');
@@ -161,7 +161,7 @@ function renderDrag(){
     d.className = 'match-item';
     d.tabIndex = 0;
     const choose = ()=>{
-      if(!selectedLeft || d.classList.contains('used')) return;
+      if(questionLocked || !selectedLeft || d.classList.contains('used')) return;
       const i = Number(selectedLeft.dataset.index);
       const correct = normalize(answers[i]) === normalize(text);
 
@@ -170,7 +170,7 @@ function renderDrag(){
         d.classList.add('used', 'is-correct');
         visualAcierto(d);
       } else {
-        visualError(d);
+        handleError(d);
         d.classList.add('is-wrong');
         setTimeout(()=>d.classList.remove('is-wrong'), 600);
       }

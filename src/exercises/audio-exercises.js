@@ -118,6 +118,7 @@ function renderSpeaking(){
 
   // SpeechRecognition si está disponible
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition || null;
+  const canRecord = !!(navigator.mediaDevices?.getUserMedia && window.MediaRecorder);
   let recognizer = null;
   let interimTranscript = '';
   let finalTranscript = '';
@@ -168,6 +169,11 @@ function renderSpeaking(){
 
   // Start recording + start recognizer (si existe)
   recBtn.onclick = async () => {
+    if(!canRecord){
+      const f = document.getElementById('feedback');
+      if(f) f.innerText = 'ℹ️ Este navegador no permite grabar audio. Escucha, repite en voz alta y usa la comprobación manual.';
+      return;
+    }
     // pedir micrófono
     try {
       mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -281,31 +287,36 @@ function renderSpeaking(){
   // Nota: finish(true/false) ya se llama automáticamente cuando el recognizer finaliza (si hay)
   // Si no hay recognizer, no llamamos finish: queda a revisión manual (o puedes decidir enviar blob a servidor)
 
-  // Si SpeechRecognition no existe, ofrecemos subir la grabación para revisión (opcional)
+  // Fallback seguro: si no existe reconocimiento de voz, el ejercicio nunca queda bloqueado.
+  // El alumno escucha, repite en voz alta y confirma manualmente; se registra como respuesta asistida.
   if(!SpeechRecognition){
-    const uploadBtn = document.createElement('button');
-    uploadBtn.innerText = '⬆ Enviar grabación para revisión';
-    uploadBtn.className = 'primary-btn';
-    uploadBtn.onclick = () => {
-      if(!recordedBlob){
-        const f = document.getElementById('feedback');
-        if(f) f.innerText = '⚠ Graba primero antes de enviar.';
-        return;
-      }
-      // ejemplo de envío: (descomenta / adapta si tienes endpoint)
-      /*
-      const fd = new FormData();
-      fd.append('file', recordedBlob, (current.id || 'rec') + '.webm');
-      fd.append('alumno', usuarioActual || 'anon');
-      fd.append('id_pregunta', current.id || '');
-      fetch('/upload-audio', { method: 'POST', body: fd })
-        .then(r => r.json()).then(res => { console.log(res); })
-        .catch(err => console.error(err));
-      */
-      const f = document.getElementById('feedback');
-      if(f) f.innerText = '✅ (Simulado) Grabación lista para enviar. Implementa /upload-audio si quieres guardar.';
+    const fallback = document.createElement('div');
+    fallback.className = 'speaking-fallback';
+
+    const note = document.createElement('div');
+    note.className = 'exercise-info';
+    note.innerText = canRecord
+      ? 'ℹ️ Este navegador no puede comprobar automáticamente la pronunciación. Puedes grabarte, escucharte y confirmar cuando la hayas repetido.'
+      : 'ℹ️ Este navegador no puede comprobar ni grabar automáticamente. Escucha la frase, repítela en voz alta y confirma para continuar.';
+
+    const confirmBtn = document.createElement('button');
+    confirmBtn.innerText = '✅ Ya lo he dicho';
+    confirmBtn.className = 'primary-btn';
+    confirmBtn.onclick = () => {
+      if(questionLocked) return;
+      current.usedSelfAssessment = true;
+      handleCorrect(confirmBtn);
     };
-    a.appendChild(uploadBtn);
+
+    fallback.appendChild(note);
+    fallback.appendChild(confirmBtn);
+    a.appendChild(fallback);
+
+    if(!canRecord){
+      recBtn.disabled = true;
+      stopRecBtn.disabled = true;
+      playRecBtn.disabled = true;
+    }
   }
 
   // foco y sugerencia UX

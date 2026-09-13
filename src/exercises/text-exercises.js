@@ -66,6 +66,7 @@ function renderClasificar(){
     el.className = 'exercise-item';
 
     el.onclick = ()=>{
+      if(questionLocked) return;
       selectedItem = el;
       highlight(el, pool);
     };
@@ -85,7 +86,7 @@ function renderClasificar(){
     box.appendChild(title);
 
     box.onclick = ()=>{
-      if(!selectedItem) return;
+      if(questionLocked || !selectedItem) return;
 
       const value = normalize(selectedItem.innerText);
       const correcta = cat.items.includes(value);
@@ -98,13 +99,10 @@ function renderClasificar(){
         registrarEvento("Acierto");
         visualAcierto(selectedItem);
       }else{
-        selectedItem.classList.add('is-wrong');
-        setTimeout(()=> selectedItem.classList.remove('is-wrong'), 600);
-
-        registrarEvento("Error");
-        if (current && (current.attempts || 0) === 0) current.attempts = 1;
-        breakStreak();
-        visualError(selectedItem);
+        const wrongItem = selectedItem;
+        wrongItem.classList.add('is-wrong');
+        setTimeout(()=> wrongItem.classList.remove('is-wrong'), 600);
+        handleError(wrongItem);
       }
 
       selectedItem = null;
