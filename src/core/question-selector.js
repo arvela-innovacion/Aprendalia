@@ -32,9 +32,7 @@
     return score+Math.random()*10;
   }
 
-  function select(user, questions, count){
-    const eligible=questions.filter(q=>q&&q.activa!==false);
-    if(!eligible.length) return [];
+  function selectAdaptive(user, eligible, count){
     const summaries=Repo.getConceptSummaries(user,eligible);
     const byKey=new Map(summaries.map(s=>[s.key,s]));
     const groups=new Map();
@@ -52,7 +50,6 @@
     })).sort((a,b)=>b.score-a.score);
 
     const chosen=[];
-    // Rondas por concepto: primero diversidad curricular, después repetimos los conceptos prioritarios.
     while(chosen.length<count){
       let added=false;
       for(const group of ranked){
@@ -64,6 +61,42 @@
       if(!added) break;
       ranked.sort((a,b)=>(b.score-b.items.length*.01)-(a.score-a.items.length*.01));
     }
+    return chosen;
+  }
+
+  function selectReview(user, eligible, count){
+    const seen=eligible.filter(q=>Repo.get(user,q));
+    if(!seen.length) return selectAdaptive(user,eligible,count);
+    const preferred=seen.filter(q=>{
+      const r=Repo.get(user,q);
+      return isDue(r) || r?.status==='difficulty' || r?.lastResult==='wrong' || r?.status==='practice';
+    });
+    const pool=(preferred.length ? preferred : seen).slice().sort((a,b)=>questionPriority(user,b)-questionPriority(user,a));
+    const chosen=[];
+    for(const q of pool){ if(chosen.length<count) chosen.push(q); }
+    if(chosen.length<count){
+      const rest=seen.filter(q=>!chosen.includes(q)).sort((a,b)=>questionPriority(user,b)-questionPriority(user,a));
+      for(const q of rest){ if(chosen.length<count) chosen.push(q); }
+    }
+    return chosen;
+  }
+
+  function selectDiscover(user, eligible, count){
+    const unseen=eligible.filter(q=>!Repo.get(user,q));
+    const chosen=selectAdaptive(user,unseen,count);
+    if(chosen.length>=count) return chosen;
+    const rest=eligible.filter(q=>!chosen.includes(q));
+    return chosen.concat(selectAdaptive(user,rest,count-chosen.length));
+  }
+
+  function select(user, questions, count, options={}){
+    const eligible=questions.filter(q=>q&&q.activa!==false);
+    if(!eligible.length) return [];
+    const mode=options.mode||'adaptive';
+    let chosen;
+    if(mode==='review') chosen=selectReview(user,eligible,count);
+    else if(mode==='discover') chosen=selectDiscover(user,eligible,count);
+    else chosen=selectAdaptive(user,eligible,count);
     return chosen.slice(0,Math.min(count,eligible.length)).map(q=>({...q,attempts:0}));
   }
 
