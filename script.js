@@ -7,6 +7,8 @@ let answerSubmitting = false;
 let subjectSelected='';
 let preguntaActual = null;
 let usuarioActual = null;
+let cursoActual = null;
+let curriculumLoaded = false;
 
 function trackActivity(eventName, extra = {}) {
   AprendaliaTelemetry?.send?.(eventName, {
@@ -101,7 +103,7 @@ function recordCurrentOutcome(result, points = 0) {
 
 function saveCurrentSession() {
   if (!sessionStats || sessionStats.saved) return;
-  ProgressRepository.saveSession(usuarioActual, SessionEngine.toHistory(sessionStats, subjectSelected));
+  ProgressRepository.saveSession(usuarioActual, SessionEngine.toHistory(sessionStats, subjectSelected, cursoActual));
   sessionStats.saved = true;
 }
 
@@ -350,6 +352,7 @@ function login(){
   const auth = AprendaliaAccess.authenticateStudent(name, password, AprendaliaAccess.getDeviceId());
   if (auth.ok) {
     usuarioActual = auth.username;
+    cursoActual = auth.course || AprendaliaAccess.getStudentProfile(auth.username)?.course || '';
     trackActivity('login_success');
     document.getElementById('pass').value = '';
     document.getElementById('welcome').style.display = 'none';
@@ -357,43 +360,82 @@ function login(){
     showSessionSetup();
   } else if (auth.reason === 'device') {
     usuarioActual = null;
+    cursoActual = null;
     document.getElementById('pass').value = '';
     showDeviceAccessInfo(auth);
   } else {
     usuarioActual = null;
+    cursoActual = null;
     alert('Usuario o contraseña incorrectos');
   }
 }
 
 
 const SUBJECT_UI = {
-  Lengua: ['📚', 'Lengua'], Ingles: ['🇬🇧', 'Inglés'], Matematicas: ['➗', 'Matemáticas'],
-  Socials: ['🌍', 'Socials'], Naturals: ['🌱', 'Naturals'], Listening: ['🎧', 'Listening']
+  Lengua: ['📚', 'Lengua'], Ingles: ['🇬🇧', 'Inglés'], Matematicas: ['➗', 'Matemáticas'], Socials: ['🌍', 'Socials']
 };
 
+async function ensureCurriculumLoaded(){
+  if (curriculumLoaded) return AprendaliaCurriculum.current();
+  const data = await AprendaliaCurriculum.load();
+  curriculumLoaded = true;
+  return data;
+}
+
+function courseQuestions(){
+  return questions.filter(q => q.activa && (!cursoActual || q.curso === cursoActual));
+}
+
+function syncSubjectsForCourse(){
+  const wrapper = document.getElementById('subject-wrapper');
+  const list = document.getElementById('subject-list');
+  const select = document.getElementById('subject');
+  const current = document.getElementById('subject-current');
+  if (!wrapper || !list || !select || !cursoActual) return;
+  const available = new Set(courseQuestions().map(q=>q.asignatura));
+  const subjects = AprendaliaCurriculum.subjects(cursoActual).filter(item=>available.has(item.id));
+  list.innerHTML = subjects.map((item,i)=>`<li role="option" tabindex="0" data-value="${escapeHtml(item.id)}" aria-selected="${i===0?'true':'false'}">${escapeHtml(item.icon||'✨')} ${escapeHtml(item.label||item.id)}</li>`).join('');
+  select.innerHTML = subjects.map(item=>`<option value="${escapeHtml(item.id)}">${escapeHtml(item.label||item.id)}</option>`).join('');
+  if (!subjects.length) { wrapper.hidden = true; subjectSelected = ''; return; }
+  if (!subjects.some(item=>item.id===subjectSelected)) subjectSelected = subjects[0].id;
+  select.value = subjectSelected;
+  list.querySelectorAll('li').forEach(li=>li.setAttribute('aria-selected', String(li.dataset.value===subjectSelected)));
+  const selected = subjects.find(item=>item.id===subjectSelected) || subjects[0];
+  current.innerText = `${selected.icon||'✨'} ${selected.label||selected.id}`;
+  wrapper.hidden = false;
+}
+
 async function ensureQuestionsLoaded(){
+  await ensureCurriculumLoaded();
   if (questions.length) return questions;
   const r = await fetch('questions.csv');
-  const t = await r.text();
-  questions = t.trim().split('\n').slice(1).map(l=>{
-    const [id,asignatura,tipo,pregunta,opciones,respuesta,extra] = l.split(';');
-    return {id,asignatura,tipo,pregunta,opciones,respuesta,extra, attempts:0};
-  });
+  if (!r.ok) throw new Error(`No se pudo cargar questions.csv (${r.status})`);
+  const parsed = AprendaliaContent.parseQuestionsCsv(await r.text());
+  const validation = AprendaliaContent.validateQuestions(parsed.headers, parsed.questions, AprendaliaCurriculum.current());
+  if (!validation.ok) {
+    console.error('Errores de contenido en questions.csv', validation.errors);
+    throw new Error(`questions.csv contiene ${validation.errors.length} errores de estructura o currículo`);
+  }
+  questions = parsed.questions.filter(q=>q.activa);
   return questions;
 }
 
 async function showSessionSetup(){
-  subjectSelected = document.getElementById('subject').value || 'Lengua';
   await ensureQuestionsLoaded();
+  syncSubjectsForCourse();
+  subjectSelected = document.getElementById('subject').value || subjectSelected;
   const setup = document.getElementById('session-setup');
   const game = document.getElementById('game');
-  const [icon, label] = SUBJECT_UI[subjectSelected] || ['✨', subjectSelected];
+  const icon = AprendaliaCurriculum.iconSubject(cursoActual, subjectSelected) || SUBJECT_UI[subjectSelected]?.[0] || '✨';
+  const label = AprendaliaCurriculum.labelSubject(cursoActual, subjectSelected) || SUBJECT_UI[subjectSelected]?.[1] || subjectSelected;
   document.getElementById('setup-subject-icon').innerText = icon;
   document.getElementById('setup-title').innerText = label;
   document.getElementById('total-stars').innerText = getTotalStars();
-  const summary = ProgressRepository.getSubjectSummary(usuarioActual, subjectSelected, questions);
+  const setupCourse = document.getElementById('setup-course');
+  if (setupCourse) setupCourse.innerText = `${AprendaliaCurriculum.labelCourse(cursoActual)} · ${usuarioActual}`;
+  const summary = ProgressRepository.getSubjectSummary(usuarioActual, subjectSelected, courseQuestions(), cursoActual);
   const coverage = document.getElementById('setup-coverage');
-  if (coverage) coverage.innerText = `${summary.seen}/${summary.total} preguntas vistas · ${summary.counts.mastered} dominadas`;
+  if (coverage) coverage.innerText = `${summary.seen}/${summary.total} preguntas vistas · ${summary.conceptCounts.mastered}/${summary.concepts.length} conceptos dominados`;
   document.getElementById('parents-zone').style.display = 'none';
   document.getElementById('parents-zone').setAttribute('aria-hidden','true');
   document.getElementById('parentsBtn').style.display = 'inline-flex';
@@ -450,7 +492,7 @@ async function showParentsZone(){
   zone.setAttribute('aria-hidden','false');
   const panel = document.getElementById('progress-panel');
   panel.style.display = 'block';
-  ProgressView.render(panel, usuarioActual, subjectSelected, questions, { embedded:true });
+  ProgressView.render(panel, usuarioActual, subjectSelected, courseQuestions(), { embedded:true, course:cursoActual });
 }
 
 function getExerciseLabel(tipo){
@@ -509,7 +551,7 @@ async function startGame(){
   await ensureQuestionsLoaded();
   subjectSelected = document.getElementById('subject').value;
 
-  const subjectQuestions = questions.filter(q=>q.asignatura===subjectSelected);
+  const subjectQuestions = courseQuestions().filter(q=>q.asignatura===subjectSelected);
   queue = QuestionSelector.select(usuarioActual, subjectQuestions, SESSION_SIZE);
 
   if (!queue.length) {
@@ -589,7 +631,10 @@ function nextQ(){
   }
 
   const eyebrow = document.getElementById('exercise-eyebrow');
-  if (eyebrow) eyebrow.innerText = getExerciseLabel(current.tipo);
+  if (eyebrow) {
+    const meta = AprendaliaCurriculum.resolve(current);
+    eyebrow.innerText = `${getExerciseLabel(current.tipo)} · ${meta.topic} › ${meta.concept} · Nivel ${current.nivel}`;
+  }
 
   current.usedHint = false;
   current.usedDontKnow = false;
@@ -878,94 +923,45 @@ document.addEventListener('keydown', (e)=>{
   else if (document.getElementById('parents-gate')?.style.display === 'grid') closeParentsGate();
 });
 
-// Custom dropdown for subject (mantiene el select oculto sincronizado)
+// Custom dropdown para asignaturas generadas dinámicamente desde curriculum.json.
 (function(){
-  const toggle = document.getElementById('subject-toggle');
-  const list = document.getElementById('subject-list');
-  const current = document.getElementById('subject-current');
-  const nativeSelect = document.getElementById('subject'); // hidden select
+  const toggle=document.getElementById('subject-toggle');
+  const list=document.getElementById('subject-list');
+  const current=document.getElementById('subject-current');
+  const nativeSelect=document.getElementById('subject');
+  if(!toggle||!list)return;
 
-  if(!toggle || !list) return;
-
-  // Toggle open/close
-  toggle.addEventListener('click', (ev)=>{
+  toggle.addEventListener('click',ev=>{
     ev.stopPropagation();
-    const expanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!expanded));
-    list.style.display = expanded ? 'none' : 'block';
-    if(!expanded){
-      // focus first item for keyboard users
-      const first = list.querySelector('li');
-      if(first) first.focus();
-    }
+    const expanded=toggle.getAttribute('aria-expanded')==='true';
+    toggle.setAttribute('aria-expanded',String(!expanded));
+    list.style.display=expanded?'none':'block';
+    if(!expanded) list.querySelector('li')?.focus();
   });
 
-  // choose item
-  list.querySelectorAll('li').forEach(li=>{
-    li.tabIndex = 0;
-    li.addEventListener('click', ()=>{
-      // mark UI
-      list.querySelectorAll('li').forEach(x=>x.setAttribute('aria-selected','false'));
-      li.setAttribute('aria-selected','true');
-      current.innerText = li.innerText;
-      list.style.display = 'none';
-      toggle.setAttribute('aria-expanded','false');
-
-      // update hidden select value for existing code compatibility
-      if(nativeSelect){
-        nativeSelect.value = li.getAttribute('data-value') || '';
-      }
-      // Si la sesión ya está iniciada, cargar la asignatura seleccionada.
-      if (document.getElementById('welcome').style.display === 'none') {
-        const parentsOpen = document.getElementById('parents-zone')?.style.display === 'block';
-        parentsOpen ? showParentsZone() : showSessionSetup();
-      }
-    });
-
-    // keyboard support (Enter/Space to select)
-    li.addEventListener('keydown', (ev) => {
-      if(ev.key === 'Enter' || ev.key === ' '){
-        ev.preventDefault();
-        li.click();
-      } else if(ev.key === 'ArrowDown'){
-        ev.preventDefault();
-        const next = li.nextElementSibling || list.querySelector('li');
-        if(next) next.focus();
-      } else if(ev.key === 'ArrowUp'){
-        ev.preventDefault();
-        const prev = li.previousElementSibling || list.querySelector('li:last-child');
-        if(prev) prev.focus();
-      }
-    });
-  });
-
-  // close if click outside
-  document.addEventListener('click', (ev)=>{
-    if(!toggle.contains(ev.target) && !list.contains(ev.target)){
-      list.style.display = 'none';
-      toggle.setAttribute('aria-expanded','false');
-    }
-  });
-
-  // close on escape key
-  document.addEventListener('keydown', (ev)=>{
-    if(ev.key === 'Escape'){
-      list.style.display = 'none';
-      toggle.setAttribute('aria-expanded','false');
-      toggle.focus();
-    }
-  });
-
-  // Initialize display based on native select (if value preselected)
-  if(nativeSelect && nativeSelect.value){
-    const match = nativeSelect.value;
-    const el = list.querySelector(`li[data-value="${match}"]`);
-    if(el){
-      el.setAttribute('aria-selected','true');
-      current.innerText = el.innerText;
+  function selectItem(li){
+    if(!li)return;
+    list.querySelectorAll('li').forEach(x=>x.setAttribute('aria-selected','false'));
+    li.setAttribute('aria-selected','true');
+    subjectSelected=li.dataset.value||'';
+    if(nativeSelect) nativeSelect.value=subjectSelected;
+    current.innerText=li.innerText;
+    list.style.display='none'; toggle.setAttribute('aria-expanded','false');
+    if(document.getElementById('welcome').style.display==='none'){
+      const parentsOpen=document.getElementById('parents-zone')?.style.display==='block';
+      parentsOpen?showParentsZone():showSessionSetup();
     }
   }
 
+  list.addEventListener('click',ev=>selectItem(ev.target.closest('li[data-value]')));
+  list.addEventListener('keydown',ev=>{
+    const li=ev.target.closest('li[data-value]'); if(!li)return;
+    if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();selectItem(li);}
+    else if(ev.key==='ArrowDown'){ev.preventDefault();(li.nextElementSibling||list.querySelector('li'))?.focus();}
+    else if(ev.key==='ArrowUp'){ev.preventDefault();(li.previousElementSibling||list.querySelector('li:last-child'))?.focus();}
+  });
+
+  document.addEventListener('click',ev=>{if(!toggle.contains(ev.target)&&!list.contains(ev.target)){list.style.display='none';toggle.setAttribute('aria-expanded','false');}});
 })();
 
 /* ==================================================================================================================== */

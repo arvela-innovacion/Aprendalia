@@ -34,27 +34,13 @@
         <div id="progress-bar" class="progress-bar"></div>
       </div>
 
-      <div id="subject-wrapper" class="subject-custom" aria-label="Selecciona asignatura">
+      <div id="subject-wrapper" class="subject-custom" aria-label="Selecciona asignatura" hidden>
         <button id="subject-toggle" class="subject-toggle" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="subject-current" type="button">
           <span id="subject-current">📚 Lengua</span>
           <span class="subject-arrow" aria-hidden="true">▾</span>
         </button>
-        <ul id="subject-list" class="subject-list" role="listbox" tabindex="-1">
-          <li role="option" data-value="Lengua" aria-selected="true">📚 Lengua</li>
-          <li role="option" data-value="Ingles" aria-selected="false">🎧 Inglés</li>
-          <li role="option" data-value="Matematicas" aria-selected="false">➗ Matemáticas</li>
-          <li role="option" data-value="Socials" aria-selected="false">🧭 Socials</li>
-          <li role="option" data-value="Naturals" aria-selected="false">🔬 Naturals</li>
-          <li role="option" data-value="Listening" aria-selected="false">🔊 Listening</li>
-        </ul>
-        <select id="subject" class="visually-hidden" tabindex="-1" aria-hidden="true">
-          <option value="Lengua" selected>Lengua</option>
-          <option value="Ingles">Ingles</option>
-          <option value="Matematicas">Matematicas</option>
-          <option value="Socials">Socials</option>
-          <option value="Naturals">Naturals</option>
-          <option value="Listening">Listening</option>
-        </select>
+        <ul id="subject-list" class="subject-list" role="listbox" tabindex="-1"></ul>
+        <select id="subject" class="visually-hidden" tabindex="-1" aria-hidden="true"></select>
       </div>
 
       <section id="welcome" class="welcome" aria-hidden="false">
@@ -75,7 +61,8 @@
         <div class="setup-card">
           <span class="setup-kicker">Sesión rápida</span>
           <div id="setup-subject-icon" class="setup-icon" aria-hidden="true">📚</div>
-          <h2 id="setup-title">Lengua</h2>
+          <h2 id="setup-title">Asignatura</h2>
+          <p id="setup-course" class="setup-course">Curso</p>
           <p>10 preguntas · unos 5 minutos</p>
           <div class="setup-meta">
             <span>⭐ <strong id="total-stars">0</strong> acumuladas</span>
@@ -100,13 +87,13 @@
             <article><h3>⭐ Estrellas y racha</h3><p>Acertar a la primera da más estrellas. Las pistas, “No lo sé” y los segundos intentos ayudan a aprender, pero reducen la recompensa.</p></article>
             <article><h3>🔁 Repasos</h3><p>Lo que cuesta vuelve antes. Lo que ya dominas aparece cada vez con más separación para no repetir de más.</p></article>
             <article><h3>💡 Si te atascas</h3><p>Usa Pista o “No lo sé”. Equivocarse forma parte de la sesión: normalmente tendrás un segundo intento y después un repaso.</p></article>
-            <article><h3>👨‍👩‍👧 Para familias</h3><p>La Zona de padres muestra cobertura, evolución, preguntas con dificultad e histórico. Está separada del modo de estudio y protegida con contraseña.</p></article>
-            <article><h3>🔐 Acceso y dispositivos</h3><p>Cada alumno tiene usuario y contraseña. Si su lista de dispositivos está vacía puede entrar desde cualquiera; al autorizar dispositivos, sólo podrá usar los registrados.</p></article>
+            <article><h3>👨‍👩‍👧 Para familias</h3><p>La Zona de padres muestra el curso del alumno, cobertura, temas, conceptos, niveles, evolución e histórico. Está separada del modo de estudio y protegida con contraseña.</p></article>
+            <article><h3>🔐 Acceso y dispositivos</h3><p>Cada alumno tiene usuario, contraseña y curso asignado. Aprendalia sólo ofrece el currículo y las preguntas de ese curso. Si su lista de dispositivos está vacía puede entrar desde cualquiera; al autorizar dispositivos, sólo podrá usar los registrados.</p></article>
           </div>
           <div class="privacy-note">
             <h3>🔒 Privacidad y datos</h3>
             <p><strong>El progreso de aprendizaje se guarda en este navegador</strong> y es la fuente principal de la Zona de padres. Puede exportarse/importarse como copia de seguridad.</p>
-            <p>Google Sheets se usa sólo como <strong>registro ligero de actividad y diagnóstico</strong>: usuario, dispositivo, asignatura, tipo de ejercicio y eventos básicos. La app puede seguir estudiando aunque ese registro externo falle.</p>
+            <p>Google Sheets se usa sólo como <strong>registro ligero de actividad y diagnóstico</strong> de resultados de preguntas: usuario, dispositivo, asignatura, ID, tipo de ejercicio y estado. La app puede seguir estudiando aunque ese registro externo falle.</p>
           </div>
         </div>
       </div>
@@ -164,6 +151,8 @@
   </main>
   <script src="src/config/access-config.js"></script>
   <script src="src/data/storage.js"></script>
+  <script src="src/data/content-model.js"></script>
+  <script src="src/data/curriculum.js"></script>
   <script src="src/data/progress-repository.js"></script>
   <script src="src/data/telemetry.js"></script>
   <script src="src/core/scoring-engine.js"></script>

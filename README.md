@@ -87,6 +87,7 @@ para el usuario final.
 ├── script.js
 ├── girl.png
 ├── questions.csv
+├── curriculum.json
 ├── questions_ayer.csv
 ├── questions_ayer2.csv
 ├── README.md
@@ -99,6 +100,8 @@ para el usuario final.
 │   │   └── session-engine.js
 │   ├── data/
 │   │   ├── storage.js
+│   │   ├── content-model.js
+│   │   ├── curriculum.js
 │   │   ├── progress-repository.js
 │   │   └── telemetry.js
 │   ├── exercises/
@@ -107,8 +110,10 @@ para el usuario final.
 │   │   └── text-exercises.js
 │   └── ui/
 │       └── progress-view.js
-└── tests/
-    └── run-tests.js
+├── tests/
+│   └── run-tests.js
+└── tools/
+    └── validate-content.js
 ```
 
 ### Responsabilidad de cada archivo
@@ -136,6 +141,10 @@ generación/identificación del dispositivo.
 **`src/data/storage.js`** encapsula `localStorage`, versiona el esquema
 y realiza migraciones de versiones anteriores.
 
+**`src/data/content-model.js`** define el contrato del nuevo `questions.csv`, parsea CSV con separador `;`, normaliza campos y valida IDs, curso, asignatura, tema, concepto, nivel, tipo, opciones y estado activo.
+
+**`src/data/curriculum.js`** carga `curriculum.json` y resuelve las etiquetas visibles de curso, asignatura, tema y concepto. El currículo es la fuente estructural; el CSV contiene ejercicios asociados a esa estructura.
+
 **`src/data/progress-repository.js`** almacena y consulta progreso por
 pregunta, sesiones históricas, estados de dominio, fechas de próximo
 repaso y copias de seguridad. Es la capa de datos pedagógicos: Google
@@ -149,7 +158,7 @@ existente. Sólo transmite resultados asociados a preguntas
 abandono de sesión no se envían a Google.
 
 **`src/core/question-selector.js`** decide qué preguntas forman una
-sesión usando cobertura, dificultad y repetición espaciada.
+sesión usando prioridad por concepto y, dentro de cada concepto, cobertura, dificultad y repetición espaciada. La selección intenta mezclar conceptos antes de repetir uno.
 
 **`src/core/scoring-engine.js`** contiene las reglas de estrellas,
 rachas y recompensa según intento/ayuda/recuperación.
@@ -161,10 +170,12 @@ transforma en un registro histórico al finalizar.
 especializados. La lógica común de sesión permanece fuera de ellos.
 
 **`src/ui/progress-view.js`** construye el panel de seguimiento de la
-Zona de padres.
+Zona de padres e identifica alumno, curso, asignatura, temas, conceptos, niveles, cobertura y dominio conceptual.
 
 **`tests/run-tests.js`** ejecuta tests unitarios/smoke tests del núcleo
 sin navegador real.
+
+**`tools/validate-content.js`** valida `questions.csv` contra `curriculum.json` y, para el banco de prueba actual, comprueba que haya exactamente 10 preguntas por combinación curso/asignatura/tema/concepto/nivel/tipo.
 
 ------------------------------------------------------------------------
 
@@ -175,6 +186,8 @@ El orden de los scripts en `index.html` es importante:
 ``` text
 src/config/access-config.js
 src/data/storage.js
+src/data/content-model.js
+src/data/curriculum.js
 src/data/progress-repository.js
 src/data/telemetry.js
 src/core/scoring-engine.js
@@ -207,14 +220,17 @@ El formato actual es:
 const STUDENTS = Object.freeze({
   alba: Object.freeze({
     password: 'Alba27',
+    course: '3EP',
     devices: Object.freeze([])
   }),
   ana: Object.freeze({
     password: 'Ana42',
+    course: '3EP',
     devices: Object.freeze([])
   }),
   sergio: Object.freeze({
     password: 'Sergio58',
+    course: '3EP',
     devices: Object.freeze([])
   })
 });
@@ -237,6 +253,18 @@ login. La contraseña sí se compara literalmente.
 No existe registro público, recuperación de contraseña ni cambio de
 contraseña por parte del alumno. El administrador decide y conoce las
 credenciales.
+
+### Curso asignado al alumno
+
+Cada usuario incluye `course`. Ese valor gobierna qué parte de `curriculum.json` y qué filas de `questions.csv` puede utilizar. El alumno no elige curso manualmente.
+
+Ejemplo:
+
+``` js
+course: '3EP'
+```
+
+Al cambiar un alumno de curso se conserva su histórico local, pero las sesiones normales pasan a utilizar el currículo del nuevo curso.
 
 ### Seguridad de las credenciales
 
@@ -338,24 +366,20 @@ En esta versión la contraseña es común para todas las familias.
 
 ### Información disponible
 
-Para la asignatura seleccionada, la Zona de padres muestra:
+La cabecera de la Zona de padres identifica explícitamente **alumno, curso y asignatura**. Para la asignatura seleccionada muestra:
 
-- cobertura del banco: preguntas vistas frente al total;
-- porcentaje de cobertura;
-- preguntas dominadas;
-- preguntas en práctica;
-- preguntas con dificultad;
-- preguntas todavía sin ver;
+- cobertura de preguntas;
+- conceptos dominados, en práctica, con dificultad y sin empezar;
+- resumen global del curso;
+- mapa curricular con **tema → concepto → niveles vistos**;
+- precisión agregada por concepto;
+- conceptos que necesitan repaso;
 - estadísticas de los últimos 7 días;
-- evolución de sesiones recientes;
-- preguntas que necesitan repaso;
-- últimas sesiones, con aciertos y estrellas;
-- tabla de preguntas practicadas;
-- número de veces presentada cada pregunta;
-- porcentaje de acierto;
-- estado pedagógico;
-- fecha prevista de próximo repaso;
-- filtros por estado.
+- evolución y sesiones recientes;
+- tabla detallada de preguntas practicadas con tema, concepto, nivel, estado y próximo repaso;
+- exportación e importación de backup.
+
+El objetivo es que el seguimiento deje de depender principalmente de IDs de preguntas y pueda responder a preguntas como “¿qué concepto necesita reforzar?”.
 
 ### Backup desde la Zona de padres
 
@@ -418,42 +442,43 @@ Una sesión abandonada manualmente no se registra como sesión finalizada.
 
 ## 8. Selección adaptativa de preguntas
 
-Aprendalia no hace simplemente `shuffle()` y toma diez preguntas. El
-selector está en:
+Aprendalia selecciona en dos capas. Primero prioriza **conceptos curriculares** y después elige preguntas concretas dentro de esos conceptos. El selector está en:
 
 ``` text
 src/core/question-selector.js
 ```
 
-Cada pregunta se divide conceptualmente en:
+La clave conceptual es:
 
-- **sin ver**;
-- **repaso vencido con dificultad**;
-- **repaso vencido normal**;
-- **otras preguntas todavía no vencidas**.
+``` text
+curso + asignatura + tema + concepto
+```
 
-Mientras existan preguntas sin ver, se reserva **al menos
-aproximadamente la mitad de la sesión** para cobertura nueva.
+Cada concepto recibe prioridad según su estado agregado (`new`, `practice`, `difficulty`, `mastered`), su cobertura y su precisión. Los conceptos nuevos o con dificultad suben; los dominados bajan.
 
-También se reservan plazas para preguntas difíciles y repasos vencidos.
-Después se rellenan los huecos según prioridad.
+Dentro de cada concepto, cada pregunta conserva la prioridad por repetición espaciada: vencimiento, último fallo, precisión, número de presentaciones y tiempo desde la última aparición.
+
+La sesión se construye en rondas por concepto. Esto favorece diversidad: si hay varios conceptos disponibles, se intenta mostrar uno de cada uno antes de repetir el mismo concepto.
 
 ### Factores de prioridad
 
-Entre otros, aumentan la prioridad:
+A nivel de concepto aumentan la prioridad:
 
-- que el repaso esté vencido;
-- que el último resultado haya sido incorrecto;
-- que la pregunta esté clasificada como dificultad;
-- tener una precisión inferior al 60 %;
-- haber aparecido pocas veces;
-- llevar muchos días sin verse.
+- concepto todavía sin empezar;
+- concepto marcado con dificultad;
+- baja cobertura;
+- precisión agregada baja.
 
-Las preguntas dominadas y todavía no vencidas reciben una penalización
-fuerte para evitar repetición innecesaria.
+A nivel de pregunta aumentan la prioridad:
 
-Se añade una pequeña componente aleatoria para que dos sesiones no sean
-siempre idénticas ante puntuaciones equivalentes.
+- repaso vencido;
+- último resultado incorrecto;
+- estado `difficulty`;
+- precisión inferior al 60 %;
+- pocas presentaciones;
+- muchos días sin aparecer.
+
+Se añade una pequeña aleatoriedad para evitar sesiones idénticas.
 
 ------------------------------------------------------------------------
 
@@ -776,13 +801,13 @@ El almacenamiento principal usa `localStorage`.
 La versión actual del esquema es:
 
 ``` js
-VERSION = 3
+VERSION = 4
 ```
 
 Las claves administradas por `AprendaliaStorage` utilizan el prefijo:
 
 ``` text
-aprendalia:v3:
+aprendalia:v4:
 ```
 
 ### Migración
@@ -790,11 +815,11 @@ aprendalia:v3:
 Al iniciar, `storage.js` busca datos con el prefijo anterior:
 
 ``` text
+aprendalia:v3:
 aprendalia:v2:
 ```
 
-Si existen y todavía no hay copia v3, los copia al espacio v3 y registra
-la migración.
+Si existen y todavía no hay copia v4, copia los datos al espacio v4 y registra la migración. Los registros antiguos pueden quedar sin asociar a las nuevas preguntas si proceden del banco anterior, porque la identidad de pregunta ha cambiado deliberadamente al nuevo ID inmutable.
 
 La migración no borra automáticamente los datos antiguos.
 
@@ -810,26 +835,19 @@ Se conservan como máximo:
 
 ## 19. Identidad interna de las preguntas
 
-El banco puede contener IDs duplicados. Para evitar que el histórico
-mezcle dos preguntas distintas, el progreso no usa únicamente
-`question.id`.
+La identidad pedagógica de una pregunta es ahora exclusivamente su **ID estable e inmutable**.
 
-La clave interna combina:
+Ejemplo:
 
 ``` text
-asignatura + id + hash(tipo | pregunta | respuesta)
+Q000001
 ```
 
-Esto permite convivir con IDs duplicados sin modificar los CSV actuales.
+`ProgressRepository.questionKey(question)` devuelve ese ID. El validador exige que sea globalmente único.
 
-### Limitación importante
+Esto permite corregir la redacción, cambiar una pista o ajustar otros metadatos sin perder el progreso acumulado. Un ID publicado no debe reutilizarse para otra pregunta diferente.
 
-Si se cambia sustancialmente el texto, tipo o respuesta de una pregunta,
-su hash cambia y el sistema puede interpretarla como una pregunta nueva.
-
-Cuando se revise el contenido en profundidad, lo ideal será evolucionar
-hacia un **ID único, estable e inmutable por pregunta**. Ese ID debería
-mantenerse aunque se corrija la redacción.
+El curso, asignatura, tema, concepto y nivel son clasificación curricular y pueden evolucionar; no forman parte de la identidad inmutable.
 
 ------------------------------------------------------------------------
 
@@ -840,7 +858,11 @@ Un registro puede incluir campos como:
 ``` text
 key
 id
+course
 subject
+topic
+concept
+level
 type
 question
 presentations
@@ -1052,67 +1074,68 @@ son sistemas independientes.
 
 ------------------------------------------------------------------------
 
-## 23. Banco de preguntas y CSV
+## 23. Banco de preguntas, currículo y CSV
 
-El fichero activo de preguntas es:
+El banco activo es `questions.csv`. La estructura curricular separada vive en `curriculum.json`.
 
-``` text
-questions.csv
-```
-
-También se conservan actualmente:
+### Esquema de `questions.csv`
 
 ``` text
-questions_ayer.csv
-questions_ayer2.csv
+id
+curso
+asignatura
+tema
+concepto
+nivel
+tipo
+pregunta
+opciones
+respuesta_correcta
+extra
+activa
 ```
 
-Durante la fase de arquitectura descrita en este README, estos CSV se
-han mantenido sin modificaciones deliberadamente. La siguiente fase del
-proyecto está prevista para centrarse en contenido, temario, calidad,
-variedad, IDs y estructura pedagógica.
+- `id`: identidad única e inmutable.
+- `curso`: por ejemplo `3EP`.
+- `asignatura`: ID de asignatura definido en el currículo.
+- `tema`: ID estable del tema.
+- `concepto`: ID estable del concepto.
+- `nivel`: dificultad interna del concepto; actualmente 1, 2 o 3 en el banco de prueba.
+- `tipo`: uno de los tipos que Aprendalia sabe renderizar.
+- `pregunta`, `opciones`, `respuesta_correcta`, `extra`: contenido del ejercicio.
+- `activa`: `1` permite usar la pregunta; `0` la retira sin borrar su ID ni su histórico.
 
-### Asignaturas visibles actualmente
+### `curriculum.json`
 
-El selector de interfaz incluye:
+El currículo define **curso → asignatura → tema → concepto**, etiquetas visibles, orden, niveles permitidos y tipos de ejercicio autorizados. Los nombres visibles pueden cambiar sin tener que cambiar los IDs internos.
 
-``` text
-Lengua
-Ingles
-Matematicas
-Socials
-Naturals
-Listening
-```
+El banco de prueba incluido actualmente contiene sólo `3EP` y cuatro asignaturas: Lengua, Matemáticas, Inglés y Socials. Incluye 8 conceptos, 3 niveles y 2 tipos por concepto. Hay exactamente **10 preguntas por combinación** curso/asignatura/tema/concepto/nivel/tipo: 48 combinaciones y 480 preguntas. Su finalidad es probar la estructura, no representar el contenido definitivo.
 
-La disponibilidad real de preguntas depende del contenido de
-`questions.csv`.
+Los ficheros `questions_ayer.csv` y `questions_ayer2.csv` se conservan como snapshots históricos y no participan en la carga actual.
 
 ------------------------------------------------------------------------
 
-## 24. Carga del CSV
+## 24. Carga y validación del contenido
 
-`script.js` carga `questions.csv` mediante `fetch()` y mantiene las
-preguntas en memoria durante la sesión de la aplicación.
+`script.js` carga primero `curriculum.json` y después `questions.csv`. `src/data/content-model.js` parsea el CSV con soporte de campos entrecomillados y valida el banco contra el currículo antes de iniciar sesiones.
 
-Por este motivo, para probar Aprendalia es recomendable servir el
-proyecto mediante HTTP/HTTPS y no abrir simplemente `index.html` con
-`file://`, ya que algunos navegadores bloquean `fetch()` de archivos
-locales.
+Si el CSV contiene errores estructurales o referencias a curso/asignatura/tema/concepto/nivel/tipo no definidos, la carga falla de forma explícita en lugar de dejar que aparezcan ejercicios rotos durante una sesión.
 
-Ejemplos de servidor local:
+La selección visible de asignaturas se genera dinámicamente a partir del curso del alumno y de las asignaturas que tengan preguntas activas.
+
+Para validar desde Node:
+
+``` bash
+node tools/validate-content.js
+```
+
+El validador comprueba, entre otras cosas, IDs únicos, columnas obligatorias, referencias al currículo, tipos soportados, niveles permitidos, respuestas incluidas en opciones cuando corresponde, opciones duplicadas y estructura de ejercicios de ordenar/arrastrar/clasificar. En el CSV de prueba también verifica las 10 preguntas por combinación.
+
+Para probar en navegador debe servirse por HTTP/HTTPS, por ejemplo:
 
 ``` bash
 python3 -m http.server 8000
 ```
-
-Después abrir:
-
-``` text
-http://localhost:8000/
-```
-
-También puede desplegarse en cualquier hosting estático compatible.
 
 ------------------------------------------------------------------------
 
@@ -1140,20 +1163,17 @@ OK - all Aprendalia core tests passed
 
 Entre otras cosas:
 
-- un usuario con `devices: []` puede entrar desde cualquier dispositivo;
-- una contraseña incorrecta sigue bloqueando el acceso;
-- migración de almacenamiento v2 → v3;
-- primer acierto limpio programa repaso a 1 día;
-- segundo acierto limpio amplía a 3 días;
-- un fallo devuelve la pregunta a repaso cercano;
-- un fallo reinicia la racha de éxito;
-- una pista limita la recompensa a 6;
-- un primer intento limpio da 10;
-- la autoevaluación manual de `hablar` se considera asistida;
-- mientras hay suficiente contenido nuevo, al menos la mitad de una
-  sesión seleccionada es contenido sin ver;
-- no se seleccionan preguntas duplicadas dentro de la sesión;
-- cálculo básico del histórico de sesión;
+- autenticación y curso asignado al alumno;
+- migración de almacenamiento v3 → v4;
+- parseo y validación del nuevo CSV contra `curriculum.json`;
+- 480 preguntas de prueba y 10 por cada una de las 48 combinaciones;
+- identidad de progreso basada en ID inmutable;
+- conservación de progreso si se corrige el texto manteniendo el ID;
+- repetición espaciada;
+- puntuación y ayudas;
+- selección con diversidad de conceptos;
+- agregación de progreso por concepto;
+- histórico de sesión con curso;
 - exportación/importación de backup.
 
 ### Qué NO cubren todavía
@@ -1477,18 +1497,6 @@ Con la mecánica actual estabilizada, la siguiente fase prevista es
 6.  detectar preguntas ambiguas o respuestas incompatibles con opciones;
 7.  utilizar el histórico para identificar conceptos, no sólo preguntas,
     que necesitan refuerzo.
-
-Una futura estructura conceptual podría permitir algo como:
-
-``` text
-Matemáticas
-└── Multiplicación
-    └── Tabla del 7
-```
-
-Así la Zona de padres podría decir “necesita reforzar la tabla del 7” en
-lugar de limitarse a listar IDs concretos de preguntas.
-
 ------------------------------------------------------------------------
 
 ## 36. Resumen técnico rápido
@@ -1500,19 +1508,22 @@ payload histórico de Google Sheets y desacoplada del progreso local.
 Tipo de aplicación:       Web estática
 Frontend:                 HTML + CSS + JavaScript vanilla
 Banco principal:          questions.csv
+Currículo:                 curriculum.json
+Modelo:                    curso → asignatura → tema → concepto → nivel
 Sesión estándar:          10 preguntas
 Intentos:                 2
 Persistencia:             localStorage
-Esquema de progreso:      v3
-Migración soportada:      v2 → v3
+Esquema de progreso:      v4
+Migración soportada:      v2/v3 → v4
 Histórico máximo:         200 sesiones/usuario
-Selección:                Adaptativa
+Selección:                Adaptativa y consciente de conceptos
 Repetición espaciada:     1, 3, 7, 14, 30, 60 días
 Backup:                   Exportar/importar JSON
-Login alumno:             Usuario + contraseña
+Login alumno:             Usuario + contraseña + curso asignado
 Restricción dispositivo:  Opcional por usuario
 Login padres:             Contraseña común
 Tests:                    Node, tests/run-tests.js
+Validador contenido:       tools/validate-content.js
 Telemetría:               Google Apps Script
 ```
 

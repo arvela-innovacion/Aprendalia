@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "courses": {
+    "3EP": {
+      "label": "3.º de Primaria",
+      "order": 3,
+      "subjects": {
+        "Lengua": {
+          "label": "Lengua",
+          "icon": "📚",
+          "order": 1,
+          "topics": {
+            "gramatica": {
+              "label": "Gramática",
+              "order": 1,
+              "concepts": {
+                "sustantivos": {
+                  "label": "Sustantivos",
+                  "order": 1,
+                  "levels": [
+                    1,
+                    2,
+                    3
+                  ],
+                  "types": [
+                    "test",
+                    "completar"
+                  ]
+                }
+              }
+            },
+            "ortografia": {
+              "label": "Ortografía",
+              "order": 2,
+              "concepts": {
+                "b_v": {
+                  "label": "Uso de b y v",
+                  "order": 1,
+                  "levels": [
+                    1,
+                    2,
+                    3
+                  ],
+                  "types": [
+                    "test",
+                    "escribir"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "Matematicas": {
+          "label": "Matemáticas",
+          "icon": "➗",
+          "order": 2,
+          "topics": {
+            "calculo": {
+              "label": "Cálculo",
+              "order": 1,
+              "concepts": {
+                "sumas": {
+                  "label": "Sumas",
+                  "order": 1,
+                  "levels": [
+                    1,
+                    2,
+                    3
+                  ],
+                  "types": [
+                    "test",
+                    "escribir"
+                  ]
+                },
+                "restas": {
+                  "label": "Restas",
+                  "order": 2,
+                  "levels": [
+                    1,
+                    2,
+                    3
+                  ],
+                  "types": [
+                    "test",
+                    "escribir"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "Ingles": {
+          "label": "Inglés",
+          "icon": "🇬🇧",
+          "order": 3,
+          "topics": {
+            "vocabulary": {
+              "label": "Vocabulary",
+              "order": 1,
+              "concepts": {
+                "school_objects": {
+                  "label": "School objects",
+                  "order": 1,
+                  "levels": [
+                    1,
+                    2,
+                    3
+                  ],
+                  "types": [
+                    "test",
+                    "arrastrar"
+                  ]
+                }
+              }
+            },
+            "grammar": {
+              "label": "Grammar",
+              "order": 2,
+              "concepts": {
+                "present_simple": {
+                  "label": "Present simple",
+                  "order": 1,
+                  "levels": [
+                    1,
+                    2,
+                    3
+                  ],
+                  "types": [
+                    "completar",
+                    "ordenar"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "Socials": {
+          "label": "Socials",
+          "icon": "🌍",
+          "order": 4,
+          "topics": {
+            "community": {
+              "label": "Community",
+              "order": 1,
+              "concepts": {
+                "services": {
+                  "label": "Community services",
+                  "order": 1,
+                  "levels": [
+                    1,
+                    2,
+                    3
+                  ],
+                  "types": [
+                    "test",
+                    "arrastrar"
+                  ]
+                }
+              }
+            },
+            "geography": {
+              "label": "Geography",
+              "order": 2,
+              "concepts": {
+                "directions": {
+                  "label": "Directions",
+                  "order": 1,
+                  "levels": [
+                    1,
+                    2,
+                    3
+                  ],
+                  "types": [
+                    "test",
+                    "completar"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
