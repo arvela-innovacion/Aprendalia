@@ -336,37 +336,96 @@ function showDeviceAccessInfo(authResult){
     <small>Envía este código a quien administra Aprendalia para que lo vincule a tu usuario.</small>`;
 }
 
-function login(){
+let loginInProgress = false;
+
+function setLoginStatus(message = '', isError = false) {
+  const status = document.getElementById('loginStatus');
+  if (!status) return;
+  status.textContent = message;
+  status.hidden = !message;
+  status.classList.toggle('is-error', !!isError);
+}
+
+function setLoginBusy(busy) {
+  loginInProgress = !!busy;
+  const button = document.getElementById('loginBtn');
+  const name = document.getElementById('name');
+  const pass = document.getElementById('pass');
+  if (button) {
+    button.disabled = !!busy;
+    button.setAttribute('aria-busy', String(!!busy));
+    button.textContent = busy ? 'Cargando…' : 'Entrar';
+  }
+  if (name) name.disabled = !!busy;
+  if (pass) pass.disabled = !!busy;
+}
+
+async function login(){
+  if (loginInProgress) return;
   const nameInput = document.getElementById('name').value;
   const name = AprendaliaAccess.normalizeUsername(nameInput);
   const password = document.getElementById('pass').value;
 
-  subjectSelected = document.getElementById('subject').value || 'Lengua';
+  subjectSelected = document.getElementById('subject').value || '';
   showDeviceAccessInfo(null);
+  setLoginStatus('');
 
   if(!name || !password){
-    alert('Introduce tu usuario y contraseña');
+    setLoginStatus('Introduce tu usuario y contraseña.', true);
     return;
   }
 
   const auth = AprendaliaAccess.authenticateStudent(name, password, AprendaliaAccess.getDeviceId());
-  if (auth.ok) {
-    usuarioActual = auth.username;
-    cursoActual = auth.course || AprendaliaAccess.getStudentProfile(auth.username)?.course || '';
+  if (!auth.ok) {
+    usuarioActual = null;
+    cursoActual = null;
+    document.getElementById('pass').value = '';
+    if (auth.reason === 'device') showDeviceAccessInfo(auth);
+    else setLoginStatus('Usuario o contraseña incorrectos.', true);
+    return;
+  }
+
+  usuarioActual = auth.username;
+  cursoActual = auth.course || AprendaliaAccess.getStudentProfile(auth.username)?.course || '';
+  setLoginBusy(true);
+  setLoginStatus('Preparando tu curso…');
+
+  try {
+    await ensureQuestionsLoaded();
+
+    const course = AprendaliaCurriculum.course(cursoActual);
+    if (!cursoActual || !course) {
+      throw new Error(`El usuario no tiene un curso válido configurado (${cursoActual || 'sin curso'}).`);
+    }
+
+    const available = courseQuestions();
+    if (!available.length) {
+      throw new Error(`No hay preguntas activas disponibles para ${AprendaliaCurriculum.labelCourse(cursoActual)}.`);
+    }
+
+    syncSubjectsForCourse();
+    if (!document.getElementById('subject').value) {
+      throw new Error(`No hay asignaturas con preguntas disponibles para ${AprendaliaCurriculum.labelCourse(cursoActual)}.`);
+    }
+
     trackActivity('login_success');
     document.getElementById('pass').value = '';
+    await showSessionSetup({ dataReady: true });
     document.getElementById('welcome').style.display = 'none';
     document.getElementById('welcome').setAttribute('aria-hidden', 'true');
-    showSessionSetup();
-  } else if (auth.reason === 'device') {
+    setLoginStatus('');
+  } catch (error) {
+    console.error('No se pudo iniciar Aprendalia', error);
     usuarioActual = null;
     cursoActual = null;
-    document.getElementById('pass').value = '';
-    showDeviceAccessInfo(auth);
-  } else {
-    usuarioActual = null;
-    cursoActual = null;
-    alert('Usuario o contraseña incorrectos');
+    const welcome = document.getElementById('welcome');
+    if (welcome) {
+      welcome.style.display = '';
+      welcome.setAttribute('aria-hidden', 'false');
+    }
+    setLoginStatus(`No se pudo preparar Aprendalia. ${error?.message || 'Revisa los archivos de contenido e inténtalo de nuevo.'}`, true);
+  } finally {
+    setLoginBusy(false);
   }
 }
 
@@ -420,8 +479,8 @@ async function ensureQuestionsLoaded(){
   return questions;
 }
 
-async function showSessionSetup(){
-  await ensureQuestionsLoaded();
+async function showSessionSetup(options = {}){
+  if (!options.dataReady) await ensureQuestionsLoaded();
   syncSubjectsForCourse();
   subjectSelected = document.getElementById('subject').value || subjectSelected;
   const setup = document.getElementById('session-setup');

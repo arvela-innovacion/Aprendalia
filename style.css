@@ -455,3 +455,20 @@ input.disabled, input:disabled { opacity: .62; pointer-events: none; }
 .curriculum-table td:first-child { min-width:210px; }
 .curriculum-table td:first-child span { color:var(--muted); }
 @media (max-width:520px){ .course-overview { align-items:flex-start; flex-direction:column; } .course-overview strong { margin-right:0; } }
+
+
+/* Estado visible del inicio de sesión y carga de contenido. */
+.login-status {
+  margin: .15rem 0 0;
+  font-size: .92rem;
+  line-height: 1.35;
+  text-align: center;
+  opacity: .82;
+}
+.login-status.is-error {
+  font-weight: 700;
+  opacity: 1;
+}
+#loginBtn[aria-busy="true"] {
+  cursor: progress;
+}
