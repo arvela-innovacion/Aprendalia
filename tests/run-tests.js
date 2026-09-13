@@ -91,6 +91,15 @@ const conceptSummaries=context.ProgressRepository.getConceptSummaries('sergio',q
 assert.strictEqual(conceptSummaries.length,2,'two concept summaries are generated');
 assert(conceptSummaries.find(c=>c.concept==='sumas').seenQuestions>=5,'concept summary counts seen questions');
 
+// Session modes are functional, not only UI labels.
+const reviewPicked=context.QuestionSelector.select('sergio',questions,10,{mode:'review'});
+assert(reviewPicked.length>0,'review mode returns seen questions when progress exists');
+assert(reviewPicked.every(item=>context.ProgressRepository.get('sergio',item)),'review mode prioritizes already seen questions');
+const discoverPicked=context.QuestionSelector.select('sergio',questions,10,{mode:'discover'});
+assert(discoverPicked.length===10,'discover mode can fill a normal session');
+assert(discoverPicked.every(item=>!context.ProgressRepository.get('sergio',item)),'discover mode prioritizes unseen questions when enough are available');
+
+
 stats = context.SessionEngine.create(10);
 stats.firstTry=6; stats.secondTry=2; stats.failed=2; stats.stars=74; stats.bestStreak=4;
 const history = context.SessionEngine.toHistory(stats,'Matematicas','3EP');
