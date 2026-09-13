@@ -243,6 +243,7 @@ Añadir una entrada al objeto `STUDENTS`:
 ``` js
 lucas: Object.freeze({
   password: 'ClaveElegidaPorElAdministrador',
+  course: '3EP',
   devices: Object.freeze([])
 })
 ```
@@ -366,7 +367,7 @@ En esta versión la contraseña es común para todas las familias.
 
 ### Información disponible
 
-La cabecera de la Zona de padres identifica explícitamente **alumno, curso y asignatura**. Para la asignatura seleccionada muestra:
+La cabecera de la Zona de padres identifica explícitamente **alumno, curso y asignatura**. El curso procede del perfil del alumno y sirve para interpretar correctamente el progreso incluso cuando en el futuro convivan hermanos o alumnos de cursos distintos. Para la asignatura seleccionada muestra:
 
 - cobertura de preguntas;
 - conceptos dominados, en práctica, con dificultad y sin empezar;
@@ -411,7 +412,16 @@ const SESSION_SIZE = 10;
 ```
 
 Una sesión normal intenta contener 10 preguntas. Si la asignatura tiene
-menos preguntas disponibles, se utilizan las disponibles.
+menos preguntas activas disponibles para el curso del alumno, se utilizan las disponibles.
+
+El **alumno elige la asignatura**, pero no el tema, concepto ni nivel. El curso se obtiene de su perfil y el selector adaptativo decide qué conceptos y preguntas conviene trabajar dentro de la asignatura elegida. Esta separación evita que el alumno se limite a practicar únicamente aquello que ya domina.
+
+El flujo normal es:
+
+``` text
+login → curso asignado → asignaturas disponibles → alumno elige asignatura
+      → selector prioriza conceptos → selector elige preguntas y niveles
+```
 
 La pantalla previa indica aproximadamente:
 
@@ -1109,6 +1119,10 @@ activa
 
 El currículo define **curso → asignatura → tema → concepto**, etiquetas visibles, orden, niveles permitidos y tipos de ejercicio autorizados. Los nombres visibles pueden cambiar sin tener que cambiar los IDs internos.
 
+`curriculum.json` es la **fuente de verdad de la estructura pedagógica**. `questions.csv` no inventa temas o conceptos: cada fila debe apuntar a una combinación admitida por el currículo. Esto permite cambiar etiquetas visibles, ordenar contenidos y ampliar cursos sin mezclar esas decisiones con el texto de las preguntas.
+
+El campo `course` del usuario debe coincidir con un ID de `courses`. Tras el login, Aprendalia filtra el banco por ese curso. El alumno sólo ve asignaturas de su curso que además tengan preguntas activas; no puede cambiar de curso desde la interfaz.
+
 El banco de prueba incluido actualmente contiene sólo `3EP` y cuatro asignaturas: Lengua, Matemáticas, Inglés y Socials. Incluye 8 conceptos, 3 niveles y 2 tipos por concepto. Hay exactamente **10 preguntas por combinación** curso/asignatura/tema/concepto/nivel/tipo: 48 combinaciones y 480 preguntas. Su finalidad es probar la estructura, no representar el contenido definitivo.
 
 Los ficheros `questions_ayer.csv` y `questions_ayer2.csv` se conservan como snapshots históricos y no participan en la carga actual.
@@ -1326,10 +1340,9 @@ para información sensible ni control de acceso fuerte.
 El soporte de reconocimiento/síntesis depende del navegador y sistema
 operativo.
 
-### 30.5 Identidad de preguntas basada parcialmente en contenido
+### 30.5 El currículo de prueba no es contenido definitivo
 
-Cambiar una pregunta puede generar una identidad nueva en el histórico.
-Se recomienda introducir IDs inmutables en la futura revisión del banco.
+`curriculum.json` y `questions.csv` incluyen actualmente una muestra estructural de 3.º de Primaria diseñada para validar la arquitectura. Sus 480 preguntas no pretenden constituir todavía el temario definitivo del curso. Antes de usar el banco como contenido final debe definirse y revisar el currículo pedagógico completo.
 
 ### 30.6 Tests principalmente de núcleo
 
@@ -1347,7 +1360,7 @@ Editar:
 src/config/access-config.js
 ```
 
-Añadir usuario, contraseña y `devices: []`.
+Añadir usuario, contraseña, `course` y `devices: []`. El valor de `course` debe existir en `curriculum.json`.
 
 ### Cambiar contraseña de un alumno
 
@@ -1434,19 +1447,18 @@ Después hay que:
 
 ## 33. Convenciones para no romper el histórico
 
-Cuando se empiece a trabajar sobre contenido:
+La arquitectura actual ya utiliza IDs de pregunta únicos e inmutables. Para mantener compatible el histórico:
 
-- evitar cambiar IDs existentes sin necesidad;
-- idealmente introducir IDs únicos e inmutables;
-- no reutilizar el mismo ID para conceptos distintos;
-- considerar que cambiar `tipo`, `pregunta` o `respuesta` altera
-  actualmente la clave interna;
-- mantener nombres de asignatura exactamente coherentes con los valores
-  usados por la aplicación;
-- validar que `respuesta` sea compatible con `opciones` cuando el tipo
-  lo requiera;
-- evitar separadores que entren en conflicto con el formato del
-  CSV/campos internos.
+- cada fila nueva debe recibir un `id` globalmente único;
+- un ID publicado nunca debe reutilizarse para una pregunta distinta;
+- corregir texto, opciones o metadatos no requiere cambiar el ID si sigue siendo pedagógicamente la misma pregunta;
+- si el ejercicio cambia de significado o evalúa otro concepto, debe crearse un ID nuevo;
+- para retirar una pregunta existente se recomienda `activa=0` en lugar de borrarla;
+- `curso`, `asignatura`, `tema` y `concepto` deben referenciar IDs existentes en `curriculum.json`;
+- los nombres visibles se cambian en el currículo sin necesidad de renombrar esos IDs internos;
+- antes de desplegar contenido debe ejecutarse `node tools/validate-content.js`.
+
+El histórico se vincula por ID de pregunta. Por eso la estabilidad de ese campo es una regla de datos, no sólo una convención estética.
 
 ------------------------------------------------------------------------
 
@@ -1485,18 +1497,18 @@ backend opcional para:
 
 ## 35. Prioridades futuras sugeridas
 
-Con la mecánica actual estabilizada, la siguiente fase prevista es
-**contenido**. Algunas prioridades razonables son:
+Con la nueva arquitectura curricular ya implantada, la siguiente fase es principalmente **pedagógica y de contenido**, no de estructura. Las prioridades razonables son:
 
-1.  revisar calidad y coherencia del banco;
-2.  establecer IDs únicos e inmutables;
-3.  estructurar contenido por concepto/competencia, no sólo asignatura;
-4.  equilibrar dificultad;
-5.  ampliar variedad de preguntas sin duplicar mecánicas
-    innecesariamente;
-6.  detectar preguntas ambiguas o respuestas incompatibles con opciones;
-7.  utilizar el histórico para identificar conceptos, no sólo preguntas,
-    que necesitan refuerzo.
+1. definir el currículo completo de 3.º de Primaria por asignatura, tema y concepto;
+2. decidir qué niveles 1–3 corresponden a cada concepto y qué diferencia pedagógica existe entre ellos;
+3. decidir qué tipos de ejercicio son apropiados para cada concepto, evitando variedad puramente estética;
+4. sustituir progresivamente las 480 preguntas de prueba por contenido revisado y definitivo;
+5. mantener una cobertura suficiente por combinación sin generar repeticiones mecánicas;
+6. revisar dificultad, claridad, edad adecuada, ambigüedad y calidad de distractores;
+7. usar el mapa conceptual de la Zona de padres para detectar huecos reales de aprendizaje;
+8. ampliar posteriormente `curriculum.json` a otros cursos cuando exista un alumno que los necesite;
+9. valorar en el futuro un modo opcional «Practicar un tema/concepto», manteniendo la sesión normal adaptativa como flujo principal.
+
 ------------------------------------------------------------------------
 
 ## 36. Resumen técnico rápido
