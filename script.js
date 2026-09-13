@@ -4,6 +4,7 @@ const SESSION_SIZE = 10; // meta fija de preguntas por sesión
 let questions=[], queue=[], current, score=0;
 let sessionStats = null;
 let questionLocked = false;
+let answerSubmitting = false;
 let subjectSelected='';
 let preguntaActual = null;
 let usuarioActual = null;
@@ -144,9 +145,32 @@ function awardCorrectResult() {
   return reward;
 }
 
+function markAnswerProcessing(targetBtn = null) {
+  answerSubmitting = true;
+  if (targetBtn?.classList) targetBtn.classList.add('is-processing');
+  disableAnswerControls();
+}
+
+function releaseAnswerForRetry(targetBtn = null) {
+  window.setTimeout(() => {
+    if (questionLocked) return;
+    answerSubmitting = false;
+    if (targetBtn?.classList) targetBtn.classList.remove('is-processing');
+    enableAnswerControls();
+
+    // En respuestas escritas, devolver el foco ayuda a que el segundo intento sea inmediato.
+    const write = document.getElementById('writeAnswer');
+    if (write && write.style.display !== 'none') {
+      write.focus();
+      write.select?.();
+    }
+  }, 280);
+}
+
 function handleCorrect(targetBtn = null, showNext = true) {
-  if (questionLocked) return;
+  if (questionLocked || answerSubmitting) return;
   questionLocked = true;
+  markAnswerProcessing(targetBtn);
 
   const reward = awardCorrectResult();
   recordCurrentOutcome('correct', reward.points);
@@ -164,7 +188,8 @@ function handleCorrect(targetBtn = null, showNext = true) {
 }
 
 function handleError(targetBtn = null) {
-  if (questionLocked) return;
+  if (questionLocked || answerSubmitting) return;
+  markAnswerProcessing(targetBtn);
 
   registrarEvento("Error");
   visualError(targetBtn);
@@ -172,7 +197,9 @@ function handleError(targetBtn = null) {
   const f = document.getElementById('feedback');
 
   if (!exhausted) {
-    f.innerHTML = '<span class="feedback-title">Casi. Inténtalo otra vez 💪</span><span class="feedback-help">Tómate tu tiempo.</span>';
+    document.querySelector('#game .question-card')?.classList.add('is-retry');
+    f.innerHTML = '<span class="feedback-title">2.º intento · Casi 💪</span><span class="feedback-help">Mira de nuevo y prueba otra respuesta.</span>';
+    releaseAnswerForRetry(targetBtn);
     return;
   }
 
@@ -504,7 +531,15 @@ function nextQ(){
   
   // Habilitar controles al cargar nueva pregunta
   questionLocked = false;
+  answerSubmitting = false;
   enableAnswerControls();
+
+  const questionCard = document.querySelector('#game .question-card');
+  if (questionCard) {
+    questionCard.classList.remove('is-retry', 'question-enter');
+    void questionCard.offsetWidth;
+    questionCard.classList.add('question-enter');
+  }
 
   if(!queue.length){
     renderSessionSummary();

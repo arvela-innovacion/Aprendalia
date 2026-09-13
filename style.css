@@ -398,3 +398,28 @@ input.disabled, input:disabled { opacity: .62; pointer-events: none; }
   user-select: all;
 }
 .device-access-info small { line-height: 1.35; opacity: .8; }
+
+/* ===================== Microinteracciones de respuesta ===================== */
+#game .question-card.question-enter {
+  animation: questionEnter .2s ease-out both;
+}
+#game .question-card.is-retry {
+  border-color: rgba(231, 157, 45, .45);
+  box-shadow: 0 0 0 3px rgba(231, 157, 45, .08);
+}
+#answers button.is-processing,
+#answers [role="option"].is-processing,
+#answers div[role="listitem"].is-processing,
+#checkBtn.is-processing {
+  transform: scale(.985);
+  box-shadow: inset 0 0 0 2px rgba(103,87,232,.18);
+}
+
+@keyframes questionEnter {
+  from { opacity: .25; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #game .question-card.question-enter { animation: none; }
+}
