@@ -1,10 +1,10 @@
 (function(global){
   'use strict';
 
-  const VERSION = 3;
+  const VERSION = 4;
   const PREFIX = `aprendalia:v${VERSION}:`;
-  const LEGACY_PREFIXES = ['aprendalia:v2:'];
-  const MIGRATION_FLAG = 'aprendalia:migrated:v3';
+  const LEGACY_PREFIXES = ['aprendalia:v3:','aprendalia:v2:'];
+  const MIGRATION_FLAG = 'aprendalia:migrated:v4';
 
   function safeParse(value, fallback){
     try { return value ? JSON.parse(value) : fallback; }
@@ -34,27 +34,15 @@
     try { return safeParse(localStorage.getItem(PREFIX + key), fallback); }
     catch (_) { return fallback; }
   }
-
   function set(key, value){
-    try {
-      localStorage.setItem(PREFIX + key, JSON.stringify(value));
-      return true;
-    } catch (_) { return false; }
+    try { localStorage.setItem(PREFIX + key, JSON.stringify(value)); return true; }
+    catch (_) { return false; }
   }
-
-  function remove(key){
-    try { localStorage.removeItem(PREFIX + key); }
-    catch (_) {}
-  }
-
+  function remove(key){ try { localStorage.removeItem(PREFIX + key); } catch (_) {} }
   function keys(){
     const out=[];
-    try {
-      for(let i=0;i<localStorage.length;i++){
-        const key=localStorage.key(i);
-        if(key && key.startsWith(PREFIX)) out.push(key.slice(PREFIX.length));
-      }
-    } catch (_) {}
+    try { for(let i=0;i<localStorage.length;i++){ const key=localStorage.key(i); if(key&&key.startsWith(PREFIX)) out.push(key.slice(PREFIX.length)); } }
+    catch (_) {}
     return out;
   }
 

@@ -5,17 +5,12 @@
   const MAX_SESSIONS = 200;
   const DAY = 86400000;
 
-  function hashText(text){
-    let h = 2166136261;
-    const s = String(text || '');
-    for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
-    return (h >>> 0).toString(36);
-  }
-
   function questionKey(question){
-    return [question.asignatura || '', question.id || '', hashText(`${question.tipo || ''}|${question.pregunta || ''}|${question.respuesta || ''}`)].join('::');
+    return String(question?.id || '').trim();
   }
-
+  function conceptKey(question){
+    return [question?.curso||'',question?.asignatura||'',question?.tema||'',question?.concepto||''].join('::');
+  }
   function progressStorageKey(user){ return `progress:${user || 'anon'}`; }
   function sessionStorageKey(user){ return `sessions:${user || 'anon'}`; }
   function getAll(user){ return Storage.get(progressStorageKey(user), {}); }
@@ -44,12 +39,22 @@
   function recordOutcome(user, question, outcome){
     const all = getAll(user);
     const key = questionKey(question);
+    if (!key) throw new Error('No se puede guardar progreso de una pregunta sin ID estable');
     const old = all[key] || {
-      key, id: question.id || '', subject: question.asignatura || '', type: question.tipo || '', question: question.pregunta || '',
+      key,
+      id: question.id || '', course:question.curso||'', subject:question.asignatura||'', topic:question.tema||'', concept:question.concepto||'', level:Number(question.nivel||0),
+      type: question.tipo || '', question: question.pregunta || '',
       presentations:0, attempts:0, correct:0, wrong:0, firstTryCorrect:0, secondTryCorrect:0, recovered:0,
       assisted:0, hintsUsed:0, dontKnow:0, recentResults:[], lastSeen:null, lastResult:null, totalDurationMs:0,
       successStreak:0, intervalDays:0, dueAt:null
     };
+
+    // Los metadatos curriculares se refrescan por si se corrige el texto/etiquetado sin cambiar el ID.
+    Object.assign(old, {
+      id:question.id||old.id, course:question.curso||old.course, subject:question.asignatura||old.subject,
+      topic:question.tema||old.topic, concept:question.concepto||old.concept, level:Number(question.nivel||old.level||0),
+      type:question.tipo||old.type, question:question.pregunta||old.question
+    });
 
     old.presentations += 1;
     old.attempts += Math.max(1, Number(outcome.attempts || 1));
@@ -82,20 +87,52 @@
     return old;
   }
 
+  function aggregateConcept(user, conceptQuestions){
+    const all=getAll(user);
+    const records=conceptQuestions.map(q=>all[questionKey(q)]||null).filter(Boolean);
+    const presentations=records.reduce((n,r)=>n+(r.presentations||0),0);
+    const correct=records.reduce((n,r)=>n+(r.correct||0),0);
+    const wrong=records.reduce((n,r)=>n+(r.wrong||0),0);
+    const seenQuestions=records.length;
+    const totalQuestions=conceptQuestions.length;
+    const accuracy=presentations ? Math.round(correct*100/presentations) : 0;
+    const levelsSeen=[...new Set(records.map(r=>Number(r.level||0)).filter(Boolean))].sort((a,b)=>a-b);
+    const questionStatuses=records.map(classify);
+    let status='new';
+    if(presentations){
+      const difficultyCount=questionStatuses.filter(x=>x==='difficulty').length;
+      if(difficultyCount>=2 || (presentations>=4 && accuracy<60)) status='difficulty';
+      else if(seenQuestions>=Math.min(5,totalQuestions) && accuracy>=80 && questionStatuses.filter(x=>x==='mastered').length>=2) status='mastered';
+      else status='practice';
+    }
+    return {presentations,correct,wrong,seenQuestions,totalQuestions,coveragePct:totalQuestions?Math.round(seenQuestions*100/totalQuestions):0,accuracy,levelsSeen,status};
+  }
+
+  function getConceptSummaries(user, questions){
+    const groups=new Map();
+    questions.filter(q=>q?.activa!==false).forEach(q=>{
+      const key=conceptKey(q);
+      if(!groups.has(key)) groups.set(key,{key,course:q.curso,subject:q.asignatura,topic:q.tema,concept:q.concepto,questions:[]});
+      groups.get(key).questions.push(q);
+    });
+    return [...groups.values()].map(g=>({...g,...aggregateConcept(user,g.questions)}));
+  }
+
   function saveSession(user, session){
     const sessions = Storage.get(sessionStorageKey(user), []);
     sessions.unshift(session);
     Storage.set(sessionStorageKey(user), sessions.slice(0, MAX_SESSIONS));
   }
 
-  function getSessions(user, subject = null){
-    const sessions = Storage.get(sessionStorageKey(user), []);
+  function getSessions(user, subject = null, course = null){
+    let sessions = Storage.get(sessionStorageKey(user), []);
+    if(course) sessions=sessions.filter(s=>s.course===course || !s.course);
     return subject ? sessions.filter(s => s.subject === subject) : sessions;
   }
 
-  function getSubjectSummary(user, subject, questions){
+  function getSubjectSummary(user, subject, questions, course=null){
     const all = getAll(user);
-    const subjectQuestions = questions.filter(q => q.asignatura === subject);
+    const subjectQuestions = questions.filter(q => q.asignatura === subject && (!course || q.curso===course) && q.activa!==false);
     const rows = subjectQuestions.map(q => {
       const record = all[questionKey(q)] || null;
       return { question:q, record, status:classify(record) };
@@ -103,19 +140,30 @@
     const counts = { new:0, practice:0, difficulty:0, mastered:0 };
     rows.forEach(r => counts[r.status]++);
     const seen = rows.length - counts.new;
-    return { total:rows.length, seen, coveragePct:rows.length ? Math.round(seen*100/rows.length):0, counts, rows };
+    const concepts=getConceptSummaries(user,subjectQuestions);
+    const conceptCounts={new:0,practice:0,difficulty:0,mastered:0};
+    concepts.forEach(c=>conceptCounts[c.status]++);
+    return { total:rows.length, seen, coveragePct:rows.length ? Math.round(seen*100/rows.length):0, counts, rows, concepts, conceptCounts };
   }
 
-  function exportUserData(user){
+  function getCourseSummary(user, course, questions){
+    const courseQuestions=questions.filter(q=>q.curso===course && q.activa!==false);
+    const all=getAll(user);
+    const seen=courseQuestions.filter(q=>all[questionKey(q)]).length;
+    const concepts=getConceptSummaries(user,courseQuestions);
     return {
-      schemaVersion: Storage.VERSION,
-      exportedAt: new Date().toISOString(),
-      user,
-      progress: getAll(user),
-      sessions: getSessions(user)
+      course,totalQuestions:courseQuestions.length,seenQuestions:seen,
+      coveragePct:courseQuestions.length?Math.round(seen*100/courseQuestions.length):0,
+      totalConcepts:concepts.length,
+      masteredConcepts:concepts.filter(c=>c.status==='mastered').length,
+      difficultyConcepts:concepts.filter(c=>c.status==='difficulty').length,
+      concepts
     };
   }
 
+  function exportUserData(user){
+    return { schemaVersion:Storage.VERSION, exportedAt:new Date().toISOString(), user, progress:getAll(user), sessions:getSessions(user) };
+  }
   function importUserData(user, payload){
     if (!payload || typeof payload !== 'object') throw new Error('Archivo no válido');
     if (!payload.progress || !Array.isArray(payload.sessions)) throw new Error('La copia no contiene progreso válido');
@@ -123,18 +171,16 @@
     Storage.set(sessionStorageKey(user), payload.sessions.slice(0, MAX_SESSIONS));
     return true;
   }
-
   function downloadUserData(user){
     const blob = new Blob([JSON.stringify(exportUserData(user), null, 2)], {type:'application/json'});
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
     a.download = `aprendalia-progreso-${user || 'alumno'}.json`;
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
   }
 
   global.ProgressRepository = {
-    questionKey, getAll, get, classify, recordOutcome, saveSession, getSessions, getSubjectSummary,
-    exportUserData, importUserData, downloadUserData
+    questionKey,conceptKey,getAll,get,classify,recordOutcome,getConceptSummaries,
+    saveSession,getSessions,getSubjectSummary,getCourseSummary,exportUserData,importUserData,downloadUserData
   };
 })(window);
