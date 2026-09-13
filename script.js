@@ -1,4 +1,3 @@
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyGQhwjv79kDf8_rZAKKRw24bbC3j_MgTU5nexwB9R8LJlD4KbiG4LzU1bm21sRd8EUtA/exec"; // URL del Apps Script
 const MAX_ATTEMPTS = 2;
 const SESSION_SIZE = 10; // meta fija de preguntas por sesión
 let questions=[], queue=[], current, score=0;
@@ -8,6 +7,16 @@ let answerSubmitting = false;
 let subjectSelected='';
 let preguntaActual = null;
 let usuarioActual = null;
+
+function trackActivity(eventName, extra = {}) {
+  AprendaliaTelemetry?.send?.(eventName, {
+    alumno: usuarioActual || extra.alumno || '',
+    deviceKey: getDeviceKey(),
+    deviceInfo: getDeviceLabel(),
+    asignatura: extra.asignatura ?? subjectSelected ?? '',
+    ...extra
+  });
+}
 
 /* ==================================================================================================================== */
 /* ==================================================================================================================== */
@@ -252,6 +261,14 @@ function handleDontKnow(){
 }
 
 function renderSessionSummary() {
+  const completedStats = sessionStats;
+  if (completedStats && !completedStats.saved) {
+    trackActivity('session_completed', {
+      estado: `${completedStats.firstTry + completedStats.secondTry}/${completedStats.firstTry + completedStats.secondTry + completedStats.failed}`,
+      durationMs: Math.max(0, Date.now() - new Date(completedStats.startedAt || Date.now()).getTime()),
+      detalle: `stars=${completedStats.stars};best_streak=${completedStats.bestStreak}`
+    });
+  }
   saveCurrentSession();
   const q = document.getElementById('question');
   const a = document.getElementById('answers');
@@ -333,6 +350,7 @@ function login(){
   const auth = AprendaliaAccess.authenticateStudent(name, password, AprendaliaAccess.getDeviceId());
   if (auth.ok) {
     usuarioActual = auth.username;
+    trackActivity('login_success');
     document.getElementById('pass').value = '';
     document.getElementById('welcome').style.display = 'none';
     document.getElementById('welcome').setAttribute('aria-hidden', 'true');
@@ -461,6 +479,11 @@ function abandonCurrentSession(){
   const ok = window.confirm('¿Quieres salir de esta sesión? El progreso de las preguntas que ya has respondido se conservará.');
   if (!ok) return;
 
+  trackActivity('session_abandoned', {
+    estado: `${sessionStats?.presented || 0}/${sessionStats?.totalPlanned || SESSION_SIZE}`,
+    durationMs: Math.max(0, Date.now() - new Date(sessionStats?.startedAt || Date.now()).getTime())
+  });
+
   queue = [];
   current = null;
   questionLocked = false;
@@ -502,6 +525,7 @@ async function startGame(){
   document.getElementById('subject-wrapper')?.classList.add('is-compact');
 
   sessionStats = createSessionStats(queue.length);
+  trackActivity('session_started', { estado: String(queue.length) });
   score = 0;
   updateSessionHud();
   nextQ();
@@ -848,7 +872,11 @@ document.getElementById('brandHome')?.addEventListener('keydown', (e)=>{
     abandonCurrentSession();
   }
 });
-document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && document.getElementById('parents-gate')?.style.display === 'grid') closeParentsGate(); });
+document.addEventListener('keydown', (e)=>{
+  if (e.key !== 'Escape') return;
+  if (document.getElementById('help-dialog')?.style.display === 'grid') closeHelp();
+  else if (document.getElementById('parents-gate')?.style.display === 'grid') closeParentsGate();
+});
 
 // Custom dropdown for subject (mantiene el select oculto sincronizado)
 (function(){
@@ -954,28 +982,16 @@ function getDeviceLabel(){
   return AprendaliaAccess?.getDeviceLabel?.() || 'unknown_device';
 }
 
-// Función para enviar observabilidad
-function registrarEvento(correcto) {
-  enviarObservabilidad(correcto);
-}
-
-function enviarObservabilidad(resultado) {
+// Compatibilidad con los renderizadores existentes: los eventos de pregunta
+// se envían como telemetría ligera y nunca son la fuente de verdad del progreso.
+function registrarEvento(resultado) {
   if (!preguntaActual) return;
-  const formData = new FormData();
-  //formData.append("fecha", new Date().toISOString());
-  formData.append("fecha", new Date().toISOString().split('T')[0]); // Nuevo, sin hora
-  formData.append("alumno", usuarioActual);
-  formData.append("device_key", getDeviceKey());
-  formData.append("device_info", getDeviceLabel());
-  formData.append("asignatura", preguntaActual.asignatura);
-  formData.append("id_pregunta", preguntaActual.id);
-  formData.append("tipo_pregunta", preguntaActual.tipo);
-  formData.append("estado", resultado);
-
-  fetch(GOOGLE_SCRIPT_URL, {
-    method: "POST",
-    body: formData
-  }).catch(err => console.warn('No se pudo registrar la actividad', err));
+  trackActivity('question_result', {
+    asignatura: preguntaActual.asignatura,
+    questionId: preguntaActual.id,
+    questionType: preguntaActual.tipo,
+    estado: resultado
+  });
 }
 
 // reportar pregunta confusa
@@ -986,6 +1002,26 @@ function reportar() {
   feedback.innerText = '✅ Pregunta reportada. Gracias.';
 }
 
+
+function openHelp(){
+  const dialog = document.getElementById('help-dialog');
+  if (!dialog) return;
+  dialog.style.display = 'grid';
+  dialog.setAttribute('aria-hidden','false');
+  document.getElementById('closeHelpBtn')?.focus();
+}
+
+function closeHelp(){
+  const dialog = document.getElementById('help-dialog');
+  if (!dialog) return;
+  dialog.style.display = 'none';
+  dialog.setAttribute('aria-hidden','true');
+  document.getElementById('helpBtn')?.focus();
+}
+
+document.getElementById('helpBtn')?.addEventListener('click', openHelp);
+document.getElementById('closeHelpBtn')?.addEventListener('click', closeHelp);
+document.getElementById('help-dialog')?.addEventListener('click', e => { if (e.target?.id === 'help-dialog') closeHelp(); });
 
 // Atajos de teclado sencillos para no depender siempre del ratón.
 document.getElementById('pass')?.addEventListener('keydown', e => {

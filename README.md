@@ -727,12 +727,12 @@ Este histórico alimenta la Zona de padres y las estadísticas semanales.
 const GOOGLE_SCRIPT_URL = "...";
 ```
 
-Se utiliza para enviar eventos/observabilidad del uso. La información puede incluir contexto de la pregunta y, para administración del acceso, datos como:
+Se utiliza como observabilidad ligera compatible con el Google Apps Script histórico. Sólo se envían eventos asociados a preguntas/reportes. La información incluye:
 
 - usuario;
 - `deviceId`;
 - etiqueta aproximada del dispositivo/navegador;
-- resultado/evento asociado.
+- resultado/estado asociado.
 
 Antes de desplegar Aprendalia fuera del entorno previsto, revisar qué datos recibe exactamente el Apps Script, su hoja/destino, permisos y política de conservación.
 
@@ -1182,3 +1182,14 @@ Antes de modificar Aprendalia:
 9. actualizar este README cuando cambie una regla importante de arquitectura, acceso, puntuación, almacenamiento o aprendizaje.
 
 Este README describe la versión consolidada de Aprendalia a fecha **13 de septiembre de 2026**.
+
+## Ayuda integrada y modelo de datos
+
+La interfaz incorpora un acceso `?` a **Cómo funciona Aprendalia**. Es una ayuda breve pensada para poder compartir la aplicación sin tener que explicar personalmente su mecánica a cada familia. Resume sesiones, estrellas y rachas, repetición espaciada, pistas y segundos intentos, Zona de padres, acceso por usuario/dispositivo y privacidad.
+
+El modelo de datos distingue expresamente dos capas:
+
+- **Progreso pedagógico local:** `ProgressRepository` y el almacenamiento del navegador son la fuente de verdad para dominio, dificultad, repeticiones, sesiones e histórico mostrado en la Zona de padres. Este progreso puede exportarse/importarse como backup.
+- **Telemetría externa:** `src/data/telemetry.js` mantiene exactamente el contrato histórico con Google Apps Script/Sheets. Sólo envía observabilidad asociada a preguntas con los campos `fecha`, `alumno`, `device_key`, `device_info`, `asignatura`, `id_pregunta`, `tipo_pregunta` y `estado`. Los eventos internos de login/inicio/fin/abandono de sesión no se envían a Google. Un fallo de red o de Google Sheets no impide estudiar ni altera el progreso local.
+
+La telemetría no debe convertirse en una segunda implementación del motor de progreso. Si se amplía, debe mantenerse orientada a observabilidad, dispositivos, uso y diagnóstico.

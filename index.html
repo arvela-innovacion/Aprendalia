@@ -21,10 +21,13 @@
             <p class="brand-subtitle">Aprender un poquito cada día</p>
           </div>
         </div>
-        <div class="session-hud" aria-label="Progreso de la sesión">
+        <div class="header-actions">
+          <button id="helpBtn" class="help-entry" type="button" aria-label="Cómo funciona Aprendalia" title="Cómo funciona">?</button>
+          <div class="session-hud" aria-label="Progreso de la sesión">
           <div class="hud-pill" title="Estrellas de esta sesión"><span aria-hidden="true">⭐</span><span id="score">0</span></div>
           <div class="hud-pill streak-pill" title="Racha actual"><span aria-hidden="true">🔥</span><span id="streak">0</span></div>
           <div class="hud-pill progress-pill" title="Progreso"><span id="progress">0/10</span></div>
+          </div>
         </div>
       </header>
       <div id="progress-track" class="progress-track" aria-hidden="true">
@@ -85,6 +88,28 @@
         </div>
       </section>
 
+
+      <div id="help-dialog" class="help-dialog" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
+        <div class="help-card">
+          <div class="help-head">
+            <div><span class="setup-kicker">Ayuda</span><h2 id="helpTitle">Cómo funciona Aprendalia</h2></div>
+            <button id="closeHelpBtn" class="ghost-btn small-btn" type="button" aria-label="Cerrar ayuda">Cerrar</button>
+          </div>
+          <div class="help-grid">
+            <article><h3>🌟 Para estudiar</h3><p>Elige asignatura y haz sesiones cortas de 10 preguntas. Aprendalia mezcla preguntas nuevas con otras que conviene repasar.</p></article>
+            <article><h3>⭐ Estrellas y racha</h3><p>Acertar a la primera da más estrellas. Las pistas, “No lo sé” y los segundos intentos ayudan a aprender, pero reducen la recompensa.</p></article>
+            <article><h3>🔁 Repasos</h3><p>Lo que cuesta vuelve antes. Lo que ya dominas aparece cada vez con más separación para no repetir de más.</p></article>
+            <article><h3>💡 Si te atascas</h3><p>Usa Pista o “No lo sé”. Equivocarse forma parte de la sesión: normalmente tendrás un segundo intento y después un repaso.</p></article>
+            <article><h3>👨‍👩‍👧 Para familias</h3><p>La Zona de padres muestra cobertura, evolución, preguntas con dificultad e histórico. Está separada del modo de estudio y protegida con contraseña.</p></article>
+            <article><h3>🔐 Acceso y dispositivos</h3><p>Cada alumno tiene usuario y contraseña. Si su lista de dispositivos está vacía puede entrar desde cualquiera; al autorizar dispositivos, sólo podrá usar los registrados.</p></article>
+          </div>
+          <div class="privacy-note">
+            <h3>🔒 Privacidad y datos</h3>
+            <p><strong>El progreso de aprendizaje se guarda en este navegador</strong> y es la fuente principal de la Zona de padres. Puede exportarse/importarse como copia de seguridad.</p>
+            <p>Google Sheets se usa sólo como <strong>registro ligero de actividad y diagnóstico</strong>: usuario, dispositivo, asignatura, tipo de ejercicio y eventos básicos. La app puede seguir estudiando aunque ese registro externo falle.</p>
+          </div>
+        </div>
+      </div>
       <div id="parents-gate" class="parents-gate" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="parentsGateTitle">
         <div class="parents-gate-card">
           <span class="setup-kicker">Zona de padres</span>
@@ -140,6 +165,7 @@
   <script src="src/config/access-config.js"></script>
   <script src="src/data/storage.js"></script>
   <script src="src/data/progress-repository.js"></script>
+  <script src="src/data/telemetry.js"></script>
   <script src="src/core/scoring-engine.js"></script>
   <script src="src/core/session-engine.js"></script>
   <script src="src/core/question-selector.js"></script>
