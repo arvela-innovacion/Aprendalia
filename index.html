@@ -53,6 +53,9 @@
           <label class="visually-hidden" for="pass">Contraseña</label>
           <input type="password" id="pass" placeholder="Contraseña" autocomplete="current-password" />
           <button id="loginBtn" class="primary-btn" type="button" onclick="login()">Entrar</button>
+          <div class="guest-divider" aria-hidden="true"><span>o</span></div>
+          <button id="guestBtn" class="ghost-btn guest-btn" type="button" onclick="enterAsGuest()">Entrar como invitado</button>
+          <p class="guest-note">Prueba Aprendalia con un cuestionario fijo de 10 preguntas. No necesita usuario ni contraseña.</p>
           <p id="loginStatus" class="login-status" role="status" aria-live="polite" hidden></p>
           <div id="deviceAccessInfo" class="device-access-info" aria-live="polite" hidden></div>
         </div>

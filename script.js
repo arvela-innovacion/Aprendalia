@@ -10,6 +10,24 @@ let usuarioActual = null;
 let cursoActual = null;
 let curriculumLoaded = false;
 let sessionMode = 'adaptive';
+let guestMode = false;
+
+const GUEST_QUESTIONS = Object.freeze([
+  { id:'GUEST01', curso:'', asignatura:'General', tema:'cultura_general', concepto:'geografia', nivel:1, tipo:'test', pregunta:'¿Cuál es la capital de España?', opciones:'Madrid|Barcelona|Sevilla|Valencia', respuesta:'Madrid', extra:'Es la ciudad donde se encuentran las principales instituciones del Estado.', activa:true },
+  { id:'GUEST02', curso:'', asignatura:'General', tema:'matematicas', concepto:'calculo', nivel:1, tipo:'verdadero_falso', pregunta:'7 × 8 = 56.', opciones:'Verdadero|Falso', respuesta:'Verdadero', extra:'Piensa en la tabla del 7 o del 8.', activa:true },
+  { id:'GUEST03', curso:'', asignatura:'General', tema:'lengua', concepto:'vocabulario', nivel:1, tipo:'completar', pregunta:'Completa: El gato ___ en el sofá.', opciones:'duerme|azul|mesa|rápido', respuesta:'duerme', extra:'Necesitas un verbo que indique una acción.', activa:true },
+  { id:'GUEST04', curso:'', asignatura:'General', tema:'matematicas', concepto:'suma', nivel:1, tipo:'escribir', pregunta:'¿Cuánto es 25 + 17?', opciones:'', respuesta:'42', extra:'Suma primero las unidades y después las decenas.', activa:true },
+  { id:'GUEST05', curso:'', asignatura:'General', tema:'lengua', concepto:'orden', nivel:1, tipo:'ordenar', pregunta:'Ordena las palabras para formar una oración correcta.', opciones:'juega|Ana|parque|en el', respuesta:'Ana|juega|en el|parque', extra:'Empieza por la persona que realiza la acción.', activa:true },
+  { id:'GUEST06', curso:'', asignatura:'General', tema:'ciencias', concepto:'animales', nivel:1, tipo:'cual_no_encaja', pregunta:'¿Cuál de estos animales NO es un mamífero?', opciones:'perro|delfín|gato|águila', respuesta:'águila', extra:'Busca el animal que tiene plumas.', activa:true },
+  { id:'GUEST07', curso:'', asignatura:'General', tema:'ingles', concepto:'vocabulario', nivel:1, tipo:'test', pregunta:'¿Qué significa “house” en español?', opciones:'casa|árbol|libro|coche', respuesta:'casa', extra:'Es un lugar en el que vive una persona o una familia.', activa:true },
+  { id:'GUEST08', curso:'', asignatura:'General', tema:'ciencias', concepto:'planetas', nivel:1, tipo:'verdadero_falso', pregunta:'La Tierra gira alrededor del Sol.', opciones:'Verdadero|Falso', respuesta:'Verdadero', extra:'Piensa qué astro está en el centro del sistema solar.', activa:true },
+  { id:'GUEST09', curso:'', asignatura:'General', tema:'matematicas', concepto:'comparacion', nivel:1, tipo:'test', pregunta:'¿Cuál de estos números es mayor?', opciones:'18|81|28|38', respuesta:'81', extra:'Compara primero la cifra de las decenas.', activa:true },
+  { id:'GUEST10', curso:'', asignatura:'General', tema:'lengua', concepto:'ortografia', nivel:1, tipo:'completar', pregunta:'Completa: Mañana ___ al colegio.', opciones:'iré|ayer|mesa|verde', respuesta:'iré', extra:'Necesitas una forma verbal que indique una acción futura.', activa:true }
+]);
+
+function freshGuestQuestions(){
+  return GUEST_QUESTIONS.map(q => ({ ...q, attempts:0, reviewCount:0 }));
+}
 
 
 function escapeHtml(value = '') {
@@ -22,6 +40,7 @@ function escapeHtml(value = '') {
 }
 
 function trackActivity(eventName, extra = {}) {
+  if (guestMode) return;
   AprendaliaTelemetry?.send?.(eventName, {
     alumno: usuarioActual || extra.alumno || '',
     deviceKey: getDeviceKey(),
@@ -117,6 +136,7 @@ function breakStreak() {
 }
 
 function recordCurrentOutcome(result, points = 0) {
+  if (guestMode) return;
   if (!current || current._outcomeRecorded) return;
   const endedAt = new Date().toISOString();
   const attempts = Math.max(1, (current.attempts || 0) + (result === 'correct' ? 1 : 0));
@@ -143,6 +163,7 @@ function recordCurrentOutcome(result, points = 0) {
 }
 
 function saveCurrentSession() {
+  if (guestMode) { if (sessionStats) sessionStats.saved = true; return; }
   if (!sessionStats || sessionStats.saved) return;
   ProgressRepository.saveSession(usuarioActual, SessionEngine.toHistory(sessionStats, subjectSelected, cursoActual));
   sessionStats.saved = true;
@@ -157,7 +178,7 @@ function handleIncorrect() {
   breakStreak();
 
   const exhausted = current.attempts >= MAX_ATTEMPTS;
-  if (exhausted && (current.reviewCount || 0) < 1 && sessionStats?.presented < sessionStats?.totalPlanned) {
+  if (!guestMode && exhausted && (current.reviewCount || 0) < 1 && sessionStats?.presented < sessionStats?.totalPlanned) {
     const review = { ...current, attempts: 0, reviewCount: (current.reviewCount || 0) + 1 };
     if (queue.length >= (sessionStats.totalPlanned - sessionStats.presented)) queue.pop();
     queue.push(review);
@@ -343,14 +364,23 @@ function renderSessionSummary() {
         <div class="summary-stat"><strong>${stats.recovered}</strong>Recuperadas</div>
         <div class="summary-stat"><strong>🔥 ${stats.bestStreak}</strong>Mejor racha</div>
       </div>
-      <div class="summary-total">⭐ ${getTotalStars()} estrellas acumuladas</div>
+      <div class="summary-total">${guestMode ? 'Modo invitado · el progreso no se guarda' : `⭐ ${getTotalStars()} estrellas acumuladas`}</div>
       <div class="summary-actions">
         <button class="primary-btn" type="button" id="restartSessionBtn">Otra sesión</button>
         <button class="ghost-btn" type="button" id="changeSubjectBtn">Cambiar asignatura</button>
       </div>
     </div>`;
-  a.querySelector('#restartSessionBtn')?.addEventListener('click', startGame);
-  a.querySelector('#changeSubjectBtn')?.addEventListener('click', showSessionSetup);
+  if (guestMode) {
+    const restart = a.querySelector('#restartSessionBtn');
+    const change = a.querySelector('#changeSubjectBtn');
+    if (restart) restart.textContent = 'Repetir cuestionario';
+    if (change) change.textContent = 'Salir de invitado';
+    restart?.addEventListener('click', startGuestGame);
+    change?.addEventListener('click', leaveGuestMode);
+  } else {
+    a.querySelector('#restartSessionBtn')?.addEventListener('click', startGame);
+    a.querySelector('#changeSubjectBtn')?.addEventListener('click', showSessionSetup);
+  }
   updateBrandHomeState();
   launchConfetti(null, 80);
 }
@@ -401,7 +431,64 @@ function setLoginBusy(busy) {
   if (pass) pass.disabled = !!busy;
 }
 
+function enterAsGuest(){
+  if (loginInProgress) return;
+  guestMode = true;
+  usuarioActual = 'Invitado';
+  cursoActual = '';
+  subjectSelected = 'General';
+  sessionMode = 'guest';
+  showDeviceAccessInfo(null);
+  setLoginStatus('');
+  document.getElementById('welcome').style.display = 'none';
+  document.getElementById('welcome').setAttribute('aria-hidden', 'true');
+  document.getElementById('session-setup').style.display = 'none';
+  document.getElementById('session-setup').setAttribute('aria-hidden', 'true');
+  document.getElementById('subject-wrapper').hidden = true;
+  startGuestGame();
+}
+
+function startGuestGame(){
+  guestMode = true;
+  usuarioActual = 'Invitado';
+  subjectSelected = 'General';
+  queue = freshGuestQuestions();
+  current = null;
+  document.getElementById('session-setup').style.display = 'none';
+  document.getElementById('game').style.display = 'block';
+  document.getElementById('progress-track')?.classList.add('is-active');
+  document.getElementById('subject-wrapper')?.classList.remove('is-compact');
+  sessionStats = createSessionStats(GUEST_QUESTIONS.length);
+  score = 0;
+  updateSessionHud();
+  nextQ();
+  updateBrandHomeState();
+}
+
+function leaveGuestMode(){
+  guestMode = false;
+  usuarioActual = null;
+  cursoActual = null;
+  subjectSelected = '';
+  queue = [];
+  current = null;
+  sessionStats = null;
+  preguntaActual = null;
+  document.getElementById('game').style.display = 'none';
+  document.getElementById('progress-track')?.classList.remove('is-active');
+  document.getElementById('subject-wrapper').hidden = true;
+  const welcome = document.getElementById('welcome');
+  welcome.style.display = '';
+  welcome.setAttribute('aria-hidden', 'false');
+  document.getElementById('score').innerText = '0';
+  document.getElementById('streak').innerText = '0';
+  document.getElementById('progress').innerText = `0/${SESSION_SIZE}`;
+  document.getElementById('progress-bar').style.width = '0%';
+  updateBrandHomeState();
+}
+
 async function login(){
+  guestMode = false;
   if (loginInProgress) return;
   const nameInput = document.getElementById('name').value;
   const name = AprendaliaAccess.normalizeUsername(nameInput);
@@ -642,7 +729,8 @@ function abandonCurrentSession(){
   document.getElementById('streak').innerText = '0';
   document.getElementById('progress').innerText = `0/${SESSION_SIZE}`;
   document.getElementById('progress-bar').style.width = '0%';
-  showSessionSetup();
+  if (guestMode) leaveGuestMode();
+  else showSessionSetup();
 }
 
 function updateBrandHomeState(){
@@ -740,8 +828,11 @@ function nextQ(){
 
   const eyebrow = document.getElementById('exercise-eyebrow');
   if (eyebrow) {
-    const meta = AprendaliaCurriculum.resolve(current);
-    eyebrow.innerText = `${getExerciseLabel(current.tipo)} · ${meta.topic} › ${meta.concept} · Nivel ${current.nivel}`;
+    if (guestMode) eyebrow.innerText = `${getExerciseLabel(current.tipo)} · Cuestionario de invitado · Pregunta ${sessionStats?.presented || 1} de ${GUEST_QUESTIONS.length}`;
+    else {
+      const meta = AprendaliaCurriculum.resolve(current);
+      eyebrow.innerText = `${getExerciseLabel(current.tipo)} · ${meta.topic} › ${meta.concept} · Nivel ${current.nivel}`;
+    }
   }
 
   current.usedHint = false;
@@ -804,6 +895,7 @@ function nextQ(){
 /* ==================================================================================================================== */
 
 function shuffle(array){
+  if (guestMode) return array;
   for(let i = array.length - 1; i > 0; i--){
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];

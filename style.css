@@ -482,3 +482,11 @@ input.disabled, input:disabled { opacity: .62; pointer-events: none; }
 .setup-progress-bar { height:8px; overflow:hidden; border-radius:999px; background:var(--border); }
 .setup-progress-bar span { display:block; height:100%; width:0; border-radius:inherit; background:currentColor; transition:width .25s ease; }
 .setup-progress .setup-coverage { margin:8px 0 0 !important; text-align:left; }
+
+
+/* Acceso de invitado */
+.guest-divider { display:flex; align-items:center; gap:12px; color:#7a7f95; font-size:.9rem; margin:2px 0; }
+.guest-divider::before, .guest-divider::after { content:''; flex:1; height:1px; background:#dde0ec; }
+.guest-divider span { padding:0 4px; }
+.guest-btn { width:100%; justify-content:center; }
+.guest-note { margin:0; color:#6d7287; font-size:.86rem; line-height:1.35; text-align:center; }
