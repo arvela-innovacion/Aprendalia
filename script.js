@@ -9,6 +9,7 @@ let preguntaActual = null;
 let usuarioActual = null;
 let cursoActual = null;
 let curriculumLoaded = false;
+let questionTypesLoaded = false;
 let sessionMode = 'adaptive';
 let guestMode = false;
 
@@ -579,7 +580,8 @@ function syncSubjectsForCourse(){
   const select = document.getElementById('subject');
   const current = document.getElementById('subject-current');
   if (!wrapper || !list || !select || !cursoActual) return;
-  const available = new Set(courseQuestions().map(q=>q.asignatura));
+  const available = new Set(courseQuestions().map(q=>q.asignatura).filter(Boolean));
+  // Only curriculum-configured subjects are selectable. New/unknown subjects are rejected by validation.
   const subjects = AprendaliaCurriculum.subjects(cursoActual).filter(item=>available.has(item.id));
   list.innerHTML = subjects.map((item,i)=>`<li role="option" tabindex="0" data-value="${escapeHtml(item.id)}" aria-selected="${i===0?'true':'false'}">${escapeHtml(item.icon||'✨')} ${escapeHtml(item.label||item.id)}</li>`).join('');
   select.innerHTML = subjects.map(item=>`<option value="${escapeHtml(item.id)}">${escapeHtml(item.label||item.id)}</option>`).join('');
@@ -594,6 +596,12 @@ function syncSubjectsForCourse(){
 
 async function ensureQuestionsLoaded(){
   await ensureCurriculumLoaded();
+  if (!questionTypesLoaded) {
+    const typeResponse = await fetch('question-types.json');
+    if (!typeResponse.ok) throw new Error(`No se pudo cargar question-types.json (${typeResponse.status})`);
+    AprendaliaContent.setQuestionTypes(await typeResponse.json());
+    questionTypesLoaded = true;
+  }
   if (questions.length) return questions;
   const r = await fetch('questions.csv');
   if (!r.ok) throw new Error(`No se pudo cargar questions.csv (${r.status})`);
@@ -690,13 +698,7 @@ async function showParentsZone(){
 }
 
 function getExerciseLabel(tipo){
-  const labels = {
-    test:'Elige la respuesta', verdadero_falso:'Verdadero o falso', completar:'Completa la frase',
-    ordenar:'Ponlo en orden', arrastrar:'Relaciona', cual_no_encaja:'¿Cuál no encaja?',
-    escribir:'Escribe tu respuesta', clasificar:'Clasifica', guess:'Escucha y elige',
-    listening:'Listening', pronunciar:'Pronunciación', hablar:'Speaking'
-  };
-  return labels[tipo] || 'Piensa y responde';
+  return AprendaliaContent?.getQuestionType?.(tipo)?.label || 'Piensa y responde';
 }
 
 
@@ -843,8 +845,8 @@ function nextQ(){
   if (dontKnowBtn) { dontKnowBtn.style.display = 'inline-flex'; dontKnowBtn.disabled = false; }
 
   // En ejercicios puramente auditivos no mostramos el texto objetivo.
-  const hideQuestionText = ['listening', 'guess', 'pronunciar', 'hablar'].includes(current.tipo);
-  q.innerText = hideQuestionText ? (current.tipo === 'pronunciar' || current.tipo === 'hablar' ? 'Escucha y repite' : 'Escucha con atención') : current.pregunta;
+  const hideQuestionText = ['listening', 'guess', 'pronunciar'].includes(current.tipo);
+  q.innerText = hideQuestionText ? (current.tipo === 'pronunciar' ? 'Escucha y escribe' : 'Escucha con atención') : current.pregunta;
 
   if(current.tipo==='escribir'){
     w.value='';

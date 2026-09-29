@@ -98,6 +98,7 @@ para el usuario final.
 ├── girl.png
 ├── questions.csv
 ├── curriculum.json
+├── question-types.json
 ├── questions_ayer.csv
 ├── questions_ayer2.csv
 ├── README.md
@@ -151,7 +152,7 @@ generación/identificación del dispositivo.
 **`src/data/storage.js`** encapsula `localStorage`, versiona el esquema
 y realiza migraciones de versiones anteriores.
 
-**`src/data/content-model.js`** define el contrato del nuevo `questions.csv`, parsea CSV con separador `;`, normaliza campos y valida IDs, curso, asignatura, tema, concepto, nivel, tipo, opciones y estado activo.
+**`src/data/content-model.js`** define el contrato de `questions.csv`, parsea CSV con separador `;`, normaliza campos y valida la integridad mínima del banco: columnas, IDs, curso/asignatura, nivel, tipo, respuestas/opciones y estado activo. El currículo no actúa como una lista cerrada de conceptos.
 
 **`src/data/curriculum.js`** carga `curriculum.json` y resuelve las etiquetas visibles de curso, asignatura, tema y concepto. El currículo es la fuente estructural; el CSV contiene ejercicios asociados a esa estructura.
 
@@ -185,7 +186,7 @@ Zona de padres e identifica alumno, curso, asignatura, temas, conceptos, niveles
 **`tests/run-tests.js`** ejecuta tests unitarios/smoke tests del núcleo
 sin navegador real.
 
-**`tools/validate-content.js`** valida `questions.csv` contra `curriculum.json` y, para el banco de prueba actual, comprueba que haya exactamente 10 preguntas por combinación curso/asignatura/tema/concepto/nivel/tipo.
+**`tools/validate-content.js`** valida la integridad de `questions.csv` y muestra como advertencias las referencias curriculares que no estén registradas en `curriculum.json`.
 
 ------------------------------------------------------------------------
 
@@ -1117,23 +1118,27 @@ activa
 
 - `id`: identidad única e inmutable.
 - `curso`: por ejemplo `3EP`.
-- `asignatura`: ID de asignatura definido en el currículo.
-- `tema`: ID estable del tema.
-- `concepto`: ID estable del concepto.
-- `nivel`: dificultad interna del concepto; actualmente 1, 2 o 3 en el banco de prueba.
-- `tipo`: uno de los tipos que Aprendalia sabe renderizar.
+- `asignatura`: identificador de una asignatura configurada en `curriculum.json`. No se admiten asignaturas nuevas automáticamente.
+- `tema`: identificador libre del tema. No necesita estar registrado previamente. Si está vacío, el parser usa `general`.
+- `concepto`: identificador libre del concepto. Si está vacío, el parser asigna automáticamente `general`.
+- `nivel`: dificultad interna; actualmente se recomienda 1, 2 o 3 para el contenido de Primaria.
+- `tipo`: uno de los tipos definidos en `question-types.json`.
 - `pregunta`, `opciones`, `respuesta_correcta`, `extra`: contenido del ejercicio.
 - `activa`: `1` permite usar la pregunta; `0` la retira sin borrar su ID ni su histórico.
 
 ### `curriculum.json`
 
-El currículo define **curso → asignatura → tema → concepto**, etiquetas visibles, orden, niveles permitidos y tipos de ejercicio autorizados. Los nombres visibles pueden cambiar sin tener que cambiar los IDs internos.
+El currículo contiene únicamente la **estructura cerrada de cursos y asignaturas** que la aplicación permite seleccionar, junto con sus etiquetas visibles, iconos y orden. No registra temas, conceptos ni tipos de pregunta.
 
-`curriculum.json` es la **fuente de verdad de la estructura pedagógica**. `questions.csv` no inventa temas o conceptos: cada fila debe apuntar a una combinación admitida por el currículo. Esto permite cambiar etiquetas visibles, ordenar contenidos y ampliar cursos sin mezclar esas decisiones con el texto de las preguntas.
+Una asignatura que no esté definida en `curriculum.json` se considera inválida y no se muestra en la interfaz. Esto evita que un CSV mal generado pueda introducir asignaturas nuevas de forma accidental.
 
-El campo `course` del usuario debe coincidir con un ID de `courses`. Tras el login, Aprendalia filtra el banco por ese curso. El alumno sólo ve asignaturas de su curso que además tengan preguntas activas; no puede cambiar de curso desde la interfaz.
+Los campos `tema` y `concepto` del CSV son deliberadamente libres y no necesitan existir en este archivo.
 
-El banco de prueba incluido actualmente contiene sólo `3EP` y cuatro asignaturas: Lengua, Matemáticas, Inglés y Socials. Incluye 8 conceptos, 3 niveles y 2 tipos por concepto. Hay exactamente **10 preguntas por combinación** curso/asignatura/tema/concepto/nivel/tipo: 48 combinaciones y 480 preguntas. Su finalidad es probar la estructura, no representar el contenido definitivo.
+### `question-types.json`
+
+Este archivo es el catálogo único de tipos de ejercicio que el motor sabe cargar. Cada tipo define, además de su etiqueta visible, las restricciones estructurales necesarias para validar el contenido: si necesita opciones, número mínimo/máximo, si la respuesta debe ser una de ellas, etc.
+
+Cuando se incorpora un nuevo tipo de ejercicio, primero debe existir su renderizador y después añadirse al catálogo. Un tipo que no aparezca aquí bloquea la carga del banco.
 
 Los ficheros `questions_ayer.csv` y `questions_ayer2.csv` se conservan como snapshots históricos y no participan en la carga actual.
 
@@ -1141,11 +1146,13 @@ Los ficheros `questions_ayer.csv` y `questions_ayer2.csv` se conservan como snap
 
 ## 24. Carga y validación del contenido
 
-`script.js` carga primero `curriculum.json` y después `questions.csv`. `src/data/content-model.js` parsea el CSV con soporte de campos entrecomillados y valida el banco contra el currículo antes de iniciar sesiones.
+`script.js` carga primero `curriculum.json` y después `questions.csv`. `src/data/content-model.js` parsea el CSV con soporte de campos entrecomillados y valida su integridad antes de iniciar sesiones.
 
-Si el CSV contiene errores estructurales o referencias a curso/asignatura/tema/concepto/nivel/tipo no definidos, la carga falla de forma explícita en lugar de dejar que aparezcan ejercicios rotos durante una sesión.
+Los temas y conceptos desconocidos no bloquean la carga porque forman parte del contenido, no de la configuración de la aplicación. En cambio, una asignatura no definida para el curso del alumno sí bloquea la fila y nunca se añade automáticamente a la interfaz.
 
-La selección visible de asignaturas se genera dinámicamente a partir del curso del alumno y de las asignaturas que tengan preguntas activas.
+Los tipos de ejercicio se validan contra `question-types.json`; un tipo desconocido bloquea la carga. También bloquean los errores que impiden interpretar o presentar un ejercicio correctamente, como un ID duplicado, columnas defectuosas, nivel inválido, opciones duplicadas o una respuesta incompatible con el tipo.
+
+La selección visible de asignaturas se genera exclusivamente a partir de `curriculum.json` y se limita a las asignaturas configuradas para el curso del alumno que además tengan preguntas activas.
 
 Para validar desde Node:
 
@@ -1153,13 +1160,43 @@ Para validar desde Node:
 node tools/validate-content.js
 ```
 
-El validador comprueba, entre otras cosas, IDs únicos, columnas obligatorias, referencias al currículo, tipos soportados, niveles permitidos, respuestas incluidas en opciones cuando corresponde, opciones duplicadas y estructura de ejercicios de ordenar/arrastrar/clasificar. En el CSV de prueba también verifica las 10 preguntas por combinación.
+El validador comprueba, entre otras cosas, IDs únicos, columnas obligatorias, filas con el número correcto de columnas, asignaturas permitidas por curso, tipos definidos en `question-types.json`, nivel válido, respuestas incluidas en opciones cuando corresponde, opciones duplicadas y estructura de ejercicios de ordenar/arrastrar/clasificar. Tema y concepto son metadatos libres; si faltan se convierten en `general`.
 
 Para probar en navegador debe servirse por HTTP/HTTPS, por ejemplo:
 
 ``` bash
 python3 -m http.server 8000
 ```
+
+
+### Flujo quincenal de contenidos
+
+Para añadir contenido nuevo sin tocar el código, crea un CSV dentro de `question-banks/`, por ejemplo `2026-10-lengua.csv`. Usa la misma estructura de 12 columnas y conserva los IDs de preguntas ya publicadas cuando se edite contenido existente.
+
+El contrato de autoría está documentado en `QUESTION_AUTHORING.md` y resumido en `question-schema.json`. Si falta un ID, Aprendalia genera uno determinista durante la carga; el compilador lo persiste en el CSV final para que pueda mantenerse estable en futuras ediciones.
+
+Antes de publicar un bloque nuevo:
+
+``` bash
+node tools/validate-content.js --file question-banks/2026-10-lengua.csv
+node tools/compile-questions.js
+node tools/validate-content.js
+node tests/run-tests.js
+```
+
+`tools/validate-content.js` detecta IDs duplicados, preguntas equivalentes y respuestas incompatibles. `tools/compile-questions.js` combina el banco base con todos los CSV de `question-banks/` y vuelve a comprobar IDs y duplicados antes de escribir `questions.csv`.
+
+### Tipos de ejercicio y dictado
+
+El tipo de pregunta sí es un contrato cerrado porque la interfaz necesita un renderizador. Para dictado en español se debe usar `pronunciar`: la frase objetivo queda en `respuesta_correcta`, el alumno no ve la respuesta y la aplicación la reproduce mediante TTS en español. La comprobación mantiene la ortografía y sólo permite una tolerancia mínima para errores de escritura en frases largas.
+
+### Selección adaptativa por concepto
+
+La selección se hace por dos capas: primero decide qué conceptos necesitan atención y después qué pregunta concreta conviene presentar. Los conceptos nuevos tienen prioridad; en contenido nuevo se favorecen niveles iniciales y, cuando un concepto está consolidado, aumentan las probabilidades de niveles 2 y 3. Además, la sesión intenta cubrir distintos conceptos antes de repetir el mismo.
+
+La Zona de padres incluye un bloque `Qué conviene practicar ahora` con los conceptos nuevos, pendientes y difíciles que explican la siguiente prioridad de estudio.
+
+------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 
@@ -1464,7 +1501,7 @@ La arquitectura actual ya utiliza IDs de pregunta únicos e inmutables. Para man
 - corregir texto, opciones o metadatos no requiere cambiar el ID si sigue siendo pedagógicamente la misma pregunta;
 - si el ejercicio cambia de significado o evalúa otro concepto, debe crearse un ID nuevo;
 - para retirar una pregunta existente se recomienda `activa=0` en lugar de borrarla;
-- `curso`, `asignatura`, `tema` y `concepto` deben referenciar IDs existentes en `curriculum.json`;
+- `curso` y `asignatura` deben estar configurados en `curriculum.json`; `tema` y `concepto` son libres y, si faltan, se usa `general`; `tipo` debe existir en `question-types.json`;
 - los nombres visibles se cambian en el currículo sin necesidad de renombrar esos IDs internos;
 - antes de desplegar contenido debe ejecutarse `node tools/validate-content.js`.
 

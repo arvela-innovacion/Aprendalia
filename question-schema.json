@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Aprendalia Question CSV Row",
+  "description": "Contrato estructural de una pregunta. Los tipos válidos se mantienen en question-types.json.",
+  "type": "object",
+  "required": ["id", "curso", "asignatura", "tema", "concepto", "nivel", "tipo", "pregunta", "opciones", "respuesta_correcta", "extra", "activa"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "curso": {"type": "string", "minLength": 1},
+    "asignatura": {"type": "string", "minLength": 1, "description": "Debe existir en curriculum.json para el curso indicado."},
+    "tema": {"type": "string", "description": "Metadato libre; vacío se normaliza a general."},
+    "concepto": {"type": "string", "description": "Metadato libre; vacío se normaliza a general."},
+    "nivel": {"type": "integer", "minimum": 1, "maximum": 3},
+    "tipo": {"type": "string", "description": "Debe existir en question-types.json."},
+    "pregunta": {"type": "string", "minLength": 1},
+    "opciones": {"type": "string"},
+    "respuesta_correcta": {"type": "string", "minLength": 1},
+    "extra": {"type": "string"},
+    "activa": {"type": ["string", "boolean", "integer"]}
+  },
+  "x-csv-columns": ["id", "curso", "asignatura", "tema", "concepto", "nivel", "tipo", "pregunta", "opciones", "respuesta_correcta", "extra", "activa"],
+  "x-rules": {
+    "emptyConceptDefault": "general",
+    "emptyTopicDefault": "general",
+    "allowedSubjectsSource": "curriculum.json",
+    "allowedTypesSource": "question-types.json",
+    "duplicatePolicy": "block-equivalent-active-questions"
+  }
+}

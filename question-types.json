@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "questionTypes": {
+    "test": {
+      "label": "Elige la respuesta",
+      "requiresOptions": true,
+      "minOptions": 2,
+      "maxOptions": 6,
+      "singleAnswer": true
+    },
+    "verdadero_falso": {
+      "label": "Verdadero o falso",
+      "requiresOptions": true,
+      "minOptions": 2,
+      "maxOptions": 2,
+      "singleAnswer": true
+    },
+    "escribir": {
+      "label": "Escribe tu respuesta",
+      "requiresOptions": false,
+      "requiresAnswer": true
+    },
+    "completar": {
+      "label": "Completa la frase",
+      "requiresOptions": true,
+      "minOptions": 2,
+      "maxOptions": 6,
+      "singleAnswer": true
+    },
+    "ordenar": {
+      "label": "Ponlo en orden",
+      "requiresOptions": true,
+      "minOptions": 2,
+      "sameItemCountInAnswer": true
+    },
+    "arrastrar": {
+      "label": "Relaciona",
+      "requiresOptions": true,
+      "minOptions": 2,
+      "sameItemCountInAnswer": true
+    },
+    "cual_no_encaja": {
+      "label": "¿Cuál no encaja?",
+      "requiresOptions": true,
+      "minOptions": 2,
+      "maxOptions": 6,
+      "singleAnswer": true
+    },
+    "clasificar": {
+      "label": "Clasifica",
+      "requiresOptions": true,
+      "minOptions": 2,
+      "classificationAnswer": true
+    },
+    "guess": {
+      "label": "Escucha y elige",
+      "requiresOptions": true,
+      "minOptions": 2,
+      "maxOptions": 6,
+      "singleAnswer": true
+    },
+    "listening": {
+      "label": "Listening",
+      "requiresOptions": false,
+      "optionalOptions": true,
+      "singleAnswer": false
+    },
+    "pronunciar": {
+      "label": "Pronunciación / Dictado",
+      "requiresOptions": false,
+      "requiresAnswer": true,
+      "audioExpected": true
+    },
+    "hablar": {
+      "label": "Speaking",
+      "requiresOptions": false,
+      "requiresAnswer": true,
+      "audioExpected": true
+    }
+  }
+}
