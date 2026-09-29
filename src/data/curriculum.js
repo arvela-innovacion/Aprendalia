@@ -18,15 +18,20 @@
   function course(id){ return data?.courses?.[id] || null; }
   function subjects(courseId){
     const subjects=course(courseId)?.subjects || {};
-    return Object.entries(subjects).sort((a,b)=>(a[1].order||0)-(b[1].order||0)).map(([id,value])=>({id,...value}));
+    return Object.entries(subjects)
+      .sort((a,b)=>(a[1].order||0)-(b[1].order||0))
+      .map(([id,value])=>({id,...value}));
   }
   function subject(courseId,subjectId){ return course(courseId)?.subjects?.[subjectId] || null; }
-  function topic(courseId,subjectId,topicId){ return subject(courseId,subjectId)?.topics?.[topicId] || null; }
-  function concept(courseId,subjectId,topicId,conceptId){ return topic(courseId,subjectId,topicId)?.concepts?.[conceptId] || null; }
-  function labelCourse(courseId){ return course(courseId)?.label || courseId || 'Curso sin definir'; }
-  function labelSubject(courseId,subjectId){ return subject(courseId,subjectId)?.label || subjectId || 'Asignatura'; }
-  function labelTopic(q){ return topic(q.curso,q.asignatura,q.tema)?.label || q.tema || 'Tema'; }
-  function labelConcept(q){ return concept(q.curso,q.asignatura,q.tema,q.concepto)?.label || q.concepto || 'Concepto'; }
+  function humanizeId(value,fallback='') {
+    const raw=String(value||fallback||'').trim();
+    if(!raw) return '';
+    return raw.replace(/[_-]+/g,' ').replace(/\s+/g,' ').replace(/\b\w/g,ch=>ch.toUpperCase());
+  }
+  function labelCourse(courseId){ return course(courseId)?.label || humanizeId(courseId,'Curso sin definir') || 'Curso sin definir'; }
+  function labelSubject(courseId,subjectId){ return subject(courseId,subjectId)?.label || humanizeId(subjectId,'Asignatura') || 'Asignatura'; }
+  function labelTopic(q){ return humanizeId(q?.tema,'Tema') || 'Tema'; }
+  function labelConcept(q){ return humanizeId(q?.concepto,'Concepto') || 'Concepto'; }
   function iconSubject(courseId,subjectId){ return subject(courseId,subjectId)?.icon || '✨'; }
   function resolve(q){
     return {
@@ -38,5 +43,5 @@
     };
   }
 
-  global.AprendaliaCurriculum={load,current,course,subjects,subject,topic,concept,labelCourse,labelSubject,labelTopic,labelConcept,iconSubject,resolve};
+  global.AprendaliaCurriculum={load,current,course,subjects,subject,labelCourse,labelSubject,labelTopic,labelConcept,iconSubject,resolve};
 })(window);
