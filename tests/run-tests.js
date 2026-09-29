@@ -44,20 +44,53 @@ load('src/core/question-selector.js');
 load('src/data/content-model.js');
 
 const curriculum=JSON.parse(fs.readFileSync('curriculum.json','utf8'));
+const typeCatalog=JSON.parse(fs.readFileSync('question-types.json','utf8'));
+context.AprendaliaContent.setQuestionTypes(typeCatalog);
 const csv=fs.readFileSync('questions.csv','utf8');
 const parsed=context.AprendaliaContent.parseQuestionsCsv(csv);
 const validation=context.AprendaliaContent.validateQuestions(parsed.headers,parsed.questions,curriculum);
-assert.strictEqual(validation.ok,true,'generated CSV matches curriculum');
-assert.strictEqual(parsed.questions.length,480,'test bank has 480 questions');
-assert.strictEqual(parsed.questions.filter(q=>q.curso==='3EP'&&q.activa).length,480,'all sample questions belong to active 3EP bank');
+assert.strictEqual(validation.ok,true,'generated CSV passes structural validation');
+assert.strictEqual(parsed.questions.length,500,'test bank has 500 questions');
+assert.strictEqual(parsed.questions.filter(q=>q.curso==='3EP'&&q.activa).length,500,'all sample questions belong to active 3EP bank');
 
-const comboCounts=new Map();
-parsed.questions.forEach(q=>{
-  const key=[q.curso,q.asignatura,q.tema,q.concepto,q.nivel,q.tipo].join('|');
-  comboCounts.set(key,(comboCounts.get(key)||0)+1);
-});
-assert.strictEqual(comboCounts.size,48,'sample bank has 48 curriculum combinations');
-assert([...comboCounts.values()].every(n=>n===10),'every combination has exactly 10 questions');
+// Curriculum metadata is descriptive: unknown topic/concept and type/level combinations must not block loading.
+const permissiveCsv = [
+  'id;curso;asignatura;tema;concepto;nivel;tipo;pregunta;opciones;respuesta_correcta;extra;activa',
+  'PX1;3EP;Matematicas;numeracion;valor_posicional;2;test;¿Qué valor tiene el 5 en 542?;500|50|5|2;500;Pista;1',
+  ';3EP;Ciencia;experimentos;;1;escribir;Escribe una palabra; ;agua;Pista;1'
+].join('\n');
+const permissiveParsed = context.AprendaliaContent.parseQuestionsCsv(permissiveCsv);
+const permissiveValidation = context.AprendaliaContent.validateQuestions(permissiveParsed.headers,permissiveParsed.questions,curriculum);
+assert.strictEqual(permissiveParsed.questions[1].concepto,'general','empty concept falls back to general');
+assert.strictEqual(permissiveValidation.ok,false,'unknown subject is still blocked while topic/concept metadata stays free');
+assert(permissiveValidation.errors.some(e=>e.code==='unknown_subject'),'unknown subject is blocked by closed curriculum');
+const knownSubjectFreeMeta = {...permissiveParsed.questions[1], id:'PX2', asignatura:'Matematicas', tema:'experimentos', concepto:'concepto_nuevo'};
+const freeMetaValidation = context.AprendaliaContent.validateQuestions(context.AprendaliaContent.REQUIRED_COLUMNS,[knownSubjectFreeMeta],curriculum);
+assert.strictEqual(freeMetaValidation.ok,true,'new topic/concept is valid inside a configured subject');
+assert.strictEqual(permissiveParsed.questions[1].id.startsWith('AUTO_'),true,'blank ID gets a deterministic generated ID');
+assert.strictEqual(context.AprendaliaContent.generateStableId(permissiveParsed.questions[1]),permissiveParsed.questions[1].id,'generated ID is deterministic');
+assert.strictEqual(permissiveValidation.warnings.length,0,'validation produces no curriculum warnings');
+
+const relaxedCombo = [{id:'PX3',curso:'3EP',asignatura:'Matematicas',tema:'experimentos',concepto:'concepto_nuevo',nivel:3,tipo:'test',pregunta:'¿Cuál es una opción?',opciones:'A|B',respuesta:'A',activa:true,_activaRaw:'1'}];
+const relaxedValidation = context.AprendaliaContent.validateQuestions(context.AprendaliaContent.REQUIRED_COLUMNS,relaxedCombo,curriculum);
+assert.strictEqual(relaxedValidation.ok,true,'new topic/concept and valid type are accepted inside a configured subject');
+const badType = {...relaxedCombo[0],id:'PX4',tipo:'tipo_inventado'};
+const badTypeValidation = context.AprendaliaContent.validateQuestions(context.AprendaliaContent.REQUIRED_COLUMNS,[badType],curriculum);
+assert.strictEqual(badTypeValidation.ok,false,'unknown exercise type remains blocked');
+assert(badTypeValidation.errors.some(e=>e.code==='unsupported_type'),'unsupported type is the relevant blocking validation');
+const unknownSubject = {...relaxedCombo[0],id:'PX5',asignatura:'Ciencia'};
+const unknownSubjectValidation = context.AprendaliaContent.validateQuestions(context.AprendaliaContent.REQUIRED_COLUMNS,[unknownSubject],curriculum);
+assert.strictEqual(unknownSubjectValidation.ok,false,'unconfigured subject remains blocked');
+assert(unknownSubjectValidation.errors.some(e=>e.code==='unknown_subject'),'unknown subject is reported explicitly');
+const duplicateQuestionCsv=[
+  'id;curso;asignatura;tema;concepto;nivel;tipo;pregunta;opciones;respuesta_correcta;extra;activa',
+  'D1;3EP;Matematicas;calculo;general;1;test;¿Cuál es mayor?;10|20|30;30;;1',
+  'D2;3EP;Matematicas;calculo;general;1;test;¿Cuál es mayor?;30|10|20;30;;1'
+].join('\n');
+const duplicateParsed=context.AprendaliaContent.parseQuestionsCsv(duplicateQuestionCsv);
+const duplicateValidation=context.AprendaliaContent.validateQuestions(duplicateParsed.headers,duplicateParsed.questions,curriculum);
+assert.strictEqual(duplicateValidation.ok,false,'equivalent duplicate is blocked even if options are reordered');
+assert(duplicateValidation.errors.some(e=>e.code==='duplicate_question'),'duplicate question is explicitly reported');
 
 const q=(id,concept='sumas',level=1)=>({id,curso:'3EP',asignatura:'Matematicas',tema:'calculo',concepto:concept,nivel:level,tipo:'test',pregunta:`Pregunta ${id}`,respuesta:'A',activa:true});
 const questions=[...Array.from({length:10},(_,i)=>q(`S${i+1}`,'sumas',1)),...Array.from({length:10},(_,i)=>q(`R${i+1}`,'restas',1))];
