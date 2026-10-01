@@ -33,6 +33,16 @@
       course: '3EP',
       devices: Object.freeze([])
     }),
+    naiara: Object.freeze({
+      password: 'Naiara31',
+      course: '3EP',
+      devices: Object.freeze([])
+    }),
+    naihara: Object.freeze({
+      password: 'Naihara76',
+      course: '3EP',
+      devices: Object.freeze([])
+    }),
     sergio: Object.freeze({
       password: 'Sergio58',
       course: '3EP',
