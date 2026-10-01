@@ -1152,28 +1152,28 @@ N01527;3EP;Lengua;comunicacion;formas_comunicacion;1;clasificar;Clasifica ejempl
 N01528;3EP;Lengua;comunicacion;formas_comunicacion;2;clasificar;Clasifica según comuniquen principalmente con palabras o con señales visuales. Actividad 44.;carta|conversación|semáforo|pictograma;palabras:carta,conversación|señales:semáforo,pictograma;Lee los nombres de las dos categorías y coloca primero las palabras que reconozcas con seguridad.;1
 N01529;3EP;Lengua;comunicacion;lenguas;3;clasificar;Clasifica las lenguas según se hablen en España o sean ejemplos de otros países. Actividad 45.;castellano|gallego|francés|italiano;España:castellano,gallego|otros países:francés,italiano;Lee los nombres de las dos categorías y coloca primero las palabras que reconozcas con seguridad.;1
 N01530;3EP;Lengua;vocabulario;sinonimos;1;clasificar;Clasifica según sean sinónimos de feliz o de rápido. Actividad 46.;contento|alegre|veloz|ligero;feliz:contento,alegre|rápido:veloz,ligero;Lee los nombres de las dos categorías y coloca primero las palabras que reconozcas con seguridad.;1
-EN_Q0001;3EP;Ingles;vocabulario;alimentos;1;test;"What does ""pasta"" mean in Spanish?";pasta|atun|helado|queso;pasta;Think about the food word you know in English.;1
-EN_Q0002;3EP;Ingles;vocabulario;alimentos;2;test;"Which English word means ""pasta""?";pasta|chicken|pancakes|vegetables;pasta;Look for the English food word that matches the Spanish meaning.;1
-EN_Q0003;3EP;Ingles;vocabulario;alimentos;1;test;"What does ""rice"" mean in Spanish?";arroz|pollo|salsa de tomate|verduras;arroz;Think about the food word you know in English.;1
-EN_Q0004;3EP;Ingles;vocabulario;alimentos;2;test;"Which English word means ""arroz""?";rice|strawberries|ice cream|mushrooms;rice;Look for the English food word that matches the Spanish meaning.;1
-EN_Q0005;3EP;Ingles;vocabulario;alimentos;1;test;"What does ""tomato sauce"" mean in Spanish?";salsa de tomate|galletas|champiñones|pollo;salsa de tomate;Think about the food word you know in English.;1
-EN_Q0006;3EP;Ingles;vocabulario;alimentos;2;test;"Which English word means ""salsa de tomate""?";tomato sauce|crisps|pasta|vegetables;tomato sauce;Look for the English food word that matches the Spanish meaning.;1
-EN_Q0007;3EP;Ingles;vocabulario;alimentos;1;test;"What does ""sandwiches"" mean in Spanish?";bocadillos|salsa de tomate|pollo|arroz;bocadillos;Think about the food word you know in English.;1
-EN_Q0008;3EP;Ingles;vocabulario;alimentos;2;test;"Which English word means ""bocadillos""?";sandwiches|salad|pasta|fruit;sandwiches;Look for the English food word that matches the Spanish meaning.;1
-EN_Q0009;3EP;Ingles;vocabulario;alimentos;1;test;"What does ""tuna"" mean in Spanish?";atun|pasta|bocadillos|fresas;atun;Think about the food word you know in English.;1
-EN_Q0010;3EP;Ingles;vocabulario;alimentos;2;test;"Which English word means ""atun""?";tuna|mushrooms|salad|tomato sauce;tuna;Look for the English food word that matches the Spanish meaning.;1
-EN_Q0011;3EP;Ingles;vocabulario;alimentos;1;test;"What does ""cheese"" mean in Spanish?";queso|pasta|fruta|verduras;queso;Think about the food word you know in English.;1
-EN_Q0012;3EP;Ingles;vocabulario;alimentos;1;test;"What does ""mushrooms"" mean in Spanish?";champiñones|atun|arroz|salsa de tomate;champiñones;Think about the food word you know in English.;1
-EN_Q0013;3EP;Ingles;vocabulario;alimentos;1;test;"What does ""salad"" mean in Spanish?";ensalada|fruta|bocadillos|pasta;ensalada;Think about the food word you know in English.;1
-EN_Q0014;3EP;Ingles;vocabulario;alimentos;1;test;"What does ""bread"" mean in Spanish?";pan|galletas|verduras|patatas fritas;pan;Think about the food word you know in English.;1
-EN_Q0015;3EP;Ingles;vocabulario;alimentos;1;test;"What does ""pancakes"" mean in Spanish?";tortitas|pollo|fresas|ensalada;tortitas;Think about the food word you know in English.;1
-EN_Q0016;3EP;Ingles;vocabulario;alimentos;1;test;"What does ""strawberries"" mean in Spanish?";fresas|queso|helado|pan;fresas;Think about the food word you know in English.;1
-EN_Q0017;3EP;Ingles;vocabulario;alimentos;1;test;"What does ""fruit"" mean in Spanish?";fruta|pan|pollo|verduras;fruta;Think about the food word you know in English.;1
-EN_Q0018;3EP;Ingles;vocabulario;alimentos;1;test;"What does ""vegetables"" mean in Spanish?";verduras|galletas|tortitas|champiñones;verduras;Think about the food word you know in English.;1
-EN_Q0019;3EP;Ingles;vocabulario;alimentos;1;test;"What does ""chicken"" mean in Spanish?";pollo|champiñones|fruta|pan;pollo;Think about the food word you know in English.;1
-EN_Q0020;3EP;Ingles;vocabulario;alimentos;1;test;"What does ""crisps"" mean in Spanish?";patatas fritas|tortitas|helado|pan;patatas fritas;Think about the food word you know in English.;1
-EN_Q0021;3EP;Ingles;vocabulario;alimentos;1;test;"What does ""biscuits"" mean in Spanish?";galletas|bocadillos|champiñones|tortitas;galletas;Think about the food word you know in English.;1
-EN_Q0022;3EP;Ingles;vocabulario;alimentos;1;test;"What does ""ice cream"" mean in Spanish?";helado|champiñones|pollo|patatas fritas;helado;Think about the food word you know in English.;1
+EN_Q0001;3EP;Ingles;vocabulario;alimentos;1;test;What does 'pasta' mean in Spanish?;pasta|atun|helado|queso;pasta;Think about the food word you know in English.;1
+EN_Q0002;3EP;Ingles;vocabulario;alimentos;2;test;Which English word means 'pasta'?;pasta|chicken|pancakes|vegetables;pasta;Look for the English food word that matches the Spanish meaning.;1
+EN_Q0003;3EP;Ingles;vocabulario;alimentos;1;test;What does 'rice' mean in Spanish?;arroz|pollo|salsa de tomate|verduras;arroz;Think about the food word you know in English.;1
+EN_Q0004;3EP;Ingles;vocabulario;alimentos;2;test;Which English word means 'arroz'?;rice|strawberries|ice cream|mushrooms;rice;Look for the English food word that matches the Spanish meaning.;1
+EN_Q0005;3EP;Ingles;vocabulario;alimentos;1;test;What does 'tomato sauce' mean in Spanish?;salsa de tomate|galletas|champiñones|pollo;salsa de tomate;Think about the food word you know in English.;1
+EN_Q0006;3EP;Ingles;vocabulario;alimentos;2;test;Which English word means 'salsa de tomate'?;tomato sauce|crisps|pasta|vegetables;tomato sauce;Look for the English food word that matches the Spanish meaning.;1
+EN_Q0007;3EP;Ingles;vocabulario;alimentos;1;test;What does 'sandwiches' mean in Spanish?;bocadillos|salsa de tomate|pollo|arroz;bocadillos;Think about the food word you know in English.;1
+EN_Q0008;3EP;Ingles;vocabulario;alimentos;2;test;Which English word means 'bocadillos'?;sandwiches|salad|pasta|fruit;sandwiches;Look for the English food word that matches the Spanish meaning.;1
+EN_Q0009;3EP;Ingles;vocabulario;alimentos;1;test;What does 'tuna' mean in Spanish?;atun|pasta|bocadillos|fresas;atun;Think about the food word you know in English.;1
+EN_Q0010;3EP;Ingles;vocabulario;alimentos;2;test;Which English word means 'atun'?;tuna|mushrooms|salad|tomato sauce;tuna;Look for the English food word that matches the Spanish meaning.;1
+EN_Q0011;3EP;Ingles;vocabulario;alimentos;1;test;What does 'cheese' mean in Spanish?;queso|pasta|fruta|verduras;queso;Think about the food word you know in English.;1
+EN_Q0012;3EP;Ingles;vocabulario;alimentos;1;test;What does 'mushrooms' mean in Spanish?;champiñones|atun|arroz|salsa de tomate;champiñones;Think about the food word you know in English.;1
+EN_Q0013;3EP;Ingles;vocabulario;alimentos;1;test;What does 'salad' mean in Spanish?;ensalada|fruta|bocadillos|pasta;ensalada;Think about the food word you know in English.;1
+EN_Q0014;3EP;Ingles;vocabulario;alimentos;1;test;What does 'bread' mean in Spanish?;pan|galletas|verduras|patatas fritas;pan;Think about the food word you know in English.;1
+EN_Q0015;3EP;Ingles;vocabulario;alimentos;1;test;What does 'pancakes' mean in Spanish?;tortitas|pollo|fresas|ensalada;tortitas;Think about the food word you know in English.;1
+EN_Q0016;3EP;Ingles;vocabulario;alimentos;1;test;What does 'strawberries' mean in Spanish?;fresas|queso|helado|pan;fresas;Think about the food word you know in English.;1
+EN_Q0017;3EP;Ingles;vocabulario;alimentos;1;test;What does 'fruit' mean in Spanish?;fruta|pan|pollo|verduras;fruta;Think about the food word you know in English.;1
+EN_Q0018;3EP;Ingles;vocabulario;alimentos;1;test;What does 'vegetables' mean in Spanish?;verduras|galletas|tortitas|champiñones;verduras;Think about the food word you know in English.;1
+EN_Q0019;3EP;Ingles;vocabulario;alimentos;1;test;What does 'chicken' mean in Spanish?;pollo|champiñones|fruta|pan;pollo;Think about the food word you know in English.;1
+EN_Q0020;3EP;Ingles;vocabulario;alimentos;1;test;What does 'crisps' mean in Spanish?;patatas fritas|tortitas|helado|pan;patatas fritas;Think about the food word you know in English.;1
+EN_Q0021;3EP;Ingles;vocabulario;alimentos;1;test;What does 'biscuits' mean in Spanish?;galletas|bocadillos|champiñones|tortitas;galletas;Think about the food word you know in English.;1
+EN_Q0022;3EP;Ingles;vocabulario;alimentos;1;test;What does 'ice cream' mean in Spanish?;helado|champiñones|pollo|patatas fritas;helado;Think about the food word you know in English.;1
 EN_Q0023;3EP;Ingles;gramatica_there_is_are;grammar_there_is_are;2;test;Choose the correct sentence.;There is some cheese.|There are some cheese.|There are a rice.|There is a mushrooms.;There is some cheese.;Check whether the noun is singular or plural.;1
 EN_Q0024;3EP;Ingles;gramatica_there_is_are;grammar_there_is_are;2;test;Choose the correct sentence.;There are some mushrooms.|There is some mushrooms.|There are a rice.|There is a mushrooms.;There are some mushrooms.;Check whether the noun is singular or plural.;1
 EN_Q0025;3EP;Ingles;gramatica_there_is_are;grammar_negative;2;test;Choose the correct sentence.;There is not any rice.|There are not any rice.|There are a rice.|There is a mushrooms.;There is not any rice.;Check whether the noun is singular or plural.;1
@@ -1184,40 +1184,40 @@ EN_Q0029;3EP;Ingles;gramatica_there_is_are;grammar_there_is_are;2;test;Choose th
 EN_Q0030;3EP;Ingles;gramatica_there_is_are;grammar_there_is_are;2;test;Choose the correct sentence.;There are some biscuits.|There is some biscuits.|There are a rice.|There is a mushrooms.;There are some biscuits.;Check whether the noun is singular or plural.;1
 EN_Q0031;3EP;Ingles;gramatica_there_is_are;grammar_question;2;test;Choose the correct sentence.;Is there any fruit?|Are there any fruit?|There are a rice.|There is a mushrooms.;Is there any fruit?;Check whether the noun is singular or plural.;1
 EN_Q0032;3EP;Ingles;gramatica_there_is_are;grammar_question;2;test;Choose the correct sentence.;Are there any vegetables?|Is there any vegetables?|There are a rice.|There is a mushrooms.;Are there any vegetables?;Check whether the noun is singular or plural.;1
-EN_Q0033;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""pasta"" means ""pasta"" in Spanish.";Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0034;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""pasta"" is not a food.";Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0035;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""rice"" means ""arroz"" in Spanish.";Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0036;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""rice"" is not a food.";Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0037;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""tomato sauce"" means ""salsa de tomate"" in Spanish.";Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0038;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""tomato sauce"" is not a food.";Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0039;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""sandwiches"" means ""bocadillos"" in Spanish.";Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0040;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""sandwiches"" is not a food.";Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0041;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""tuna"" means ""atun"" in Spanish.";Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0042;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""tuna"" is not a food.";Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0043;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""cheese"" means ""queso"" in Spanish.";Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0044;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""cheese"" is not a food.";Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0045;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""mushrooms"" means ""champiñones"" in Spanish.";Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0046;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""mushrooms"" is not a food.";Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0047;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""salad"" means ""ensalada"" in Spanish.";Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0048;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""salad"" is not a food.";Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0049;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""bread"" means ""pan"" in Spanish.";Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0050;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""bread"" is not a food.";Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0051;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""pancakes"" means ""tortitas"" in Spanish.";Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0052;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""pancakes"" is not a food.";Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0053;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""strawberries"" means ""fresas"" in Spanish.";Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0054;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""strawberries"" is not a food.";Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0055;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""fruit"" means ""fruta"" in Spanish.";Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0056;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""fruit"" is not a food.";Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0057;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""vegetables"" means ""verduras"" in Spanish.";Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0058;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""vegetables"" is not a food.";Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0059;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""chicken"" means ""pollo"" in Spanish.";Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0060;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""chicken"" is not a food.";Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0061;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""crisps"" means ""patatas fritas"" in Spanish.";Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0062;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""crisps"" is not a food.";Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0063;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""biscuits"" means ""galletas"" in Spanish.";Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0064;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""biscuits"" is not a food.";Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0065;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;"""ice cream"" means ""helado"" in Spanish.";Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0066;3EP;Ingles;vocabulario_gramatica;comprension;2;verdadero_falso;"""ice cream"" is not a food.";Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0033;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'pasta' means 'pasta' in Spanish.;Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0034;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'pasta' is not a food.;Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0035;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'rice' means 'arroz' in Spanish.;Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0036;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'rice' is not a food.;Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0037;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'tomato sauce' means 'salsa de tomate' in Spanish.;Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0038;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'tomato sauce' is not a food.;Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0039;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'sandwiches' means 'bocadillos' in Spanish.;Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0040;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'sandwiches' is not a food.;Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0041;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'tuna' means 'atun' in Spanish.;Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0042;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'tuna' is not a food.;Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0043;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'cheese' means 'queso' in Spanish.;Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0044;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'cheese' is not a food.;Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0045;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'mushrooms' means 'champiñones' in Spanish.;Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0046;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'mushrooms' is not a food.;Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0047;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'salad' means 'ensalada' in Spanish.;Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0048;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'salad' is not a food.;Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0049;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'bread' means 'pan' in Spanish.;Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0050;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'bread' is not a food.;Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0051;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'pancakes' means 'tortitas' in Spanish.;Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0052;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'pancakes' is not a food.;Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0053;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'strawberries' means 'fresas' in Spanish.;Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0054;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'strawberries' is not a food.;Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0055;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'fruit' means 'fruta' in Spanish.;Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0056;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'fruit' is not a food.;Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0057;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'vegetables' means 'verduras' in Spanish.;Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0058;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'vegetables' is not a food.;Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0059;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'chicken' means 'pollo' in Spanish.;Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0060;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'chicken' is not a food.;Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0061;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'crisps' means 'patatas fritas' in Spanish.;Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0062;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'crisps' is not a food.;Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0063;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'biscuits' means 'galletas' in Spanish.;Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0064;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'biscuits' is not a food.;Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0065;3EP;Ingles;vocabulario_gramatica;comprension;1;verdadero_falso;'ice cream' means 'helado' in Spanish.;Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
+EN_Q0066;3EP;Ingles;vocabulario_gramatica;comprension;2;verdadero_falso;'ice cream' is not a food.;Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
 EN_Q0067;3EP;Ingles;vocabulario_gramatica;comprension;2;verdadero_falso;There is one sandwich.;Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
 EN_Q0068;3EP;Ingles;vocabulario_gramatica;comprension;2;verdadero_falso;There are two sandwiches.;Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
 EN_Q0069;3EP;Ingles;vocabulario_gramatica;comprension;2;verdadero_falso;There is any cheese.;Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
@@ -1230,40 +1230,40 @@ EN_Q0075;3EP;Ingles;vocabulario_gramatica;comprension;2;verdadero_falso;There is
 EN_Q0076;3EP;Ingles;vocabulario_gramatica;comprension;2;verdadero_falso;There are some bread.;Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
 EN_Q0077;3EP;Ingles;vocabulario_gramatica;comprension;2;verdadero_falso;There are some vegetables.;Verdadero|Falso;Verdadero;Look carefully at the food word or at is/are and some/any.;1
 EN_Q0078;3EP;Ingles;vocabulario_gramatica;comprension;2;verdadero_falso;There is some vegetables.;Verdadero|Falso;Falso;Look carefully at the food word or at is/are and some/any.;1
-EN_Q0079;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;"Write the English word for the Spanish food ""pasta"".";;pasta;Remember the food vocabulary from the unit.;1
-EN_Q0080;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;"Write the English word for the Spanish food ""arroz"".";;rice;Remember the food vocabulary from the unit.;1
-EN_Q0081;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;"Write the English word for the Spanish food ""salsa de tomate"".";;tomato sauce;Remember the food vocabulary from the unit.;1
-EN_Q0082;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;"Write the English word for the Spanish food ""bocadillos"".";;sandwiches;Remember the food vocabulary from the unit.;1
-EN_Q0083;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;"Write the English word for the Spanish food ""atun"".";;tuna;Remember the food vocabulary from the unit.;1
-EN_Q0084;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;"Write the English word for the Spanish food ""queso"".";;cheese;Remember the food vocabulary from the unit.;1
-EN_Q0085;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;"Write the English word for the Spanish food ""champiñones"".";;mushrooms;Remember the food vocabulary from the unit.;1
-EN_Q0086;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;"Write the English word for the Spanish food ""ensalada"".";;salad;Remember the food vocabulary from the unit.;1
-EN_Q0087;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;"Write the English word for the Spanish food ""pan"".";;bread;Remember the food vocabulary from the unit.;1
-EN_Q0088;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;"Write the English word for the Spanish food ""tortitas"".";;pancakes;Remember the food vocabulary from the unit.;1
-EN_Q0089;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;"Write the English word for the Spanish food ""fresas"".";;strawberries;Remember the food vocabulary from the unit.;1
-EN_Q0090;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;"Write the English word for the Spanish food ""fruta"".";;fruit;Remember the food vocabulary from the unit.;1
-EN_Q0091;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;"Write the English word for the Spanish food ""verduras"".";;vegetables;Remember the food vocabulary from the unit.;1
-EN_Q0092;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;"Write the English word for the Spanish food ""pollo"".";;chicken;Remember the food vocabulary from the unit.;1
-EN_Q0093;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;"Write the English word for the Spanish food ""patatas fritas"".";;crisps;Remember the food vocabulary from the unit.;1
-EN_Q0094;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;"Write the English word for the Spanish food ""galletas"".";;biscuits;Remember the food vocabulary from the unit.;1
-EN_Q0095;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;"Write the English word for the Spanish food ""helado"".";;ice cream;Remember the food vocabulary from the unit.;1
-EN_Q0096;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;"Write the Spanish meaning of the English food word ""pasta"".";;pasta;Think about the meaning of this food word.;1
-EN_Q0097;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;"Write the Spanish meaning of the English food word ""rice"".";;arroz;Think about the meaning of this food word.;1
-EN_Q0098;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;"Write the Spanish meaning of the English food word ""tomato sauce"".";;salsa de tomate;Think about the meaning of this food word.;1
-EN_Q0099;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;"Write the Spanish meaning of the English food word ""sandwiches"".";;bocadillos;Think about the meaning of this food word.;1
-EN_Q0100;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;"Write the Spanish meaning of the English food word ""tuna"".";;atun;Think about the meaning of this food word.;1
-EN_Q0101;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;"Write the Spanish meaning of the English food word ""cheese"".";;queso;Think about the meaning of this food word.;1
-EN_Q0102;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;"Write the Spanish meaning of the English food word ""mushrooms"".";;champiñones;Think about the meaning of this food word.;1
-EN_Q0103;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;"Write the Spanish meaning of the English food word ""salad"".";;ensalada;Think about the meaning of this food word.;1
-EN_Q0104;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;"Write the Spanish meaning of the English food word ""bread"".";;pan;Think about the meaning of this food word.;1
-EN_Q0105;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;"Write the Spanish meaning of the English food word ""pancakes"".";;tortitas;Think about the meaning of this food word.;1
-EN_Q0106;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;"Write the Spanish meaning of the English food word ""strawberries"".";;fresas;Think about the meaning of this food word.;1
-EN_Q0107;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;"Write the Spanish meaning of the English food word ""fruit"".";;fruta;Think about the meaning of this food word.;1
-EN_Q0108;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;"Write the Spanish meaning of the English food word ""vegetables"".";;verduras;Think about the meaning of this food word.;1
-EN_Q0109;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;"Write the Spanish meaning of the English food word ""chicken"".";;pollo;Think about the meaning of this food word.;1
-EN_Q0110;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;"Write the Spanish meaning of the English food word ""crisps"".";;patatas fritas;Think about the meaning of this food word.;1
-EN_Q0111;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;"Write the Spanish meaning of the English food word ""biscuits"".";;galletas;Think about the meaning of this food word.;1
-EN_Q0112;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;"Write the Spanish meaning of the English food word ""ice cream"".";;helado;Think about the meaning of this food word.;1
+EN_Q0079;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;Write the English word for the Spanish food 'pasta'.;;pasta;Remember the food vocabulary from the unit.;1
+EN_Q0080;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;Write the English word for the Spanish food 'arroz'.;;rice;Remember the food vocabulary from the unit.;1
+EN_Q0081;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;Write the English word for the Spanish food 'salsa de tomate'.;;tomato sauce;Remember the food vocabulary from the unit.;1
+EN_Q0082;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;Write the English word for the Spanish food 'bocadillos'.;;sandwiches;Remember the food vocabulary from the unit.;1
+EN_Q0083;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;Write the English word for the Spanish food 'atun'.;;tuna;Remember the food vocabulary from the unit.;1
+EN_Q0084;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;Write the English word for the Spanish food 'queso'.;;cheese;Remember the food vocabulary from the unit.;1
+EN_Q0085;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;Write the English word for the Spanish food 'champiñones'.;;mushrooms;Remember the food vocabulary from the unit.;1
+EN_Q0086;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;Write the English word for the Spanish food 'ensalada'.;;salad;Remember the food vocabulary from the unit.;1
+EN_Q0087;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;Write the English word for the Spanish food 'pan'.;;bread;Remember the food vocabulary from the unit.;1
+EN_Q0088;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;Write the English word for the Spanish food 'tortitas'.;;pancakes;Remember the food vocabulary from the unit.;1
+EN_Q0089;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;Write the English word for the Spanish food 'fresas'.;;strawberries;Remember the food vocabulary from the unit.;1
+EN_Q0090;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;Write the English word for the Spanish food 'fruta'.;;fruit;Remember the food vocabulary from the unit.;1
+EN_Q0091;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;Write the English word for the Spanish food 'verduras'.;;vegetables;Remember the food vocabulary from the unit.;1
+EN_Q0092;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;Write the English word for the Spanish food 'pollo'.;;chicken;Remember the food vocabulary from the unit.;1
+EN_Q0093;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;Write the English word for the Spanish food 'patatas fritas'.;;crisps;Remember the food vocabulary from the unit.;1
+EN_Q0094;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;Write the English word for the Spanish food 'galletas'.;;biscuits;Remember the food vocabulary from the unit.;1
+EN_Q0095;3EP;Ingles;vocabulario_gramatica;produccion_escrita;1;escribir;Write the English word for the Spanish food 'helado'.;;ice cream;Remember the food vocabulary from the unit.;1
+EN_Q0096;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;Write the Spanish meaning of the English food word 'pasta'.;;pasta;Think about the meaning of this food word.;1
+EN_Q0097;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;Write the Spanish meaning of the English food word 'rice'.;;arroz;Think about the meaning of this food word.;1
+EN_Q0098;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;Write the Spanish meaning of the English food word 'tomato sauce'.;;salsa de tomate;Think about the meaning of this food word.;1
+EN_Q0099;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;Write the Spanish meaning of the English food word 'sandwiches'.;;bocadillos;Think about the meaning of this food word.;1
+EN_Q0100;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;Write the Spanish meaning of the English food word 'tuna'.;;atun;Think about the meaning of this food word.;1
+EN_Q0101;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;Write the Spanish meaning of the English food word 'cheese'.;;queso;Think about the meaning of this food word.;1
+EN_Q0102;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;Write the Spanish meaning of the English food word 'mushrooms'.;;champiñones;Think about the meaning of this food word.;1
+EN_Q0103;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;Write the Spanish meaning of the English food word 'salad'.;;ensalada;Think about the meaning of this food word.;1
+EN_Q0104;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;Write the Spanish meaning of the English food word 'bread'.;;pan;Think about the meaning of this food word.;1
+EN_Q0105;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;Write the Spanish meaning of the English food word 'pancakes'.;;tortitas;Think about the meaning of this food word.;1
+EN_Q0106;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;Write the Spanish meaning of the English food word 'strawberries'.;;fresas;Think about the meaning of this food word.;1
+EN_Q0107;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;Write the Spanish meaning of the English food word 'fruit'.;;fruta;Think about the meaning of this food word.;1
+EN_Q0108;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;Write the Spanish meaning of the English food word 'vegetables'.;;verduras;Think about the meaning of this food word.;1
+EN_Q0109;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;Write the Spanish meaning of the English food word 'chicken'.;;pollo;Think about the meaning of this food word.;1
+EN_Q0110;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;Write the Spanish meaning of the English food word 'crisps'.;;patatas fritas;Think about the meaning of this food word.;1
+EN_Q0111;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;Write the Spanish meaning of the English food word 'biscuits'.;;galletas;Think about the meaning of this food word.;1
+EN_Q0112;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;Write the Spanish meaning of the English food word 'ice cream'.;;helado;Think about the meaning of this food word.;1
 EN_Q0113;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;Write the missing word: There is some ___ on the plate.;;cheese;Check the noun and choose the food word that makes the sentence sound natural.;1
 EN_Q0114;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;Write the missing word: There are some ___ in the salad.;;mushrooms;Check the noun and choose the food word that makes the sentence sound natural.;1
 EN_Q0115;3EP;Ingles;vocabulario_gramatica;produccion_escrita;2;escribir;Write the missing word: There is not any ___ in the bowl.;;rice;Check the noun and choose the food word that makes the sentence sound natural.;1
