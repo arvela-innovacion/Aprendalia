@@ -24,6 +24,11 @@
           "label": "Socials",
           "icon": "🌍",
           "order": 4
+        },
+        "Naturals": {
+          "label": "Naturals",
+          "icon": "🌱",
+          "order": 5
         }
       }
     }
