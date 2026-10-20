@@ -1,4 +1,22 @@
 'use strict';
+
+// Idioma de audio por asignatura.
+// Ingles, Naturals y Socials usan ingles britanico; el resto usa castellano de Espana.
+function getAudioLanguage(question = current) {
+  const englishSubjects = new Set(['Ingles', 'Naturals', 'Socials']);
+  return englishSubjects.has(question?.asignatura) ? 'en-GB' : 'es-ES';
+}
+
+function chooseVoice(lang) {
+  const voices = speechSynthesis.getVoices ? speechSynthesis.getVoices() : [];
+  if (!voices || !voices.length) return null;
+  const requested = String(lang || 'es-ES').toLowerCase();
+  const baseLanguage = requested.split('-')[0];
+  return voices.find(voice => String(voice.lang || '').toLowerCase() === requested) ||
+         voices.find(voice => String(voice.lang || '').toLowerCase().startsWith(baseLanguage + '-')) ||
+         null;
+}
+
 function renderSpeaking(){
   const a = document.getElementById('answers');
   a.innerHTML = '';
@@ -221,7 +239,7 @@ function renderSpeaking(){
     if(SpeechRecognition){
       try {
         recognizer = new SpeechRecognition();
-        recognizer.lang = 'en-US'; // adaptalo según tu curso
+        recognizer.lang = getAudioLanguage(current);
         recognizer.interimResults = true;
         recognizer.maxAlternatives = 1;
 
@@ -389,7 +407,7 @@ function renderPronunciation(){
     playBtn.innerText = '▶️ Reproduciendo...';
     playBtn.setAttribute('aria-pressed','true');
 
-    // Reutiliza playListeningText (define en tu script) — forzamos idioma inglés
+    // Reutiliza playListeningText (define en tu script) con el idioma correspondiente a la asignatura
     // reproducimos current.respuesta (asume la transcripción correcta). Si prefieres reproducir
     // otra cosa, ajusta aquí.
     playListeningText(current.respuesta || current.pregunta,
@@ -517,14 +535,14 @@ function renderListening(){
   // Botón grande para reproducir
   const playBtn = document.createElement('button');
   playBtn.id = 'playListeningBtn';
-  playBtn.innerText = '🔊 Escuchar en inglés';
+  playBtn.innerText = '🔊 Escuchar';
   playBtn.className = 'primary-btn';
   playBtn.setAttribute('aria-pressed','false');
 
   playBtn.onclick = () => {
     if(listeningUtterance) { 
       stopListeningPlayback(); 
-      playBtn.innerText = '🔊 Escuchar en inglés'; 
+      playBtn.innerText = '🔊 Escuchar'; 
       playBtn.setAttribute('aria-pressed','false'); 
       return; 
     }
@@ -535,12 +553,12 @@ function renderListening(){
     playListeningText(current.pregunta,
       () => {},
       () => {
-        playBtn.innerText = '🔊 Escuchar en inglés';
+        playBtn.innerText = '🔊 Escuchar';
         playBtn.setAttribute('aria-pressed','false');
       },
       (err) => {
         console.error('TTS error', err);
-        playBtn.innerText = '🔊 Escuchar en inglés';
+        playBtn.innerText = '🔊 Escuchar';
         playBtn.setAttribute('aria-pressed','false');
         const f = document.getElementById('feedback');
         if(f) f.innerText = '🔈 No se pudo reproducir el audio en este navegador.';
@@ -567,16 +585,6 @@ function renderListening(){
   }
 }
 
-function chooseEnglishVoice() {
-  const voices = speechSynthesis.getVoices ? speechSynthesis.getVoices() : [];
-  if(!voices || !voices.length) return null;
-  // preferencias: en-US, en-GB, cualquier en-*
-  let v = voices.find(v=>/en-US/i.test(v.lang)) ||
-          voices.find(v=>/en-GB/i.test(v.lang)) ||
-          voices.find(v=>/^en\b/i.test(v.lang));
-  return v || voices[0];
-}
-
 function playListeningText(text, onStart, onEnd, onError) {
   if(!speechSupported){
     if(onError) onError(new Error('SpeechSynthesis no soportado'));
@@ -587,8 +595,9 @@ function playListeningText(text, onStart, onEnd, onError) {
   try { speechSynthesis.cancel(); } catch(e){}
 
   listeningUtterance = new SpeechSynthesisUtterance(String(text));
-  listeningUtterance.lang = 'en-US'; // forzar inglés; cambiar a 'en-GB' si prefieres
-  const voice = chooseEnglishVoice();
+  const lang = getAudioLanguage(current);
+  listeningUtterance.lang = lang;
+  const voice = chooseVoice(lang);
   if(voice) listeningUtterance.voice = voice;
 
   listeningUtterance.onstart = () => { if(onStart) onStart(); };
