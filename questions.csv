@@ -1,0 +1,4 @@
+﻿id;curso;asignatura;tema;concepto;nivel;tipo;pregunta;opciones;respuesta_correcta;extra;activa
+LEN-2026-10-201;3EP;Lengua;Dictado;Dictado de palabras;1;pronunciar;Escucha el audio y escribe la palabra.;;gato;Escucha de nuevo y separa mentalmente las sílabas.;true
+LEN-2026-10-202;3EP;Lengua;Dictado;Dictado de palabras;1;pronunciar;Escucha el audio y escribe la palabra.;;guerra;Escucha de nuevo y separa mentalmente las sílabas.;true
+LEN-2026-10-203;3EP;Lengua;Dictado;Dictado de palabras;2;pronunciar;Escucha el audio y escribe la palabra.;;guitarra;Escucha de nuevo y separa mentalmente las sílabas.;true
