@@ -1,32 +1,78 @@
 {
-  "schemaVersion": 2,
-  "courses": {
-    "3EP": {
+  "schemaVersion": 3,
+  "courses":
+  {
+    "3EP":
+    {
       "label": "3.º de Primaria",
-      "order": 3,
-      "subjects": {
-        "Lengua": {
+      "order": 1,
+      "subjects":
+      {
+        "Lengua":
+        {
           "label": "Lengua",
           "icon": "📚",
           "order": 1
         },
-        "Matematicas": {
+        "Matematicas":
+        {
           "label": "Matemáticas",
           "icon": "➗",
           "order": 2
         },
-        "Ingles": {
+        "Ingles":
+        {
           "label": "Inglés",
           "icon": "🇬🇧",
           "order": 3
         },
-        "Socials": {
+        "Socials":
+        {
           "label": "Socials",
           "icon": "🌍",
           "order": 4
         },
-        "Naturals": {
+        "Naturals":
+        {
           "label": "Naturals",
+          "icon": "🌱",
+          "order": 5
+        }
+      }
+    },
+    "4EP":
+    {
+      "label": "4.º de Primaria",
+      "order": 1,
+      "subjects":
+      {
+        "Lengua":
+        {
+          "label": "Lengua",
+          "icon": "📚",
+          "order": 1
+        },
+        "Matematicas":
+        {
+          "label": "Matemáticas",
+          "icon": "➗",
+          "order": 2
+        },
+        "Ingles":
+        {
+          "label": "Inglés",
+          "icon": "🇬🇧",
+          "order": 3
+        },
+        "Socials":
+        {
+          "label": "Sociales",
+          "icon": "🌍",
+          "order": 4
+        },
+        "Naturals":
+        {
+          "label": "Naturales",
           "icon": "🌱",
           "order": 5
         }
