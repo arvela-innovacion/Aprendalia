@@ -1,4 +1,4 @@
-﻿"id";"curso";"asignatura";"tema";"concepto";"nivel";"tipo";"pregunta";"opciones";"respuesta_correcta";"extra";"activa"
+﻿id;curso;asignatura;tema;concepto;nivel;tipo;pregunta;opciones;respuesta_correcta;extra;activa
 "MAT-U2-001";"3EP";"Matematicas";"Sumas con llevadas";"Sumas con llevadas";"1";"test";"¿Cuánto es 148 + 56?";"204|214|194|224";"204";"Suma desde las unidades y anota las llevadas.";"true"
 "MAT-U2-002";"3EP";"Matematicas";"Sumas con llevadas";"Sumas con llevadas";"1";"test";"¿Cuánto es 185 + 99?";"284|294|274|304";"284";"Suma desde las unidades y anota las llevadas.";"true"
 "MAT-U2-003";"3EP";"Matematicas";"Sumas con llevadas";"Sumas con llevadas";"1";"test";"¿Cuánto es 222 + 148?";"370|380|360|390";"370";"Suma desde las unidades y anota las llevadas.";"true"
