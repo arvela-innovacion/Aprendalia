@@ -119,7 +119,7 @@
   }
 
   function duplicateKey(q){
-    return [normalizeQuestionText(q.pregunta),normalizeQuestionText(q.respuesta),normalizeKey(q.tipo)].join('::');
+    return [normalizeKey(q.curso),normalizeQuestionText(q.pregunta),normalizeQuestionText(q.respuesta),normalizeKey(q.tipo)].join('::');
   }
 
   function validateQuestions(headers, questions, curriculum){
