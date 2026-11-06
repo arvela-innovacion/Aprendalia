@@ -43,7 +43,7 @@
     "4EP":
     {
       "label": "4.º de Primaria",
-      "order": 1,
+      "order": 2,
       "subjects":
       {
         "Lengua":
@@ -64,13 +64,13 @@
           "icon": "🇬🇧",
           "order": 3
         },
-        "Socials":
+        "Sociales":
         {
           "label": "Sociales",
           "icon": "🌍",
           "order": 4
         },
-        "Naturals":
+        "Naturales":
         {
           "label": "Naturales",
           "icon": "🌱",
